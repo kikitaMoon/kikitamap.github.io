@@ -596,9 +596,9 @@
     
       <category term="ArcGIS Pro" scheme="https://www.kikitamap.com/tags/ArcGIS-Pro/"/>
     
-      <category term="Web" scheme="https://www.kikitamap.com/tags/Web/"/>
-    
       <category term="ArcGIS Enterprise" scheme="https://www.kikitamap.com/tags/ArcGIS-Enterprise/"/>
+    
+      <category term="Web" scheme="https://www.kikitamap.com/tags/Web/"/>
     
       <category term="Vector Tiles" scheme="https://www.kikitamap.com/tags/Vector-Tiles/"/>
     
