@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="kikita's Blog"><title>空间分析之距离分析 | kikita &amp; Maps</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-74191197-1','auto');ga('send','pageview');
+</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">空间分析之距离分析</h1><a id="logo" href="/.">kikita &amp; Maps</a><p class="description">For Tech and Fun</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/history/"><i class="fa fa-book"> Timeline</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">空间分析之距离分析</h1><div class="post-meta">Aug 10, 2012<span> | </span><span class="category"><a href="/categories/木工开物/">木工开物</a></span></div><div class="post-content"><p>继续总结下距离分析。如下是ArcGIS 10.x中，距离分析相关的工具：</p>
+<p><img src="http://kikitamap.com/images/blogImg/SADistance_Toolset.png" alt=""></p>
+<p>ArcGIS中，主要可以通过如下的几种方式进行距离分析：</p>
+<ul>
+<li>1） 欧氏距离分析</li>
+<li>2） 成本加权距离分析</li>
+<li>3） 用于垂直移动限制和水平移动限制的成本加权距离分析</li>
+<li>4） 获取最短路径</li>
+</ul>
+<p>使用ArcGIS空间分析扩展实现距离分析，最主要的是欧氏距离分析和成本加权距离分析两类工具。</p>
+<h1 id="一、欧氏距离工具"><a href="#一、欧氏距离工具" class="headerlink" title="一、欧氏距离工具"></a><strong>一、欧氏距离工具</strong></h1><p>欧氏距离工具测量每个像元距离最近源的<strong>直线</strong>距离（像元中心至像元中心的距离）。</p>
+<p><strong>欧氏距离（Euclidean Diatance）</strong>——  求得每个像元至最近源的距离。</p>
+<p><strong>欧氏方向（Euclidean Direction）</strong>——  求得每个像元至最近源的方向。</p>
+<p><strong>欧氏分配（Euclidean Allocation）</strong>——  求得每个像元的最近的源。</p>
+<p><strong>TIPS：</strong></p>
+<p><strong>1.源（Source）</strong></p>
+<p>可以是感兴趣的地物的位置，数据方面，既可以是栅格数据，也可以是矢量数据。但注意：如果数据选用了栅格数据，数据中必须仅包含表示源的像元，其他像元需要是Nodata。如果选用矢量，在执行工具之时，内部会将其先转成栅格。</p>
+<p><strong>2.欧氏距离的算法</strong></p>
+<p>简单理解为：工具会求得每个像元至每个源的距离，然后取得每个像元至每个源的最短距离以输出。其中，欧氏距离是像元中心与源像元的中心的直线距离。</p>
+<p><img src="http://kikitamap.com/images/blogImg/SADistance_Distance.gif" alt=""></p>
+<p>如果像元与两个或更多源之间的距离相等，则计算都基于像元扫描过程中遇到的第一个源。无法控制该扫描过程。</p>
+<p>帮助中有这样的描述：</p>
+<blockquote>
+<p>工具在实际执行的过程中，进行两次顺序扫描。这样，工具的执行速度与源像元的数目、分布以及最大距离无关。影响工具执行速度的唯一因素是栅格的大小。计算时间与“分析”窗口中的像元数成线性比例。暂且不知道进行了什么样的两次顺序扫描。</p>
+</blockquote>
+<p><strong>3.欧氏距离输出栅格结果</strong></p>
+<p>投影平面上，像元与最近源之间的最短直线距离。如下图：</p>
+<p><img src="http://kikitamap.com/images/blogImg/SADistance_EucDistance.png" alt=""></p>
+<p><strong>4.欧氏方向输出栅格结果</strong></p>
+<p>像元与最近源之间的方位角方向（以度为单位）。使用 360 度圆，刻度 360 指北，90指东，从刻度 1 顺时针增加。值 0 供源像元使用。如下图：</p>
+<p><img src="http://kikitamap.com/images/blogImg/SADistance_EucDirection.png" alt=""></p>
+<p>5.欧氏分配输出栅格结果</p>
+<p>输出的每个像元都是距其最近源的值。如下图：</p>
+<p><img src="http://kikitamap.com/images/blogImg/SADistance_EucAllocation.png" alt=""></p>
+<h1 id="二、成本加权距离工具"><a href="#二、成本加权距离工具" class="headerlink" title="二、成本加权距离工具"></a><strong>二、成本加权距离工具</strong></h1><p>成本加权距离工具可以看成是对欧氏直线距离的进一步修改，将经过某个像元的距离赋以成本因素。举个简单的例子，翻过一座山到达目的地是最短的直线距离，绕行这座山距离较长，但是更节省时间和体力，那就后者的成本加权距离最短了。</p>
+<p>1）<strong>成本距离（Cost Distance）</strong>：求得每个像元至最近源的成本距离。<br>2）<strong>成本回溯链接（Cost back link）</strong>：求的一个方向栅格，可以从任意像元沿最小成本路径返回最近源。<br>3）<strong>成本分配（Cost Allocation）</strong>：求得每个像元的最近的源。<br>4）<strong>成本路径（Cost Patch）</strong>：求的任意像元到最近源的最小成本路径。</p>
+<p><strong>TIPS：</strong></p>
+<ul>
+<li>成本栅格可以是整形或者浮点型，但是其值中不能含有负值或者0。成本栅格中的Nodata视为障碍。</li>
+<li>成本距离输出栅格数据<br>这里的简单示例中，下面一层黑白渲染的是成本栅格，颜色深的像元代表成本比较高，反之较低。结果如下：<br><img src="http://kikitamap.com/images/blogImg/SADistance_CostDistance.png" alt=""></li>
+<li>成本距离回溯链接<br>要注意的是，它并不会求的要返回哪一个源像元以及如何返回。而是记录从任意像元回溯到最近源的路径上，每个像元向下一个像元指向的方向，这个方向以0-8的代码形式记录。如下图：<br><img src="http://kikitamap.com/images/blogImg/SADistance_CostBacklink1.png" alt=""><br><img src="http://kikitamap.com/images/blogImg/SADistance_CostBacklink2.png" alt=""></li>
+<li>成本距离分配<br>这个类似于前面的欧氏距离分配，得到的是每个像元至最近源的成本距离。<br><img src="http://kikitamap.com/images/blogImg/SADistance_CostAllocation.png" alt=""></li>
+</ul>
+<h1 id="三、路径距离工具"><a href="#三、路径距离工具" class="headerlink" title="三、路径距离工具"></a><strong>三、路径距离工具</strong></h1><p>路径距离工具与成本距离相似，也可以确定从某个源到栅格上各像元位置的最小累积行程成本。但是，路径距离不仅可计算成本表面的累积成本，而且会考虑到行驶的实际曲面距离，和影响到移动总成本的水平和垂直因子。主要包含这几个工具</p>
+<p>1）<strong>路径距离（Path Distance）</strong><br>2）<strong>路径回溯链接（Path back link）</strong><br>3）<strong>路径分配（Path Allocation）</strong></p>
+<p>这些工具生成的累积成本表面可用于扩散模型、流动和最低成本路径分析。</p>
+<p>有关水平方向以及竖直方向的因子是如何影响的，工作原理是什么，ArcGIS帮助中有详细的解释：</p>
+<p><a href="http://resources.arcgis.com/en/help/main/10.1/#/How_the_horizontal_and_vertical_factors_affect_path_distance/009z000000z9000000/" target="_blank" rel="noopener">http://resources.arcgis.com/en/help/main/10.1/#/How_the_horizontal_and_vertical_factors_affect_path_distance/009z000000z9000000/</a></p>
+<h1 id="四、-获得最短路径"><a href="#四、-获得最短路径" class="headerlink" title="四、 获得最短路径"></a><strong>四、 获得最短路径</strong></h1><p>1.成本距离路径</p>
+<p>任意像元到最近源的最小成本路径，需要引用到上面工具中生成的成本距离和成本回溯链接栅格数据。如下图：</p>
+<p><img src="http://kikitamap.com/images/blogImg/SADistance_ShortestPath.png" alt=""></p>
+<p>2.廊道</p>
+<p>另外要说的是廊道分析工具（Corridor）。此工具用于计算两个成本栅格的累积成本栅格结果，为了求得从一个源到另一个源且经过该像元位置的最小成本路径。</p>
+<p>输出栅格不是单个最小成本路径，但会得到源之间累积成本的范围。</p>
+<p>最后我们可以配合其他工具将小于某一阈值的结果提取出来，例如工具Extract by Attribute提取，或者通过Con进行条件赋值等等方法，获取结果。</p>
+<p>如下如所示：</p>
+<p>学校A、B成本距离分析结果：</p>
+<p><img src="http://kikitamap.com/images/blogImg/SADistance_CostAB.png" alt=""></p>
+<p>学校C、D、E的成本距离分析结果：</p>
+<p><img src="http://kikitamap.com/images/blogImg/SADistance_CostCDE.png" alt=""></p>
+<p>有此两个距离成本结果，来分析得到A、B到C、D、E之间的廊道，也就是两组源之间的最小累积成本距离。</p>
+<p><img src="http://kikitamap.com/images/blogImg/SADistance_Corridor.png" alt=""></p>
+<p>然后结果中我们可以按照一定的阈值来提取结果。例如累积成本在75以下的我才能接受：</p>
+<p><img src="http://kikitamap.com/images/blogImg/SADistance_Corridor2.png" alt=""></p>
+<p>至此，空间分析中的距离分析工具总结结束。</p>
+</div><div><ul class="post-copyright"><li class="post-copyright-author"><strong>Author: </strong>Xiaoyan Mu</li><li class="post-copyright-link"><strong>Blog Link: </strong><a href="/2012/08/10/SADistance/">https://www.kikitamap.com/2012/08/10/SADistance/</a></li><li class="post-copyright-license"><strong>Copyright Declaration: </strong>The author owns the copyright, please indicate the source reproduced.</li></ul></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://www.kikitamap.com/2012/08/10/SADistance/" data-id="cks4iretr001gqj75in32bxzb" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3awY6DMAxF0f7/TzPbSi1wn52OhHOzqiiFnCxcJ/brhcfxNj6vvF8/u//s27Nnvn4xZMiQ8VjGcTmuGZ+f07dw2PXCyZAhYwfG2YvP7iEkEoj5k2/mLEOGDBnh5HgimC6fDBkyZHBGJ5jWElAZMmTIIC/gx3DkztrmdsFeXIYMGQ9k8FP3///8k/qGDBkyHsU4wpGmjLxIyYPsl1nJkCFjNKNWgKyFy/4TbhJNGTJkDGXUNo1rN5xpOP5yRYYMGaMZabmRJIVrf5UWJ2TIkDGVkT6uX7DkRdOgzCBDhowNGKvaL/hxW5oy3vBkyJAxlFELmqRJopNuxm0fMmTI2IDBm7fInem3PFk8DcQyZMgYzUi7rdJAiU74SotCnilDhowZDP5KvvnkgZKkpPF5oQwZMoYy0tSNM2rg+B4ZMmSMZvDmhtqkOyXJ+GkyZMgYyug0Y9VKBXwrG2x6ZciQsQGDH6jVAjTfGKcNHDJkyNiB0TkaI0XHztTjJZMhQ8YGjKC2WUrp0pIDTxBlyJCxG4MHTRJkj8vBFyg+NZQhQ8ZoRi3spgdkq4oQMmTI2IFxhCMtAPDtbqtrQoYMGaMZ/W1qOl1eSIhTQxkyZIxm8CBLjvvTFo1Oy0Xw7yFDhowRjFoxshOga/8AN3muDBkyZIB7aiVM3uSxOODKkCFjKINMfVUZIAjTMmTI2IDRLwZ0AnHa9iFDhozdGGvPsnipoLYQraKmDBkynsf4A1biYL7H4LoKAAAAAElFTkSuQmCC">Share</a><div class="tags"><a href="/tags/Geoprocessing/">Geoprocessing</a><a href="/tags/Spatial-Analyst/">Spatial Analyst</a></div><div class="post-nav"><a class="pre" href="/2012/08/19/SAGeneral/">空间分析之常用工具</a><a class="next" href="/2012/08/06/SADensity/">空间分析之密度分析</a></div><div id="lv-container" data-id="city" data-uid="MTAyMC8zMjMyOC84ODg5"><script>(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+   if (typeof LivereTower === 'function') { return; }
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/木工开物/">木工开物</a><span class="category-list-count">180</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/相机里/">相机里</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/碎碎念/">碎碎念</a><span class="category-list-count">9</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-weibo"> Weibo</i></div><iframe class="share_self" width="100%" height="400" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&amp;width=0&amp;height=550&amp;fansRow=2&amp;ptype=1&amp;speed=0&amp;skin=5&amp;isTitle=0&amp;noborder=0&amp;isWeibo=1&amp;isFans=0&amp;uid=1843681867&amp;verifier=34cdc83d&amp;colors=d6f3f7,ffffff,333,40759b,f7f8f8&amp;dpc=1"></iframe></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/ArcGIS-Enterprise/" style="font-size: 15px;">ArcGIS Enterprise</a> <a href="/tags/Performance/" style="font-size: 15px;">Performance</a> <a href="/tags/Geodata/" style="font-size: 15px;">Geodata</a> <a href="/tags/Coordinate-System/" style="font-size: 15px;">Coordinate System</a> <a href="/tags/Mapping/" style="font-size: 15px;">Mapping</a> <a href="/tags/ArcPad/" style="font-size: 15px;">ArcPad</a> <a href="/tags/Deployment/" style="font-size: 15px;">Deployment</a> <a href="/tags/Raster/" style="font-size: 15px;">Raster</a> <a href="/tags/Geoprocessing/" style="font-size: 15px;">Geoprocessing</a> <a href="/tags/Spatial-Analyst/" style="font-size: 15px;">Spatial Analyst</a> <a href="/tags/3D/" style="font-size: 15px;">3D</a> <a href="/tags/CityEngine/" style="font-size: 15px;">CityEngine</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/License/" style="font-size: 15px;">License</a> <a href="/tags/Spatial-Statistics/" style="font-size: 15px;">Spatial Statistics</a> <a href="/tags/ArcGIS-Pro/" style="font-size: 15px;">ArcGIS Pro</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Web/" style="font-size: 15px;">Web</a> <a href="/tags/Map-Story/" style="font-size: 15px;">Map Story</a> <a href="/tags/CAD/" style="font-size: 15px;">CAD</a> <a href="/tags/CGA/" style="font-size: 15px;">CGA</a> <a href="/tags/Certification/" style="font-size: 15px;">Certification</a> <a href="/tags/Visual-Studio/" style="font-size: 15px;">Visual Studio</a> <a href="/tags/Github/" style="font-size: 15px;">Github</a> <a href="/tags/Vector-Tiles/" style="font-size: 15px;">Vector Tiles</a> <a href="/tags/Cloud-Storage/" style="font-size: 15px;">Cloud Storage</a> <a href="/tags/Webmaster/" style="font-size: 15px;">Webmaster</a> <a href="/tags/HERE-Map/" style="font-size: 15px;">HERE Map</a> <a href="/tags/HLS/" style="font-size: 15px;">HLS</a> <a href="/tags/Javascript/" style="font-size: 15px;">Javascript</a> <a href="/tags/Routing/" style="font-size: 15px;">Routing</a> <a href="/tags/Network/" style="font-size: 15px;">Network</a> <a href="/tags/Positioning/" style="font-size: 15px;">Positioning</a> <a href="/tags/Mobile-SDK/" style="font-size: 15px;">Mobile SDK</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/HERE-Platform/" style="font-size: 15px;">HERE Platform</a> <a href="/tags/Visualization/" style="font-size: 15px;">Visualization</a> <a href="/tags/HERE-Data-Hub/" style="font-size: 15px;">HERE Data Hub</a> <a href="/tags/Data-Management/" style="font-size: 15px;">Data Management</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/08/24/HDataHubCLI/">HERE Data Hub CLI</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/HStudio-intro/">玩一玩 HERE Studio</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/22/Thinkings2020/">特别的2020：一些特别的感想</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/19/HmSDK_Positioning/">HERE mSDK - Positioning</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/HmSDK_VectorTile-MFs/">HERE mSDK - Vector Tile / Map Feedback</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/11/HmSDK_MapRendering/">HERE mSDK - Map Rendering</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/HmSDK_QuickStart/">Quick Start of HERE SDK for Android</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/05/theShade/">the Shade</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/27/wlanNetworks/">WiFi Network Positioning</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/Icecream_Part4-Adcanced-Routing_2/">HERE MAP API - Part4 Advanced Routing - 2</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://zhihu.esrichina.com.cn/" title="ArcGIS知乎" target="_blank">ArcGIS知乎</a><ul></ul><a href="http://blog.newnaw.com/" title="菩提老王的葡萄架子" target="_blank">菩提老王的葡萄架子</a><ul></ul><a href="http://oopsliu.com/" title="OopsLiu" target="_blank">OopsLiu</a><ul></ul><a href="https://makeling.github.io/" title="UBUNTU SPACE" target="_blank">UBUNTU SPACE</a><ul></ul><a href="http://blog.csdn.net/kikitamoon" title="慕名ArcGIS_CSDN" target="_blank">慕名ArcGIS_CSDN</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">kikita &amp; Maps.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

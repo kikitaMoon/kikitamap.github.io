@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="kikita's Blog"><title>3D分析之3D要素工具箱 | kikita &amp; Maps</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-74191197-1','auto');ga('send','pageview');
+</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">3D分析之3D要素工具箱</h1><a id="logo" href="/.">kikita &amp; Maps</a><p class="description">For Tech and Fun</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/history/"><i class="fa fa-book"> Timeline</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">3D分析之3D要素工具箱</h1><div class="post-meta">Nov 18, 2012<span> | </span><span class="category"><a href="/categories/木工开物/">木工开物</a></span></div><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">Contents</div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Add-Z-information-（添加-Z-信息）"><span class="toc-text">1. Add Z information （添加 Z 信息）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Buffer-3D（3D-缓冲区）"><span class="toc-text">2. Buffer 3D（3D 缓冲区）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-nbsp-Difference-3D（3D-差异）"><span class="toc-text">3. Difference 3D（3D 差异）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Enclose-Multipatch-（封闭多面体）"><span class="toc-text">4. Enclose Multipatch （封闭多面体）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-nbsp-Feature-To-3D-By-Attribute（通过属性从要素转换到-3D）"><span class="toc-text">5. Feature To 3D By Attribute（通过属性从要素转换到 3D）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-Inside-3D（3D-内部）"><span class="toc-text">6. Inside 3D（3D 内部）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-Intersect-3D（3D-相交）"><span class="toc-text">7. Intersect 3D（3D 相交）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-nbsp-Intersect-3D-Line-With-Multipatch（3D-线与多面体相交）"><span class="toc-text">8. Intersect 3D Line With Multipatch（3D 线与多面体相交）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-nbsp-Is-Closed-3D（是否为闭合-3D）"><span class="toc-text">9. Is Closed 3D（是否为闭合 3D）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-Near-3D（3D-邻近）"><span class="toc-text">10. Near 3D（3D 邻近）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-Union-3D（3D-联合）"><span class="toc-text">11. Union 3D（3D 联合）</span></a></li></ol></div></div><div class="post-content"><p>整理有关 ArcGIS 10.1 3D分析工具箱中，3D Feature 工具箱中，各个工具的功能及注意事项。</p>
+<p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_Toolset.png" alt=""></p>
+<h1 id="1-Add-Z-information-（添加-Z-信息）"><a href="#1-Add-Z-information-（添加-Z-信息）" class="headerlink" title="1. Add Z information （添加 Z 信息）"></a><strong>1. Add Z information （添加 Z 信息）</strong></h1><p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_AddZInfo.png" alt=""></p>
+<p><strong>各种几何类型的Z信息：</strong></p>
+<ul>
+<li><p><strong>Points</strong> - Z 值</p>
+</li>
+<li><p><strong>Multipoints</strong> - Z 最小值、Z 最大值、Z 平均值、点计数</p>
+</li>
+<li><p><strong>Polylines</strong> - Z 最小值、Z 最大值、Z 平均值、3D 长度、最小坡度、最大坡度、平均坡度、折点计数</p>
+</li>
+<li><p><strong>Polygons </strong>- Z 最小值、Z 最大值、Z 平均值、3D 长度、最小坡度、最大坡度、平均坡度、折点计数</p>
+</li>
+<li><p><strong>Multipatches</strong>- Z 最小值、Z 最大值、表面面积、体积、最小坡度、最大坡度、平均坡度</p>
+</li>
+</ul>
+<p><strong>关于坡度值：</strong></p>
+<p>坡度以百分比值或度数的形式返回.</p>
+<p>最小坡度根据值最接近 0 或水平度的线段获得。</p>
+<p>最大坡度根据具有最大计算值的线段获得。</p>
+<p>平均坡度通过按 3D 长度对每条线段进行加权后对所有线段的坡度求平均值获得。这会导致较长线段对结果值的影响比较短线段更大。</p>
+<p>面要素的坡度值仅针对边要素计算，使用的方法与线段应用的方法一样。</p>
+<p><strong>关于体积：</strong></p>
+<p>只能对闭合多面体计算体积。非闭合多面体要素将返回值 0.0。</p>
+<p>在 Solaris 平台上，设计的局限性当前将使工具无法确定多面体是否闭合，因此假定所有多面体均为闭合多面体，将针对所有多面体计算体积测量。</p>
+<p><strong>关于噪点过滤器：</strong></p>
+<p>提供可用于在进行统计计算时排除一小部分要素的选项。此选项非常适用于获得准确的最大坡度估值，因为一小部分要素的坡度值通常较极端，可能使统计结果产生偏差。</p>
+<p>面积或长度选项中给出的值将被用于排除这部分要素。此参数不适用于点和多点要素。</p>
+<p>NO_FILTER —不使用任何噪点过滤器。这是默认设置。</p>
+<p>AREA &lt;…&gt; —对多面体要素类中的部分要素应用面积过滤器。面积 值为 0.001 表示系统将忽略多面体中面积小于 0.001 的部分。</p>
+<p>LENGTH &lt;…&gt; — 对线要素类或面要素类中的部分要素应用长度过滤器。长度值为 0.001 时表示系统将忽略长度小于 0.001 的那部分要素。</p>
+<h1 id="2-Buffer-3D（3D-缓冲区）"><a href="#2-Buffer-3D（3D-缓冲区）" class="headerlink" title="2. Buffer 3D（3D 缓冲区）"></a><strong>2. Buffer 3D（3D 缓冲区）</strong></h1><p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_buffer3D.png" alt=""></p>
+<p>在点或线要素周围创建 3D 缓冲区。点输入将会生成<strong>球体</strong>，线输入将会生成<strong>圆柱</strong>要素。结果为Multipatch要素。</p>
+<p>提高缓冲<strong>质量</strong>会生成更平滑的 3D 要素，但处理时间将会更长。</p>
+<p>考虑指定一个<strong>简化值</strong>以提高复杂线要素（例如带有大量折点的曲线）的性能。</p>
+<p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_Buffer3D2.png" alt=""></p>
+<h1 id="3-nbsp-Difference-3D（3D-差异）"><a href="#3-nbsp-Difference-3D（3D-差异）" class="headerlink" title="3.&nbsp;Difference 3D（3D 差异）"></a><strong>3.&nbsp;Difference 3D（3D 差异）</strong></h1><p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_diff3D.png" alt=""></p>
+<p>类似于2D中 Erase 工具。</p>
+<p>输入面必须是闭合的Multipatch，生成的结果不包含任何属性信息。</p>
+<p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_Diff3DTool.png" alt=""></p>
+<p>参数 Output Table，勾选后，生成这样三列：</p>
+<blockquote>
+<p>Output_ID - 输出要素类的唯一 ID。<br>Minuend_ID - 主多面体的唯一 ID。<br>Subtrahend - 已从主多面体中减去的多面体要素的唯一 ID。</p>
+</blockquote>
+<h1 id="4-Enclose-Multipatch-（封闭多面体）"><a href="#4-Enclose-Multipatch-（封闭多面体）" class="headerlink" title="4. Enclose Multipatch （封闭多面体）"></a><strong>4. Enclose Multipatch （封闭多面体）</strong></h1><p>创建闭合多面体要素。</p>
+<p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_Enclose.png" alt=""></p>
+<p>Grid Size：用于构造闭合多面体要素的精度。此值使用输入要素的空间参考的线性单位定义。</p>
+<h1 id="5-nbsp-Feature-To-3D-By-Attribute（通过属性从要素转换到-3D）"><a href="#5-nbsp-Feature-To-3D-By-Attribute（通过属性从要素转换到-3D）" class="headerlink" title="5.&nbsp;Feature To 3D By Attribute（通过属性从要素转换到 3D）"></a><strong>5.&nbsp;Feature To 3D By Attribute（通过属性从要素转换到 3D）</strong></h1><p>从输入要素的属性中获得的Z值创建 3D 要素。</p>
+<p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_Featureto3DAttr.png" alt=""></p>
+<p>此工具支持点、多点、线和面几何。</p>
+<p>各要素的高程都从在指定的字段中获得。</p>
+<p>对于线要素还可提供第二个高度字段。每条线的起点使用第一个高度，终点使用第二个高度。中间所有折点的高度都将根据两个端点连线的坡度进行内插。</p>
+<h1 id="6-Inside-3D（3D-内部）"><a href="#6-Inside-3D（3D-内部）" class="headerlink" title="6. Inside 3D（3D 内部）"></a><strong>6. Inside 3D（3D 内部）</strong></h1><p>用于识别3D 要素是否包含在闭合的多面体中。</p>
+<p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_Inside3D.png" alt=""></p>
+<p>Input Feature 可以是：point、polyline、polygon、multipatch feature class；</p>
+<p>输出的表中包含：</p>
+<blockquote>
+<p><strong>Target_ID</strong> - 输入要素的唯一 ID。<br><strong>Status</strong> - 要素完全还是部分落入多面体内。</p>
+</blockquote>
+<p>如果勾选了 Complex Output Table ，生成的表中会多出来：<strong>Container_ID</strong> - 多面体的唯一 ID。</p>
+<p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_Complex.png" alt=""></p>
+<h1 id="7-Intersect-3D（3D-相交）"><a href="#7-Intersect-3D（3D-相交）" class="headerlink" title="7. Intersect 3D（3D 相交）"></a><strong>7. Intersect 3D（3D 相交）</strong></h1><p>计算闭合多面体要素的交集。</p>
+<p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_Intersect3D.png" alt=""></p>
+<p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_Intersect3DTool.png" alt=""></p>
+<p><strong>注意：</strong></p>
+<p>如果只提供了一个输入要素类，将会计算该多面体数据集中各要素的相交情况；</p>
+<p>如果提供了两个要素，将会确定这两个数据集的要素的相交部分，同时忽略那些只存在于一个输入中相交情形。</p>
+<p><strong>输出类型：</strong></p>
+<ul>
+<li><p>SOLID — 创建交集闭合多面体。这是默认设置。</p>
+</li>
+<li><p>SURFACE — 创建表示输入要素之间共享面的多面体表面。</p>
+</li>
+<li><p>POLYLINE — 创建表示输入要素之间共享边的折线。</p>
+</li>
+</ul>
+<h1 id="8-nbsp-Intersect-3D-Line-With-Multipatch（3D-线与多面体相交）"><a href="#8-nbsp-Intersect-3D-Line-With-Multipatch（3D-线与多面体相交）" class="headerlink" title="8.&nbsp;Intersect 3D Line With Multipatch（3D 线与多面体相交）"></a><strong>8.&nbsp;Intersect 3D Line With Multipatch（3D 线与多面体相交）</strong></h1><p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_Intersect3DLine.png" alt=""></p>
+<p>确定并返回线与多面体要素之间几何交集的数量。可选择性地将表示交集的点要素和表示在此类点分开的输入线的线要素写入输出要素类中。</p>
+<p>交点计数将在消息窗口中作为整数结果返回，并可在模型和脚本中用于建立后续操作的前提条件。</p>
+<p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_Intersect3DLineMessage.png" alt=""></p>
+<h1 id="9-nbsp-Is-Closed-3D（是否为闭合-3D）"><a href="#9-nbsp-Is-Closed-3D（是否为闭合-3D）" class="headerlink" title="9.&nbsp;Is Closed 3D（是否为闭合 3D）"></a><strong>9.&nbsp;Is Closed 3D（是否为闭合 3D）</strong></h1><p>评估多面体要素是否是完全封闭的。</p>
+<p>将 IsClose 字段添加到现有Multipatch要素的属性表中。</p>
+<p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_IsClosed.png" alt=""></p>
+<h1 id="10-Near-3D（3D-邻近）"><a href="#10-Near-3D（3D-邻近）" class="headerlink" title="10. Near 3D（3D 邻近）"></a><strong>10. Near 3D（3D 邻近）</strong></h1><p>计算每个输入要素到一个或多个邻近要素类中的最近要素的三维距离。</p>
+<p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_Near3D.png" alt=""></p>
+<p>在原输入数据的属性表中增加N多最邻近点的信息。</p>
+<h1 id="11-Union-3D（3D-联合）"><a href="#11-Union-3D（3D-联合）" class="headerlink" title="11. Union 3D（3D 联合）"></a><strong>11. Union 3D（3D 联合）</strong></h1><p>基于输入要素类对闭合的重叠多面体要素进行合并。</p>
+<p><img src="http://kikitamap.com/images/blogImg/3D3DFeatures_Union3D.png" alt=""></p>
+<p>如果两个或多个多面体要素仅共享一条边或一个折点，则会发出一个警告，说明生成的要素不是简单要素，因此无法创建。</p>
+<p>如果组中包含的多面体没有共享的体积或空间，则会返回相同的消息。</p>
+</div><div><ul class="post-copyright"><li class="post-copyright-author"><strong>Author: </strong>Xiaoyan Mu</li><li class="post-copyright-link"><strong>Blog Link: </strong><a href="/2012/11/18/3D3DFeatures/">https://www.kikitamap.com/2012/11/18/3D3DFeatures/</a></li><li class="post-copyright-license"><strong>Copyright Declaration: </strong>The author owns the copyright, please indicate the source reproduced.</li></ul></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://www.kikitamap.com/2012/11/18/3D3DFeatures/" data-id="cks4ireu40027qj75b3hay3ty" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aQY6DMBAEwPz/09lzpEC6h2Ql7PIJ7RJwcWiN7Xk84vE8GMn9R/89uj5/8qWBgYFxW8bzdCSM5MXnn6B975s3YmBgbMDIY7EN0PMgPronnxsGBgZGUsAlhWAOwMDAwPhu4Ca8WYGIgYGBMVvEJhtqSezmG3k/WYtjYGDckJHvuv//9U/ONzAwMG7FeJYj/1W73G2f//IcDAyMpRmzA8hZXF5/wodCEwMDY1FGHn9JgM4WnG0cv/kLBgbGBow8HGcHkLON/iSgXwIXAwNjA0Yel7MmsCSCh2GNgYGxNKMN0+vtYi0m2YzDwMBYm3F9gTo7YYyWpnlxiYGBsTRjVuolk5uVgO1G2+GmGwYGxkKMtlViFqbtc+rtPwwMjA0YV8q7/J7ZMcPXukUwMDCWYJy/PonmHJxMt7gHAwNjY0axDv5ZS1k0WwwMjKUZ7bZaO91Lu4BxwYqBgbE2Iyny2uat/Biy/dWHZgsMDIxFGVcaHdrr/BPM2BgYGGsz2javtojMA7Sd1ZsKFwMDY0tGu6BtDz5nS9w6cDEwMJZgzFou2t/WFWv+aTAwMBZlPMvRFm2zojPfyIv6QTAwMG7OmD26fVk7lXwjr4ZhYGDcljFrUW2PJ/MIHoY1BgbGBow8+NrjyVlMt7PFwMDAaI8q248yi3IMDAyMWVtqHr7fWkJjYGDsw2gPA/J2rhw8+0wYGBg7ML7VKpHEaxK+v1j6YmBg3JbxB6CIQc8VA0OWAAAAAElFTkSuQmCC">Share</a><div class="tags"><a href="/tags/Geoprocessing/">Geoprocessing</a><a href="/tags/3D/">3D</a></div><div class="post-nav"><a class="pre" href="/2012/11/18/3DFunctionalSurface/">3D分析之Functional Surface工具箱</a><a class="next" href="/2012/11/17/3DSupportedSurface/">3D分析之ArcGIS 支持的表面类型</a></div><div id="lv-container" data-id="city" data-uid="MTAyMC8zMjMyOC84ODg5"><script>(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+   if (typeof LivereTower === 'function') { return; }
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/木工开物/">木工开物</a><span class="category-list-count">180</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/相机里/">相机里</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/碎碎念/">碎碎念</a><span class="category-list-count">9</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-weibo"> Weibo</i></div><iframe class="share_self" width="100%" height="400" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&amp;width=0&amp;height=550&amp;fansRow=2&amp;ptype=1&amp;speed=0&amp;skin=5&amp;isTitle=0&amp;noborder=0&amp;isWeibo=1&amp;isFans=0&amp;uid=1843681867&amp;verifier=34cdc83d&amp;colors=d6f3f7,ffffff,333,40759b,f7f8f8&amp;dpc=1"></iframe></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/ArcGIS-Enterprise/" style="font-size: 15px;">ArcGIS Enterprise</a> <a href="/tags/Performance/" style="font-size: 15px;">Performance</a> <a href="/tags/Geodata/" style="font-size: 15px;">Geodata</a> <a href="/tags/Coordinate-System/" style="font-size: 15px;">Coordinate System</a> <a href="/tags/Mapping/" style="font-size: 15px;">Mapping</a> <a href="/tags/ArcPad/" style="font-size: 15px;">ArcPad</a> <a href="/tags/Deployment/" style="font-size: 15px;">Deployment</a> <a href="/tags/Raster/" style="font-size: 15px;">Raster</a> <a href="/tags/Geoprocessing/" style="font-size: 15px;">Geoprocessing</a> <a href="/tags/Spatial-Analyst/" style="font-size: 15px;">Spatial Analyst</a> <a href="/tags/3D/" style="font-size: 15px;">3D</a> <a href="/tags/CityEngine/" style="font-size: 15px;">CityEngine</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/License/" style="font-size: 15px;">License</a> <a href="/tags/Spatial-Statistics/" style="font-size: 15px;">Spatial Statistics</a> <a href="/tags/ArcGIS-Pro/" style="font-size: 15px;">ArcGIS Pro</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Web/" style="font-size: 15px;">Web</a> <a href="/tags/Map-Story/" style="font-size: 15px;">Map Story</a> <a href="/tags/CAD/" style="font-size: 15px;">CAD</a> <a href="/tags/CGA/" style="font-size: 15px;">CGA</a> <a href="/tags/Certification/" style="font-size: 15px;">Certification</a> <a href="/tags/Visual-Studio/" style="font-size: 15px;">Visual Studio</a> <a href="/tags/Github/" style="font-size: 15px;">Github</a> <a href="/tags/Vector-Tiles/" style="font-size: 15px;">Vector Tiles</a> <a href="/tags/Cloud-Storage/" style="font-size: 15px;">Cloud Storage</a> <a href="/tags/Webmaster/" style="font-size: 15px;">Webmaster</a> <a href="/tags/HERE-Map/" style="font-size: 15px;">HERE Map</a> <a href="/tags/HLS/" style="font-size: 15px;">HLS</a> <a href="/tags/Javascript/" style="font-size: 15px;">Javascript</a> <a href="/tags/Routing/" style="font-size: 15px;">Routing</a> <a href="/tags/Network/" style="font-size: 15px;">Network</a> <a href="/tags/Positioning/" style="font-size: 15px;">Positioning</a> <a href="/tags/Mobile-SDK/" style="font-size: 15px;">Mobile SDK</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/HERE-Platform/" style="font-size: 15px;">HERE Platform</a> <a href="/tags/Visualization/" style="font-size: 15px;">Visualization</a> <a href="/tags/HERE-Data-Hub/" style="font-size: 15px;">HERE Data Hub</a> <a href="/tags/Data-Management/" style="font-size: 15px;">Data Management</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/08/24/HDataHubCLI/">HERE Data Hub CLI</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/HStudio-intro/">玩一玩 HERE Studio</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/22/Thinkings2020/">特别的2020：一些特别的感想</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/19/HmSDK_Positioning/">HERE mSDK - Positioning</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/HmSDK_VectorTile-MFs/">HERE mSDK - Vector Tile / Map Feedback</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/11/HmSDK_MapRendering/">HERE mSDK - Map Rendering</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/HmSDK_QuickStart/">Quick Start of HERE SDK for Android</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/05/theShade/">the Shade</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/27/wlanNetworks/">WiFi Network Positioning</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/Icecream_Part4-Adcanced-Routing_2/">HERE MAP API - Part4 Advanced Routing - 2</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://zhihu.esrichina.com.cn/" title="ArcGIS知乎" target="_blank">ArcGIS知乎</a><ul></ul><a href="http://blog.newnaw.com/" title="菩提老王的葡萄架子" target="_blank">菩提老王的葡萄架子</a><ul></ul><a href="http://oopsliu.com/" title="OopsLiu" target="_blank">OopsLiu</a><ul></ul><a href="https://makeling.github.io/" title="UBUNTU SPACE" target="_blank">UBUNTU SPACE</a><ul></ul><a href="http://blog.csdn.net/kikitamoon" title="慕名ArcGIS_CSDN" target="_blank">慕名ArcGIS_CSDN</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">kikita &amp; Maps.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="kikita's Blog"><title>Shapefile 的局限性 | kikita &amp; Maps</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-74191197-1','auto');ga('send','pageview');
+</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Shapefile 的局限性</h1><a id="logo" href="/.">kikita &amp; Maps</a><p class="description">For Tech and Fun</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/history/"><i class="fa fa-book"> Timeline</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Shapefile 的局限性</h1><div class="post-meta">Feb 27, 2014<span> | </span><span class="category"><a href="/categories/木工开物/">木工开物</a></span></div><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">Contents</div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-文件容量限制："><span class="toc-text">1. 文件容量限制：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-不支持高级对象："><span class="toc-text">2. 不支持高级对象：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-字段存储限制："><span class="toc-text">3. 字段存储限制：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-字段宽度限制："><span class="toc-text">4. 字段宽度限制：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-性能限制-nbsp"><span class="toc-text">5. 性能限制 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-多面体存储限制"><span class="toc-text">6. 多面体存储限制</span></a></li></ol></div></div><div class="post-content"><p>Shapefile 是一种开放的非拓扑的简单几何数据类型，深受数据处理人员的喜爱。 Shapefile 利用 dBASE 文件格式（.dbf 文件）来存储属性，dBase这种上世纪80年代的数据格式，现在基本淡出舞台。 虽然Shapefile有万般好，但是，今天还是要来说说shapefile的局限性，也就是使用限制有什么，以便合理的选择使用Shapefile数据。</p>
+<h1 id="1-文件容量限制："><a href="#1-文件容量限制：" class="headerlink" title="1. 文件容量限制："></a><strong>1. 文件容量限制：</strong></h1><p>Shapefile 每个子文件都有大小最大不能超过 2 GB ，以点要素为例，最多约能存储 7000 万个。</p>
+<h1 id="2-不支持高级对象："><a href="#2-不支持高级对象：" class="headerlink" title="2. 不支持高级对象："></a><strong>2. 不支持高级对象：</strong></h1><p>Shapefile不支持注记要素类、关系类、拓扑关系、属性域和子类、坐标精度和分辨率等。</p>
+<p>不支持通过参数定义的曲线（也称为圆弧曲线）。</p>
+<h1 id="3-字段存储限制："><a href="#3-字段存储限制：" class="headerlink" title="3. 字段存储限制："></a><strong>3. 字段存储限制：</strong></h1><p>Shapefile无法存储：空值，无法向上舍入数字，对 Unicode 字符串的支持不足，字段名称最长只能为 10 个字符，且在同一字段中无法同时存储日期和时间。</p>
+<p>Shapefile支持的最大字段数为 255。若超出此上限，当转换为 shapefile 时只会转换前 255 个字段。</p>
+<p>dBASE 文件不支持类型 blob、guid、全局 ID、坐标 ID 或栅格字段类型。</p>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>包含空值的数据类型</th>
+<th style="text-align:left">空值替换</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数字 - 当工具需要输出“空”、无穷大或 NaN（非数字）时</td>
+<td style="text-align:left">-1.7976931348623158e+308（最大负值的 IEEE 标准）</td>
+</tr>
+<tr>
+<td>数字（所有其他地理处理工具）</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td>文本</td>
+<td style="text-align:left">“ ”（空白 - 无空格）</td>
+</tr>
+<tr>
+<td>Date</td>
+<td style="text-align:left">存储为零，但显示为“&lt;空&gt;”</td>
+</tr>
+</tbody>
+</table>
+<h1 id="4-字段宽度限制："><a href="#4-字段宽度限制：" class="headerlink" title="4. 字段宽度限制："></a>4. 字段宽度限制：</h1><table>
+<thead>
+<tr>
+<th>地理数据库数据类型</th>
+<th style="text-align:left">dBASE 字段类型</th>
+<th style="text-align:center">dBASE 字段宽度（字符数）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>对象 ID</td>
+<td style="text-align:left">数值</td>
+<td style="text-align:center">9</td>
+</tr>
+<tr>
+<td>短整型</td>
+<td style="text-align:left">数值</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td>长整型</td>
+<td style="text-align:left">数值</td>
+<td style="text-align:center">9</td>
+</tr>
+<tr>
+<td>浮点型</td>
+<td style="text-align:left">浮点型</td>
+<td style="text-align:center">13</td>
+</tr>
+<tr>
+<td>双精度</td>
+<td style="text-align:left">浮点型</td>
+<td style="text-align:center">13</td>
+</tr>
+<tr>
+<td>文本</td>
+<td style="text-align:left">字符</td>
+<td style="text-align:center">254</td>
+</tr>
+<tr>
+<td>Date</td>
+<td style="text-align:left">Date</td>
+<td style="text-align:center">8</td>
+</tr>
+</tbody>
+</table>
+<h1 id="5-性能限制-nbsp"><a href="#5-性能限制-nbsp" class="headerlink" title="5. 性能限制&nbsp;"></a><strong>5. 性能限制&nbsp;</strong></h1><p>由于形状压缩方法的不同，shapefile 所占用的空间可能为文件地理数据库或 SDE 的三到五倍。</p>
+<p>Shapefile 的空间索引效率较数据库低。这就意味着，同地理数据库要素类相比，空间查询耗时更长。当处理大量要素时，效率低。</p>
+<p>dBASE 文件不支持 WHERE 子句，也不支持 SQL。</p>
+<p>当保存所做编辑时属性索引会被删除，因此必须重新创建属性索引。</p>
+<h1 id="6-多面体存储限制"><a href="#6-多面体存储限制" class="headerlink" title="6. 多面体存储限制"></a><strong>6. 多面体存储限制</strong></h1><p>Shapefiles 支持多面体，但不支持以下多面体的高级功能：纹理坐标、纹理及部分色带、光线法向量。</p>
+<p>详情参考：<a href="http://resources.arcgis.com/en/help/main/10.2/index.html#/Geoprocessing_considerations_for_shapefile_output/005600000013000000/" target="_blank" rel="noopener">http://resources.arcgis.com/en/help/main/10.2/index.html#/Geoprocessing_considerations_for_shapefile_output/005600000013000000/</a></p>
+</div><div><ul class="post-copyright"><li class="post-copyright-author"><strong>Author: </strong>Xiaoyan Mu</li><li class="post-copyright-link"><strong>Blog Link: </strong><a href="/2014/02/27/LimitsofShapefile/">https://www.kikitamap.com/2014/02/27/LimitsofShapefile/</a></li><li class="post-copyright-license"><strong>Copyright Declaration: </strong>The author owns the copyright, please indicate the source reproduced.</li></ul></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://www.kikitamap.com/2014/02/27/LimitsofShapefile/" data-id="cks4irevu0063qj754jr6ggp3" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aUbKDIBAEwNz/0r4DpDQzoK9KaL5SSTS0HxMW9vOJx/E1zj49e+f7+2evz666YWBgYLyWcVyOa0Yyifn7X1+LgYGxDyOPxevEa4P47Kp8bhgYGBgtI4nj67thYGBgPMEYKz7zgMbAwMDIi8w2amdK3AdrcQwMjBcy2nD8z9ePnG9gYGC8inGUo43O9pDyGBoYGBhrM2a20tpvJu9MzQcDA2NRRr7RlsRoUpTmv1U8AgwMjKUZycIu3xTLl3ozD+jHHwAGBsZmjITUhvXYtcXyEQMDYzlGMt28vGyLz7G7RbuGGBgYGzBy3liDxUyLRrGqxcDAWILRhuBdMTq/ZKwXiBgYGK9l5K0VefNWHtz5A/oR7hgYGEszZg4GZpowkgVfvqDEwMBYm5EfVY4daubLxDx2o48xMDCWY4wdHLah2UZ58esYGBgbMPKiNA/NNrjzIhkDA2M3RruySlrE2pDN7/MjoDEwMJZm5AVtEov5AUDbbFG0XGBgYCzHyBeFCaDdgLsrlDEwMPZhtA1b+TZcspHXPriiywMDA2MJRluyttNtmy3yR4aBgbE24yjHWGR/yjFYf2NgYCzKmLn1GDWP9fx4AAMDYwdGMq0bDhfjpzgY2RgYGBsw8qp3vri9q4jFwMDAaAO33sovDxgeDFwMDIzlGO2Cry13B7fzMDAwNmDMHE+eYcbK48e32zAwMF7ImI+8mXaNmZDFwMDYgPEHc6HbGSKp/FQAAAAASUVORK5CYII=">Share</a><div class="tags"><a href="/tags/Geodata/">Geodata</a></div><div class="post-nav"><a class="pre" href="/2014/03/03/Landset8_ArcGIS/">Landset 8 与 ArcGIS</a><a class="next" href="/2014/02/13/shapefileCodePage/">shapefile与字符集编码设置</a></div><div id="lv-container" data-id="city" data-uid="MTAyMC8zMjMyOC84ODg5"><script>(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+   if (typeof LivereTower === 'function') { return; }
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/木工开物/">木工开物</a><span class="category-list-count">180</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/相机里/">相机里</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/碎碎念/">碎碎念</a><span class="category-list-count">9</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-weibo"> Weibo</i></div><iframe class="share_self" width="100%" height="400" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&amp;width=0&amp;height=550&amp;fansRow=2&amp;ptype=1&amp;speed=0&amp;skin=5&amp;isTitle=0&amp;noborder=0&amp;isWeibo=1&amp;isFans=0&amp;uid=1843681867&amp;verifier=34cdc83d&amp;colors=d6f3f7,ffffff,333,40759b,f7f8f8&amp;dpc=1"></iframe></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/ArcGIS-Enterprise/" style="font-size: 15px;">ArcGIS Enterprise</a> <a href="/tags/Performance/" style="font-size: 15px;">Performance</a> <a href="/tags/Geodata/" style="font-size: 15px;">Geodata</a> <a href="/tags/Coordinate-System/" style="font-size: 15px;">Coordinate System</a> <a href="/tags/Mapping/" style="font-size: 15px;">Mapping</a> <a href="/tags/ArcPad/" style="font-size: 15px;">ArcPad</a> <a href="/tags/Deployment/" style="font-size: 15px;">Deployment</a> <a href="/tags/Raster/" style="font-size: 15px;">Raster</a> <a href="/tags/Geoprocessing/" style="font-size: 15px;">Geoprocessing</a> <a href="/tags/Spatial-Analyst/" style="font-size: 15px;">Spatial Analyst</a> <a href="/tags/3D/" style="font-size: 15px;">3D</a> <a href="/tags/CityEngine/" style="font-size: 15px;">CityEngine</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/License/" style="font-size: 15px;">License</a> <a href="/tags/Spatial-Statistics/" style="font-size: 15px;">Spatial Statistics</a> <a href="/tags/ArcGIS-Pro/" style="font-size: 15px;">ArcGIS Pro</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Web/" style="font-size: 15px;">Web</a> <a href="/tags/Map-Story/" style="font-size: 15px;">Map Story</a> <a href="/tags/CAD/" style="font-size: 15px;">CAD</a> <a href="/tags/CGA/" style="font-size: 15px;">CGA</a> <a href="/tags/Certification/" style="font-size: 15px;">Certification</a> <a href="/tags/Visual-Studio/" style="font-size: 15px;">Visual Studio</a> <a href="/tags/Github/" style="font-size: 15px;">Github</a> <a href="/tags/Vector-Tiles/" style="font-size: 15px;">Vector Tiles</a> <a href="/tags/Cloud-Storage/" style="font-size: 15px;">Cloud Storage</a> <a href="/tags/Webmaster/" style="font-size: 15px;">Webmaster</a> <a href="/tags/HERE-Map/" style="font-size: 15px;">HERE Map</a> <a href="/tags/HLS/" style="font-size: 15px;">HLS</a> <a href="/tags/Javascript/" style="font-size: 15px;">Javascript</a> <a href="/tags/Routing/" style="font-size: 15px;">Routing</a> <a href="/tags/Network/" style="font-size: 15px;">Network</a> <a href="/tags/Positioning/" style="font-size: 15px;">Positioning</a> <a href="/tags/Mobile-SDK/" style="font-size: 15px;">Mobile SDK</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/HERE-Platform/" style="font-size: 15px;">HERE Platform</a> <a href="/tags/Visualization/" style="font-size: 15px;">Visualization</a> <a href="/tags/HERE-Data-Hub/" style="font-size: 15px;">HERE Data Hub</a> <a href="/tags/Data-Management/" style="font-size: 15px;">Data Management</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/08/24/HDataHubCLI/">HERE Data Hub CLI</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/HStudio-intro/">玩一玩 HERE Studio</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/22/Thinkings2020/">特别的2020：一些特别的感想</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/19/HmSDK_Positioning/">HERE mSDK - Positioning</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/HmSDK_VectorTile-MFs/">HERE mSDK - Vector Tile / Map Feedback</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/11/HmSDK_MapRendering/">HERE mSDK - Map Rendering</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/HmSDK_QuickStart/">Quick Start of HERE SDK for Android</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/05/theShade/">the Shade</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/27/wlanNetworks/">WiFi Network Positioning</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/Icecream_Part4-Adcanced-Routing_2/">HERE MAP API - Part4 Advanced Routing - 2</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://zhihu.esrichina.com.cn/" title="ArcGIS知乎" target="_blank">ArcGIS知乎</a><ul></ul><a href="http://blog.newnaw.com/" title="菩提老王的葡萄架子" target="_blank">菩提老王的葡萄架子</a><ul></ul><a href="http://oopsliu.com/" title="OopsLiu" target="_blank">OopsLiu</a><ul></ul><a href="https://makeling.github.io/" title="UBUNTU SPACE" target="_blank">UBUNTU SPACE</a><ul></ul><a href="http://blog.csdn.net/kikitamoon" title="慕名ArcGIS_CSDN" target="_blank">慕名ArcGIS_CSDN</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">kikita &amp; Maps.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

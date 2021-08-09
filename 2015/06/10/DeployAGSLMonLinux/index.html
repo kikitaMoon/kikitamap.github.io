@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="kikita's Blog"><title>在Linux上安装ArcGIS许可管理器备忘录 | kikita &amp; Maps</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-74191197-1','auto');ga('send','pageview');
+</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">在Linux上安装ArcGIS许可管理器备忘录</h1><a id="logo" href="/.">kikita &amp; Maps</a><p class="description">For Tech and Fun</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/history/"><i class="fa fa-book"> Timeline</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">在Linux上安装ArcGIS许可管理器备忘录</h1><div class="post-meta">Jun 10, 2015<span> | </span><span class="category"><a href="/categories/木工开物/">木工开物</a></span></div><div class="post-content"><blockquote>
+<p>这篇文章中使用的环境信息：</p>
+<p>Red Hat Enterprise Linux Server release 6.4<br>Red Hat Enterprise Linux Server release 5.8<br>ArcGIS License Manager 10.2.2<br>Xmanager 5</p>
+</blockquote>
+<p><br></p>
+<h4 id="★-安装之前一定要了解系统要求，这一步很重要，这里不啰嗦，详情点-这里-http-resources-arcgis-com-en-help-system-requirements-10-2-ArcGIS-10-2-for-Desktop-015100000002000000-。"><a href="#★-安装之前一定要了解系统要求，这一步很重要，这里不啰嗦，详情点-这里-http-resources-arcgis-com-en-help-system-requirements-10-2-ArcGIS-10-2-for-Desktop-015100000002000000-。" class="headerlink" title="★ 安装之前一定要了解系统要求，这一步很重要，这里不啰嗦，详情点 [这里](http://resources.arcgis.com/en/help/system-requirements/10.2/#/ArcGIS_10_2_for_Desktop/015100000002000000/)。"></a><strong>★ 安装之前一定要了解系统要求，这一步很重要，这里不啰嗦，详情点 [这里</strong>](<a href="http://resources.arcgis.com/en/help/system-requirements/10.2/#/ArcGIS_10_2_for_Desktop/015100000002000000/)。" target="_blank" rel="noopener">http://resources.arcgis.com/en/help/system-requirements/10.2/#/ArcGIS_10_2_for_Desktop/015100000002000000/)。</a></h4><p><br></p>
+<h1 id="1-准备安装文件"><a href="#1-准备安装文件" class="headerlink" title="1. 准备安装文件"></a>1. 准备安装文件</h1><p>我的Linux服务器是虚拟机，没有光驱，选择ftp上传安装文件。一般在各种linux的发行版中，默认带有的ftp软件是vsftp。</p>
+<p>检查vsftpd软件是否安装， <strong># rpm -qa|grep vsftp</strong><br>启动 vsftp 服务，<strong># service vsftpd start</strong></p>
+<p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_vsftp.png" alt=""></p>
+<p>使用ftp客户端上传 ArcGIS License Manager （LM）安装包。如果上传的 iso 镜像文件之后使用 mount 命令挂载，其实也可以仅将光盘中 LicenseManager 目录下的 linux 文件夹上传，此文件夹为 LM 的Linux安装包。</p>
+<p>包含如下几个文件（夹）：</p>
+<p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_Setup.png" alt=""></p>
+<p><br></p>
+<p><br></p>
+<h1 id="2-创建账户"><a href="#2-创建账户" class="headerlink" title="2. 创建账户"></a>2. 创建账户</h1><p>ArcGIS License Manager 不允许 root 账户安装，因此要创建一个其它账户，例如：arcgis</p>
+<p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_CreateArcGIS.png" alt=""></p>
+<blockquote>
+<p>PS : 如果使用 root 账户直接安装，则会遇到错误提示：</p>
+<p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_RootError.png" alt=""></p>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<h1 id="3-创建-Trusted-Storage目录并赋权"><a href="#3-创建-Trusted-Storage目录并赋权" class="headerlink" title="3. 创建 Trusted Storage目录并赋权"></a>3. 创建 Trusted Storage目录并赋权</h1><p>在安装 ArcGIS License Manager 之前，需要手动创建用于存储许可 Trusted Storage File (TSF) 的目录，具体目录为：“/usr/local/share/macrovision/storage” </p>
+<p>创建目录：</p>
+<p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_mkdir.png" alt=""></p>
+<p>为目录赋权：</p>
+<p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_chmod.png" alt=""></p>
+<blockquote>
+<p>如果不创建这个目录而直接安装 LM 程序，就会遇到 Fatal Error 提示：</p>
+<p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_GrantError.png" alt=""></p>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<h1 id="4-安装-ArcGIS-License-Manager"><a href="#4-安装-ArcGIS-License-Manager" class="headerlink" title="4. 安装 ArcGIS License Manager"></a>4. 安装 ArcGIS License Manager</h1><p><br></p>
+<p>有图形界面模式和静默模式两种安装模式，建议选择前者：</p>
+<h2 id="Option-1-图形界面安装"><a href="#Option-1-图形界面安装" class="headerlink" title="Option 1 图形界面安装"></a><strong>Option 1 图形界面安装</strong></h2><p>安装 ArcGIS License Manager 需要 X Windows Display的支持来进行图形界面的交互。尽管我们可以选择使用静默安装和静默授权，但是在许可管理过程中，还是会用到图形界面。强烈建议安装个 Xmanager，来连接Linux主机。</p>
+<p>设置DISPLAY环境变量 :<br>例如： <strong>$ export DISPLAY=<em>192.168.100.115</em>:0.0</strong></p>
+<p>运行 Setup 文件开始安装，建议使用精细模式（Verbose Mode），这样如果安装失败，我们可以通过运行过程中的消息判断问题的所在。例如，没有创建必要的目录，没有安装必要地包，没有足够的权限，等等问题。</p>
+<p><strong>$ ./Setup -v</strong></p>
+<p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_Setup.png" alt=""></p>
+<p>稍等片刻，即弹出界面：</p>
+<p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_GraphicWindows.png" alt=""></p>
+<p>后面按照向导，下一步即可，此处省略100字……</p>
+<p><br></p>
+<h2 id="Option-2-静默安装"><a href="#Option-2-静默安装" class="headerlink" title="Option 2 静默安装"></a><strong>Option 2 静默安装</strong></h2><p>如果选择静默安装也可以，例如：</p>
+<p><strong>$ ./Setup -m silent -v -l Yes</strong></p>
+<p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_Silence.png" alt=""></p>
+<blockquote>
+<p><strong>如果需要了解安装ArcGIS 许可管理器的选项：</strong></p>
+<p>-m  silent/gui  静默安装/图形界面<br>-v   精细模式<br>-h   帮助<br>-e   示例<br>静默安装专用选项：<br>-l    Yes/No 是否同意许可条款<br>-d   安装目录</p>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<h1 id="5-授权许可"><a href="#5-授权许可" class="headerlink" title="5. 授权许可"></a>5. 授权许可</h1><p>LM安装完成之后，需要进行许可的授权，事先将自己的许可文件 *.prvs 上传到Linux主机中。</p>
+<p><br></p>
+<p>仍然建议GUI mode 授权，运行LM安装目录中的 SoftwareAuthorizationLS 程序：</p>
+<p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_Authorization.png" alt=""></p>
+<p>稍后弹出界面：</p>
+<p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_Authorization2.png" alt=""></p>
+<p>后面按照向导，下一步即可，可以参考windows的授权手册，此处省略100字……</p>
+<p><br></p>
+<p>运行 LSAdmin 程序可以打开 License Manger ，查看和管理许可。</p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<h1 id="相关资源整理"><a href="#相关资源整理" class="headerlink" title="相关资源整理"></a>相关资源整理</h1><p>FAQ:  What are the best practices when installing and troubleshooting Esri software on Linux?</p>
+<p><a href="http://support.esri.com/em/knowledgebase/techarticles/detail/42921" target="_blank" rel="noopener">http://support.esri.com/em/knowledgebase/techarticles/detail/42921</a></p>
+<p>HowTo:  Silently authorize ArcGIS License Manager 10.x on Linux</p>
+<p><a href="http://support.esri.com/es/knowledgebase/techarticles/detail/38412" target="_blank" rel="noopener">http://support.esri.com/es/knowledgebase/techarticles/detail/38412</a></p>
+</div><div><ul class="post-copyright"><li class="post-copyright-author"><strong>Author: </strong>Xiaoyan Mu</li><li class="post-copyright-link"><strong>Blog Link: </strong><a href="/2015/06/10/DeployAGSLMonLinux/">https://www.kikitamap.com/2015/06/10/DeployAGSLMonLinux/</a></li><li class="post-copyright-license"><strong>Copyright Declaration: </strong>The author owns the copyright, please indicate the source reproduced.</li></ul></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://www.kikitamap.com/2015/06/10/DeployAGSLMonLinux/" data-id="cks4irexb009oqj75zdytq58q" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aS46DQAxF0ex/02QDKbjPhki4bo2iTho4DCz/Ph98jsUhv199u/p8fuXWkSFDxmsZx+lZ3WD1ufYi+N+XVBkyZGzAqIVFwktDKnlBMmTIkEEYadhN00oZMmTI6DDShG91BZ4aypAhQwYvYkmZmjbg0uL2hlpchgwZL2Twrvv/Pz8y35AhQ8arGEd40vSRt9t4kP3xVDJkyBjN6AwgyWjzPHG8ayAqQ4aM2YxOE60frMnIk7wCGTJkzGbwZhkPu+laBmnDcbAMGTLmMfoteF7E1kpilGjKkCFjGwZJxdJYzsMrz/F+XF+GDBmjGU/c/q41i7SdJ0OGjB0Yd80Z+GP1B6UXea4MGTJGMHjIq+1l8ZDNRxTLdpsMGTJGM3j7jK9N1H6TwuI9DhkyZLyc0S9iaw/aab3JkCFjN0atQcYL2jQFDEK2DBkyNmakQ8p05NkP7jJkyNiHQdr0pFnGB5zpqPKCKkOGjNGM2pJEp2VGwjd56GDtQ4YMGSMY6diytiKWDjjj1yRDhowtGWnArV0nDdDxPFaGDBmDGGnTv5Mm1kL2xf/KkCFjKOMID2HXljNqQwUZMmTswOiXoGnATRPEIDWUIUPGaAYPsrU0kaSendJXhgwZ+zB44OMF6hOT1Ys8V4YMGTL4RcOkk4T1i3vJkCFDRmm1NE0KeQGMJrEyZMgYx+ApHYl1taL3kWULGTJkjGDUSsd7W3Jpw66YmMqQIeN9jC80siy6OmFMrQAAAABJRU5ErkJggg==">Share</a><div class="tags"><a href="/tags/Deployment/">Deployment</a><a href="/tags/License/">License</a><a href="/tags/Linux/">Linux</a></div><div class="post-nav"><a class="pre" href="/2015/06/26/MapDesignPerformance/">ArcGIS地图设计性能优化</a><a class="next" href="/2015/06/09/FeatureHeatMap/">羽化效果的HeatMap</a></div><div id="lv-container" data-id="city" data-uid="MTAyMC8zMjMyOC84ODg5"><script>(function(d, s) {
+   var j, e = d.getElementsByTagName(s)[0];
+   if (typeof LivereTower === 'function') { return; }
+   j = d.createElement(s);
+   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+   j.async = true;
+   e.parentNode.insertBefore(j, e);
+})(document, 'script');
+</script></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/木工开物/">木工开物</a><span class="category-list-count">180</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/相机里/">相机里</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/碎碎念/">碎碎念</a><span class="category-list-count">9</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-weibo"> Weibo</i></div><iframe class="share_self" width="100%" height="400" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&amp;width=0&amp;height=550&amp;fansRow=2&amp;ptype=1&amp;speed=0&amp;skin=5&amp;isTitle=0&amp;noborder=0&amp;isWeibo=1&amp;isFans=0&amp;uid=1843681867&amp;verifier=34cdc83d&amp;colors=d6f3f7,ffffff,333,40759b,f7f8f8&amp;dpc=1"></iframe></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/ArcGIS-Enterprise/" style="font-size: 15px;">ArcGIS Enterprise</a> <a href="/tags/Performance/" style="font-size: 15px;">Performance</a> <a href="/tags/Geodata/" style="font-size: 15px;">Geodata</a> <a href="/tags/Coordinate-System/" style="font-size: 15px;">Coordinate System</a> <a href="/tags/Mapping/" style="font-size: 15px;">Mapping</a> <a href="/tags/ArcPad/" style="font-size: 15px;">ArcPad</a> <a href="/tags/Deployment/" style="font-size: 15px;">Deployment</a> <a href="/tags/Raster/" style="font-size: 15px;">Raster</a> <a href="/tags/Geoprocessing/" style="font-size: 15px;">Geoprocessing</a> <a href="/tags/Spatial-Analyst/" style="font-size: 15px;">Spatial Analyst</a> <a href="/tags/3D/" style="font-size: 15px;">3D</a> <a href="/tags/CityEngine/" style="font-size: 15px;">CityEngine</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/License/" style="font-size: 15px;">License</a> <a href="/tags/Spatial-Statistics/" style="font-size: 15px;">Spatial Statistics</a> <a href="/tags/ArcGIS-Pro/" style="font-size: 15px;">ArcGIS Pro</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Web/" style="font-size: 15px;">Web</a> <a href="/tags/Map-Story/" style="font-size: 15px;">Map Story</a> <a href="/tags/CAD/" style="font-size: 15px;">CAD</a> <a href="/tags/CGA/" style="font-size: 15px;">CGA</a> <a href="/tags/Certification/" style="font-size: 15px;">Certification</a> <a href="/tags/Visual-Studio/" style="font-size: 15px;">Visual Studio</a> <a href="/tags/Github/" style="font-size: 15px;">Github</a> <a href="/tags/Vector-Tiles/" style="font-size: 15px;">Vector Tiles</a> <a href="/tags/Cloud-Storage/" style="font-size: 15px;">Cloud Storage</a> <a href="/tags/Webmaster/" style="font-size: 15px;">Webmaster</a> <a href="/tags/HERE-Map/" style="font-size: 15px;">HERE Map</a> <a href="/tags/HLS/" style="font-size: 15px;">HLS</a> <a href="/tags/Javascript/" style="font-size: 15px;">Javascript</a> <a href="/tags/Routing/" style="font-size: 15px;">Routing</a> <a href="/tags/Network/" style="font-size: 15px;">Network</a> <a href="/tags/Positioning/" style="font-size: 15px;">Positioning</a> <a href="/tags/Mobile-SDK/" style="font-size: 15px;">Mobile SDK</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/HERE-Platform/" style="font-size: 15px;">HERE Platform</a> <a href="/tags/Visualization/" style="font-size: 15px;">Visualization</a> <a href="/tags/HERE-Data-Hub/" style="font-size: 15px;">HERE Data Hub</a> <a href="/tags/Data-Management/" style="font-size: 15px;">Data Management</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/08/24/HDataHubCLI/">HERE Data Hub CLI</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/23/HStudio-intro/">玩一玩 HERE Studio</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/22/Thinkings2020/">特别的2020：一些特别的感想</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/19/HmSDK_Positioning/">HERE mSDK - Positioning</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/HmSDK_VectorTile-MFs/">HERE mSDK - Vector Tile / Map Feedback</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/11/HmSDK_MapRendering/">HERE mSDK - Map Rendering</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/09/HmSDK_QuickStart/">Quick Start of HERE SDK for Android</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/05/theShade/">the Shade</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/27/wlanNetworks/">WiFi Network Positioning</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/Icecream_Part4-Adcanced-Routing_2/">HERE MAP API - Part4 Advanced Routing - 2</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://zhihu.esrichina.com.cn/" title="ArcGIS知乎" target="_blank">ArcGIS知乎</a><ul></ul><a href="http://blog.newnaw.com/" title="菩提老王的葡萄架子" target="_blank">菩提老王的葡萄架子</a><ul></ul><a href="http://oopsliu.com/" title="OopsLiu" target="_blank">OopsLiu</a><ul></ul><a href="https://makeling.github.io/" title="UBUNTU SPACE" target="_blank">UBUNTU SPACE</a><ul></ul><a href="http://blog.csdn.net/kikitamoon" title="慕名ArcGIS_CSDN" target="_blank">慕名ArcGIS_CSDN</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">kikita &amp; Maps.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
