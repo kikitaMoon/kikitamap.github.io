@@ -1241,9 +1241,9 @@
             
             <tag> Web </tag>
             
-            <tag> Vector Tiles </tag>
-            
             <tag> Github </tag>
+            
+            <tag> Vector Tiles </tag>
             
         </tags>
         
@@ -3159,9 +3159,9 @@ call &quot;%PROGRAMFILES%\ArcGIS\Pro\bin\Python\Scripts\propy&quot; myscript.py
         
         <tags>
             
-            <tag> Coordinate System </tag>
-            
             <tag> Mapping </tag>
+            
+            <tag> Coordinate System </tag>
             
         </tags>
         
@@ -10537,9 +10537,9 @@ call &quot;%PROGRAMFILES%\ArcGIS\Pro\bin\Python\Scripts\propy&quot; myscript.py
         
         <tags>
             
-            <tag> CAD </tag>
-            
             <tag> Geodata </tag>
+            
+            <tag> CAD </tag>
             
         </tags>
         
