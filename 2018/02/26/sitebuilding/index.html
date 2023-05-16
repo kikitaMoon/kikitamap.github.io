@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-74191197-1"></script>
+    <script type="text/javascript">
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-74191197-1');
+    </script>
+  
+
+  <!-- Baidu Tongji -->
+  
+
+  <!-- Baidu Push -->
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <meta name="google-site-verification" content="lxDfCplOZbIzjhG34NuQBgu2gdyRlAtMB4utP5AgEBc"/>
+  <meta name="baidu-site-verification" content="PpzM9WxOJU"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="kikita&#39;s blog"/>
+  <meta name="keyword" content="Map,Geographic,GIS,technical,photo,Blog"/>
+  <link rel="shortcut icon" href="/images/avatar/kikita.jpg"/>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- viewer start (Picture preview) -->
+      <link rel="stylesheet" href="/css/viewer.min.css"/>
+      <!-- viewer end -->
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://kikitamap.com/2018/02/26/sitebuilding/">
+  <title>
+    
+      网站主题更换备忘录 - kikita Moon
+    
+  </title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Kikita &amp; Maps</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">HOME</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              TAGS
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>SEARCH</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+          
+          
+          
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/images/header_img/archive_bg3.jpg');
+      --intro-header-background-image-url-post: url('');
+      --intro-header-background-image-url-page: url('/images/header_img/archive_bg2.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/images/header_img/archive_bg3.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/images/header_img/archive_bg2.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url(''); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Deployment" title="Deployment">Deployment</a>
+              
+              <a class="tag" href="/tags/#Webmaster" title="Webmaster">Webmaster</a>
+              
+            </div>
+            <h1>网站主题更换备忘录</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by Xiaoyan(Sharon) Mu on
+              2018-02-26
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">7</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">1.6k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h2 id="主题安装">主题安装</h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/tufu9441/maupassant-hexo"><strong>Maupassant 主题</strong></a><br>
+安装主题和渲染器：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/tufu9441/m</span>aupassant-hexo.git themes/maupassant</span><br><span class="line">$ npm install hexo-renderer-pug --save</span><br><span class="line">$ npm install hexo-renderer-sass --save</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>编辑Hexo目录下的 <code>_config.yml</code>，将<code>theme</code>的值改为<code>maupassant</code>。</p>
+<h2 id="功能配置">功能配置</h2>
+<p>默认配置:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">_config.yml_config.ymlfancybox:</span> <span class="literal">true</span> <span class="comment">## If you want to use fancybox please set the value to true.</span></span><br><span class="line"><span class="attr">disqus:</span> <span class="comment">## Your disqus_shortname, e.g. username</span></span><br><span class="line"><span class="attr">gitment:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span> <span class="comment">## If you want to use Gitment comment system please set the value to true.</span></span><br><span class="line">  <span class="attr">owner:</span> <span class="comment">## Your GitHub ID, e.g. username</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="comment">## The repository to store your comments, make sure you&#x27;re the repo&#x27;s owner, e.g. imsun.github.io</span></span><br><span class="line">  <span class="attr">client_id:</span> <span class="comment">## GitHub client ID, e.g. 75752dafe7907a897619</span></span><br><span class="line">  <span class="attr">client_secret:</span> <span class="comment">## GitHub client secret, e.g. ec2fb9054972c891289640354993b662f4cccc50</span></span><br><span class="line"><span class="attr">uyan:</span> <span class="comment">## Your uyan_id. e.g. 1234567</span></span><br><span class="line"><span class="attr">livere:</span> <span class="comment">## Your livere data-uid, e.g. MTAyMC8zMDAxOC78NTgz</span></span><br><span class="line"><span class="attr">changyan:</span> <span class="comment">## Your changyan appid, e.g. cyrALsXc8</span></span><br><span class="line"><span class="attr">changyan_conf:</span> <span class="comment">## Your changyan conf, e.g. prod_d8a508c2825ab57eeb43e7c69bba0e8b</span></span><br><span class="line"><span class="attr">valine:</span> <span class="comment">## https://valine.js.org</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span> <span class="comment">## If you want to use Valine comment system, please set the value to true.</span></span><br><span class="line">  <span class="attr">appid:</span>  <span class="comment">## Your LeanCloud application App ID, e.g. pRBBL2JR4N7kLEGojrF0MsSs-gzGzoHsz</span></span><br><span class="line">  <span class="attr">appkey:</span>  <span class="comment">## Your LeanCloud application App Key, e.g. tjczHpDfhjYDSYddzymYK1JJ</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment">## Mail notifier, see https://github.com/xCss/Valine/wiki/Valine-评论系统中的邮件提醒设置</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment">## Validation code.</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">so</span> <span class="string">so</span> <span class="comment">## Comment box placeholders.</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">&#x27;mm&#x27;</span> <span class="comment">## Gravatar type, see https://github.com/xCss/Valine/wiki/avatar-setting-for-valine</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment">## Number of comments per page.</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail,link</span> <span class="comment">## Attributes of reviewers.</span></span><br><span class="line"></span><br><span class="line"><span class="attr">google_search:</span> <span class="literal">true</span> <span class="comment">## Use Google search, true/false.</span></span><br><span class="line"><span class="attr">baidu_search:</span> <span class="literal">false</span> <span class="comment">## Use Baidu search, true/false.</span></span><br><span class="line"><span class="attr">swiftype:</span> <span class="comment">## Your swiftype_key, e.g. m7b11ZrsT8Me7gzApciT</span></span><br><span class="line"><span class="attr">tinysou:</span> <span class="comment">## Your tinysou_key, e.g. 4ac092ad8d749fdc6293</span></span><br><span class="line"><span class="attr">self_search:</span> <span class="literal">false</span> <span class="comment">## Use a jQuery-based local search engine, true/false.</span></span><br><span class="line"><span class="attr">google_analytics:</span> <span class="comment">## Your Google Analytics tracking id, e.g. UA-42425684-2</span></span><br><span class="line"><span class="attr">baidu_analytics:</span> <span class="comment">## Your Baidu Analytics tracking id, e.g. 8006843039519956000</span></span><br><span class="line"><span class="attr">show_category_count:</span> <span class="literal">false</span> <span class="comment">## If you want to show the count of categories in the sidebar widget please set the value to true.</span></span><br><span class="line"><span class="attr">toc_number:</span> <span class="literal">true</span> <span class="comment">## If you want to add list number to toc please set the value to true.</span></span><br><span class="line"><span class="attr">shareto:</span> <span class="literal">false</span> <span class="comment">## If you want to use the share button please set the value to true, you must have hexo-helper-qrcode installed.</span></span><br><span class="line"><span class="attr">busuanzi:</span> <span class="literal">false</span> <span class="comment">## If you want to use Busuanzi page views please set the value to true.</span></span><br><span class="line"><span class="attr">widgets_on_small_screens:</span> <span class="literal">false</span> <span class="comment">## Set to true to enable widgets on small screens.</span></span><br><span class="line"><span class="attr">canvas_nest:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span> <span class="comment">## If you want to use dynamic background please set the value to true, you can also fill the following parameters to customize the dynamic effect, or just leave them blank to keep the default effect.</span></span><br><span class="line">  <span class="attr">color:</span> <span class="comment">## RGB value of the color, e.g. &quot;100,99,98&quot;</span></span><br><span class="line">  <span class="attr">opacity:</span> <span class="comment">## Transparency of lines, e.g. &quot;0.7&quot;</span></span><br><span class="line">  <span class="attr">zIndex:</span> <span class="comment">## The z-index property of the background, e.g. &quot;-1&quot;</span></span><br><span class="line">  <span class="attr">count:</span> <span class="comment">## Quantity of lines, e.g. &quot;150&quot;</span></span><br><span class="line"><span class="attr">donate:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span> <span class="comment">## If you want to show the donate button after each post, please set the value to true and fill the following items according to your need. You can also enable donate button in a page by adding a &quot;donate: true&quot; item to the front-matter.</span></span><br><span class="line">  <span class="attr">github:</span> <span class="comment">## GitHub URL, e.g. https://github.com/Kaiyuan/donate-page</span></span><br><span class="line">  <span class="attr">alipay_qr:</span> <span class="comment">## Path of Alipay QRcode image, e.g. /img/AliPayQR.png</span></span><br><span class="line">  <span class="attr">wechat_qr:</span> <span class="comment">## Path of Wechat QRcode image, e.g. /img/WeChatQR.png</span></span><br><span class="line">  <span class="attr">btc_qr:</span> <span class="comment">## Path of Bitcoin QRcode image, e.g. /img/BTCQR.png</span></span><br><span class="line">  <span class="attr">btc_key:</span> <span class="comment">## Bitcoin key, e.g. 1KuK5eK2BLsqpsFVXXSBG5wbSAwZVadt6L</span></span><br><span class="line">  <span class="attr">paypal_url:</span> <span class="comment">## Paypal URL, e.g. https://paypal.me/tufu9441</span></span><br><span class="line"></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">page:</span> <span class="string">home</span></span><br><span class="line">    <span class="attr">directory:</span> <span class="string">.</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">page:</span> <span class="string">archive</span></span><br><span class="line">    <span class="attr">directory:</span> <span class="string">archives/</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">fa-archive</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">page:</span> <span class="string">about</span></span><br><span class="line">    <span class="attr">directory:</span> <span class="string">about/</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">page:</span> <span class="string">rss</span></span><br><span class="line">    <span class="attr">directory:</span> <span class="string">atom.xml</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">fa-rss</span></span><br><span class="line"></span><br><span class="line"><span class="attr">widgets:</span> <span class="comment">## Six widgets in sidebar provided: search, category, tag, recent_posts, rencent_comments and links.</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">search</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">category</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tag</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">recent_posts</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">recent_comments</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">links</span></span><br><span class="line"></span><br><span class="line"><span class="attr">links:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">title:</span> <span class="string">site-name1</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">http://www.example1.com/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">title:</span> <span class="string">site-name2</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">http://www.example2.com/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">title:</span> <span class="string">site-name3</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">http://www.example3.com/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">timeline:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">num:</span> <span class="number">1</span></span><br><span class="line">    <span class="attr">word:</span> <span class="number">2014</span><span class="string">/06/12-Start</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">num:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">word:</span> <span class="number">2014</span><span class="string">/11/29-XXX</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">num:</span> <span class="number">3</span></span><br><span class="line">    <span class="attr">word:</span> <span class="number">2015</span><span class="string">/02/18-DDD</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">num:</span> <span class="number">4</span></span><br><span class="line">    <span class="attr">word:</span> <span class="string">More</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Static files</span></span><br><span class="line"><span class="attr">js:</span> <span class="string">js</span></span><br><span class="line"><span class="attr">css:</span> <span class="string">css</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Theme version</span></span><br><span class="line"><span class="attr">version:</span> <span class="number">0.0</span><span class="number">.0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>fancybox - 是否启用<a target="_blank" rel="noopener" href="http://fancyapps.com/fancybox/">Fancybox</a>图片灯箱效果</li>
+<li>disqus - <a target="_blank" rel="noopener" href="https://disqus.com/">Disqus评论</a> shortname</li>
+<li>gitment - <a target="_blank" rel="noopener" href="https://github.com/imsun/gitment">Gitment评论</a>相关参数</li>
+<li>uyan - <a target="_blank" rel="noopener" href="http://www.uyan.cc/">友言评论</a> id</li>
+<li>livere - <a target="_blank" rel="noopener" href="https://livere.com/">来必力评论</a> data-uid</li>
+<li>changyan - <a target="_blank" rel="noopener" href="http://changyan.kuaizhan.com/">畅言评论</a> appid</li>
+<li>valine - <a target="_blank" rel="noopener" href="https://valine.js.org/">Valine评论</a>相关参数</li>
+<li>google_search - 默认使用Google搜索引擎</li>
+<li>baidu_search - 若想使用百度搜索，将其设定为<code>true</code>。</li>
+<li>swiftype - <a target="_blank" rel="noopener" href="https://swiftype.com/">Swiftype</a> 站内搜索key</li>
+<li>tinysou - <a target="_blank" rel="noopener" href="http://tinysou.com/">微搜索</a> key</li>
+<li>self_search - 基于jQuery的<a target="_blank" rel="noopener" href="http://hahack.com/codes/local-search-engine-for-hexo">本地搜索引擎</a>，需要安装<a target="_blank" rel="noopener" href="https://github.com/PaicHyperionDev/hexo-generator-search">hexo-generator-search</a>插件使用。</li>
+<li>google_analytics - <a target="_blank" rel="noopener" href="https://www.google.com/analytics/">Google Analytics</a> 跟踪ID</li>
+<li>baidu_analytics - <a target="_blank" rel="noopener" href="http://tongji.baidu.com/">百度统计</a> 跟踪ID</li>
+<li>show_category_count - 是否显示侧边栏分类数目</li>
+<li>toc_number - 是否显示文章中目录列表自动编号</li>
+<li>shareto - 是否使用分享按鈕，需要安装<a target="_blank" rel="noopener" href="https://github.com/yscoder/hexo-helper-qrcode">hexo-helper-qrcode</a>插件使用</li>
+<li>busuanzi - 是否使用<a target="_blank" rel="noopener" href="http://busuanzi.ibruce.info/">不蒜子</a>页面访问计数</li>
+<li>widgets_on_small_screens - 是否在移动设备屏幕底部显示侧边栏</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/hustcc/canvas-nest.js/blob/master/README-zh.md">canvas_nest</a> - 是否使用canvas动态背景</li>
+<li>donate - 是否启用捐赠按钮</li>
+<li>menu - 自定义页面及菜单，依照已有格式填写。填写后请在<code>source</code>目录下建立相应名称的文件夹，并包含<code>index.md</code>文件，以正确显示页面。导航菜单中集成了<a target="_blank" rel="noopener" href="http://fontawesome.io/">FontAwesome</a>图标字体，可以在<a target="_blank" rel="noopener" href="http://fontawesome.io/icons/">这里</a>选择新的图标，并按照相关说明使用。</li>
+<li>widgets - 选择和排列希望使用的侧边栏小工具。</li>
+<li>links - 友情链接，请依照格式填写。</li>
+<li>timeline - 网站历史时间线，在页面<code>front-matter</code>中设置<code>layout: timeline</code>可显示。</li>
+<li>Static files - 静态文件存储路径，方便设置CDN缓存。</li>
+<li>Theme version - 主题版本，便于静态文件更新后刷新CDN缓存。</li>
+</ul>
+<h2 id="主题特性">主题特性</h2>
+<h3 id="网站图标">网站图标</h3>
+<p>若要设置网站Favicon，可以将 <strong>favicon.ico</strong> 放在Hexo根目录的<code>source</code>文件夹下，建议的大小：32px*32px。</p>
+<p>若要为网站添加苹果设备图标，请将命名为 <strong>apple-touch-icon.png</strong> 的图片放在同样的位置，建议的大小：114px*114px。</p>
+<h3 id="文章摘要">文章摘要</h3>
+<p>首页默认显示文章摘要而非全文，可以在文章的<code>front-matter</code>中填写一项<code>description:</code>来设置你想显示的摘要，或者直接在文章内容中插入<code>&lt;!--more--&gt;</code>以隐藏后面的内容。<br>
+若两者都未设置，则自动截取文章第一段作为摘要。</p>
+<h3 id="添加页面">添加页面</h3>
+<p>在<code>source</code>目录下建立相应名称的文件夹，然后在文件夹中建立<code>index.md</code>文件，并在<code>index.md</code>的<code>front-matter</code>中设置layout为<code>layout: page</code>。若需要单栏页面，就将layout设置为 <code>layout: single-column</code>。</p>
+<h3 id="文章目录">文章目录</h3>
+<p>在文章的<code>front-matter</code>中添加<code>toc: true</code>即可让该篇文章显示目录。</p>
+<h3 id="文章评论">文章评论</h3>
+<p>文章和页面的评论功能可以通过在<code>front-matter</code>中设置<code>comments: true</code>或<code>comments: false</code>来进行开启或关闭（默认开启）。</p>
+<h3 id="语法高亮">语法高亮</h3>
+<p>要启用代码高亮，请在Hexo目录的<code>_config.yml</code>中将<code>highlight</code>选项按照如下设置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">highlight:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">auto_detect:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">line_number:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">tab_replace:</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="数学公式">数学公式</h3>
+<p>要启用数学公式支持，请在Hexo目录的<code>_config.yml</code>中添加：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mathjax:</span> <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>并在相应文章的<code>front-matter</code>中添加<code>mathjax: true</code>，例如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">Test</span> <span class="string">Math</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2016-04-05 14:16:00</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">math</span></span><br><span class="line"><span class="attr">mathjax:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>数学公式的默认定界符是<code>$$...$$</code>和<code>\\[...\\]</code>（对于块级公式），以及<code>$...$</code>和<code>\\(...\\)</code>（对于行内公式）。</p>
+<p>但是，如果你的文章内容中经常出现美元符号“<code>$</code>”, 或者说你想将“<code>$</code>”用作美元符号而非行内公式的定界符，请在Hexo目录的<code>_config.yml</code>中添加：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mathjax2:</span> <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>而不是<code>mathjax: true</code>。 相应地，在需要使用数学公式的文章的<code>front-matter</code>中也添加<code>mathjax2: true</code>。</p>
+<p><a target="_blank" rel="noopener" href="http://zhongpu.info/2016/05/06/Mathjax%20and%20Hexo/">示例</a>。</p>
+<p><a target="_blank" rel="noopener" href="https://www.haomwei.com/images/maupassant.jpg"><img src="https://www.haomwei.com/images/maupassant.jpg" alt="主题效果"></a>主题效果</p>
+<p>转自：<a target="_blank" rel="noopener" href="https://www.haomwei.com/technology/maupassant-hexo.html">屠城: 大道至简——Hexo简洁主题推荐</a></p>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/2018/03/09/ProNamedUserforPortalUse/" data-toggle="tooltip" data-placement="top" title="如何部署通过Portal管理的ArcGIS Pro Named User许可？">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/2018/02/05/AlterXMLScheme/" data-toggle="tooltip" data-placement="top" title="解析xml修改切片原点绕开工具的坑">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=网站主题更换备忘录&body=Hi,I found this website and thought you might like it https://kikitamap.com/2018/02/26/sitebuilding/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Deployment" title="Deployment">Deployment</a>
+            
+            <a class="tag" href="/tags/#Webmaster" title="Webmaster">Webmaster</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="http://zhihu.esrichina.com.cn/" target="_blank">ArcGIS知乎</a>
+          </li>
+          
+          <li>
+            <a href="http://blog.newnaw.com/" target="_blank">菩提老王的葡萄架子</a>
+          </li>
+          
+          <li>
+            <a href="http://blog.csdn.net/kikitamoon" target="_blank">慕名ArcGIS(CSDN)</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/kikitaMoon">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy;
+          Xiaoyan(Sharon) Mu
+          2023
+          <br>
+          Theme by
+          <a target="_blank" rel="noopener" href="http://beantech.org">BeanTech</a>
+          <span style="display: inline-block; margin: 0 5px;">
+            <i class="fa fa-heart"></i>
+          </span>
+          re-Ported by
+          <a target="_blank" rel="noopener" href="https://v-vincen.life/">Live My Life</a>
+          |
+          <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=V-Vincen&repo=V-Vincen.github.io&type=star&count=true"></iframe>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+    <!-- Busuanzi JavaScript -->
+    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+    <!-- LangSelect start -->
+    <script type="text/javascript" src="/js/langselect.js"></script>
+    <!-- LangSelect end -->
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  
+    <script async="async" type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+    <script async="async" type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  
+
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://kikitamap.com/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="SEARCH..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
