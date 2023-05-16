@@ -1439,28 +1439,7 @@
 
   
   <url>
-    <loc>https://kikitamap.com/tags/Geodata/</loc>
-    <lastmod>2023-05-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://kikitamap.com/tags/Mapping/</loc>
-    <lastmod>2023-05-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kikitamap.com/tags/Coordinate-System/</loc>
-    <lastmod>2023-05-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kikitamap.com/tags/CAD/</loc>
     <lastmod>2023-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1474,14 +1453,21 @@
   </url>
   
   <url>
-    <loc>https://kikitamap.com/tags/Deployment/</loc>
+    <loc>https://kikitamap.com/tags/Geodata/</loc>
     <lastmod>2023-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://kikitamap.com/tags/ArcPad/</loc>
+    <loc>https://kikitamap.com/tags/CAD/</loc>
+    <lastmod>2023-05-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kikitamap.com/tags/Deployment/</loc>
     <lastmod>2023-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1496,6 +1482,20 @@
   
   <url>
     <loc>https://kikitamap.com/tags/Geoprocessing/</loc>
+    <lastmod>2023-05-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kikitamap.com/tags/ArcPad/</loc>
+    <lastmod>2023-05-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kikitamap.com/tags/Coordinate-System/</loc>
     <lastmod>2023-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1586,14 +1586,14 @@
   </url>
   
   <url>
-    <loc>https://kikitamap.com/tags/Visual-Studio/</loc>
+    <loc>https://kikitamap.com/tags/Certification/</loc>
     <lastmod>2023-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://kikitamap.com/tags/Certification/</loc>
+    <loc>https://kikitamap.com/tags/Visual-Studio/</loc>
     <lastmod>2023-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
