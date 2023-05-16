@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://kikitamap.com/404.html</loc>
-    
-    <lastmod>2023-05-16</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://kikitamap.com/about/index.html</loc>
     
     <lastmod>2023-05-16</lastmod>
@@ -16,7 +9,7 @@
   </url>
   
   <url>
-    <loc>https://kikitamap.com/tags/index.html</loc>
+    <loc>https://kikitamap.com/archive/index.html</loc>
     
     <lastmod>2023-05-16</lastmod>
     
@@ -24,6 +17,20 @@
   
   <url>
     <loc>https://kikitamap.com/categories/index.html</loc>
+    
+    <lastmod>2023-05-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://kikitamap.com/404.html</loc>
+    
+    <lastmod>2023-05-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://kikitamap.com/tags/index.html</loc>
     
     <lastmod>2023-05-16</lastmod>
     
@@ -327,13 +334,6 @@
     <loc>https://kikitamap.com/2017/08/01/AnotherBeginning/</loc>
     
     <lastmod>2017-08-01</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kikitamap.com/archive/index.html</loc>
-    
-    <lastmod>2017-03-20</lastmod>
     
   </url>
   
