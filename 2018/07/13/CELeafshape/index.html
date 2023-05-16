@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2018/07/13/CELeafshape/">
   <title>
     
-      你知道 CityEngine 中的 Leaf Shape 吗？ - Visionary Whisperer
+      你知道 CityEngine 中的 Leaf Shape 吗？ - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -432,7 +430,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A --&gt; function() B </span><br><span class="line">      B  --&gt; function() C </span><br></pre></td></tr></table></figure>
 <p>这条规则中 ，A shape 对象已经消亡被B替代，在后续的规则中无法再调用到 A， 如果希望取到与A相同的对象，就需要提前复制出来，如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A --&gt; <span class="function">Anew <span class="title">function</span><span class="params">()</span> B            <span class="comment">//A被复制而创建了分支</span></span></span><br><span class="line"><span class="function">      B    --&gt; <span class="title">function</span><span class="params">()</span> C</span></span><br><span class="line"><span class="function">      Anew --&gt; <span class="title">function</span><span class="params">()</span> D</span></span><br></pre></td></tr></table></figure>
-<p>了解了这些，那么我们可以进一步回答这个问题：“如何将CityEngine规则建模的模型导出成各组件独立存储的模型？”</p>
+<p>了解了这些，那么我们可以进一步回答这个问题：“如何将CityEngine规则建模的模型导出成各组件独立存储的模型？”   </p>
 <p>可以的，再导出FileGDB或 Scene Layer Package的时候选中 “<strong>One Feature per Leaf Shape</strong>” 即可。</p>
 <p><img src="http://kikitamap.com/images/blogImg/CELeafShape_FGDB.png" alt="Export to FileGDB"></p>
 <p><img src="http://kikitamap.com/images/blogImg/CELeafShape_SLPK.png" alt="Export to Scene Layer Package"></p>

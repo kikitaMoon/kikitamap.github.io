@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2013/07/02/ImportArcpy/">
   <title>
     
-      在ArcGIS Desktop 中导入 Arcpy - Visionary Whisperer
+      在ArcGIS Desktop 中导入 Arcpy - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -415,24 +413,21 @@
 
         <p>在导入 ArcPy 之后，可以运行随 ArcGIS 安装的标准工具箱中的所有地理处理工具。</p>
 <p><code>import arcpy</code></p>
-<br>
-<h1>1.导入整个模块</h1>
-<p>模块通常是一个包含函数和类的 Python 文件。</p>
-<p>ArcPy 包括数据访问模块 (arcpy.da)、制图模块 (arcpy.mapping)、ArcGIS Spatial Analyst 扩展模块模块 (<a target="_blank" rel="noopener" href="http://arcpy.sa">arcpy.sa</a>) 和 ArcGIS Network Analyst 扩展模块模块 (<a target="_blank" rel="noopener" href="http://arcpy.na">arcpy.na</a>)。</p>
+<p><br></p>
+<h1 id="1-导入整个模块"><a href="#1-导入整个模块" class="headerlink" title="1.导入整个模块"></a>1.导入整个模块</h1><p>模块通常是一个包含函数和类的 Python 文件。</p>
+<p>ArcPy 包括数据访问模块 (arcpy.da)、制图模块 (arcpy.mapping)、ArcGIS Spatial Analyst 扩展模块模块 (arcpy.sa) 和 ArcGIS Network Analyst 扩展模块模块 (arcpy.na)。</p>
 <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> arcpy.mapping</span><br></pre></td></tr></table></figure>
 <p>Python 的核心 os 和 sys 模块，也可使用此命令。例如：</p>
 <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br></pre></td></tr></table></figure>
-<br>
-<h1>2.导入模块的一部分</h1>
-<p>如果只导入某一模块的一部分，可以使用 from-import 语句。</p>
+<p><br></p>
+<h1 id="2-导入模块的一部分"><a href="#2-导入模块的一部分" class="headerlink" title="2.导入模块的一部分"></a>2.导入模块的一部分</h1><p>如果只导入某一模块的一部分，可以使用 from-import 语句。</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> arcpy import <span class="keyword">env</span></span><br><span class="line"><span class="keyword">env</span>.workspace = <span class="string">&quot;c:/data&quot;</span></span><br></pre></td></tr></table></figure>
 <p>使用from-import-as 的形式，为其制定名称。</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> arcpy import <span class="keyword">env</span> as <span class="keyword">ENV</span></span><br><span class="line"><span class="keyword">ENV</span>.workspace = <span class="string">&quot;c:/data&quot;</span></span><br></pre></td></tr></table></figure>
 <p>再来个例子：</p>
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> arcpy <span class="keyword">import</span> <span class="keyword">mapping</span> <span class="keyword">as</span> MAP</span><br><span class="line">mxd = MAP.MapDocument(&quot;C:/maps/basemap.mxd&quot;)</span><br></pre></td></tr></table></figure>
-<br>
-<h1>3. 导入模块全部内容</h1>
-<p>模块的内容将被直接导入到命名空间中，随后无需添加前缀。在某些情况下，from-import-* 可以简化代码。</p>
+<p><br></p>
+<h1 id="3-导入模块全部内容"><a href="#3-导入模块全部内容" class="headerlink" title="3. 导入模块全部内容"></a>3. 导入模块全部内容</h1><p>模块的内容将被直接导入到命名空间中，随后无需添加前缀。在某些情况下，from-import-* 可以简化代码。</p>
 <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Import arcpy <span class="keyword">and</span> the sa <span class="keyword">module</span> <span class="keyword">as</span> *</span><br><span class="line"></span><br><span class="line">import arcpy</span><br><span class="line">from arcpy.sa import *</span><br><span class="line">arcpy.<span class="constructor">CheckOutExtension(<span class="string">&quot;spatial&quot;</span>)</span></span><br><span class="line"># Get input parameters</span><br><span class="line">#</span><br><span class="line">inRaster1 = arcpy.<span class="constructor">GetParameterAsText(0)</span></span><br><span class="line">inRaster2 = arcpy.<span class="constructor">GetParameterAsText(1)</span></span><br><span class="line">inRaster3 = arcpy.<span class="constructor">GetParameterAsText(2)</span></span><br><span class="line">outRaster = (<span class="constructor">Raster(<span class="params">inRaster1</span>)</span> + (<span class="constructor">Raster(<span class="params">inRaster2</span>)</span> - <span class="constructor">Raster(<span class="params">inRaster3</span>)</span>))</span><br></pre></td></tr></table></figure>
 
         <hr>

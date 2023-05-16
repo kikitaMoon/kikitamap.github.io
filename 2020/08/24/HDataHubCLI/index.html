@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2020/08/24/HDataHubCLI/">
   <title>
     
-      HERE Data Hub CLI - Visionary Whisperer
+      HERE Data Hub CLI - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -357,7 +355,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">711</span> In Total
+              Words <span class="post-count">710</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -421,13 +419,10 @@
 
         <p>HERE Data Hub 是一个用于空间数据存储的云服务，能够使用户简便地访问、管理空间数据。上一篇 HERE Studio 就是构建在 Data Hub 之上的网页应用程序。</p>
 <p>Data Hub CLI （Command Line Interface）是基于 Node.js 的命令行接口，可以帮助用户进行一些数据管理方面的交互操作。</p>
-<br>
-<h2 id="1-如何安装-？">1 如何安装 ？</h2>
-<h3 id="1-1-安装-Node-js-和-npm">1.1 安装 Node.js 和 npm</h3>
-<blockquote>
+<p><br></p>
+<h2 id="1-如何安装-？"><a href="#1-如何安装-？" class="headerlink" title="1 如何安装 ？"></a>1 如何安装 ？</h2><h3 id="1-1-安装-Node-js-和-npm"><a href="#1-1-安装-Node-js-和-npm" class="headerlink" title="1.1 安装 Node.js 和 npm"></a>1.1 安装 Node.js 和 npm</h3><blockquote>
 <p>安装方式很多种，我直接搬运了 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo 官网</a> 的安装指引。当年搭我这个博客时参考过，简洁好用，五星推荐：</p>
-<p>Node.js 为大多数平台提供了官方的 <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">安装程序</a>。<br>
-对于中国大陆地区用户，可以前往 <a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/node">淘宝 Node.js 镜像</a> 下载。</p>
+<p>Node.js 为大多数平台提供了官方的 <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">安装程序</a>。<br>对于中国大陆地区用户，可以前往 <a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/node">淘宝 Node.js 镜像</a> 下载。</p>
 <p>其它的安装方法：</p>
 <ul>
 <li>Windows：通过 <a target="_blank" rel="noopener" href="https://github.com/jasongin/nvs/">nvs</a>（推荐）或者<a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm">nvm</a> 安装。</li>
@@ -439,43 +434,36 @@
 </blockquote>
 <p>验证 Node.js 安装成功。  命令 <code>node -v</code>； <code>npm -v</code> ，看到当前版本号即可：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\xiamu&gt;node <span class="literal">-v</span></span><br><span class="line">v10.<span class="number">16.3</span></span><br><span class="line"></span><br><span class="line">C:\Users\xiamu&gt;npm <span class="literal">-v</span></span><br><span class="line"><span class="number">6.9</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-2-安装-Data-Hub-CLI">1.2 安装 Data Hub CLI</h3>
-<p>使用如下命令完成 Data Hub CLI 安装。</p>
+<h3 id="1-2-安装-Data-Hub-CLI"><a href="#1-2-安装-Data-Hub-CLI" class="headerlink" title="1.2 安装 Data Hub CLI"></a>1.2 安装 Data Hub CLI</h3><p>使用如下命令完成 Data Hub CLI 安装。</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">-g</span> @here/<span class="built_in">cli</span></span><br></pre></td></tr></table></figure>
 <p>提示：全局安装在某些环境下，需要管理员权限。</p>
 <p>验证 Data Hub CLI 安装成功，  输入命令 <code>here -V</code> :</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\WINDOWS\system32&gt;here <span class="literal">-V</span></span><br><span class="line"><span class="number">1.5</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure>
-<br>
-<h2 id="2-连接-HERE-账号">2 连接 HERE 账号</h2>
-<p>安装部署成功后，连接 HERE Developer 账号，从而管理自己账号下的项目和数据集。使用命令 <code>here configure account</code>：</p>
+<p><br></p>
+<h2 id="2-连接-HERE-账号"><a href="#2-连接-HERE-账号" class="headerlink" title="2 连接 HERE 账号"></a>2 连接 HERE 账号</h2><p>安装部署成功后，连接 HERE Developer 账号，从而管理自己账号下的项目和数据集。使用命令 <code>here configure account</code>：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">C:\WINDOWS\system32&gt;here configure account</span><br><span class="line">prompt: Email:  sharon.mu@here.com</span><br><span class="line">prompt: Password:</span><br><span class="line">Secrets verified successfully</span><br><span class="line"><span class="built_in">Add-on</span> features enabled.</span><br><span class="line">Default App Selected - oyNWTbKIov6XPMlrXxCH</span><br></pre></td></tr></table></figure>
 <p>连接成功后，你的账号配置信息会加密存储在当前系统账户目录下，文件名为：<strong>.herecli</strong> 。</p>
 <p>命令 <code>here configure verify</code> 来验证当前 credentials 是否有权限使用 Data Hub APIs。</p>
-<br>
-<h2 id="3-常用命令">3 常用命令</h2>
-<p>Data Hub CLI 的命令都遵循如下格式：</p>
+<p><br></p>
+<h2 id="3-常用命令"><a href="#3-常用命令" class="headerlink" title="3 常用命令"></a>3 常用命令</h2><p>Data Hub CLI 的命令都遵循如下格式：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;HERE command&gt; &lt;API command&gt;</span><br></pre></td></tr></table></figure>
 <p>常用命令：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">C:\WINDOWS\system32&gt;here <span class="literal">-h</span></span><br><span class="line">Usage: here [<span class="type">options</span>] [<span class="type">command</span>]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  <span class="literal">-V</span>, -<span class="literal">-version</span>                           output the version number</span><br><span class="line">  <span class="literal">-h</span>, -<span class="literal">-help</span>                              display help <span class="keyword">for</span> command</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  configure|c [<span class="type">verify</span>|<span class="type">refresh</span>]            setup configuration <span class="keyword">for</span> authentication</span><br><span class="line">  xyz|xs [<span class="type">list</span>|<span class="type">create</span>|<span class="type">upload</span>]             work with <span class="keyword">Data</span> Hub spaces</span><br><span class="line">  studio [<span class="type">list</span>|<span class="type">delete</span>|<span class="type">show</span>]               work with HERE Studio projects</span><br><span class="line">  transform|tf [<span class="type">csv2geo</span>|<span class="type">shp2geo</span>|<span class="type">gpx2geo</span>]  convert from csv/shapefile/gpx to geojson</span><br><span class="line">  geocode|<span class="built_in">gc</span>                              geocode feature</span><br><span class="line">  help [<span class="type">command</span>]                          display help <span class="keyword">for</span> command</span><br></pre></td></tr></table></figure>
 <p><strong>示例：</strong></p>
 <ul>
-<li>
-<p>List All Spaces – <code>here xyz list</code></p>
+<li><p>List All Spaces — <code>here xyz list</code></p>
 <p><img src="http://kikitamap.com/images/blogImg/HDataHubCLI_list.jpg" alt=""></p>
 </li>
-<li>
-<p>Create a New Space</p>
+<li><p>Create a New Space</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">here xyz create <span class="literal">-t</span> <span class="string">&quot;title for space&quot;</span> <span class="literal">-d</span> <span class="string">&quot;description for space&quot;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>Upload Data to a Space， Geojson/CSV/Shapefile……</p>
+<li><p>Upload Data to a Space， Geojson/CSV/Shapefile……</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">here xyz upload YOUR_SPACE_ID <span class="operator">-f</span> /Users/xyz/data.geojson</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>更多命令示例，详见文档： <a target="_blank" rel="noopener" href="https://developer.here.com/documentation/studio/map_customization_suite_cli_hlp/dev_guide/topics/commands.html">HERE Studio and HERE Data Hub  -  Commands</a></p>
-<br>
-<h2 id="4-Source-Code-on-Github">4 Source Code on Github</h2>
-<p>Data Hub CLI 是 HERE 官方提供的跨平台的开源库，如果感兴趣可以扩展定制的其功能。</p>
+<p><br></p>
+<h2 id="4-Source-Code-on-Github"><a href="#4-Source-Code-on-Github" class="headerlink" title="4 Source Code on Github"></a>4 Source Code on Github</h2><p>Data Hub CLI 是 HERE 官方提供的跨平台的开源库，如果感兴趣可以扩展定制的其功能。</p>
 <p><strong>heremaps/here-cli</strong>  <a target="_blank" rel="noopener" href="https://github.com/heremaps/here-cli">https://github.com/heremaps/here-cli</a></p>
 
 

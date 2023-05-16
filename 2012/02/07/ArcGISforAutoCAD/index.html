@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2012/02/07/ArcGISforAutoCAD/">
   <title>
     
-      ArcGIS for AutoCAD 小结 - Visionary Whisperer
+      ArcGIS for AutoCAD 小结 - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -415,55 +413,44 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h2 id="一、-简介"><strong>一、 简介</strong></h2>
-<p>ArcGIS for AutoCAD是Esri提供的一个针对AutoCAD免费插件。此插件可以使AutoCAD作为ArcGIS Server的客户端加载服务；并且可以作为GIS结构编辑器来组织CAD数据，从而作为直接可用的GIS 要素类；给CAD数据定义坐标系，可以被ArcGIS产品识别。</p>
-<br>
-<h2 id="二、-系统要求"><strong>二、 系统要求</strong></h2>
-<p>这里基于ArcGIS for AutoCAD 250版本。</p>
-<p><strong>版本:</strong></p>
+        <h2 id="一、-简介"><a href="#一、-简介" class="headerlink" title="一、 简介"></a><strong>一、 简介</strong></h2><p> ArcGIS for AutoCAD是Esri提供的一个针对AutoCAD免费插件。此插件可以使AutoCAD作为ArcGIS Server的客户端加载服务；并且可以作为GIS结构编辑器来组织CAD数据，从而作为直接可用的GIS 要素类；给CAD数据定义坐标系，可以被ArcGIS产品识别。</p>
+<p><br></p>
+<h2 id="二、-系统要求"><a href="#二、-系统要求" class="headerlink" title="二、 系统要求"></a><strong>二、 系统要求</strong></h2><p>这里基于ArcGIS for AutoCAD 250版本。 </p>
+<p> <strong>版本:</strong> </p>
 <p>AutoCAD 2010/2011, 32-bit or 64-bit</p>
 <p>AutoCAD Map 3D 2010/2011, 32-bit or 64-bit</p>
 <p>AutoCAD Civil 3D 2010/2011, 32-bit or 64-bit</p>
 <p><strong>操作系统:</strong></p>
-<p>Windows 7 Enterprise, Ultimate, Professional, or Home  Premium</p>
-<p>Windows Vista Enterprise, Business, Ultimate, or Home  Premium (SP1 or later)</p>
+<p>Windows 7 Enterprise, Ultimate, Professional, or Home  Premium</p>
+<p>Windows Vista Enterprise, Business, Ultimate, or Home  Premium (SP1 or later) </p>
 <p>Windows XP Professional or Home edition (SP3)</p>
-<p><strong>Microsoft .NET Framework:</strong></p>
-<p>Microsoft .NET Framework Version 3.5 (SP1 or later)</p>
-<p><strong>Internet 方式连接ArcGIS Server:</strong></p>
-<p>ArcGIS Server 9.3 或更高版本发布服务</p>
-<br>
-<h2 id="三、-安装与加载"><strong>三、 安装与加载</strong></h2>
-<p>下面以AutoCAD 2010（x64），ArcGIS for AutoCAD 250（x64）为例，介绍一下此插件的安装使用过程。</p>
-<h3 id="1-获取并安装插件"><strong>1. 获取并安装插件</strong></h3>
-<p>插件的下载地址：<a target="_blank" rel="noopener" href="http://support.esrichina-bj.cn/2011/0224/963.html">http://support.esrichina-bj.cn/2011/0224/963.html</a><br>
-注意此插件区分32bit与64bit，选择合适版本下载，我这里使用ArcGISforAutoCADDownloadx64.exe。<br>
-在已经安装AutoCAD的前提下，双击运行此exe即可。</p>
-<h3 id="2-插件的加载"><strong>2. 插件的加载</strong></h3>
-<p>以管理员身份运行AutoCAD，在AutoCAD的命令提示行中输入：NETLOAD。出现资源管理器窗口，浏览至插件的安装目录，选择 ArcGISForAutoCAD.dll打开。</p>
+<p><strong>Microsoft .NET Framework:</strong>   </p>
+<p>Microsoft .NET Framework Version 3.5 (SP1 or later) </p>
+<p> <strong>Internet 方式连接ArcGIS Server:</strong>   </p>
+<p>ArcGIS Server 9.3 或更高版本发布服务 </p>
+<p><br></p>
+<h2 id="三、-安装与加载"><a href="#三、-安装与加载" class="headerlink" title="三、 安装与加载"></a><strong>三、 安装与加载</strong></h2><p>下面以AutoCAD 2010（x64），ArcGIS for AutoCAD 250（x64）为例，介绍一下此插件的安装使用过程。</p>
+<h3 id="1-获取并安装插件"><a href="#1-获取并安装插件" class="headerlink" title="1. 获取并安装插件"></a><strong>1. 获取并安装插件</strong></h3><p>插件的下载地址：<a target="_blank" rel="noopener" href="http://support.esrichina-bj.cn/2011/0224/963.html">http://support.esrichina-bj.cn/2011/0224/963.html</a><br> 注意此插件区分32bit与64bit，选择合适版本下载，我这里使用ArcGISforAutoCADDownloadx64.exe。<br> 在已经安装AutoCAD的前提下，双击运行此exe即可。</p>
+<h3 id="2-插件的加载"><a href="#2-插件的加载" class="headerlink" title="2. 插件的加载"></a><strong>2. 插件的加载</strong></h3><p>以管理员身份运行AutoCAD，在AutoCAD的命令提示行中输入：NETLOAD。出现资源管理器窗口，浏览至插件的安装目录，选择 ArcGISForAutoCAD.dll打开。</p>
 <p><img src="http://kikitamap.com/images/blogImg/ArcGISforAutoCAD_AutoCAD.gif" alt=""></p>
 <p>之后出现插件加载画面。</p>
 <p><img src="http://kikitamap.com/images/blogImg/ArcGISforAutoCAD_Launch.gif" alt=""></p>
 <p>加载ArcGIS for AutoCAD插件成功。</p>
-<p>加载后，会多出ArcGIS for AutoCAD插件栏，如下图：<br>
-<img src="http://kikitamap.com/images/blogImg/ArcGISforAutoCAD_Menu.gif" alt=""></p>
-<h3 id="注意事项："><strong>注意事项：</strong></h3>
-<p>添加ArcGIS Online服务时，可能会遇到错误：“<strong>找不到资源：</strong>‘<strong>basemapui\basemapcenter.xaml’</strong>”。</p>
+<p>加载后，会多出ArcGIS for AutoCAD插件栏，如下图：<br><img src="http://kikitamap.com/images/blogImg/ArcGISforAutoCAD_Menu.gif" alt=""></p>
+<h3 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a><strong>注意事项：</strong></h3><p>添加ArcGIS Online服务时，可能会遇到错误：“<strong>找不到资源：</strong>‘<strong>basemapui\basemapcenter.xaml’</strong>”。</p>
 <p>解决方法：这是个已知问题，下载补丁既可以解决此问题，地址：<a target="_blank" rel="noopener" href="http://resources.arcgis.com/zh-cn/content/patches-and-service-packs?fa=listPatches&amp;PID=129">http://resources.arcgis.com/zh-cn/content/patches-and-service-packs?fa=listPatches&amp;PID=129</a></p>
 <p>至此，ArcGIS for AutoCAD 插件即可以开始使用啦。</p>
-<h2 id="四、-功能与使用"><strong>四、 功能与使用</strong></h2>
-<h3 id="1-Map-Service"><strong>1. Map Service</strong></h3>
-<p>有了这个插件，首先可以使AutoCAD直接加载Map Service：</p>
+<h2 id="四、-功能与使用"><a href="#四、-功能与使用" class="headerlink" title="四、 功能与使用"></a><strong>四、 功能与使用</strong></h2><h3 id="1-Map-Service"><a href="#1-Map-Service" class="headerlink" title="1. Map Service"></a><strong>1. Map Service</strong></h3><p>有了这个插件，首先可以使AutoCAD直接加载Map Service：</p>
 <p>(1) ArcGIS Online</p>
 <p>使用Esri Map Gallery中的地图作为地图，添加到现有的CAD工程中。</p>
 <p><img src="http://kikitamap.com/images/blogImg/ArcGISforAutoCAD_Basemap.gif" alt=""></p>
 <p>(2) ArcGIS Server</p>
 <p>向现有的CAD工程中添加ArcGIS Server服务。</p>
 <p><img src="http://kikitamap.com/images/blogImg/ArcGISforAutoCAD_AGSServer.gif" alt=""></p>
-<h3 id="2-CAD-Feature-Class"><strong>2. CAD Feature Class</strong></h3>
-<p>此插件可以将 AutoCAD 作为 GIS 方案编辑器，用来将 CAD 数据组织为可供 GIS 使用的要素类。</p>
+<h3 id="2-CAD-Feature-Class"><a href="#2-CAD-Feature-Class" class="headerlink" title="2. CAD Feature Class"></a><strong>2. CAD Feature Class</strong></h3><p>此插件可以将 AutoCAD 作为 GIS 方案编辑器，用来将 CAD 数据组织为可供 GIS 使用的要素类。</p>
 <p>类型对象过滤器是预定义的，用来约束ArcGIS Desktop支持的feature class与DWG 对象的对应关系。</p>
-<p>DWG 对象与ArcGIS 要素的强制对应关系如下：</p>
+<p>DWG 对象与ArcGIS 要素的强制对应关系如下：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -494,8 +481,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="3-坐标系统"><strong>3. 坐标系统</strong></h3>
-<p>插件使用的坐标系统是通过*.prj 文件来定义的。当给DWG文件定义坐标系后，这个有效的空间参考是可以被ArcGIS Server、ArcMap、ArcCatalog以及ArcGIS 地理处理工具识别的。</p>
+</div>
+<h3 id="3-坐标系统"><a href="#3-坐标系统" class="headerlink" title="3. 坐标系统"></a><strong>3. 坐标系统</strong></h3><p>插件使用的坐标系统是通过*.prj 文件来定义的。当给DWG文件定义坐标系后，这个有效的空间参考是可以被ArcGIS Server、ArcMap、ArcCatalog以及ArcGIS 地理处理工具识别的。</p>
 <p>关于CAD与ArcGIS一体化的文章，后面会不断更新~</p>
 
 

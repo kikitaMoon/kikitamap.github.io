@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2014/11/17/MDColorBalance1/">
   <title>
     
-      镶嵌数据集工具小结（七）色彩平衡与接缝线 Ⅰ - Visionary Whisperer
+      镶嵌数据集工具小结（七）色彩平衡与接缝线 Ⅰ - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -417,7 +415,7 @@
 
         <p>镶嵌数据集的色彩平衡与接缝线  Ⅰ</p>
 <p><img src="http://kikitamap.com/images/blogImg/MDColorBalance1_Toolset.png" alt=""></p>
-<br>
+<p><br></p>
 <p><strong>色彩平衡</strong></p>
 <p>镶嵌数据集一般由多张影像组成的，各幅影像可能由于各种原因存在色彩差异，例如航摄时的天气、光线等原因。为了让整个镶嵌数据集看起来是无缝的一整张，而不是一片一片的，我们需要做的就是色彩校正，或者叫做色彩平衡（均衡）。也就是实现下面的效果：</p>
 <p><img src="http://kikitamap.com/images/blogImg/MDColorBalance1_Demo.png" alt=""></p>
@@ -430,17 +428,15 @@
 <li>所有栅格数据集都没有关联的色彩映射表。</li>
 </ul>
 </blockquote>
-<br>
-<br>
-<h1><strong>Color Balance Mosaic Dataset</strong> 工具用于实现镶嵌数据集的色彩平衡。</h1>
-<h2 id="Balance-Method"><strong>Balance Method</strong></h2>
-<p>工具提供了三种匀色的算法：</p>
+<p><br></p>
+<p><br></p>
+<h1 id="Color-Balance-Mosaic-Dataset-工具用于实现镶嵌数据集的色彩平衡。"><a href="#Color-Balance-Mosaic-Dataset-工具用于实现镶嵌数据集的色彩平衡。" class="headerlink" title="Color Balance Mosaic Dataset 工具用于实现镶嵌数据集的色彩平衡。"></a><strong>Color Balance Mosaic Dataset</strong> 工具用于实现镶嵌数据集的色彩平衡。</h1><h2 id="Balance-Method"><a href="#Balance-Method" class="headerlink" title="Balance Method"></a><strong>Balance Method</strong></h2><p>工具提供了三种匀色的算法：</p>
 <p><strong>匀光/Dodging</strong></p>
 <p>这是传统的匀光摄影测量方法。 如果选择“匀光/Dodging”，需要同时选择<strong>目标颜色表面类型</strong> 。此方法会参照目标颜色来更改每个像素值，使图像均匀过渡到目标颜色。多数情况下，匀光平衡效果最佳。</p>
 <ul>
 <li>SINGLE_COLOR  — 所有像素都参照一个单色点（即，平均值）进行匀光处理。</li>
 <li>COLOR_GRID    — 所有像素都参照分布在整个镶嵌数据集中的多组点进行匀光处理。</li>
-<li>FIRST_ORDER   — 所有像素都参照从二维多项式倾斜平面获取的多个点进行匀光处理。与“颜色格网”表面相似。</li>
+<li>FIRST_ORDER   — 所有像素都参照从二维多项式倾斜平面获取的多个点进行匀光处理。与“颜色格网”表面相似。                           </li>
 <li>SECOND_ORDER  — 所有像素都参照从二维多项式抛物线/双曲线/椭圆表面获取的一组多点进行匀光处理。与“颜色格网”表面相似。</li>
 <li>THIRD_ORDER   — 所有像素都参照从三次表面获取的多个点进行匀光处理。</li>
 </ul>
@@ -451,31 +447,27 @@
 <li>First Order，Second Order, Third Oder 这三种方法与“颜色格网”表面相比，多项式阶表面的颜色变化通常更为平滑，并且使用的辅助表存储空间更少，但往往需要花费更长的时间进行处理。</li>
 </ul>
 <p><strong>直方图/Histogram</strong></p>
-<p>此方法将根据目标直方图更改各像素值。可基于所有栅格自动计算目标直方图，也可以指定一个目标栅格。<br>
-当镶嵌数据集中的所有栅格的直方图形状都相似时，直方图平衡会取得较好的效果。</p>
+<p>此方法将根据目标直方图更改各像素值。可基于所有栅格自动计算目标直方图，也可以指定一个目标栅格。<br>当镶嵌数据集中的所有栅格的直方图形状都相似时，直方图平衡会取得较好的效果。</p>
 <p><strong>标准差/Standard Deviation</strong></p>
-<p>此方法将根据标准差计算更改每个像素值。可基于所有栅格或指定的目标栅格自动计算标准差值。<br>
-当镶嵌数据集中的所有栅格的正态值具有相同的直方图分布时，标准差平衡的效果最好。</p>
-<h2 id="Target-Raster"><strong>Target Raster</strong></h2>
-<p>上面三种方法中所使用到的数值，既可以来源于镶嵌数据集自身，也可以来源于自己指定的目标栅格。</p>
+<p>此方法将根据标准差计算更改每个像素值。可基于所有栅格或指定的目标栅格自动计算标准差值。<br>当镶嵌数据集中的所有栅格的正态值具有相同的直方图分布时，标准差平衡的效果最好。</p>
+<h2 id="Target-Raster"><a href="#Target-Raster" class="headerlink" title="Target Raster"></a><strong>Target Raster</strong></h2><p>上面三种方法中所使用到的数值，既可以来源于镶嵌数据集自身，也可以来源于自己指定的目标栅格。</p>
 <p>不同的色彩平衡方法：</p>
 <ul>
-<li>使用匀光平衡时，得出的目标颜色取决于当时所选择的目标颜色表面类型。</li>
+<li>使用匀光平衡时，得出的目标颜色取决于当时所选择的目标颜色表面类型。<ul>
 <li>对于 SINGLE_COLOR，将使用参照目标图像的平均值。</li>
 <li>对于 COLOR_GRID，会将参照目标图像重采样为适合的格网。</li>
 <li>对于 多项式阶表面，通过最小二乘拟合从参照目标图像获得多项式的系数。</li>
+</ul>
+</li>
 <li>使用直方图平衡时，将基于参照目标图像获得目标直方图。</li>
 <li>使用标准差平衡时，将基于参照目标图像获得目标标准差。</li>
 </ul>
-<h2 id="Block-Filed"><strong>Block Filed</strong></h2>
-<p>从镶嵌数据集的属性表中指定一个用于“分组”的字段，在执行计算和操作时，用于标识应被视为单一项目的多个项目。</p>
-<br>
-<br>
+<h2 id="Block-Filed"><a href="#Block-Filed" class="headerlink" title="Block Filed"></a><strong>Block Filed</strong></h2><p>从镶嵌数据集的属性表中指定一个用于“分组”的字段，在执行计算和操作时，用于标识应被视为单一项目的多个项目。</p>
+<p><br><br><br></p>
 <p><strong>预处理选项</strong></p>
 <p><img src="http://kikitamap.com/images/blogImg/MDColorBalance1_PreProcessing.png" alt=""></p>
 <p>在执行栅格数据集色彩平衡之前，工具会先执行预处理选项。</p>
-<h1>**Exclude Area Raster **</h1>
-<p>用于排除不能或者难于进行色彩校正的区域，例如：水、云和异常区域等。本质上就是创建一个掩膜，从而从镶嵌数据集色彩校正算法中排除一些像素。</p>
+<h1 id="Exclude-Area-Raster"><a href="#Exclude-Area-Raster" class="headerlink" title="Exclude Area Raster "></a><strong>Exclude Area Raster </strong></h1><p>用于排除不能或者难于进行色彩校正的区域，例如：水、云和异常区域等。本质上就是创建一个掩膜，从而从镶嵌数据集色彩校正算法中排除一些像素。</p>
 <p>PS： 对镶嵌数据集进行色彩校正时，排除区域并不会经常用到。只有当存在较难校正的区域，且不希望因为这些问题区域产生偏差时，可创建排除区域。另外，像素分布中的极值（极低像素值和极高像素值）区域也可能成为色彩校正的问题区域。</p>
 <p><img src="http://kikitamap.com/images/blogImg/MDColorBalance1_Exclude.png" alt=""></p>
 <p>那如何生成这个排除区域栅格呢？</p>
@@ -505,9 +497,8 @@
 <li>STANDARD_DEVIATION — 标准差预拉伸。</li>
 </ul>
 <p><strong>Gamma</strong></p>
-<p>当选择了标准差拉伸或最小值-最大值拉伸时，可以额外的设置Gamma值。可通过应用 Gamma 拉伸来控制图像的整体亮度。<br>
-如果 Gamma 系数设置得太低，中间色调将太暗；而如果 Gamma 系数设置得太高，中间色调又会太亮。Gamma 系数不仅会改变图像的亮度，还会改变红绿蓝之间的比率。</p>
-<p>如果对色彩校正的不满意，我们也可以移除效果，镶嵌数据集的右键菜单中，Remove – Color Balancing。</p>
+<p>当选择了标准差拉伸或最小值-最大值拉伸时，可以额外的设置Gamma值。可通过应用 Gamma 拉伸来控制图像的整体亮度。<br>如果 Gamma 系数设置得太低，中间色调将太暗；而如果 Gamma 系数设置得太高，中间色调又会太亮。Gamma 系数不仅会改变图像的亮度，还会改变红绿蓝之间的比率。</p>
+<p>如果对色彩校正的不满意，我们也可以移除效果，镶嵌数据集的右键菜单中，Remove — Color Balancing。</p>
 <p><img src="http://kikitamap.com/images/blogImg/MDColorBalance1_Remove.png" alt=""></p>
 
 

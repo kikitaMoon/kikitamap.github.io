@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2018/03/22/textureinCE/">
   <title>
     
-      CityEngine中纹理贴图之道(一) - Visionary Whisperer
+      CityEngine中纹理贴图之道(一) - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -417,12 +415,13 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p>​</p>
+        <p>​        </p>
 <p>​        经常看到官微、公众号的各种推送，了解到很多轰动一时的大片和电游的视觉制作都有CityEngine 助力过。CityEngine 在影娱视觉行业早已硕果累累，而对于GIS大众，CityEngine 算是刚从幕后走到了台前，从神秘娱乐圈走近了烟火人间。这几年来，这个不姓“Arc”的非主流产品在不断地推陈出新，吸引着慕名围观的用户去了解。3D模型的纹理贴图问题通常是建模中的高频问题，作为前排围观群众之一，我今天就用CityEngine做一面“墙”娱乐一下吧。</p>
 <blockquote>
 <p>环境： Esri City Engine 2017.1</p>
 </blockquote>
-<p>​        在 CityEngine中的 <code>shape</code> 对象具有<code>material </code>属性，这一属性可以控制模型的纹理贴图、阴影效果、外观等。CityEngine 支持的纹理图片的格式有：<strong>.bmp、.gif、.jpg/.jpeg、.png、.tif/.tiff</strong>。 CityEngine贴图支持6个纹理通道，它们通过特定的关键字来表达，如下：</p>
+<p>​        在 CityEngine中的 <code>shape</code> 对象具有<code>material</code>属性，这一属性可以控制模型的纹理贴图、阴影效果、外观等。CityEngine 支持的纹理图片的格式有：<strong>.bmp、.gif、.jpg/.jpeg、.png、.tif/.tiff</strong>。 CityEngine贴图支持6个纹理通道，它们通过特定的关键字来表达，如下：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -457,35 +456,32 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p><strong>下面我通过几个实例来说明下它们的用途：</strong></p>
 <p><img src="http://kikitamap.com/images/blogImg/textureinCE_1.png" alt=""></p>
 <p>​        基于共同的基础脚本向下进行，这里不再解释，相信你一看即懂。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * File:    MyTestforBaseTexure.cga</span></span><br><span class="line"><span class="comment"> * Created: 21 Mar 2018 08:26:37 GMT</span></span><br><span class="line"><span class="comment"> * Author:  Xiaoyan Mu</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">version <span class="string">&quot;2017.1&quot;</span></span><br><span class="line">attr height = <span class="number">6</span></span><br><span class="line">wall_tex        = <span class="string">&quot;facades/textures/brickwall.jpg&quot;</span></span><br><span class="line">dirt_tex        = <span class="string">&quot;facades/textures/dirtmap.15.tif&quot;</span></span><br><span class="line">graffiti_tex    = <span class="string">&quot;facades/kiktia/Graffiti.jpg&quot;</span></span><br><span class="line">Lot --&gt; extrude(height) Building</span><br><span class="line">Building --&gt; <span class="function"><span class="title">comp</span>(<span class="params">f</span>)</span> &#123;<span class="attr">side</span> : Sidefacade&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="material-colormap">material.colormap</h2>
-<p><img src="http://kikitamap.com/images/blogImg/textureinCE_2.png" alt=""></p>
+<h2 id="material-colormap"><a href="#material-colormap" class="headerlink" title="material.colormap"></a>material.colormap</h2><p><img src="http://kikitamap.com/images/blogImg/textureinCE_2.png" alt=""></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Sidefacade --&gt;</span><br><span class="line">	setupProjection(<span class="number">0</span>, scope.xy, <span class="number">1.5</span>, <span class="number">1</span>, <span class="number">1</span>) </span><br><span class="line">	texture(wall_tex)  # set(material.colormap,wall_tex)</span><br><span class="line">	projectUV(<span class="number">0</span>) </span><br></pre></td></tr></table></figure>
 <p>​        <code>texture(wall_tex)</code> ，实际是 <code>set(material.colormap,wall_tex)</code> 的简写，这个函数仅用于为当前shape指定纹理图片，而没有创建纹理坐标系。因此事先需要使用 <code>setupProjection()</code> ，用于指定贴图表面上的UV坐标系，以及贴图矩阵的排布样式。最后使用 <code>ProjectUV()</code>将贴图UV坐标系应用到贴图表面，这个过程有时被称为“烘焙（bake）”。相关函数的具体语法请查 <a target="_blank" rel="noopener" href="http://cehelp.esri.com/help/index.jsp?topic=/com.procedural.cityengine.help/html/toc.html"><strong>帮助</strong></a>。</p>
-<p>​        “烘焙”是个形象生动的词，是个3D建模领域的常用词，对于GIS圈子的朋友可能有点陌生，在一个**<a target="_blank" rel="noopener" href="https://www.blenderartists.org/forum/showthread.php?116259-what-is-texture-baking">论坛</a>**里找到一个描述觉得不错分享大家。</p>
+<p>​        “烘焙”是个形象生动的词，是个3D建模领域的常用词，对于GIS圈子的朋友可能有点陌生，在一个<strong><a target="_blank" rel="noopener" href="https://www.blenderartists.org/forum/showthread.php?116259-what-is-texture-baking">论坛</a></strong>里找到一个描述觉得不错分享大家。</p>
 <blockquote>
-<p>“Baking” generally refers to the process of recording as an image, some aspect of the Material or Mesh characteristics of a model. One value of this is that certain kinds of Material parameters can take longer to compute and apply to a model than an Image Texture, so it saves rendering time. Baking is usually done once a Material or Mesh is finalized.</p>
+<p>“Baking” generally refers to the process of recording as an image, some aspect of the Material or Mesh characteristics of a model. One value of this is that certain kinds of Material parameters can take longer to compute and apply to a model than an Image Texture, so it saves rendering time. Baking is usually done once a Material or Mesh is finalized. </p>
 <p>In texture baking, for example, what is originally a procedural texture can be recorded as an image. Sometimes various “channels” of a material can be consolidated into a single image, simplifying the number of texture images used. Material colors applied in Texture Paint mode can be saved to an image. Texture baking can also help with disguising seams on a UV unwrap, a somewhat complicated but very useful process.</p>
-<p>In normal baking, the mesh normals (which affect how light appears to reflect from the model’s surface) can be recorded – this results in very specialized images with RGB values based on normal vectors.</p>
+<p>In normal baking, the mesh normals (which affect how light appears to reflect from the model’s surface) can be recorded — this results in very specialized images with RGB values based on normal vectors.</p>
 <p>Usually baking requires having the model UV-unwrapped and -mapped, so the resulting image is properly fit to the model.</p>
 </blockquote>
-<h2 id="material-bumpmap">material.bumpmap</h2>
-<p>​    <code>material.bumpmap</code> 可以实现贴图的浮雕效果。</p>
+<h2 id="material-bumpmap"><a href="#material-bumpmap" class="headerlink" title="material.bumpmap"></a>material.bumpmap</h2><p>​    <code>material.bumpmap</code> 可以实现贴图的浮雕效果。</p>
 <p><img src="http://kikitamap.com/images/blogImg/textureinCE_3.png" alt=""></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Sidefacade --&gt;</span><br><span class="line">	setupProjection(<span class="number">1</span>, scope.xy, <span class="number">1.5</span>, <span class="number">1</span>, <span class="number">1</span>) </span><br><span class="line">	set(material.bumpmap,wall_tex)  </span><br><span class="line">	projectUV(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="material-dirtmap">material.dirtmap</h2>
-<p>​        如果想使这面墙更逼真，来点“做旧”的感觉，可以使用 <code>material.dirtmap</code> 通道来增加图片镶嵌的效果。</p>
+<h2 id="material-dirtmap"><a href="#material-dirtmap" class="headerlink" title="material.dirtmap"></a>material.dirtmap</h2><p>​        如果想使这面墙更逼真，来点“做旧”的感觉，可以使用 <code>material.dirtmap</code> 通道来增加图片镶嵌的效果。</p>
 <p><img src="http://kikitamap.com/images/blogImg/textureinCE_4.png" alt=""></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Sidefacade --&gt;</span><br><span class="line">	setupProjection(<span class="number">0</span>, scope.xy, <span class="number">1.5</span>, <span class="number">1</span>, <span class="number">1</span>) </span><br><span class="line">	texture(wall_tex)</span><br><span class="line">	projectUV(<span class="number">0</span>) </span><br><span class="line">    # Add dirtmap channel</span><br><span class="line">    setupProjection(<span class="number">2</span>, scope.xy, scope.sx, scope.sy)</span><br><span class="line">	set(material.dirtmap, dirt_tex)</span><br><span class="line">	projectUV(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 <p>​        相同的方法来做一面涂鸦墙也可以哦。（涂鸦图片来自网络，侵删）</p>
 <p>​        将dirtmap换张图，  <code>set(material.dirtmap, graffiti_tex)</code></p>
 <p><img src="http://kikitamap.com/images/blogImg/textureinCE_5.png" alt=""></p>
 <p>先到这里，下篇继续……</p>
-<h2 id=""></h2>
-
+<h2 id=""><a href="#" class="headerlink" title=" "></a> </h2>
 
         <hr>
         <!-- Pager -->

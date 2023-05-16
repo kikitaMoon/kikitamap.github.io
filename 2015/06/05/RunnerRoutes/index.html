@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2015/06/05/RunnerRoutes/">
   <title>
     
-      为Runner做一张有质感的图 - Visionary Whisperer
+      为Runner做一张有质感的图 - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -416,35 +414,29 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p>如今，通过 GPS 我们可以轻松采集到自己的足迹，Runner们用各种手机App记录跑步路线也再平常不过。如果我们有大量的足迹信息，也可以试试 ArcGIS Pro 的渲染能力，来看看自己的 Favourite 线路如何分布。</p>
-<br>
+<p><br></p>
 <p>我在 ArcGIS Online 上 down 到了某位 Runner 的足迹信息，当然大家也可以用自己的，gpx，txt，kml 等常见的 GPS Tracklog 文件都是可以直接导入成为 ArcGIS 支持的格式。根据文件格式的不同，你可能会需要 GPX to Feature ， Add XY Event layer， KML to Layer ，Points to Line 等这些工具的辅助，得到路线数据，表示路线的线数据当然越多越好。</p>
-<br>
+<p><br></p>
 <p>ArcGIS Pro 的符号化中增加了符号的透明效果，这一点完胜 ArcMap 的渲染效果。你想问ArcMap什么效果？如下，好像有点惨不忍睹：</p>
 <p><img src="http://kikitamap.com/images/blogImg/RunnerRoutes_ArcMap.png" alt=""></p>
-<br>
+<p><br></p>
 <p>由于ArcGIS Pro 中的新增的符号透明不是图层的整体透明，而是每个Feature的符号透明，就会产生色彩叠加的效果。直观上说，就是符号叠加越密集的位置，色彩会越深，给人以渐变色彩的热力图的感受。</p>
-<br>
-<p>#<strong>怎么做？</strong></p>
-<br>
-<p>##<strong>1.</strong><br>
-加入数据，GPS路线数据和深灰色主题的底图服务。</p>
+<p><br></p>
+<h1 id="怎么做？"><a href="#怎么做？" class="headerlink" title="怎么做？"></a><strong>怎么做？</strong></h1><p><br></p>
+<h2 id="1"><a href="#1" class="headerlink" title="1."></a><strong>1.</strong></h2><p>加入数据，GPS路线数据和深灰色主题的底图服务。</p>
 <p><img src="http://kikitamap.com/images/blogImg/RunnerRoutes_Basemap.png" alt=""></p>
-<br>
-<p>##<strong>2.</strong></p>
-<p>选个喜欢的颜色，并进入 more。</p>
+<p><br></p>
+<h2 id="2"><a href="#2" class="headerlink" title="2."></a><strong>2.</strong></h2><p>选个喜欢的颜色，并进入 more。</p>
 <p><img src="http://kikitamap.com/images/blogImg/RunnerRoutes_Symbol.png" alt=""></p>
-<br>
-<p>##<strong>3.</strong></p>
-<p>设置个透明百分比。</p>
+<p><br></p>
+<h2 id="3"><a href="#3" class="headerlink" title="3."></a><strong>3.</strong></h2><p>设置个透明百分比。</p>
 <p><img src="http://kikitamap.com/images/blogImg/RunnerRoutes_Transparent.png" alt=""></p>
-<br>
-<p>##<strong>4.</strong></p>
-<p>Done !</p>
+<p><br></p>
+<h2 id="4"><a href="#4" class="headerlink" title="4."></a><strong>4.</strong></h2><p>Done !</p>
 <p><img src="http://kikitamap.com/images/blogImg/RunnerRoutes_Done.png" alt=""></p>
-<br>
-无需任何高级的分析，所见即所得。相比周围，明显这条路是这位 Runner 最经常挥洒汗水的一条……
+<p><br><br>无需任何高级的分析，所见即所得。相比周围，明显这条路是这位 Runner 最经常挥洒汗水的一条……</p>
 <p><img src="http://kikitamap.com/images/blogImg/RunnerRoutes_Favorite.png" alt=""></p>
-<br>
+<p><br></p>
 
 
         <hr>

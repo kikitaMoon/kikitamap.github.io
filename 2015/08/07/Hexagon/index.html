@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2015/08/07/Hexagon/">
   <title>
     
-      蜂巢网格 - Visionary Whisperer
+      蜂巢网格 - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -417,36 +415,32 @@
 
         <p>比起死板硬朗的矩形渔网，六边形的蜂巢网格越来越受欢迎。推荐个小工具，实现下面的效果：</p>
 <p><img src="http://kikitamap.com/images/blogImg/Hexagon_Done.png" alt=""></p>
-<br>
-<br>
-<h1>1.</h1>
-<p>准备自己的兴趣区域和需要统计的要素。例如，下面的美国国境面（浅灰色），机场点数据。</p>
+<p><br></p>
+<p><br></p>
+<h1 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h1><p>准备自己的兴趣区域和需要统计的要素。例如，下面的美国国境面（浅灰色），机场点数据。</p>
 <p><img src="http://kikitamap.com/images/blogImg/Hexagon_Airports.png" alt=""></p>
-<br>
-<br>
-<h1>2.</h1>
-<p>ArcGIS Online上有 GISers 分享的生产六边形格网的工具：</p>
+<p><br></p>
+<p><br></p>
+<h1 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h1><p>ArcGIS Online上有 GISers 分享的生产六边形格网的工具：</p>
 <p>ModelBuilder版本的  <strong><a target="_blank" rel="noopener" href="http://www.arcgis.com/home/item.html?id=03388990d3274160afe240ac54763e57">Create Hexagon Tessellation</a></strong></p>
 <p>Python版本的 <a target="_blank" rel="noopener" href="http://arcscripts.esri.com/details.asp?dbid=15839"><strong>Create Hexagons</strong></a></p>
-<br>
+<p><br></p>
 <p>我就以第一个工具为例，运行状态打开：</p>
 <p><img src="http://kikitamap.com/images/blogImg/Hexagon_Tool.png" alt=""></p>
 <p>如果有关心工具内部的同学，编辑状态下看看工具：</p>
 <p><img src="http://kikitamap.com/images/blogImg/Hexagon_Model.png" alt=""></p>
 <p>运行之后，得到布满兴趣区域的蜂巢格网：</p>
 <p><img src="http://kikitamap.com/images/blogImg/Hexagon_Grid.png" alt=""></p>
-<br>
-<br>
-<h1>3.</h1>
-<p>统计每个六边形内有多少座机场（多少个点），统计是ArcMap的强项。这里我就使用 Spatial Join 工具实现，其中我只保留有连接要素的目标要素，也就是仅保留有机场点的六边形。</p>
+<p><br></p>
+<p><br></p>
+<h1 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h1><p>统计每个六边形内有多少座机场（多少个点），统计是ArcMap的强项。这里我就使用 Spatial Join 工具实现，其中我只保留有连接要素的目标要素，也就是仅保留有机场点的六边形。</p>
 <p><img src="http://kikitamap.com/images/blogImg/Hexagon_Join.png" alt=""></p>
-<br>
-<br>
-<h1>4.</h1>
-<p>上一步自动统计得到六边形包含的机场的数目 Join_Count 字段，那我们就根据它渲染起来。</p>
+<p><br></p>
+<p><br></p>
+<h1 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h1><p>上一步自动统计得到六边形包含的机场的数目 Join_Count 字段，那我们就根据它渲染起来。</p>
 <p><img src="http://kikitamap.com/images/blogImg/Hexagon_Result.png" alt=""></p>
-<br>
-<br>
+<p><br></p>
+<p><br></p>
 <p>再放个ArcGIS Online 的web map，作者也是用到了六边形网格，<a target="_blank" rel="noopener" href="http://www.arcgis.com/apps/StorytellingTextLegend/index.html?appid=0d41baefd133497db0a10018af579b5a">来看看</a>。</p>
 
 

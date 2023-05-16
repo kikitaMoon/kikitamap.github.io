@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2018/08/15/cloudStorage4MD/">
   <title>
     
-      Testing Report for Raster Data Source in Cloud Storage - Visionary Whisperer
+      Testing Report for Raster Data Source in Cloud Storage - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -357,7 +355,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">761</span> In Total
+              Words <span class="post-count">738</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -420,122 +418,93 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <blockquote>
-<p>For the purpose of assisting and sharing ,  I will try to write in English.</p>
+<p>For the purpose of assisting and sharing ,  I will try to write in English. </p>
 </blockquote>
-<p>The new tool <strong>Create Cloud Storage Connection File</strong> is first introduced to ArcGIS Desktop 10.6.1 which is the latest version until now.  The [Create Cloud Storage Connection File](file:///C:/Program%20Files/ArcGIS/Pro/Resources/Help/pro-app/tool-reference/data-management/create-cloud-storage-connection-file.htm) tool creates a connection file (*<strong>.acs</strong>) for ArcGIS-supported cloud storage.  It allows existing raster geoprocessing tools to <strong>write</strong> cloud raster format (CRF) datasets into the cloud storage bucket or <strong>read</strong> raster datasets (not limited to CRF) stored in the cloud storage as input.</p>
-<p>This is an amazing new feature of ArcGIS Desktop, including <strong>ArcMap 10.6.1</strong> and <strong>ArcGIS Pro 2.2</strong>.  The stuff from one of our partners and I are doing some researching on the new capability.  This article is something about the testing report, which indicates the feasibility of various workflows for adding raster datasets to mosaic dataset.</p>
-<br>
+<p>The new tool <strong>Create Cloud Storage Connection File</strong> is first introduced to ArcGIS Desktop 10.6.1 which is the latest version until now.  The <a href="file:///C:/Program%20Files/ArcGIS/Pro/Resources/Help/pro-app/tool-reference/data-management/create-cloud-storage-connection-file.htm">Create Cloud Storage Connection File</a> tool creates a connection file (<strong>*.acs</strong>) for ArcGIS-supported cloud storage.  It allows existing raster geoprocessing tools to <strong>write</strong> cloud raster format (CRF) datasets into the cloud storage bucket or <strong>read</strong> raster datasets (not limited to CRF) stored in the cloud storage as input.</p>
+<p>This is an amazing new feature of ArcGIS Desktop, including <strong>ArcMap 10.6.1</strong> and <strong>ArcGIS Pro 2.2</strong>.  The stuff from one of our partners and I are doing some researching on the new capability.  This article is something about the testing report, which indicates the feasibility of various workflows for adding raster datasets to mosaic dataset. </p>
+<p><br></p>
 <p><strong>Local Testing Environment</strong></p>
 <ul>
-<li>
-<p>Latest Esri Technologies</p>
+<li><p>Latest Esri Technologies</p>
 <ul>
-<li>
-<p>ArcMap 10.6.1</p>
+<li><p>ArcMap 10.6.1</p>
 </li>
-<li>
-<p>ArcGIS Pro 2.2.1</p>
+<li><p>ArcGIS Pro 2.2.1</p>
 </li>
 </ul>
 </li>
-<li>
-<p>Windows 10 Pro 64 bit English Version</p>
-</li>
+<li>Windows 10 Pro 64 bit English Version</li>
 </ul>
-<br>
-<br>
-<h2 id="Huawei-Cloud">Huawei Cloud</h2>
-<h3 id="ArcMap">ArcMap</h3>
-<ul>
-<li>
-<p><strong>Steps</strong></p>
+<p><br></p>
+<p><br></p>
+<h2 id="Huawei-Cloud"><a href="#Huawei-Cloud" class="headerlink" title="Huawei Cloud"></a>Huawei Cloud</h2><h3 id="ArcMap"><a href="#ArcMap" class="headerlink" title="ArcMap"></a>ArcMap</h3><ul>
+<li><p><strong>Steps</strong></p>
 <ol>
 <li>Create Huawei Cloud connection file                              (√)</li>
 <li>Add raster to a local mosaic dataset                               (√)</li>
 </ol>
 </li>
-<li>
-<p><strong>Conclusion</strong></p>
+<li><p><strong>Conclusion</strong></p>
 <ul>
 <li>Bingo !   This workflow for source raster dataset in Huawei Cloud is perfect.</li>
 </ul>
 </li>
 </ul>
-<h3 id="ArcGIS-Pro">ArcGIS Pro</h3>
-<ul>
-<li>
-<p><strong>Steps</strong></p>
+<h3 id="ArcGIS-Pro"><a href="#ArcGIS-Pro" class="headerlink" title="ArcGIS Pro"></a>ArcGIS Pro</h3><ul>
+<li><p><strong>Steps</strong></p>
 <ol>
-<li>
-<p>Create Huawei Cloud connection file                             (√)</p>
+<li><p>Create Huawei Cloud connection file                             (√)</p>
 </li>
-<li>
-<p>Add Raster to Mosaic Dataset                                         (×)</p>
+<li><p>Add Raster to Mosaic Dataset                                         (×)</p>
 <ul>
-<li>
-<p>Error Message as below:</p>
+<li><p>Error Message as below:</p>
 <p>Failed to execute. Parameters are not valid.</p>
 <p>Error: 000732  Input Data: Dataset …\HuaWeiConnection.acs\…LGN00_MTL.txt does not exist or is not supported</p>
 </li>
 </ul>
 </li>
-<li>
-<p>Trying  workaround:  Add Raster to Mosaic Dataset using arcpy  (python 3.x for ArcGIS Pro).</p>
-<p>For the purpose of verification ,  Add Raster to Mosaic Dataset using arcpy  (python 2.x for ArcMap), it works.                                                                                (√)</p>
+<li><p>Trying  workaround:  Add Raster to Mosaic Dataset using arcpy  (python 3.x for ArcGIS Pro).   </p>
+<p>For the purpose of verification ,  Add Raster to Mosaic Dataset using arcpy  (python 2.x for ArcMap), it works.                                                                                (√) </p>
 </li>
 </ol>
 </li>
-<li>
-<p><strong>Conclusion</strong></p>
+<li><p><strong>Conclusion</strong></p>
 <ul>
-<li>
-<p>It should be a bug of ArcGIS Pro,  that the  tool <strong>Add Rasters To Mosaic Dataset</strong> can not recognize the logical file path including cloud connection.  The tool will justify the path if it exists. The path containing cloud connection is a logical path , not a physical path.   The same input file path works in ArcMap.</p>
+<li><p>It should be a bug of ArcGIS Pro,  that the  tool <strong>Add Rasters To Mosaic Dataset</strong> can not recognize the logical file path including cloud connection.  The tool will justify the path if it exists. The path containing cloud connection is a logical path , not a physical path.   The same input file path works in ArcMap.</p>
 </li>
-<li>
-<p>Internal case submitted <a target="_blank" rel="noopener" href="https://my.esri.com/#/support/cases/02166069">#02166069</a>  - <em>closed</em></p>
-<p>Related bug:  <em>BUG-000116191</em></p>
-<p>Workaround:  Store the rasters in the root of the bucket, and add them from that location.</p>
+<li><p>Internal case submitted <a target="_blank" rel="noopener" href="https://my.esri.com/#/support/cases/02166069">#02166069</a>  - <em>closed</em></p>
+<p>Related bug:  <em>BUG-000116191</em> </p>
+<p>Workaround:  Store the rasters in the root of the bucket, and add them from that location. </p>
 </li>
 </ul>
- <br>
 </li>
 </ul>
-<h2 id="ALiBaBa-Cloud">ALiBaBa Cloud</h2>
-<p>In China, we also call it ALiYun.</p>
-<h3 id="ArcMap-2">ArcMap</h3>
-<ul>
-<li>
-<p><strong>Steps</strong></p>
+<p>   <br></p>
+<h2 id="ALiBaBa-Cloud"><a href="#ALiBaBa-Cloud" class="headerlink" title="ALiBaBa Cloud"></a>ALiBaBa Cloud</h2><p>   In China, we also call it ALiYun.</p>
+<h3 id="ArcMap-1"><a href="#ArcMap-1" class="headerlink" title="ArcMap"></a>ArcMap</h3><ul>
+<li><p><strong>Steps</strong></p>
 <ol>
-<li>
-<p>Create ALiBaBa Cloud connection file   (×)</p>
-<p>The connection file was created,  but there was a warning:  <em>WARNING 002574: Could not connect to cloud storage</em>  in the log</p>
+<li><p>Create ALiBaBa Cloud connection file   (×)</p>
+<p>The connection file was created,  but there was a warning:  <em>WARNING 002574: Could not connect to cloud storage</em>  in the log </p>
 </li>
-<li>
-<p>Create a mosaic dataset in a local file geodatabase   (√)</p>
+<li><p>Create a mosaic dataset in a local file geodatabase   (√)</p>
 </li>
-<li>
-<p>Add raster to mosaic dataset   (×)</p>
-<p>An error occurred:  <em>Error: 8004205f: No new mosaic dataset item was added.</em></p>
+<li><p>Add raster to mosaic dataset   (×) </p>
+<p>An error occurred:  <em>Error: 8004205f: No new mosaic dataset item was added.</em>  </p>
 <p>This error may due to the warning before, I think.</p>
 </li>
 </ol>
 </li>
-<li>
-<p><strong>Conclusion</strong></p>
+<li><p><strong>Conclusion</strong></p>
 <ul>
-<li>
-<p>It may be a bug related to creating connection file to ALiBaBa Cloud Storage.  ArcPy (python 27) for ArcMap didn’t work, either.</p>
+<li><p>It may be a bug related to creating connection file to ALiBaBa Cloud Storage.  ArcPy (python 27) for ArcMap didn’t work, either.</p>
 </li>
-<li>
-<p>Extra diagnose</p>
+<li><p>Extra diagnose</p>
 <ul>
-<li>
-<p>Using Fiddler to capture the HTTP(S) requests…</p>
+<li><p>Using Fiddler to capture the HTTP(S) requests…</p>
 <p>I have used Fiddler Software to catch the HTTP(S) requests made by ArcMap, but nothing was found. I had enable the https capture before testing. At the same time , I checked the Windows Task Manager and Resource Monitor that there was a lot of network activities.</p>
 </li>
-<li>
-<p>Using Wireshark to  capture the network transaction …</p>
+<li><p>Using Wireshark to  capture the network transaction …</p>
 <p>Bad TCP records were found.</p>
 </li>
 </ul>
@@ -543,18 +512,15 @@
 </ul>
 </li>
 </ul>
-<h3 id="ArcGIS-Pro-2">ArcGIS Pro</h3>
-<ul>
-<li>
-<p><strong>Steps</strong></p>
+<h3 id="ArcGIS-Pro-1"><a href="#ArcGIS-Pro-1" class="headerlink" title="ArcGIS Pro"></a>ArcGIS Pro</h3><ul>
+<li><p><strong>Steps</strong></p>
 <ol>
 <li>Create ALiBaBa Cloud connection file                              (×)</li>
 <li>Create a mosaic dataset in a local file geodatabase      (√)</li>
 <li>Add raster to mosaic dataset                                             (×)</li>
 </ol>
 </li>
-<li>
-<p><strong>Conclusion</strong></p>
+<li><p><strong>Conclusion</strong></p>
 <ul>
 <li>Same issue with using HUAWEI cloud source data, and the issue points to the tool not to the cloud itself.</li>
 <li>ArcPy (python 36) for ArcGIS Pro didn’t work, either.</li>
@@ -564,41 +530,34 @@
 <p>Internal case submitted  <a target="_blank" rel="noopener" href="https://my.esri.com/#/support/cases/02157762">#02157762</a></p>
 <p>Related bug:  <em>BUG-000116297</em></p>
 <p>Workaround:  Internal Version 9226</p>
-<br>
-<h2 id="Custom-Cloud">Custom Cloud</h2>
-<p>using s3 compatible cloud, for example,  Tencent Cloud.</p>
+<p><br></p>
+<h2 id="Custom-Cloud"><a href="#Custom-Cloud" class="headerlink" title="Custom Cloud"></a>Custom Cloud</h2><p>using s3 compatible cloud, for example,  Tencent Cloud.</p>
 <ul>
-<li>
-<p><strong>Steps</strong></p>
+<li><p><strong>Steps</strong></p>
 <ol>
-<li>Create Tencent Cloud connection file using ArcPy (python 27) for ArcMap</li>
-<li>Capture network interaction information using WireShark
-<ul>
+<li>Create Tencent Cloud connection file using ArcPy (python 27) for ArcMap </li>
+<li>Capture network interaction information using WireShark<ul>
 <li>As Amazon Provider selected, the region and endpoint will request Amazon CNAME address. In this condition, I don’t think the custom cloud works for now.</li>
 </ul>
 </li>
 </ol>
 </li>
-<li>
-<p>Internal case submitted</p>
-<p><a target="_blank" rel="noopener" href="https://my.esri.com/#/support/cases/02157772">#02157772 Can Service End Point parameter be customized by users when connecting to the cloud storage ?</a></p>
+<li><p>Internal case submitted</p>
+<p><a target="_blank" rel="noopener" href="https://my.esri.com/#/support/cases/02157772">#02157772 Can Service End Point parameter be customized by users when connecting to the cloud storage ?</a> </p>
 </li>
 </ul>
-<br>
-<h2 id="Other-Issue">Other Issue</h2>
-<p>failure with file Geodatabase transfer</p>
+<p><br></p>
+<h2 id="Other-Issue"><a href="#Other-Issue" class="headerlink" title="Other Issue"></a>Other Issue</h2><p>failure with file Geodatabase transfer</p>
 <ul>
-<li>
-<p><strong>Details</strong></p>
-<p>When the file geodatabase was copied to a new location ,which was some scheme of path as before, on the other new machine . The mosaic dataset didn’t show up the source raster data at all.</p>
+<li><p><strong>Details</strong></p>
+<p>When the file geodatabase was copied to a new location ,which was some scheme of path as before, on the other new machine . The mosaic dataset didn’t show up the source raster data at all. </p>
 </li>
-<li>
-<p>Internal case submitted</p>
-<p><a target="_blank" rel="noopener" href="https://my.esri.com/#/support/cases/02165287">#02165287 how to transfer mosaic dataset referencing raster dataset in cloud storage</a></p>
+<li><p>Internal case submitted</p>
+<p><a target="_blank" rel="noopener" href="https://my.esri.com/#/support/cases/02165287">#02165287 how to transfer mosaic dataset referencing raster dataset in cloud storage</a> </p>
 </li>
 </ul>
-<br>
-<br>
+<p><br></p>
+<p><br></p>
 <p>The information above is valid as the day it published, I will try my best to have it up to date.</p>
 <p>Thank you for reviewing.</p>
 

@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2012/12/13/ArcGIS-Terrain-Dataset/">
   <title>
     
-      ArcGIS Terrain Dataset - Visionary Whisperer
+      ArcGIS Terrain Dataset - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -415,18 +413,15 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1><strong>1 了解 Terrain Dataset</strong></h1>
-<p>Terrain Dataset 是多分辨率的基于 TIN 的表面数据结构，支持 ArcSDE、个人以及文件地理数据库，存储在ArcGIS  Geodatabase 的 Feature Dataset 中，Feature Dataset 中需要包含构建 TIN 的要素类。</p>
-<p>Terrain Dataset 引用原始要素类，对数据重新组织重建索引，动态生成 TIN 表面，并没有实际创建栅格或 TIN 数据。</p>
-<p>在数据组织过程中，会创建金字塔，用于决定数据细节层次。 terrain 数据集是多分辨率 TIN。它具有一系列 TIN，其中每一个 TIN 都在特定的地图比例尺范围内使用。</p>
+        <h1 id="1-了解-Terrain-Dataset"><a href="#1-了解-Terrain-Dataset" class="headerlink" title="1 了解 Terrain Dataset"></a><strong>1 了解 Terrain Dataset</strong></h1><p>Terrain Dataset 是多分辨率的基于 TIN 的表面数据结构，支持 ArcSDE、个人以及文件地理数据库，存储在ArcGIS&nbsp; Geodatabase 的 Feature Dataset 中，Feature Dataset 中需要包含构建 TIN 的要素类。</p>
+<p>Terrain Dataset&nbsp;引用原始要素类，对数据重新组织重建索引，动态生成 TIN 表面，并没有实际创建栅格或 TIN 数据。</p>
+<p>在数据组织过程中，会创建金字塔，用于决定数据细节层次。&nbsp;terrain 数据集是多分辨率 TIN。它具有一系列 TIN，其中每一个 TIN 都在特定的地图比例尺范围内使用。</p>
 <p><img src="http://kikitamap.com/images/blogImg/ArcGIS-Terrain-Dataset_Demo.gif" alt=""></p>
 <p>Terrain Dataset 可由不同类型的数据组成。支持的几何类型包括点、多点、线和多边形。每一种几何类型的数据都可以具有不同的表面要素类型（SFType），这与前面一篇博客中构建TIN时选择表面类型作用是相同的。</p>
 <p>帮助中的下表很好的将常见数据类型的应用做了总结：</p>
 <p><img src="http://kikitamap.com/images/blogImg/ArcGIS-Terrain-Dataset_type.png" alt=""></p>
-<br>
-<h1><strong>2 Terrain Dataset 的属性</strong></h1>
-<h2 id="基本属性设置："><strong>基本属性设置：</strong></h2>
-<p><strong>1） 平均点间距（Approximate Point Spacing）</strong></p>
+<p><br></p>
+<h1 id="2-Terrain-Dataset-的属性"><a href="#2-Terrain-Dataset-的属性" class="headerlink" title="2 Terrain Dataset 的属性"></a><strong>2 Terrain Dataset 的属性</strong></h1><h2 id="基本属性设置："><a href="#基本属性设置：" class="headerlink" title="基本属性设置："></a><strong>基本属性设置：</strong></h2><p><strong>1） 平均点间距（Approximate Point Spacing）</strong></p>
 <p>创建地形数据集时，需要指定输入测量值的平均点间距。平均点间距的作用是对点进行归类或分组，从而构造出虚拟分块系统。</p>
 <p>平均点距的获得：查看元数据、向数据提供商或数据维护人员寻求帮助。实在无法获取，只能用量距工具估算了。</p>
 <p>这个参数能够决定 Tile Size，查看Terrain数据集属性可以看到。</p>
@@ -438,11 +433,9 @@
 <p><img src="http://kikitamap.com/images/blogImg/ArcGIS-Terrain-Dataset_SFtype.png" alt=""></p>
 <p><strong>4）地形金字塔（Terrain Pyramid）</strong></p>
 <p>地形金字塔等级采用的依据是对精确度的要求随比例的减小而降低。金字塔等级在概念和用途上均类似于栅格金字塔，但二者的实现方法不同。 Terrain Pyramid 通过点抽稀实现。也就是下一级金字塔使用的点数少于上一级，但是采用的点都是原始的点值。 金字塔不使用任何重采样、平均化或派生的数据。</p>
-<p>有两种金字塔类型：z 容差和窗口大小。<br>
-<img src="http://kikitamap.com/images/blogImg/ArcGIS-Terrain-Dataset_Pyramid.png" alt=""></p>
+<p>有两种金字塔类型：z 容差和窗口大小。<br><img src="http://kikitamap.com/images/blogImg/ArcGIS-Terrain-Dataset_Pyramid.png" alt=""></p>
 <p>在窗口大小的选项中，可以设置二次抽稀。</p>
-<h2 id="高级属性设置"><strong>高级属性设置</strong></h2>
-<p><img src="http://kikitamap.com/images/blogImg/ArcGIS-Terrain-Dataset_Advanced.png" alt=""></p>
+<h2 id="高级属性设置"><a href="#高级属性设置" class="headerlink" title="高级属性设置"></a><strong>高级属性设置</strong></h2><p><img src="http://kikitamap.com/images/blogImg/ArcGIS-Terrain-Dataset_Advanced.png" alt=""></p>
 <p><strong>5）概貌地形（Overview Terrain）</strong></p>
 <p>概貌地形是地形数据集最粗略表示，专门用于小比例尺下的快速绘制。如下图：</p>
 <p><img src="http://kikitamap.com/images/blogImg/ArcGIS-Terrain-Dataset_Overview.png" alt=""></p>
@@ -452,8 +445,7 @@
 <p>组用于为线要素和多边形要素定义多种详细程度。将相同的组 ID 指定给每个多边形要素类，向地形告知它们属于同一主题（例如，研究区域边界）。</p>
 <p><strong>8）嵌入式要素类（Embedded feature classes）</strong></p>
 <p>terrain 金字塔的大小约相当于参与 terrain 的要素类中所包含几何的大小，需要较大的存储空间。对于较大的点集合（通常由激光雷达或声纳表示），开销可能相当大，可以将较大的多点要素类嵌入 terrain 数据集中，以节省存储空间。构建 terrain 后，它将成为点的容器，而不再引用源要素类。可以将这些要素类删除，以恢复其存储空间。</p>
-<h2 id="性能的提示"><strong>性能的提示</strong></h2>
-<p>1） 最好将所有硬断线都放置在一个要素类中。</p>
+<h2 id="性能的提示"><a href="#性能的提示" class="headerlink" title="性能的提示"></a><strong>性能的提示</strong></h2><p>1） 最好将所有硬断线都放置在一个要素类中。</p>
 <p>2） 定义 terrain 时，使用的要素类越少越好。</p>
 <p>3） 不同数据库的数据量的选择：</p>
 <ul>

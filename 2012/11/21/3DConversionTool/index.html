@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2012/11/21/3DConversionTool/">
   <title>
     
-      3D分析之常用转换工具 - Visionary Whisperer
+      3D分析之常用转换工具 - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -353,7 +351,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">436</span> In Total
+              Words <span class="post-count">437</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -417,8 +415,7 @@
 
         <p><img src="http://kikitamap.com/images/blogImg/3DConversionTool_Toolset.png" alt=""></p>
 <p>三维分析工具箱中，Conversion工具集为我们提供了很多用于格式转换的工具，其中有几个能为我们解决很多常见问题，这里整理下：</p>
-<h1><strong>1. 各种数据格式的3D模型导入到ArcGIS中展示</strong></h1>
-<p>使用 Import 3D file 工具，ArcGIS 主要支持以下 3D模型的导入：</p>
+<h1 id="1-各种数据格式的3D模型导入到ArcGIS中展示"><a href="#1-各种数据格式的3D模型导入到ArcGIS中展示" class="headerlink" title="1. 各种数据格式的3D模型导入到ArcGIS中展示"></a><strong>1. 各种数据格式的3D模型导入到ArcGIS中展示</strong></h1><p>使用 Import 3D file 工具，ArcGIS 主要支持以下 3D模型的导入：</p>
 <ul>
 <li>3D Studio Max (*.3ds)</li>
 <li>SketchUp (*.skp)</li>
@@ -428,17 +425,14 @@
 </ul>
 <p>将数据导入为ArcGIS的 Multipatch（多面体）要素类，可以选择 shapefile 和 Geodatabase 来存储。</p>
 <p>这里需要注意：shapefile multipatch 是不能存储纹理的，如果需要保存纹理，要选择 GDB multipatch feature class。</p>
-<br>
-<h1><strong>2. 需要得到 Multipatch 的 2D 轮廓线</strong></h1>
-<p>使用 Multipatch Footprint 工具</p>
+<p><br></p>
+<h1 id="2-需要得到-Multipatch-的-2D-轮廓线"><a href="#2-需要得到-Multipatch-的-2D-轮廓线" class="headerlink" title="2. 需要得到 Multipatch 的 2D 轮廓线"></a><strong>2. 需要得到 Multipatch 的 2D 轮廓线</strong></h1><p>使用 Multipatch Footprint 工具</p>
 <p><img src="http://kikitamap.com/images/blogImg/3DConversionTool_Footprint.gif" alt=""></p>
-<br>
-<h1><strong>3. 获得栅格数据三维边界线/面</strong></h1>
-<p>使用 Raster Domain 工具</p>
+<p><br></p>
+<h1 id="3-获得栅格数据三维边界线-面"><a href="#3-获得栅格数据三维边界线-面" class="headerlink" title="3. 获得栅格数据三维边界线/面"></a><strong>3. 获得栅格数据三维边界线/面</strong></h1><p>使用 Raster Domain 工具</p>
 <p><img src="http://kikitamap.com/images/blogImg/3DConversionTool_RasterDomain.gif" alt=""></p>
-<br>
-<h1><strong>4. 使用点数据和现有模型制作场景</strong></h1>
-<p>常常有这样的应用场景：手头有采集的兴趣点数据，并且有现成的3DS、Skp等等诸多模型，需要将这些模型放置在正确地理位置，并将它们统一存入GDB中进行维护。我们可以这样来做：</p>
+<p><br></p>
+<h1 id="4-使用点数据和现有模型制作场景"><a href="#4-使用点数据和现有模型制作场景" class="headerlink" title="4. 使用点数据和现有模型制作场景"></a><strong>4. 使用点数据和现有模型制作场景</strong></h1><p>常常有这样的应用场景：手头有采集的兴趣点数据，并且有现成的3DS、Skp等等诸多模型，需要将这些模型放置在正确地理位置，并将它们统一存入GDB中进行维护。我们可以这样来做：</p>
 <p>（1） 在ArcScene或者ArcGlobe中添加点图层.</p>
 <p>（2）双击图层符号，弹出【符号选择器】窗口，点击【编辑符号】。</p>
 <p><img src="http://kikitamap.com/images/blogImg/3DConversionTool_EditSymbol.png" alt=""></p>
@@ -446,7 +440,7 @@
 <p><img src="http://kikitamap.com/images/blogImg/3DConversionTool_3DMakerSymbol.png" alt=""></p>
 <p>（4）上步中，根据需要分门别类的给每类点配以不同的模型，最后得到丰富的3D模型组成的场景。</p>
 <p><img src="http://kikitamap.com/images/blogImg/3DConversionTool_Scene.png" alt=""></p>
-<p>（5） 使用工具：** Layer 3D to Feature Class，**将模型统一转入GDB，集中存储和维护。原来的模型细节及纹理得到很好的保留。</p>
+<p>（5） 使用工具：<strong>&nbsp;Layer 3D to Feature Class，</strong>将模型统一转入GDB，集中存储和维护。原来的模型细节及纹理得到很好的保留。</p>
 <p><img src="http://kikitamap.com/images/blogImg/3DConversionTool_Multipatch.png" alt=""></p>
 
 

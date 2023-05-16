@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2014/10/17/MDFootprint/">
   <title>
     
-      镶嵌数据集工具小结（二）镶嵌数据轮廓线与边界 - Visionary Whisperer
+      镶嵌数据集工具小结（二）镶嵌数据轮廓线与边界 - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -419,7 +417,7 @@
 <p>下面再接着说如何根据自己的各种需要来修改镶嵌数据集，这一贴的主题主要是如何创建、修改镶嵌数据集的轮廓线和边界。</p>
 <p><strong>修改镶嵌数据轮廓线、边界类工具</strong></p>
 <p><img src="http://kikitamap.com/images/blogImg/MDFootprint_Toolset.png" alt=""></p>
-<p>当镶嵌数据集创建好之后，我们将其加入到  ArcMap 中后发现，镶嵌数据集是以类似图层组的形式加入的，包含了至少三个图层，分别为：<strong>Boundary</strong>、<strong>Footprint</strong> 和 <strong>Image</strong>。</p>
+<p>当镶嵌数据集创建好之后，我们将其加入到 &nbsp;ArcMap 中后发现，镶嵌数据集是以类似图层组的形式加入的，包含了至少三个图层，分别为：<strong>Boundary</strong>、<strong>Footprint</strong> 和 <strong>Image</strong>。</p>
 <p><img src="http://kikitamap.com/images/blogImg/MDFootprint_toc.png" alt=""></p>
 <p>在使用开头列出的那些工具之前，我们需要对上图的几个图层有所了解，了解的过程中自然会发现这些工具的用武之地。</p>
 <p><strong>Image（影像）</strong></p>
@@ -442,9 +440,9 @@
 <p><strong>2）手工编辑方法：</strong></p>
 <p>通过编辑工具条，手工编辑修改 Footprint 面要素得到新的轮廓线。这种方法和我们平时编辑矢量面没有什么区别。</p>
 <p><strong>3）导入已有多边形的方法：</strong></p>
-<p>可以使用工具**Import Mosaic Dataset Geometry **，将面要素导入，按照指定的关联字段替换轮廓线。另外，此工具也可用于替换边界或接缝线多边形。</p>
+<p>可以使用工具<strong>Import Mosaic Dataset Geometry </strong>，将面要素导入，按照指定的关联字段替换轮廓线。另外，此工具也可用于替换边界或接缝线多边形。</p>
 <p><strong>Boundary（边界）</strong></p>
-<p>Boundary层，我们可以理解成镶嵌数据集所引用的所有栅格数据的外边界，实际它是一个储存在地理数据库（GDB）内部的面要素类。我们可以使用 <strong>Build Boundary</strong> 工具来创建这个层，也可以在一开始添加栅格工具中勾选 Build Boundary 参数。</p>
+<p>Boundary层，我们可以理解成镶嵌数据集所引用的所有栅格数据的外边界，实际它是一个储存在地理数据库（GDB）内部的面要素类。我们可以使用 <strong>Build Boundary</strong> 工具来创建这个层，也可以在一开始添加栅格工具中勾选&nbsp;Build Boundary 参数。</p>
 <p>那这个Boundary 层是基于什么计算得到的呢？ 本质上，是将许许多多的 Footprint 层进行融合得到的。 也就是我们可以理解成，Footprint是每个栅格数据的边界，而Boundary是全部栅格的Footprint融合之后的总外边界。边界用于确定镶嵌数据集的空间范围。</p>
 <p>如下图，说明 Footprint 与 Boundary：</p>
 <p><img src="http://kikitamap.com/images/blogImg/MDFootprint_Boundary.png" alt=""></p>
@@ -452,9 +450,9 @@
 <p>如下图一目了然：</p>
 <p><img src="http://kikitamap.com/images/blogImg/MDFootprint_boundaryType.png" alt=""></p>
 <p>如果镶嵌数据集中所包含的栅格数据超出了边界，那超出的数据在镶嵌图像中就不可见了。因此，我们可以通过修改边界来限制镶嵌数据集的可见内容。</p>
-<p>类似操作 Footprint，我们可以通过手工编辑，或者使用工具 Import Mosaic Dataset Geometry 制作自定义边界。</p>
+<p>类似操作 Footprint，我们可以通过手工编辑，或者使用工具&nbsp;Import Mosaic Dataset Geometry 制作自定义边界。</p>
 <p><img src="http://kikitamap.com/images/blogImg/MDFootprint_Demo.png" alt=""></p>
-<p>当然与 Import Mosaic Dataset Geometry 工具相应，我们还可以使用工具 <strong>Export Mosaic Dataset Geometry</strong>导出镶嵌数据集的轮廓线、边界等要素类。</p>
+<p>当然与&nbsp;Import Mosaic Dataset Geometry&nbsp;工具相应，我们还可以使用工具 <strong>Export Mosaic Dataset Geometry</strong>导出镶嵌数据集的轮廓线、边界等要素类。</p>
 <p>有关轮廓线、边界、镶嵌数据集图层就到这里了，对于初学者来说，上面这些足够用了。</p>
 <p>下一篇我会接着整理有关概视图创建等增强优化镶嵌数据集的工具。</p>
 

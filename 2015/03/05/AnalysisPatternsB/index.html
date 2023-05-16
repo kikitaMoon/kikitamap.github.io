@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2015/03/05/AnalysisPatternsB/">
   <title>
     
-      空间统计（二）分析模式 B - Visionary Whisperer
+      空间统计（二）分析模式 B - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -415,14 +413,12 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p><em>Updated: 2017-10-11</em><br>
-<em>修改了文中表意含糊的语句，增加了更多解释性描述。</em></p>
-<br>
+        <p><em>Updated: 2017-10-11</em><br><em>修改了文中表意含糊的语句，增加了更多解释性描述。</em></p>
+<p><br></p>
 <p>这一篇具体看分析模式工具集中的具体工具，整理这一篇的目的，不是要读者了解每个工具的背后使用了多么高级的算法，运用了多么庞大的公式，而是一起了解这些工具究竟可以为我们研究什么样的空间数据分布模式，当需要探索数据的空间性质时，知道应该如何去应用这些分析工具。</p>
 <p><img src="http://kikitamap.com/images/blogImg/AnalysisPatternsB_Toolset.png" alt=""></p>
-<br>
-<h2 id="Average-Nearest-Neighbor">Average Nearest Neighbor</h2>
-<p>平均最近邻工具，计算每个要素中心与其最邻近要素中心的距离，然后求取所有最近邻距离的平均值，然后用这个观测平均值与随机分布的期望平均值进行比较，从而可以反应数据的空间分布是聚合的还是分散的。</p>
+<p><br></p>
+<h2 id="Average-Nearest-Neighbor"><a href="#Average-Nearest-Neighbor" class="headerlink" title="Average Nearest Neighbor"></a>Average Nearest Neighbor</h2><p>平均最近邻工具，计算每个要素中心与其最邻近要素中心的距离，然后求取所有最近邻距离的平均值，然后用这个观测平均值与随机分布的期望平均值进行比较，从而可以反应数据的空间分布是聚合的还是分散的。 </p>
 <p>Average Nearest Neighbor 工具将返回五个值：</p>
 <ul>
 <li>观测的平均距离 / Observed Mean Distance</li>
@@ -437,15 +433,14 @@
 <p><img src="http://kikitamap.com/images/blogImg/AnalysisPatternsB_AverageNearestSummary.png" alt="报告"></p>
 <blockquote>
 <p>可能的应用：</p>
-</blockquote>
 <ul>
 <li>评估竞争或领地：量化并比较固定研究区域中的多种植物种类或动物种类的空间分布；比较城市中不同类型的企业的平均最近邻距离。</li>
 <li>监视随时间变化的更改：评估固定研究区域中一种类型的企业的空间聚类中随时间变化的更改。</li>
 <li>将观测分布与控制分布进行比较：在木材分析中，如果给定全部可收获木材的分布，则您最好将已收获面积图案与可收获面积图案进行比较，以确定砍伐面积是否比期望面积更为聚类。</li>
 </ul>
-<br>
-<h2 id="Spatial-Autocorrelation">Spatial Autocorrelation</h2>
-<p>空间自相关 (Global Moran’s I) 工具同时根据要素位置和要素的属性值来度量空间自相关。在给定一组要素及相关属性的情况下，评估所表达的模式是聚类模式、离散模式还是随机模式。</p>
+</blockquote>
+<p><br></p>
+<h2 id="Spatial-Autocorrelation"><a href="#Spatial-Autocorrelation" class="headerlink" title="Spatial Autocorrelation"></a>Spatial Autocorrelation</h2><p>空间自相关 (Global Moran’s I) 工具同时根据要素位置和要素的属性值来度量空间自相关。在给定一组要素及相关属性的情况下，评估所表达的模式是聚类模式、离散模式还是随机模式。</p>
 <p>此工具将返回五个值：</p>
 <ul>
 <li>Moran’s I指数 / Moran’s I Index</li>
@@ -465,16 +460,14 @@
 </ul>
 <blockquote>
 <p>可能的应用</p>
-</blockquote>
 <ul>
 <li>通过查找距离（即空间自相关最强的位置对应的距离），可为各种空间分析方法确定合适的邻近距离。</li>
 <li>度量种族或民族分离随时间推移的总体趋势 - 分离程度是逐渐增强还是逐渐减弱？</li>
 <li>总结某种观点、疾病或趋势随空间和时间变化的传播情况 - 观点、疾病或趋势是保持隔离和集中，还是传播开并变得更加分散？</li>
 </ul>
-<br>
-<h2 id="Incremental-Spatial-Autocorrelation">Incremental Spatial Autocorrelation</h2>
-<p>增量自相关工具会去测量一系列的空间自相关，并且可以创建Z得分折线图。Z得分反映空间聚类的程度，峰值Z得分表示聚类最明显的距离。<br>
-这些峰值能做什么呢？我们可以将这些峰值作为其他工具（例如热点分析，将来会说到）的必要参数，例如距离范围，距离半径等等。</p>
+</blockquote>
+<p><br></p>
+<h2 id="Incremental-Spatial-Autocorrelation"><a href="#Incremental-Spatial-Autocorrelation" class="headerlink" title="Incremental Spatial Autocorrelation"></a>Incremental Spatial Autocorrelation</h2><p>增量自相关工具会去测量一系列的空间自相关，并且可以创建Z得分折线图。Z得分反映空间聚类的程度，峰值Z得分表示聚类最明显的距离。<br>这些峰值能做什么呢？我们可以将这些峰值作为其他工具（例如热点分析，将来会说到）的必要参数，例如距离范围，距离半径等等。</p>
 <p><img src="http://kikitamap.com/images/blogImg/AnalysisPatternsB_Incremental.png" alt=""></p>
 <p>以下面的数据为例：</p>
 <p>我欲研究下面几个城市的人口分布情况：</p>
@@ -482,24 +475,22 @@
 <p><img src="http://kikitamap.com/images/blogImg/AnalysisPatternsB_SamplePoint2.png" alt=""></p>
 <p><img src="http://img.blog.csdn.net/20150305091915238" alt=""></p>
 <p>第一个峰值位于大约 250000 处。当显示多个具有统计显著性的峰值时（例如，本示例数据中有两个峰值），聚类在这些距离处均很明显。选择与感兴趣的分析比例对应的峰值距离，我们通常选择第一个具有统计显著性的峰值。</p>
-<br>
-<h2 id="High-Low-Clustering-Getis-Ord-General-G">High/Low Clustering (Getis-Ord General G)</h2>
-<p>高/低聚类 (General G) 统计的零假设规定被研究的要素值不存在空间聚类。当返回的 p 值较小且在统计学上显著，则可以拒绝零假设。如果零假设被拒绝，则 z 得分的符号将变得十分重要。如果 z 得分值为正数，则观测的 General G 指数会比期望的 General G 指数要大一些，表明属性的高值将在研究区域中聚类。如果 z 得分值为负数，则观测的 General G 指数会比期望的 General G 指数要小一些，表明属性的低值将在研究区域中聚类。</p>
+<p><br></p>
+<h2 id="High-Low-Clustering-Getis-Ord-General-G"><a href="#High-Low-Clustering-Getis-Ord-General-G" class="headerlink" title="High/Low Clustering (Getis-Ord General G)"></a>High/Low Clustering (Getis-Ord General G)</h2><p>高/低聚类 (General G) 统计的零假设规定被研究的要素值不存在空间聚类。当返回的 p 值较小且在统计学上显著，则可以拒绝零假设。如果零假设被拒绝，则 z 得分的符号将变得十分重要。如果 z 得分值为正数，则观测的 General G 指数会比期望的 General G 指数要大一些，表明属性的高值将在研究区域中聚类。如果 z 得分值为负数，则观测的 General G 指数会比期望的 General G 指数要小一些，表明属性的低值将在研究区域中聚类。</p>
 <p>当存在完全均匀分布的值并且要查找高值的异常空间峰值时，首选高/低聚类(Getis-Ord General G)工具。遗憾的是，高值和低值同时聚类时，它们倾向于彼此相互抵消。如果在高值和低值同时聚类时测量空间聚类，则使用空间自相关工具。</p>
 <p><img src="http://kikitamap.com/images/blogImg/AnalysisPatternsB_HighLow.png" alt=""></p>
 <p>“高/低聚类”工具可返回五个值：General G 观测值、General G 期望值、方差、z 得分以及 p 值。</p>
 <p><img src="http://kikitamap.com/images/blogImg/AnalysisPatternsB_HighLowReport.png" alt=""></p>
 <blockquote>
 <p>可能的应用：</p>
-</blockquote>
 <ul>
 <li>在访问急症室的次数中查找出现的异常峰值，可能表明在局部或区域的健康问题的爆发。</li>
 <li>比较在城市中不同种类零售业的空间模式，利用比较购物的方式来了解哪类行业充满竞争性（如汽车经销商）以及哪类行业拒绝竞争（如健康中心/健身房）。</li>
 <li>汇总空间现象聚类的程度以检查不同时期或不同位置的变化。例如，众所周知的城市及其人口聚类。使用高/低聚类分析时，可以随时间来比较某个城市的人口聚类的程度（城镇发展以及密集度的分析）。</li>
 </ul>
-<br>
-<h2 id="Multi-Distance-Spatial-Cluster-Analysis-Ripley’s-K-Function">Multi-Distance Spatial Cluster Analysis (Ripley’s K Function)</h2>
-<p>基于 Ripley’s K 函数的多距离空间聚类分析工具是另外一种分析事件点数据的空间模式的方法。Ripley’s K 函数可表明要素质心的空间聚集或空间扩散在邻域大小发生变化时是如何变化的。</p>
+</blockquote>
+<p><br></p>
+<h2 id="Multi-Distance-Spatial-Cluster-Analysis-Ripley’s-K-Function"><a href="#Multi-Distance-Spatial-Cluster-Analysis-Ripley’s-K-Function" class="headerlink" title="Multi-Distance Spatial Cluster Analysis (Ripley’s K Function)"></a>Multi-Distance Spatial Cluster Analysis (Ripley’s K Function)</h2><p>基于 Ripley’s K 函数的多距离空间聚类分析工具是另外一种分析事件点数据的空间模式的方法。Ripley’s K 函数可表明要素质心的空间聚集或空间扩散在邻域大小发生变化时是如何变化的。</p>
 <p>如果有兴趣研究要素的聚类/扩散如何相对于不同距离（不同的分析规模）进行变化，可以使用此工具。</p>
 <p><img src="http://kikitamap.com/images/blogImg/AnalysisPatternsB_MultiDistance.png" alt=""></p>
 

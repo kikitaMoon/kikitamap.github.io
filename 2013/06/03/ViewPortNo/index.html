@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2013/06/03/ViewPortNo/">
   <title>
     
-      查看端口号占用情况 - Visionary Whisperer
+      查看端口号占用情况 - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -351,7 +349,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">201</span> In Total
+              Words <span class="post-count">202</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -413,22 +411,20 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1><strong>1.查看端口占用情况</strong></h1>
-<p>使用命令 <strong>netstat -ano</strong> ，检查所有在使用的端口。</p>
+        <h1 id="1-查看端口占用情况"><a href="#1-查看端口占用情况" class="headerlink" title="1.查看端口占用情况"></a><strong>1.查看端口占用情况</strong></h1><p>使用命令 <strong>netstat -ano</strong> ，检查所有在使用的端口。</p>
 <p><img src="http://kikitamap.com/images/blogImg/ViewPortNo_Netstat.png" alt=""></p>
 <p>如果查询指定端口，使用：<strong>netstat -aon|findstr &quot;Port No.&quot;</strong>，如下：</p>
 <p>例如，查看49506端口号对应的进程，进程号976：</p>
 <p><img src="http://kikitamap.com/images/blogImg/ViewPortNo_Find.jpg" alt=""></p>
-<h1><strong>2. 查看PID 对应的程序</strong></h1>
-<p>查看具体哪个程序在占用某个端口，使用命令：</p>
+<h1 id="2-查看PID-对应的程序"><a href="#2-查看PID-对应的程序" class="headerlink" title="2. 查看PID 对应的程序"></a><strong>2. 查看PID 对应的程序</strong></h1><p>查看具体哪个程序在占用某个端口，使用命令：</p>
 <p><code>netstat -aon|findstr &quot;Port No.&quot;</code></p>
 <p>接着上面的例子，976对应的程序。</p>
 <p><img src="http://kikitamap.com/images/blogImg/ViewPortNo_Process.jpg" alt=""></p>
 <p>好了，找到他了，可以换端口号，可以杀掉当前进程，随你……</p>
-<br>
+<p><br></p>
 <p><strong>PS：</strong></p>
 <p>在输命令时，可能会遇到报错：“nestat -ano不是内部或外部命令……blabla……”</p>
-<p>需要查看下 C:\Windows\System32 下是否有 <strong>netstat.exe</strong>。</p>
+<p>需要查看下&nbsp;C:\Windows\System32 下是否有 <strong>netstat.exe</strong>。</p>
 <p>如果有，再检查下环境变量中<strong>Path</strong>项中有没有这项：<strong><code>C:\Windows\System32</code></strong> ,没有的话就添加上。</p>
 <p><img src="http://kikitamap.com/images/blogImg/ViewPortNo_Path.jpg" alt=""></p>
 

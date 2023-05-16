@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2018/03/09/ProNamedUserforPortalUse/">
   <title>
     
-      如何部署通过Portal管理的ArcGIS Pro Named User许可？ - Visionary Whisperer
+      如何部署通过Portal管理的ArcGIS Pro Named User许可？ - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -418,6 +416,7 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p>在开始如下部署之前，一定要注意下<strong>版本对应</strong>的情况，否则会部署失败：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -459,87 +458,43 @@
 </tr>
 </tbody>
 </table>
-<p><em>LM : License Manager,  Portal: Portal for ArcGIS;   Pro: ArcGIS Pro</em></p>
-<br>
+</div>
+<p><em>LM : License Manager,  Portal: Portal for ArcGIS;   Pro: ArcGIS Pro</em> </p>
+<p><br></p>
 <p>如果您购买并已经部署了 Portal for ArcGIS，搭建了您的组织门户， 并且您希望在内网环境中通过 Named User 方式使用 ArcGIS Pro，那么您可以选择通过Portal for ArcGIS为组织成员配置Named User许可的方式。</p>
-<h2 id="1-为组织配置-ArcGIS-Pro-许可">1 为组织配置 ArcGIS Pro 许可</h2>
-<p><strong>1)</strong> 首先您需要确定哪个组织门户将用于管理ArcGIS Pro的许可（这个指定的组织门户称为“许可门户”）， 尤其当您的组织有多个门户的时候，请确保您指定的门户是您想要用来管理许可的那个门户。此种许可模式，需要安装ArcGIS License Server Administrator 程序。</p>
+<h2 id="1-为组织配置-ArcGIS-Pro-许可"><a href="#1-为组织配置-ArcGIS-Pro-许可" class="headerlink" title="1 为组织配置 ArcGIS Pro 许可"></a>1 为组织配置 ArcGIS Pro 许可</h2><p><strong>1)</strong> 首先您需要确定哪个组织门户将用于管理ArcGIS Pro的许可（这个指定的组织门户称为“许可门户”）， 尤其当您的组织有多个门户的时候，请确保您指定的门户是您想要用来管理许可的那个门户。此种许可模式，需要安装ArcGIS License Server Administrator 程序。</p>
 <p><strong>2)</strong> 完成安装后，打开 ArcGIS License Server Administrator，并单击“计算机 ID…” 按钮。</p>
 <p><img src="http://images.esrichina.com.cn/article/20170310/dbb2b70dea49a6649e5fed410bf1dc28.png" alt=""></p>
-<p><strong>3)</strong> 复制并保存计算机标识符对话框中的 MAC 地址</p>
+<p><strong>3)</strong> 复制并保存计算机标识符对话框中的 MAC 地址 </p>
 <ul>
 <li>例如，005056a700c7（您需要向 My Esri 提供此信息）。 如果该对话框中存在两个 MAC 地址，则只复制其中之一。</li>
 </ul>
 <p><img src="http://images.esrichina.com.cn/article/20170310/0f5f97c5f0d6bebb6ced505533453c09.png" alt=""></p>
-<ol start="4">
-<li>
-<p>请记录上一步中您的Mac地址，并且提供您以下信息之一（用户ID、合同编号、用户单位全称），致电易智瑞(中国)信息技术有限公司合同部，为您生成可用于配置许可门户的文件（*.lic）。<br>
-联系电话： 010-5673228，拨0，转合同部。</p>
-</li>
-<li>
-<p>当您收到合同部发送的文件 (*.lic)之后， 将其保存到前面安装了 ArcGIS License Server Administrator 的计算机可访问的目录中。</p>
-</li>
-<li>
-<p>打开 ArcGIS License Server Administrator 并启动许可服务（如果未运行）。 单击“授权”选项卡，选择“版本”下拉对话框中的“命名用户/Named User”并单击“立即授权”按钮。</p>
-</li>
-</ol>
+<p>4) 请记录上一步中您的Mac地址，并且提供您以下信息之一（用户ID、合同编号、用户单位全称），致电易智瑞(中国)信息技术有限公司合同部，为您生成可用于配置许可门户的文件（*.lic）。<br>联系电话： 010-5673228，拨0，转合同部。</p>
+<p>5) 当您收到合同部发送的文件 (*.lic)之后， 将其保存到前面安装了 ArcGIS License Server Administrator 的计算机可访问的目录中。</p>
+<p>6) 打开 ArcGIS License Server Administrator 并启动许可服务（如果未运行）。 单击“授权”选项卡，选择“版本”下拉对话框中的“命名用户/Named User”并单击“立即授权”按钮。</p>
 <p><img src="http://images.esrichina.com.cn/article/20170310/67fcfb6b847f3e84ce58d847e50735f9.png" alt=""></p>
-<ol start="7">
-<li>
-<p>选择“我已收到来自 Esri 的授权文件，现在准备完成授权过程。”，然后浏览至许可 (.lic) 文件, 单击“打开”。</p>
-</li>
-<li>
-<p>单击“下一步”。随即显示一个对话框，表明已应用Named User许可。单击“确定”。对话框可能会显示几秒钟，这表示正在重新读取许可。</p>
-</li>
-<li>
-<p>单击“可用性”选项卡，并从右上角下拉对话框中选择“命名用户/Named User”。确认显示了预期授权。列出的总数将是Named User实际数量的3倍，这是因为每个Named User 最多允许同时在3个设备上运行 ArcGIS Pro 。</p>
-</li>
-<li>
-<p>生成门户配置文件。单击“授权”选项卡，然后单击“生成…”，并将门户配置文件 (.json) 保存到对 Portal for ArcGIS 可见的位置。</p>
-</li>
-</ol>
+<p>7) 选择“我已收到来自 Esri 的授权文件，现在准备完成授权过程。”，然后浏览至许可 (.lic) 文件, 单击“打开”。</p>
+<p>8) 单击“下一步”。随即显示一个对话框，表明已应用Named User许可。单击“确定”。对话框可能会显示几秒钟，这表示正在重新读取许可。</p>
+<p>9) 单击“可用性”选项卡，并从右上角下拉对话框中选择“命名用户/Named User”。确认显示了预期授权。列出的总数将是Named User实际数量的3倍，这是因为每个Named User 最多允许同时在3个设备上运行 ArcGIS Pro 。</p>
+<p>10) 生成门户配置文件。单击“授权”选项卡，然后单击“生成…”，并将门户配置文件 (.json) 保存到对 Portal for ArcGIS 可见的位置。</p>
 <p><img src="http://images.esrichina.com.cn/article/20170310/8b3564c329df10a6b1f3b1fbb5ffb00d.png" alt=""></p>
 <p>随即会显示一个对话框，表明已在您指定的位置生成了文件。单击“确定”并关闭 ArcGIS License Server Administrator。</p>
-<ol start="11">
-<li>
-<p>打开Web浏览器, 并以组织中默认管理员角色成员的身份登录到 ArcGIS Portal Directory。URL 地址格式为: <a target="_blank" rel="noopener" href="https://portal.domain.com:7443/arcgis/portaladmin">https://portal.domain.com:7443/arcgis/portaladmin</a>  您登录的门户将成为组织的许可门户。</p>
-</li>
-<li>
-<p>单击“系统” &gt; “许可” &gt; “导入授权”。</p>
-</li>
-</ol>
+<p>11) 打开Web浏览器, 并以组织中默认管理员角色成员的身份登录到 ArcGIS Portal Directory。URL 地址格式为: <a target="_blank" rel="noopener" href="https://portal.domain.com:7443/arcgis/portaladmin">https://portal.domain.com:7443/arcgis/portaladmin</a>  您登录的门户将成为组织的许可门户。</p>
+<p>12) 单击“系统” &gt; “许可” &gt; “导入授权”。</p>
 <p><img src="http://images.esrichina.com.cn/article/20170310/99df556ff3f049041cfda22f60eb70e2.png" alt=""></p>
-<ol start="13">
-<li>单击“浏览”并选择先前生成的门户配置文件 (.json)。确保应用程序下拉菜单被设为 ArcGIS Pro。</li>
-</ol>
+<p>13) 单击“浏览”并选择先前生成的门户配置文件 (.json)。确保应用程序下拉菜单被设为 ArcGIS Pro。</p>
 <p><img src="http://images.esrichina.com.cn/article/20170310/280e7ef674045acae19126fbc2f7bc3f.png" alt=""></p>
 <p>14）单击“导入”，您的组织现在已配置了 ArcGIS Pro 许可。</p>
-<h2 id="2-组织管理员配置ArcGIS-Pro许可">2 组织管理员配置ArcGIS Pro许可</h2>
-<p>本节的配置方法与 ArcGIS Online 组织管理员配置 ArcGIS Pro 许可的方法相似。<br>
-注意：<br>
-从 ArcGIS 10.5 版本之后，您只能为达到成员资格级别 2 级的门户成员配置 ArcGIS Pro 许可。</p>
-<h2 id="3-登录并使用ArcGIS-Pro">3 登录并使用ArcGIS Pro</h2>
-<ol>
-<li>
-<p>启动 ArcGIS Pro。<br>
-如果 ArcGIS Pro 已打开，请登出，关闭程序，然后重新启动。只能在首次启动 ArcGIS Pro 时连接至许可门户。</p>
-</li>
-<li>
-<p>在 ArcGIS Pro的启动界面中，点击“About ArcGIS Pro”。</p>
-</li>
-</ol>
+<h2 id="2-组织管理员配置ArcGIS-Pro许可"><a href="#2-组织管理员配置ArcGIS-Pro许可" class="headerlink" title="2 组织管理员配置ArcGIS Pro许可"></a>2 组织管理员配置ArcGIS Pro许可</h2><p>本节的配置方法与 ArcGIS Online 组织管理员配置 ArcGIS Pro 许可的方法相似。<br>注意：<br>从 ArcGIS 10.5 版本之后，您只能为达到成员资格级别 2 级的门户成员配置 ArcGIS Pro 许可。</p>
+<h2 id="3-登录并使用ArcGIS-Pro"><a href="#3-登录并使用ArcGIS-Pro" class="headerlink" title="3 登录并使用ArcGIS Pro"></a>3 登录并使用ArcGIS Pro</h2><p>1) 启动 ArcGIS Pro。<br>如果 ArcGIS Pro 已打开，请登出，关闭程序，然后重新启动。只能在首次启动 ArcGIS Pro 时连接至许可门户。</p>
+<p>2) 在 ArcGIS Pro的启动界面中，点击“About ArcGIS Pro”。</p>
 <p><img src="http://images.esrichina.com.cn/article/20170310/bbea712ccfa54d51dc456edb0218fa87.png" alt=""></p>
-<ol start="3">
-<li>在“Licensing”页面中，点击 “Configure your licensing options”。</li>
-</ol>
+<p>3) 在“Licensing”页面中，点击 “Configure your licensing options”。</p>
 <p><img src="http://images.esrichina.com.cn/article/20170310/30bf8e51c3905c389cb36c6e2c93e7e0.png" alt=""></p>
-<ol start="4">
-<li>输入许可门户的 URL，如https://webadaptor.domain.com/arcgis。</li>
-</ol>
+<p>4) 输入许可门户的 URL，如<a target="_blank" rel="noopener" href="https://webadaptor.domain.com/arcgis。">https://webadaptor.domain.com/arcgis。</a></p>
 <p><img src="http://images.esrichina.com.cn/article/20170310/1b4d6d77d4d9a10691794c2d24c5ddb7.png" alt=""></p>
-<ol start="5">
-<li>单击“OK”。稍后，在登录页面中输入账号密码登录并使用ArcGIS Pro。</li>
-</ol>
+<p>5) 单击“OK”。稍后，在登录页面中输入账号密码登录并使用ArcGIS Pro。</p>
 
 
         <hr>

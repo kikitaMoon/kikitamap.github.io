@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2012/04/10/ArcPad10Synchronization2/">
   <title>
     
-      ArcPad 10 使用与同步 ArcGIS Server 的数据全攻略（二） - Visionary Whisperer
+      ArcPad 10 使用与同步 ArcGIS Server 的数据全攻略（二） - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -414,29 +412,21 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p>继续上个话题，数据准备好了，我们就开始发布服务吧~</p>
-<h1><strong>三、发布 ArcGIS Server 服务</strong></h1>
-<p>在进行到这一步的时候，我遇到过很多问题，有配置的问题，有数据的问题，有自己不够仔细的问题。这里总结下注意事项，帮助大家少走弯路。</p>
+<h1 id="三、发布-ArcGIS-Server-服务"><a href="#三、发布-ArcGIS-Server-服务" class="headerlink" title="三、发布 ArcGIS Server 服务"></a><strong>三、发布 ArcGIS Server 服务</strong></h1><p>在进行到这一步的时候，我遇到过很多问题，有配置的问题，有数据的问题，有自己不够仔细的问题。这里总结下注意事项，帮助大家少走弯路。</p>
 <blockquote>
-<p><strong>TIPS：</strong><br>
-<strong>首先，ArcGIS Server服务器要安装ArcPad扩展，这个扩展在ArcPad安装光盘中有。</strong><br>
-<strong>ArcGIS Desktop 与 ArcPad 版本一定要对应：ArcPad 10.0对应ArcGIS Desktop、ArcGIS Server 10.0（.NET）; ArcPad 8.0对应ArcGIS Desktop、ArcGIS Server 9.3.1（.NET）。</strong><br>
-<strong>必须使用 ArcGIS Server for .NET Framework ，不支持 Java，许可级别必须是 Advanced版。</strong><br>
-<strong>将前面制作的MXD以及通过上一步方法得到的同名apo放置到C盘根目录文件夹下，例如C:/MXD。</strong><br>
-<strong>数据尽量使用ArcGIS Tutorial Data，以防止是数据本身问题导致服务发不成，以后调通了，再用自己的数据。</strong><br>
-<strong>发布服务，在你的GIS服务器连接上，右键 Add new Services。而不要直接在你的mxd上右键发布服务。</strong></p>
+<p><strong>TIPS：</strong><br><strong>首先，ArcGIS Server服务器要安装ArcPad扩展，这个扩展在ArcPad安装光盘中有。</strong><br><strong>ArcGIS Desktop 与 ArcPad 版本一定要对应：ArcPad 10.0对应ArcGIS Desktop、ArcGIS Server 10.0（.NET）; ArcPad 8.0对应ArcGIS Desktop、ArcGIS Server 9.3.1（.NET）。</strong><br><strong>必须使用 ArcGIS Server for .NET Framework ，不支持 Java，许可级别必须是 Advanced版。</strong><br><strong>将前面制作的MXD以及通过上一步方法得到的同名apo放置到C盘根目录文件夹下，例如C:/MXD。</strong><br><strong>数据尽量使用ArcGIS Tutorial Data，以防止是数据本身问题导致服务发不成，以后调通了，再用自己的数据。</strong><br><strong>发布服务，在你的GIS服务器连接上，右键 Add new Services。而不要直接在你的mxd上右键发布服务。</strong></p>
 </blockquote>
 <p>好，记住了这些，就开始发布服务吧，步骤和以前发布服务的方法几乎没有差异，GO ON……</p>
 <p>添加服务：</p>
 <p><img src="http://kikitamap.com/images/blogImg/ArcPad10Synchronization2_AddService.png" alt=""></p>
 <p><img src="http://kikitamap.com/images/blogImg/ArcPad10Synchronization2_ServiceWizard1.png" alt=""></p>
 <p><img src="http://kikitamap.com/images/blogImg/ArcPad10Synchronization2_ServiceWizard2.png" alt=""></p>
-<p>注意这一步要勾选 <strong>ArcPad</strong>，使得发布的 Map Service 可以被ArcPad所支持：</p>
+<p>注意这一步要勾选 <strong>ArcPad</strong>，使得发布的 Map Service 可以被ArcPad所支持：</p>
 <p><img src="http://kikitamap.com/images/blogImg/ArcPad10Synchronization2_ServiceWizard3.png" alt=""></p>
 <p>后面几步可以保持默认……</p>
 <p>最后发布成功。</p>
-<br>
-<h1><strong>四、Arcpad 加载 ArcGIS Server 服务并使用数据</strong></h1>
-<p>保证移动设备网络与Server连通，可以使用Wifi、USB等等……</p>
+<p><br></p>
+<h1 id="四、Arcpad-加载-ArcGIS-Server-服务并使用数据"><a href="#四、Arcpad-加载-ArcGIS-Server-服务并使用数据" class="headerlink" title="四、Arcpad 加载 ArcGIS Server 服务并使用数据"></a><strong>四、Arcpad 加载 ArcGIS Server 服务并使用数据</strong></h1><p>保证移动设备网络与Server连通，可以使用Wifi、USB等等……</p>
 <p>在移动设备上打开ArcPad：</p>
 <p><img src="http://kikitamap.com/images/blogImg/ArcPad10Synchronization2_MobileLaunch.jpg" alt=""></p>
 <p>在添加数据下拉列表中，选择”Add Data from Server“</p>

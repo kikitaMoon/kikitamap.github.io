@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2018/11/11/qiniuIssue/">
   <title>
     
-      解决七牛云存储bucket无法访问问题 - Visionary Whisperer
+      解决七牛云存储bucket无法访问问题 - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -418,36 +416,13 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p>因为工作的事情，最近忙于切换节奏适应新环境，有一个月没来 kikitaMap “巡检”了。果然昨天发现了小故障，七牛云存储的存储空间的临时域名失效了，之上的我的图床也就挂了。涉及到的对象：<a href="https://kikitamap.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念</a> 、<a href="http://kikitamap.com/categories/%E7%9B%B8%E6%9C%BA%E9%87%8C/">相机里</a> 中的全部图片和 <a href="https://kikitamap.com/categories/%E6%9C%A8%E5%B7%A5%E5%BC%80%E7%89%A9/">木工开物</a> 的小部分博客中图片。Just too bad …</p>
-<h2 id="解决方法建议">解决方法建议</h2>
-<p>这种情况下只能发工单联系技术支持了，七牛的技术支持回复比较及时，给出了解决方案，如下：</p>
+<h2 id="解决方法建议"><a href="#解决方法建议" class="headerlink" title="解决方法建议"></a>解决方法建议</h2><p>这种情况下只能发工单联系技术支持了，七牛的技术支持回复比较及时，给出了解决方案，如下：</p>
 <blockquote>
 <p>有两种方式来获取文件：</p>
-<ol>
-<li></li>
-</ol>
-<p>您需要先新建一个同区域存储空间，会分配一个新的测试域名到新空间。<br>
-通过qshell batchcopy 到有域名的同区域空间然后再进行qdownload下载操作<br>
-1）<code>qshell listbucket 原bucket名 list.txt</code><br>
-​       （list出全部文件，<a target="_blank" rel="noopener" href="https://github.com/qiniu/qshell/blob/master/docs/listbucket.md">listbucket的文档</a>）<br>
-2）<code>cat list.txt | awk '&#123;print $1&#125;' &gt;list_final.txt</code><br>
-​       （用awk获取list结果的第一列）<br>
-3）<code>qshell batchcopy 原bucket名 新bucket名 list_final.txt</code><br>
-​       （复制到新bucket的文件和原bucket文件名一致，<a target="_blank" rel="noopener" href="https://github.com/qiniu/qshell/blob/master/docs/batchcopy.md">batchcopy的文档</a>）<br>
-4）<code>qshell qdownload newfilelist.txt</code><br>
-​      （newfilelist.txt为下载的<a target="_blank" rel="noopener" href="https://github.com/qiniu/qshell/blob/master/docs/qdownload.md">配置文档</a>）<br>
- <br>
-qshell安装包及文档请参考<br>
-<a target="_blank" rel="noopener" href="https://developer.qiniu.com/kodo/tools/1302/qshell">https://developer.qiniu.com/kodo/tools/1302/qshell</a></p>
-<p>如果您不熟悉命令行工具的安装使用，也可以结合文档最后提供的视频教程<br>
-<a target="_blank" rel="noopener" href="https://developer.qiniu.com/kodo/tools/1302/qshell#9">https://developer.qiniu.com/kodo/tools/1302/qshell#9</a><br>
- <br>
-2.<br>
-使用工具qrsctl<br>
-<a target="_blank" rel="noopener" href="https://developer.qiniu.com/kodo/tools/1300/qrsctl">https://developer.qiniu.com/kodo/tools/1300/qrsctl</a><br>
-<code>qrsctl get &lt;bucket&gt; &lt;file&gt; &lt;file&gt;</code></p>
+<p>1.<br>您需要先新建一个同区域存储空间，会分配一个新的测试域名到新空间。<br>通过qshell batchcopy 到有域名的同区域空间然后再进行qdownload下载操作<br>1）<code>qshell listbucket 原bucket名 list.txt</code><br>​       （list出全部文件，<a target="_blank" rel="noopener" href="https://github.com/qiniu/qshell/blob/master/docs/listbucket.md">listbucket的文档</a>）<br>2）<code>cat list.txt | awk &#39;&#123;print $1&#125;&#39; &gt;list_final.txt</code><br>​       （用awk获取list结果的第一列）<br>3）<code>qshell batchcopy 原bucket名 新bucket名 list_final.txt</code><br>​       （复制到新bucket的文件和原bucket文件名一致，<a target="_blank" rel="noopener" href="https://github.com/qiniu/qshell/blob/master/docs/batchcopy.md">batchcopy的文档</a>）<br>4）<code>qshell qdownload newfilelist.txt</code><br>​      （newfilelist.txt为下载的<a target="_blank" rel="noopener" href="https://github.com/qiniu/qshell/blob/master/docs/qdownload.md">配置文档</a>）<br> <br>qshell安装包及文档请参考<br> <a target="_blank" rel="noopener" href="https://developer.qiniu.com/kodo/tools/1302/qshell">https://developer.qiniu.com/kodo/tools/1302/qshell</a></p>
+<p>如果您不熟悉命令行工具的安装使用，也可以结合文档最后提供的视频教程<br> <a target="_blank" rel="noopener" href="https://developer.qiniu.com/kodo/tools/1302/qshell#9">https://developer.qiniu.com/kodo/tools/1302/qshell#9</a><br> <br>2.<br>使用工具qrsctl<br><a target="_blank" rel="noopener" href="https://developer.qiniu.com/kodo/tools/1300/qrsctl">https://developer.qiniu.com/kodo/tools/1300/qrsctl</a><br><code>qrsctl get &lt;bucket&gt; &lt;file&gt; &lt;file&gt;</code></p>
 </blockquote>
-<h2 id="实践过程">实践过程</h2>
-<p>选择了第一种方式，问题解决，因为看起来像是批量的。</p>
+<h2 id="实践过程"><a href="#实践过程" class="headerlink" title="实践过程"></a>实践过程</h2><p>选择了第一种方式，问题解决，因为看起来像是批量的。</p>
 <p>按照提示下载的zip包类似 qshell-v2.2.0.zip 这样的名字，里面包含了Windows，Linux，Mac各操作系统使用的程序。</p>
 <p>我以Mac为例，使用Mac自带的 Commandline 访问解压之后的文件夹 qshell-v2.2.0。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kikitamoondeMBP:SoftwareSetup kikitamoon$ cd qshell-v2.2.0</span><br><span class="line">kikitamoondeMBP:qshell-v2.2.0 kikitamoon$ ls</span><br><span class="line">qshell-darwin-x64	qshell-linux-x64	qshell-windows-x64.exe</span><br><span class="line">qshell-linux-arm	qshell-linux-x86	qshell-windows-x86.exe</span><br></pre></td></tr></table></figure>

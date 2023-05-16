@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2012/08/06/SADensity/">
   <title>
     
-      空间分析之密度分析 - Visionary Whisperer
+      空间分析之密度分析 - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -415,15 +413,12 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1>一、WHY DENSITY ？</h1>
-<p>通过密度分析，我们可以讲测量的来的点或者线生成连续表面，从而可以找出那些地方点或者线比较集中。也就是，密度分析是根据输入要素数据计算整个区域的数据聚集状况。</p>
+        <h1 id="一、WHY-DENSITY-？"><a href="#一、WHY-DENSITY-？" class="headerlink" title="一、WHY DENSITY ？"></a>一、WHY DENSITY ？</h1><p>通过密度分析，我们可以讲测量的来的点或者线生成连续表面，从而可以找出那些地方点或者线比较集中。也就是，密度分析是根据输入要素数据计算整个区域的数据聚集状况。</p>
 <p>密度分析是通过离散点数据或者线数据进行内插的过程，根据插值原理不同，主要是分为核密度分析和普通的点\线密度分析。核密度分心中，落入搜索区的点具有不同的权重，靠近搜索中心的点或线会被赋予较大的权重，反之，权重较小，它的计算结果分布较平滑。在普通的点\线密度分析中，落在搜索区域内的点或线有相同的权重，先对其求和，再除以搜索区域的大小，从而得到每个点的密度值。</p>
 <p><img src="http://kikitamap.com/images/blogImg/SADensity_Demo.png" alt=""></p>
-<h1><strong>二、HOWTO DENSITY ？</strong></h1>
-<p>ArcGIS 的空间分析工具箱中提供了密度分析工具集中的三个工具：</p>
+<h1 id="二、HOWTO-DENSITY-？"><a href="#二、HOWTO-DENSITY-？" class="headerlink" title="二、HOWTO DENSITY ？"></a><strong>二、HOWTO DENSITY ？</strong></h1><p>ArcGIS 的空间分析工具箱中提供了密度分析工具集中的三个工具：</p>
 <p><img src="http://kikitamap.com/images/blogImg/SADensity_Tool.png" alt=""></p>
-<h2 id="1-Kernel-Density（核密度分析）"><strong>1. Kernel Density（核密度分析）</strong></h2>
-<p><img src="http://kikitamap.com/images/blogImg/SADensity_Tool2.png" alt=""></p>
+<h2 id="1-Kernel-Density（核密度分析）"><a href="#1-Kernel-Density（核密度分析）" class="headerlink" title="1. Kernel Density（核密度分析）"></a><strong>1. Kernel Density（核密度分析）</strong></h2><p><img src="http://kikitamap.com/images/blogImg/SADensity_Tool2.png" alt=""></p>
 <p>输入值可以是点或者线。</p>
 <p>工作原理引自帮助：</p>
 <blockquote>
@@ -431,8 +426,7 @@
 </blockquote>
 <p>对于点，如果 population 字段设置使用的是除 NONE 之外的值，则每项的值用于确定点被计数的次数。例如，值 3 会导致点被算作三个点。值可以为整型也可以为浮点型。</p>
 <p>对于线，如果 population 字段使用的是除 NONE 之外的值，则线的长度将由线的实际长度乘以此线的 population 字段的值而得出。</p>
-<h2 id="2-Point-Density-Line-Density（点、线密度分析）："><strong>2. Point Density / Line Density（点、线密度分析）：</strong></h2>
-<p><img src="http://kikitamap.com/images/blogImg/SADensity_PointLine.png" alt=""></p>
+<h2 id="2-Point-Density-Line-Density（点、线密度分析）："><a href="#2-Point-Density-Line-Density（点、线密度分析）：" class="headerlink" title="2. Point Density / Line Density（点、线密度分析）："></a><strong>2. Point Density / Line Density（点、线密度分析）：</strong></h2><p><img src="http://kikitamap.com/images/blogImg/SADensity_PointLine.png" alt=""></p>
 <p>这两个工具的输出与核密度工具的输出的区别在于：</p>
 <p>对于点密度和线密度，需要指定一个邻域，以便计算出各输出像元周围像元的密度。而核密度则可将各点的已知总体数量从点位置开始向四周分散。在核密度中，在各点周围生成表面所依据的二次公式可为表面中心（点位置）赋予最高值，并在搜索半径距离范围内减少到零。对于各输出像元，将计算各分散表面的累计交汇点总数。</p>
 <p><strong>1）点密度分析</strong></p>
@@ -441,7 +435,7 @@
 <p>使用搜索半径以各个栅格像元中心为圆心绘制一个圆。每条线上落入该圆内的部分的长度与 Population 字段值相乘。对这些数值进行求和，然后将所得的总和除以圆面积。</p>
 <p><img src="http://kikitamap.com/images/blogImg/SADensity_LineDetail.gif" alt=""></p>
 <p>上图中显示的是栅格像元与其圆形邻域。线 L1 和 L2 表示各条线上落入圆内部分的长度。相应的 population 字段值分别为 V1 和 V2。因此：</p>
-<p><strong>Density = ((L1 * V1) + (L2 * V2)) / (area_of_circle)</strong></p>
+<p><strong>Density = ((L1 <em> V1) + (L2 </em> V2)) / (area_of_circle)</strong></p>
 <p>如果 population 字段使用的是除 NONE 之外的值，则线的长度将等于线的实际长度乘以其 population 字段的值。</p>
 <p>详情参见：<a target="_blank" rel="noopener" href="http://help.arcgis.com/zh-cn/arcgisdesktop/10.0/help/index.html#/na/009z0000000w000000/">http://help.arcgis.com/zh-cn/arcgisdesktop/10.0/help/index.html#/na/009z0000000w000000/</a></p>
 

@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2014/02/13/shapefileCodePage/">
   <title>
     
-      shapefile与字符集编码设置 - Visionary Whisperer
+      shapefile与字符集编码设置 - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -351,7 +349,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">918</span> In Total
+              Words <span class="post-count">965</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -413,96 +411,79 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p>在 ArcGIS Desktop (ArcMap, ArcCatalog, and ArcToolbox)中，有编码页转换功能（CODE PAGE CONVERSION），可以读写多种字符编码的 shapefile 和 dBASE 表。 在系统注册表中，编码页转换功能（CODE PAGE CONVERSION）命名为 ‘dbfDefault’，可以修改这个值。</p>
-<p>在 ArcGIS 10.2.1 之前，可以直接按照 ‘dbfDefault’ 设置方法 到注册表中修改。</p>
-<p>在 ArcGIS Desktop 10.2.1 以及以后的版本，shapefile (.DBF) 的编码页的默认设置为 UTF-8 (UNICODE) 。</p>
-<br>
+        <p>在 ArcGIS Desktop&nbsp;(ArcMap, ArcCatalog, and ArcToolbox)中，有编码页转换功能（CODE PAGE CONVERSION），可以读写多种字符编码的 shapefile 和 dBASE 表。 在系统注册表中，编码页转换功能（CODE PAGE CONVERSION）命名为 ‘dbfDefault’，可以修改这个值。 </p>
+<p>在&nbsp;ArcGIS 10.2.1 之前，可以直接按照 ‘dbfDefault’ 设置方法 到注册表中修改。 </p>
+<p>在&nbsp;ArcGIS Desktop 10.2.1 以及以后的版本，shapefile (.DBF) 的编码页的默认设置为&nbsp;UTF-8 (UNICODE) 。</p>
+<p><br></p>
 <hr>
 <p>更新内容（2014.8.1）</p>
-<p>ArcGIS Desktop 10.2.1 和 10.2.2 版本下需要修改编码行为，先打补丁，然后再按照 <strong>‘dbfDefault’ 设置方法</strong> 到注册表中修改。</span></span>**</span></p>
-<p><strong>10.2.1</strong>：  <a target="_blank" rel="noopener" href="http://support.esri.com/en/downloads/patches-servicepacks/view/productid/160/metaid/2090">http://support.esri.com/en/downloads/patches-servicepacks/view/productid/160/metaid/2090</a></p>
+<p>ArcGIS Desktop 10.2.1 和 10.2.2 版本下需要修改编码行为，先打补丁，然后再按照 <strong>‘dbfDefault’ 设置方法</strong> 到注册表中修改。&lt;/span&gt;&lt;/span&gt;**&lt;/span&gt;</p>
+<p><strong>10.2.1</strong>：  <a target="_blank" rel="noopener" href="http://support.esri.com/en/downloads/patches-servicepacks/view/productid/160/metaid/2090">http://support.esri.com/en/downloads/patches-servicepacks/view/productid/160/metaid/2090</a> </p>
 <p><strong>10.2.2</strong>：  <a target="_blank" rel="noopener" href="http://support.esri.com/en/downloads/patches-servicepacks/view/productid/67/metaid/2089">http://support.esri.com/en/downloads/patches-servicepacks/view/productid/67/metaid/2089</a></p>
 <hr>
-<br>
-<h1>‘dbfDefault’ 的作用</h1>
-<p>使用 ArcGIS for Desktop 打开 dBase 表文件时，程序先去读头文件中的  Language Driver ID (LDID) 或者是同名 *.CPG文件。前面二者都是用来在读文件之前，决定用什么编码类型来正确读出文件。如果有必要， ArcGIS for Desktop 会进行编码转换来显示字符串。</p>
-<p>如果文件缺失 LDID 或者  .CPG 文件，编码就会被假定为 Windows (ANSI/Multi-byte)。也是因为这个原因，</span><span style="font-size:12px">如果文件是 OEM 编码的，并且没有写入 LDID 或者 .CPG，字符就会出现乱码。 也就说 ArcGIS 把 OEM 文件当成 ANSI 文件来处理了。</p>
-<p>多数情况下， shapefiles 和 dBASE 文件都会存储编码页信息。 但是有些程序的 OEM 文件没有包含编码页信息，例如 Microsoft Access 2000 and Excel 2000，所以这些文件读取时，就会乱码。为了避免这个问题，用户可以给没有编码页信息的文件设置<br>
-<strong>dbfDefault</strong>。</p>
+<p><br></p>
+<h1 id="‘dbfDefault’-的作用"><a href="#‘dbfDefault’-的作用" class="headerlink" title="‘dbfDefault’ 的作用"></a>‘dbfDefault’ 的作用</h1><p>使用 ArcGIS for Desktop 打开 dBase 表文件时，程序先去读头文件中的 &nbsp;Language Driver ID (LDID) 或者是同名 *.CPG文件。前面二者都是用来在读文件之前，决定用什么编码类型来正确读出文件。如果有必要， ArcGIS for Desktop 会进行编码转换来显示字符串。</p>
+<p>如果文件缺失&nbsp;LDID 或者 &nbsp;.CPG 文件，编码就会被假定为 Windows (ANSI/Multi-byte)。也是因为这个原因，&lt;/span&gt;<span style="font-size:12px">如果文件是 OEM 编码的，并且没有写入 LDID 或者 .CPG，字符就会出现乱码。 也就说 ArcGIS 把 OEM 文件当成 ANSI 文件来处理了。</p>
+<p>多数情况下， shapefiles 和 dBASE 文件都会存储编码页信息。 但是有些程序的 OEM 文件没有包含编码页信息，例如 Microsoft Access 2000 and Excel 2000，所以这些文件读取时，就会乱码。为了避免这个问题，用户可以给没有编码页信息的文件设置<br><strong>dbfDefault</strong>。</p>
 <p><strong>写</strong></p>
-<p>在注册表中设置 ‘dbfDefault’ ，可以决定导出的 shapefile 和 dBASE 的编码类型。例如，把 ‘dbfDefault’ 设置为 OEM ，那么用 ArcMap, ArcCatalog, ArcToolbox 生成出来的 shapefile 和 dBASE 文件就是以 OEM编码的，设置成 ANSI ，那 shapefile 和 dBASE 文件就是 ANSI 编码的。</p>
+<p>在注册表中设置 ‘dbfDefault’ ，可以决定导出的 shapefile 和 dBASE 的编码类型。例如，把 ‘dbfDefault’ 设置为 OEM ，那么用 ArcMap, ArcCatalog, ArcToolbox 生成出来的 shapefile 和 dBASE 文件就是以 OEM编码的，设置成 ANSI ，那 shapefile 和 dBASE 文件就是 ANSI 编码的。 </p>
 <p><strong>读</strong></p>
 <p>读 shapefile 和 dBASE 文件的逻辑与写是相同的，如果缺失编码信息，ArcGIS 读取文件的编码类型由 <strong>dbfDefault</strong>决定。</p>
-<br>
-<h1>不适用’dbfDefault’ 的情况</h1>
-<p>‘dbfDefault’ 这项设置仅对 ArcGIS Desktop 生效，对于一些很老版本的ArcGIS 产品不适用；仅对 shapefile 生效，Personal GDB等不生效。</p>
-<br>
+<p><br></p>
+<h1 id="不适用’dbfDefault’-的情况"><a href="#不适用’dbfDefault’-的情况" class="headerlink" title="不适用’dbfDefault’ 的情况"></a>不适用’dbfDefault’ 的情况</h1><p>‘dbfDefault’ 这项设置仅对 ArcGIS Desktop 生效，对于一些很老版本的ArcGIS 产品不适用；仅对 shapefile 生效，Personal GDB等不生效。</p>
+<p><br></p>
 <p><strong>无视 ‘dbfDefault’ 设置的包括：</strong></p>
 <p><em>In ArcInfo Workstation:</em></p>
 <ul>
-<li>
-<p>ARCSHAPE with &amp;CODEPAGE OEM creates a shapefile in OEM </p>
+<li><p>ARCSHAPE with &amp;CODEPAGE OEM creates a shapefile in OEM&nbsp;</p>
 </li>
-<li>
-<p>ARCSHAPE with &amp;CODEPAGE ANSI creates a shapefile in ANSI </p>
+<li><p>ARCSHAPE with &amp;CODEPAGE ANSI creates a shapefile in ANSI&nbsp;</p>
 </li>
-<li>
-<p>INFODBASE with &amp;CODEPAGE OEM creates a dBASE file in OEM </p>
+<li><p>INFODBASE with &amp;CODEPAGE OEM creates a dBASE file in OEM&nbsp;</p>
 </li>
-<li>
-<p>INFODBASE with &amp;CODEPAGE ANSI creates a dBASE file in ANSI </p>
+<li><p>INFODBASE with &amp;CODEPAGE ANSI creates a dBASE file in ANSI&nbsp;</p>
 </li>
 </ul>
-<p><em>In ArcView 3.x, </em></p>
+<p><em>In ArcView 3.x,&nbsp;</em></p>
 <ul>
-<li>Shapefile and dBASE files are saved in the ANSI code page. </li>
+<li>Shapefile and dBASE files are saved in the ANSI code page.&nbsp;</li>
 </ul>
-<p><em>In ArcGIS for Desktop (regardless of the dbfDefault setting), </em></p>
+<p><em>In ArcGIS for Desktop (regardless of the dbfDefault setting),&nbsp;</em></p>
 <ul>
-<li>
-<p>Personal geodatabases are saved in Unicode </p>
+<li><p>Personal geodatabases are saved in Unicode&nbsp;</p>
 </li>
-<li>
-<p>Personal geodatabase tables are saved in Unicode </p>
+<li><p>Personal geodatabase tables are saved in Unicode&nbsp;</p>
 </li>
-<li>
-<p>Coverages are saved in the ISO code page </p>
+<li><p>Coverages are saved in the ISO code page&nbsp;</p>
 </li>
-<li>
-<p>INFO files are saved in the ISO code page </p>
+<li><p>INFO files are saved in the ISO code page&nbsp;</p>
 </li>
-<li>
-<p>Interchange files are saved in the ANSI code page </p>
+<li><p>Interchange files are saved in the ANSI code page&nbsp;</p>
 </li>
-<li>
-<p>Text files are saved in the ANSI code page</span></span></p>
+<li><p>Text files are saved in the ANSI code page&lt;/span&gt;&lt;/span&gt;</p>
 </li>
 </ul>
-<br>
-<h1>‘dbfDefault’ 设置方法</h1>
-<ol>
-<li>
-<p>开始 – 运行，输入”Regedit“，打开 <strong>注册表</strong>。</p>
+<p><br></p>
+<h1 id="‘dbfDefault’-设置方法"><a href="#‘dbfDefault’-设置方法" class="headerlink" title="‘dbfDefault’ 设置方法"></a>‘dbfDefault’ 设置方法</h1><ol>
+<li><p>开始 — 运行，输入”Regedit“，打开&nbsp;<strong>注册表</strong>。</p>
 </li>
-<li>
-<p>如是用的是 10.x 版本 ArcGIS Desktop，定位到 <strong><code>My Computer\HKEY_CURRENT_USER\Software\ESRI\Desktop 10.x</code></strong>. 如果是9.3.1之前的版本，定位到 <strong><code>'My Computer\HKEY_CURRENT_USER\Software\ESRI'</code></strong>。</p>
+<li><p>如是用的是 10.x 版本 ArcGIS Desktop，定位到 <strong><code>My Computer\HKEY_CURRENT_USER\Software\ESRI\Desktop 10.x</code></strong>. 如果是9.3.1之前的版本，定位到 <strong><code>&#39;My Computer\HKEY_CURRENT_USER\Software\ESRI&#39;</code></strong>。 </p>
 </li>
-<li>
-<p>创建项 <strong><code>Common</code></strong>， 接着在其下创建 <strong><code>CodePage</code></strong> 项， 添加 <strong><code>字符串</code></strong> ，名称： <strong><code>dbfDefault</code></strong> ，健值： <strong><code>oem</code> （或者<code>936</code>）</strong>。</p>
+<li><p>创建项 <strong><code>Common</code></strong>， 接着在其下创建 <strong><code>CodePage</code></strong> 项， 添加 <strong><code>字符串</code></strong> ，名称： <strong><code>dbfDefault</code></strong> ，健值： <strong><code>oem</code> （或者<code>936</code>）</strong>。</p>
 </li>
 </ol>
 <p><img src="http://kikitamap.com/images/blogImg/shapefileCodePage.jpg" alt=""></p>
-<br>
+<p><br></p>
 <p>如下为支持的编码值：</p>
 <p><strong>OEM</strong> Code Page Values:</p>
 <p>OEM, 437, 708, 720, 737, 775, 850, 852, 855, 857, 860, 861, 862, 863, 864, 865, 866, 869, 932, 936, 950</p>
 <p><strong>ANSI</strong> Code Page Values:</p>
-<p>ANSI, 1250, 1251, 1252, 1253, 1254, 1255, 1256, 1257, 1258, Big5, SJIS </span></span></p>
+<p>ANSI, 1250, 1251, 1252, 1253, 1254, 1255, 1256, 1257, 1258, Big5, SJIS&nbsp;&lt;/span&gt;&lt;/span&gt;</p>
 <p><strong>ISO</strong> Code Page Values:</p>
 <p>ISO, 88591, 88592, 88593, 88594, 88595, 88596, 88597, 88598, 88599, 885910, 885913, 885915, EUC</p>
 <p><strong>Unicode</strong> Values:</p>
 <p>UTF-8</p>
-<br>
+<p><br></p>
 <p>现在，Shapefiles 可以以 UTF-8 存储，但是，只有在 ArcGIS Desktop 中才能被识别。</p>
 <p>相关技术文章：</p>
 <p><a target="_blank" rel="noopener" href="http://support.esri.com/en/knowledgebase/techarticles/detail/21106">http://support.esri.com/en/knowledgebase/techarticles/detail/21106</a></p>

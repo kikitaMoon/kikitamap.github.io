@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2019/03/05/Icecream_Part2_Geolocation/">
   <title>
     
-      HERE MAP API - Part2 Geolocation - Visionary Whisperer
+      HERE MAP API - Part2 Geolocation - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -419,13 +417,11 @@
 
         <p>在 Part 1 地图底图准备好的基础之上，我们增加一个获取浏览器当前位置并持续更新的功能，来解决“Where am I ？”的问题。</p>
 <p>具体可以通过浏览器的 Geolocation API 来实现。在app.js 脚本中，使用 <code>navigator.geolocation</code> 对象来访问此API。 <code>navigator.geolocation</code> 对象有这样几个方法：<code>getCurrentPosition()</code>，<code>watchPosition()</code>，<code>clearWatch()</code>， 可以帮助我们实现开始的需求。</p>
-<h3 id="1-获取位置">1 获取位置</h3>
-<p>首先，通过 <code>getCurrentPosition()</code> 一次性获取浏览器当前位置，在 app.js 中使用如下代码</p>
+<h3 id="1-获取位置"><a href="#1-获取位置" class="headerlink" title="1 获取位置"></a>1 获取位置</h3><p>首先，通过 <code>getCurrentPosition()</code> 一次性获取浏览器当前位置，在 app.js 中使用如下代码 </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator.geolocation.getCurrentPosition(success[, error[, options]]);</span><br></pre></td></tr></table></figure>
-<p>各个浏览器都有 Geolocation API 的支持，建议参考相关的帮助文档。这个Demo建议在 Firefox 中测试，因为Chrome似乎禁用从本地文件访问位置。你可以根据需要增加获取位置是否成功后的行为，详情查看 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions">Firefox的开发者文档</a>。</p>
+<p>各个浏览器都有 Geolocation API 的支持，建议参考相关的帮助文档。这个Demo建议在 Firefox 中测试，因为Chrome似乎禁用从本地文件访问位置。你可以根据需要增加获取位置是否成功后的行为，详情查看 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions">Firefox的开发者文档</a>。 </p>
 <p><img src="http://kikitamap.com/images/blogImg/Icecream_Part2_Geolocation.png" alt=""></p>
-<h3 id="2-持续更新位置">2 持续更新位置</h3>
-<p><code>watchPosition()</code> 用于持续“关注” 客户端位置的变化，在每次变化之后，都会将新的位置返回。在 app.js 中增加如下代码，用于在当前位置不断地显示“冰激凌”。</p>
+<h3 id="2-持续更新位置"><a href="#2-持续更新位置" class="headerlink" title="2 持续更新位置"></a>2 持续更新位置</h3><p><code>watchPosition()</code> 用于持续“关注” 客户端位置的变化，在每次变化之后，都会将新的位置返回。在 app.js 中增加如下代码，用于在当前位置不断地显示“冰激凌”。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updatePosition</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> coordinates = &#123;</span><br><span class="line">    lat: event.coords.latitude,</span><br><span class="line">    lng: event.coords.longitude</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">var</span> iconUrl = <span class="string">&#x27;./images/icecream.svg&#x27;</span>;</span><br><span class="line">  <span class="keyword">var</span> iconOptions = &#123;</span><br><span class="line">    size: <span class="keyword">new</span> H.math.Size(<span class="number">26</span>, <span class="number">34</span>),</span><br><span class="line">    anchor: <span class="keyword">new</span> H.math.Point(<span class="number">14</span>, <span class="number">34</span>)</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">var</span> markerOptions = &#123;</span><br><span class="line">    icon: <span class="keyword">new</span> H.map.Icon(iconUrl, iconOptions)</span><br><span class="line">  &#125;;</span><br><span class="line">   <span class="keyword">var</span> marker = <span class="keyword">new</span> H.map.Marker(coordinates, markerOptions);</span><br><span class="line">  map.addObject(marker);</span><br><span class="line">  map.setCenter(coordinates);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Action</span></span><br><span class="line">navigator.geolocation.watchPosition(updatePosition);</span><br></pre></td></tr></table></figure>
 <p><img src="http://kikitamap.com/images/blogImg/Icecream_Part2_Geolocation_view.png" alt=""></p>
 <p><em>original resource</em>    <a target="_blank" rel="noopener" href="https://developer.here.com/blog/who-wants-ice-cream-a-here-maps-api-for-javascript-tutorial-part-2-geolocation">Part2: Geolocation</a></p>

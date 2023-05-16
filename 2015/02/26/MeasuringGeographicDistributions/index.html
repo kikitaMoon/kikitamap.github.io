@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2015/02/26/MeasuringGeographicDistributions/">
   <title>
     
-      空间统计（一）度量地理分布 - Visionary Whisperer
+      空间统计（一）度量地理分布 - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -416,17 +414,15 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p><em>Updated: 2017-10-11</em></p>
-<br>
+<p><br></p>
 <p>ArcGIS Desktop 中有一个包含了一系列用于研究空间分布/spatial distribution、空间模式/spatial pattern、空间关系/spatial relationship的统计的工具箱 —— Spatial Statistics Toolbox。  这与普通的统计方法不同，空间统计将许多地理空间的概念融入到统计算法逻辑中，例如：邻域/proximity，面积/area，连通性/connectivity等。</p>
 <p>本篇总结一下有关 度量地理分布/Measuring Geographic Distributions工具集中提供的功能。</p>
 <p><img src="http://kikitamap.com/images/blogImg/MeasuringGeographicDistributions_Toolset.png" alt=""></p>
 <p>这些工具用于研究要素的空间分布特征，下面一个一个来看：</p>
-<br>
-<h1>Central Feature</h1>
-<p>中心要素（Central Feature）这个工具可用于寻找一组要素中处于最中心位置的要素，这一组要素可以是点、线、面。<br>
-算法：测量每个要素与其他要素之间两两的距离，然后求和，和值最小的要素即判定为central feature。</p>
+<p><br></p>
+<h1 id="Central-Feature"><a href="#Central-Feature" class="headerlink" title="Central Feature"></a>Central Feature</h1><p>中心要素（Central Feature）这个工具可用于寻找一组要素中处于最中心位置的要素，这一组要素可以是点、线、面。<br>算法：测量每个要素与其他要素之间两两的距离，然后求和，和值最小的要素即判定为central feature。</p>
 <p>可解决的问题，例如：</p>
-<p>某个区域的仓库中最中心位置的是哪个?</p>
+<p>某个区域的仓库中最中心位置的是哪个? </p>
 <p><img src="http://kikitamap.com/images/blogImg/MeasuringGeographicDistributions_CentralFeature.png" alt=""></p>
 <p>在几个区块中，哪一个具有最中心的位置？</p>
 <p><img src="http://kikitamap.com/images/blogImg/MeasuringGeographicDistributions_CentralFeature2.png" alt=""></p>
@@ -437,21 +433,14 @@
 <p>对于线和面要素，距离计算中会使用要素的质心。对于多点、折线或由多部件组成的面，将会使用所有要素部件的加权平均中心来计算质心。点要素的加权项是1，线要素的加权项是长度，而面要素的加权项是面积。</p>
 <p><strong>如何求多组要素的各自的中心要素？</strong></p>
 <p>设置分组/case字段，可以对多个分组的要素分别计算中心要素。</p>
-<br>
-<h1>Mean Center</h1>
-<p>平均中心（Mean Center）用于计算输入的要素的质心的平均中心，因此这个工具会计算出一个新的点。</p>
+<p><br></p>
+<h1 id="Mean-Center"><a href="#Mean-Center" class="headerlink" title="Mean Center"></a>Mean Center</h1><p>平均中心（Mean Center）用于计算输入的要素的质心的平均中心，因此这个工具会计算出一个新的点。</p>
 <p>如果输入数据包含 Z 值，那么在平均中心也会计算 Z 值，也就是得到3D点。</p>
 <p><img src="http://kikitamap.com/images/blogImg/MeasuringGeographicDistributions_MeanCenter.png" alt=""></p>
 <blockquote>
 <p>这个工具在现实中有什么应用呢？我从帮助中引用几个有意思的应用：</p>
-</blockquote>
-<blockquote>
 <p>★  犯罪分析师在对白天事件点与夜间事件点进行对比评估时，可能希望查看盗窃行为的平均中心是否会有所变化。这有助于公安部门更好地分配资源。</p>
-</blockquote>
-<blockquote>
 <p>★  野生生物学家可以计算某个公园若干年内的麋鹿观测值的平均中心，以了解夏季和冬季麋鹿会在何处聚集，从而为公园游客提供更好的信息。</p>
-</blockquote>
-<blockquote>
 <p>★  GIS 分析师可以通过将 911 紧急电话的平均中心与紧急响应站的位置进行比较来评估服务水平。此外，该分析师还可以对由超过 65 岁的个人加权所得的平均中心进行评估，从而确定提供老人服务的理想位置。</p>
 </blockquote>
 <p>举个栗子：</p>
@@ -460,17 +449,15 @@
 <p><img src="http://kikitamap.com/images/blogImg/MeasuringGeographicDistributions_Events.png" alt=""></p>
 <p>各类事件的平均中心：</p>
 <p><img src="http://kikitamap.com/images/blogImg/MeasuringGeographicDistributions_Events2.png" alt=""></p>
-<br>
-<h1>Median Center</h1>
-<p>中位数中心（Median Center）工具使用迭代算法来查找可使所有要素间的欧氏距离达到最小的点。</p>
+<p><br></p>
+<h1 id="Median-Center"><a href="#Median-Center" class="headerlink" title="Median Center"></a>Median Center</h1><p>中位数中心（Median Center）工具使用迭代算法来查找可使所有要素间的欧氏距离达到最小的点。</p>
 <p>平均中心和中位数中心均是中心趋势度量。但是，比较而言，中位数中心工具的算法受数据异常值的影响较小。</p>
 <p>例如，对紧凑性群集点的平均中心进行计算的结果是该群集中心处的某个位置点。如果随后添加一个远离该群集的新点并重新进行计算平均中心，会注意到结果会向新的异常值靠近。而如果要使用中位数中心工具执行相同的测试，会发现新的异常值对结果位置的影响明显减小。</p>
 <p>如下图中，向数据中增加两个相隔较远的点， Median Center 看起来要比 Mean Center 偏移的更小。</p>
 <p><img src="http://kikitamap.com/images/blogImg/MeasuringGeographicDistributions_Compare.png" alt=""></p>
 <p>PS： 尽管中位数中心工具只返回一个点，但实际上,距所有要素的距离最小的位置点可能有多个。</p>
-<br>
-<h1>Directional Distribution (Standard Deviational Ellipse)</h1>
-<p>方向分布（标准差椭圆）工具可以查看要素的分布是否是狭长的，是否具有方向性，从而使我们直观的感受数据的趋向。该方法是由平均中心作为起点对 x 坐标和 y 坐标的标准差进行计算，从而定义椭圆的轴，因此该椭圆被称为标准差椭圆。</p>
+<p><br></p>
+<h1 id="Directional-Distribution-Standard-Deviational-Ellipse"><a href="#Directional-Distribution-Standard-Deviational-Ellipse" class="headerlink" title="Directional Distribution (Standard Deviational Ellipse)"></a>Directional Distribution (Standard Deviational Ellipse)</h1><p>方向分布（标准差椭圆）工具可以查看要素的分布是否是狭长的，是否具有方向性，从而使我们直观的感受数据的趋向。该方法是由平均中心作为起点对 x 坐标和 y 坐标的标准差进行计算，从而定义椭圆的轴，因此该椭圆被称为标准差椭圆。</p>
 <p><img src="http://kikitamap.com/images/blogImg/MeasuringGeographicDistributions_Ellipse.png" alt=""></p>
 <p>在工具生成的椭圆面中会包含：</p>
 <ul>
@@ -480,7 +467,7 @@
 <blockquote>
 <p>这个工具可能的应有哪些呢？从帮助文档中摘录过来：</p>
 <ul>
-<li>在地图上标示一组犯罪行为的分布趋势可以确定该行为与特定要素（一系列酒吧或餐馆、某条特定街道等）的关系。</li>
+<li>在地图上标示一组犯罪行为的分布趋势可以确定该行为与特定要素（一系列酒吧或餐馆、某条特定街道等）的关系。 </li>
 <li>在地图上标示地下水井样本的特定污染可以指示毒素的扩散方式，这在部署减灾策略时非常有用。</li>
 <li>对各个种族或民族所在区域的椭圆的大小、形状和重叠部分进行比较可以提供与种族隔离或民族隔离相关的深入信息。</li>
 <li>绘制一段时间内疾病爆发情况的椭圆可建立疾病传播的模型。</li>
@@ -489,9 +476,8 @@
 <p>我还使用上面马里的例子，了解各种事件的分布情况：</p>
 <p><img src="http://kikitamap.com/images/blogImg/MeasuringGeographicDistributions_Ellipse2.png" alt=""></p>
 <p>且不说分布方向，我们可以看出，无论是哪种暴动事件，与之并发导致的无家可归的难民是分布最广的。</p>
-<br>
-<h1>Standard Distance</h1>
-<p>标准距离工具可通过绘制一个圆心位于平均中心/meancenter、半径等于标准距离值的圆在地图上体现一组要素的紧密度。</p>
+<p><br></p>
+<h1 id="Standard-Distance"><a href="#Standard-Distance" class="headerlink" title="Standard Distance"></a>Standard Distance</h1><p>标准距离工具可通过绘制一个圆心位于平均中心/meancenter、半径等于标准距离值的圆在地图上体现一组要素的紧密度。 </p>
 <p><img src="http://kikitamap.com/images/blogImg/MeasuringGeographicDistributions_StandardDistance.png" alt=""></p>
 <blockquote>
 <p>可能的应用：</p>
@@ -501,8 +487,7 @@
 <li>可将要素分布与静态要素进行比较。例如，可以针对某个区域内各响应消防站在几个月内接到的紧急电话的分布情况进行度量和比较，以了解哪些消防站响应的区域较广。</li>
 </ul>
 </blockquote>
-<h1>Linear Directional Mean</h1>
-<p>线性方向平均值工具可以计算一组线要素的趋势的平均角度。</p>
+<h1 id="Linear-Directional-Mean"><a href="#Linear-Directional-Mean" class="headerlink" title="Linear Directional Mean"></a>Linear Directional Mean</h1><p>线性方向平均值工具可以计算一组线要素的趋势的平均角度。</p>
 <p>许多具有一个起点和一个终点的线要素，例如飓风路径，我们就可以使用这个工具计算飓风的平均方向。再比如断层线，这种线要素我们一般认为它们有方位（orientation），但是没有方向（direction），我们也可以使用这个工具计算平均方位。</p>
 <p>所以，如果要计算平均方向，请确保所有线的方向都是正确的。如果要计算平均方位，则会忽略线的方向。</p>
 <p>请牢记，尽管大多数线在起点和终点之间具有多个折点，此工具将只使用起点和终点来确定方向。</p>

@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2019/03/05/Icecream_Part1_Basemap_Setup/">
   <title>
     
-      HERE MAP API - Part1 Basemap Setup - Visionary Whisperer
+      HERE MAP API - Part1 Basemap Setup - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -418,20 +416,17 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p>Quick Start for HERE Map Javascript API</p>
-<p>HERE 官网有一个很有趣的Tutorial， <strong>Who wants ice cream !?</strong></p>
+<p>HERE 官网有一个很有趣的Tutorial， <strong>Who wants ice cream !?</strong> </p>
 <p>如果你注册了HERE Developer 账号，很可能会被推送到这个教程的小广告。</p>
 <p>假设你是冰激凌店的老板，那么用HERE Map 做个交互式的地图小网页，边测试边记录。</p>
-<p><em><strong>Let’s get our hands dirty……</strong></em></p>
-<h3 id="1-准备资源">1. 准备资源</h3>
-<p>准备如下结构的目录和文件：</p>
+<p><strong><em>Let’s get our hands dirty……</em></strong></p>
+<h3 id="1-准备资源"><a href="#1-准备资源" class="headerlink" title="1. 准备资源"></a>1. 准备资源</h3><p>准备如下结构的目录和文件：</p>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">WhoWantsIceCream</span><br><span class="line"><span class="string">|--base_map_set_up.html</span></span><br><span class="line"><span class="string">|--scripts</span></span><br><span class="line">	<span class="string">|--app.js</span></span><br><span class="line"><span class="string">|--images</span></span><br><span class="line">	<span class="string">|--icecream.svg</span></span><br><span class="line"><span class="string">|--styles</span></span><br><span class="line">	<span class="string">|--main.css</span></span><br></pre></td></tr></table></figure>
-<h3 id="2-设计页面">2.  设计页面</h3>
-<p>HTML 的 <code>head</code> 中引用 HERE Map JS API 以及必要的 CSS；</p>
+<h3 id="2-设计页面"><a href="#2-设计页面" class="headerlink" title="2.  设计页面"></a>2.  设计页面</h3><p>HTML 的 <code>head</code> 中引用 HERE Map JS API 以及必要的 CSS；</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span> Who Want&#x27;s Icecream ? <span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- HERE Javascript SDK modules --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://js.api.here.com/v3/3.0/mapsjs-ui.css&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://js.api.here.com/v3/3.0/mapsjs-core.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://js.api.here.com/v3/3.0/mapsjs-service.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://js.api.here.com/v3/3.0/mapsjs-ui.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://js.api.here.com/v3/3.0/mapsjs-mapevents.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Styles --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;styles/main.css&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>HTML的 <code>body</code> 中需要至少包含一个<code>div</code> ，用于作为 地图显示的容器； 以及引用<code>js</code>来完成 map 的规定动作。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Container for the map --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map-container&quot;</span> <span class="attr">class</span>=<span class="string">&quot;map&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Scripts --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;scripts/app.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="3-交互式地图底图">3. 交互式地图底图</h3>
-<p><strong>增加如下内容到 app.js</strong></p>
+<h3 id="3-交互式地图底图"><a href="#3-交互式地图底图" class="headerlink" title="3. 交互式地图底图"></a>3. 交互式地图底图</h3><p><strong>增加如下内容到 app.js</strong> </p>
 <p>1 从HERE Developer 网站申请账号，获取 APPID 和 APPCODE ，在初始化服务时使用。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Get Map Container Element</span></span><br><span class="line"><span class="keyword">var</span> mapContainer = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;map-container&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Specify the APPID &amp; APPCODE</span></span><br><span class="line"><span class="keyword">var</span> platform = <span class="keyword">new</span> H.service.Platform(&#123;</span><br><span class="line">  app_id: <span class="string">&#x27;oyNWTb---PMlrXxCH&#x27;</span>, <span class="comment">// // &lt;-- ENTER YOUR APP ID HERE</span></span><br><span class="line">  app_code: <span class="string">&#x27;_W_7qfgp-----tQQKkbLA&#x27;</span>, <span class="comment">// &lt;-- ENTER YOUR APP CODE HERE</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>2 创建 Map 对象，并指定初始化时的位置、显示级别、底图样式…… everything as you wish……</p>
@@ -443,7 +438,7 @@
 <p>TIPS 加个监听，可以在你改变窗口尺寸的时候，自动更新地图的尺寸。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ----------------------------------------------------------------------- </span></span><br><span class="line"><span class="comment">// Set Event Listener to Make Map React Properly</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;resize&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  map.getViewPort().resize();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>这就完成 Interactive Basemap 了，Have fun！</p>
-<p><img src="http://kikitamap.com/images/blogImg/Icecream_Part1_Basemap_Setup.png" alt=""></p>
+<p> <img src="http://kikitamap.com/images/blogImg/Icecream_Part1_Basemap_Setup.png" alt=""></p>
 <p><em>original resource</em>  <a target="_blank" rel="noopener" href="https://developer.here.com/blog/who-wants-ice-cream-a-here-maps-api-for-javascript-tutorial-part-1-basic-map-set-up">Part1: Basic Map Set-up</a></p>
 <p><em>complete code</em>    <a target="_blank" rel="noopener" href="https://github.com/kikitaMoon/HERE_JS_Who_Wants_Icecream/tree/master/Part1_Basic_Map_Set_up">Github - kikitaMoon/HERE_JS_Who_Wants_Icecream</a></p>
 

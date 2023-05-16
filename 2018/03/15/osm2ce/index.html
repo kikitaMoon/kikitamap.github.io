@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2018/03/15/osm2ce/">
   <title>
     
-      OSM在ArcGIS产品线中的使用小结 - Visionary Whisperer
+      OSM在ArcGIS产品线中的使用小结 - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -353,7 +351,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">747</span> In Total
+              Words <span class="post-count">746</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -420,21 +418,19 @@
 <blockquote>
 <p>环境：ArcGIS Desktop 10.6， Esri CityEngine 2017.1</p>
 </blockquote>
-<h3 id="在ArcMap中使用osm数据"><strong>在ArcMap中使用osm数据</strong></h3>
-<p>一般情况下，我们可以在 <a target="_blank" rel="noopener" href="https://www.openstreetmap.org">Open Street Map</a> 官网可以通过指定范围直接下载osm格式数据，然后在 ArcMap中直接读取。如下，以Esri中国所在的金泰大厦为中心的数据：</p>
+<h3 id="在ArcMap中使用osm数据"><a href="#在ArcMap中使用osm数据" class="headerlink" title="在ArcMap中使用osm数据"></a><strong>在ArcMap中使用osm数据</strong></h3><p>一般情况下，我们可以在 <a target="_blank" rel="noopener" href="https://www.openstreetmap.org">Open Street Map</a> 官网可以通过指定范围直接下载osm格式数据，然后在 ArcMap中直接读取。如下，以Esri中国所在的金泰大厦为中心的数据：</p>
 <p><img src="http://kikitamap.com/images/blogImg/osm2ce_2.png" alt="ArcMap直读OSM"></p>
 <p>osm数据是基于xml的数据格式，ArcMap不能直接编辑。如果希望导入地理数据库中编辑，可以利用插件，这是Esri额外提供的一个桌面端的免费开源的osm插件，<a target="_blank" rel="noopener" href="https://www.arcgis.com/home/item.html?id=0c4b24608fc94542ba5d1130c0606802">ArcGIS Editor for OSM 10.6.x Desktop</a>。 通过这个插件可以下载、更新OSM数据有关这个插件的源码、文档，可以在<a target="_blank" rel="noopener" href="https://github.com/Esri/arcgis-osm-editor">Github</a>上获得。</p>
 <blockquote>
-<p>OSM is an XML-based format used to describe vector data in a map. It defines three basic data types—nodes, ways, and closed ways—which are used to describe all the other elements:</p>
+<p>OSM is an XML-based format used to describe vector data in a map. It defines three basic data types—nodes, ways, and closed ways—which are used to describe all the other elements: </p>
 <ul>
-<li>Nodes—Points between which segments are drawn.</li>
-<li>Ways—Ordered list of nodes, displayed as connected by line segments in the editor.</li>
+<li>Nodes—Points between which segments are drawn. </li>
+<li>Ways—Ordered list of nodes, displayed as connected by line segments in the editor. </li>
 <li>Closed Ways—Ways that go in a complete loop. They are used to describe areas such as parks, lakes, or islands.</li>
 </ul>
 </blockquote>
 <p>以前10.3年代的时候，整理过一次简单的说明，点<a href="http://kikitamap.com/2015/04/01/ArcGISEditorforOSM103xDesktop/">这里</a>直达。通过测试，相同的网络环境下，官网下载osm数据，之后再使用 Load OSM File 导入GDB，效率明显优于直接使用 Download OSM Data导入GDB。</p>
-<h3 id="在CityEngine中使用osm数据"><strong>在CityEngine中使用osm数据</strong></h3>
-<p>如果osm数据用于CityEngine，那么无需事先导入GDB，CityEngine可以直接解析osm并可分类导入数据，例如下图中导入highway，Building类：</p>
+<h3 id="在CityEngine中使用osm数据"><a href="#在CityEngine中使用osm数据" class="headerlink" title="在CityEngine中使用osm数据"></a><strong>在CityEngine中使用osm数据</strong></h3><p>如果osm数据用于CityEngine，那么无需事先导入GDB，CityEngine可以直接解析osm并可分类导入数据，例如下图中导入highway，Building类：</p>
 <p><img src="http://kikitamap.com/images/blogImg/osm2ce_3.png" alt="导入OSM至CityEngine场景"></p>
 <p>在CityEngine中导入osm时，可以勾选“Map OSM tags”，从而CityEngine会通过OSM street type来定义道路的宽度，并给与不同道路组成部分不同的起始规则，方便后续利用规则批量建模。如下，以金泰大厦以南的东直门大枢纽为例，复杂的交通仍然保持错落有致：</p>
 <p><img src="http://kikitamap.com/images/blogImg/osm2ce_4.png" alt="OSM Highway"></p>

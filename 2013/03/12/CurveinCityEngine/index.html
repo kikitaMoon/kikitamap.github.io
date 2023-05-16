@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2013/03/12/CurveinCityEngine/">
   <title>
     
-      在CityEngine中的圆柱体建模 - Visionary Whisperer
+      在CityEngine中的圆柱体建模 - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -420,23 +418,18 @@
 <p><img src="http://kikitamap.com/images/blogImg/CurveinCityEngine_Demo.jpg" alt=""></p>
 <p><img src="http://kikitamap.com/images/blogImg/CurveinCityEngine_Demo2.jpg" alt=""></p>
 <p>考虑到ArcGIS与CityEngine的数据是可以互操作的，那就在ArcGIS中来构建圆形或者弧段，然后将之处理成近似弧段的多边形，然后导入CityEngine来作为模型的底面基础。按照这个思路，来动手做一下。</p>
-<br>
-<h1>1. 准备带弧的数据</h1>
-<p>在ArcGIS Desktop 中准备数据，创建 File GDB，用于存储弧段。可以从空白开始，也可以在现有数据中编辑。</p>
+<p><br></p>
+<h1 id="1-准备带弧的数据"><a href="#1-准备带弧的数据" class="headerlink" title="1. 准备带弧的数据"></a>1. 准备带弧的数据</h1><p>在ArcGIS Desktop 中准备数据，创建 File GDB，用于存储弧段。可以从空白开始，也可以在现有数据中编辑。</p>
 <p>创建圆、椭圆、贝塞尔曲线、圆弧构成的面等等：</p>
 <p><img src="http://kikitamap.com/images/blogImg/CurveinCityEngine_Curve.png" alt=""></p>
 <p>以上图形都处于节点编辑状态，从节点数目我们可以发现，都是以复杂对象存储的。然而这些是CE不能读取的，那么下一步就是转折线了。</p>
-<br>
-<h1>2. 弧转折线</h1>
-<p>使用 ArcToolbox中的工具 Densify 工具来对弧段加密，从而将高级的函数要素对象转为简单的点线面几何。</p>
-<p><img src="http://kikitamap.com/images/blogImg/CurveinCityEngine_Density.png" alt=""><br>
-​	<br>
-根据需要设置间距或者偏移等参数，从而控制加密点的生成位置，这里的需要主要是指将来模型的详细程度。</p>
+<p><br></p>
+<h1 id="2-弧转折线"><a href="#2-弧转折线" class="headerlink" title="2. 弧转折线"></a>2. 弧转折线</h1><p>使用 ArcToolbox中的工具 Densify 工具来对弧段加密，从而将高级的函数要素对象转为简单的点线面几何。</p>
+<p><img src="http://kikitamap.com/images/blogImg/CurveinCityEngine_Density.png" alt=""><br>​<br>根据需要设置间距或者偏移等参数，从而控制加密点的生成位置，这里的需要主要是指将来模型的详细程度。</p>
 <p>如果需要比较逼真，距离可以相对小一些，这样的节点会更密集些，但是在CE中建模时可能会更耗时，更加占用资源；</p>
 <p>如果相对可以粗略些，距离可以设置大些，这样的节点会稀疏些，建立模型会更加快速，但是边界相对不会很平滑。</p>
 <p><img src="http://kikitamap.com/images/blogImg/CurveinCityEngine_DensifyResult.png" alt=""></p>
-<h1>3.导入CE，进一步加工</h1>
-<p>经过简单的拉拔，可以做出简单的类似弧段建筑物。</p>
+<h1 id="3-导入CE，进一步加工"><a href="#3-导入CE，进一步加工" class="headerlink" title="3.导入CE，进一步加工"></a>3.导入CE，进一步加工</h1><p>经过简单的拉拔，可以做出简单的类似弧段建筑物。</p>
 <p><img src="http://kikitamap.com/images/blogImg/CurveinCityEngine_Model.png" alt=""></p>
 <p>到这里，这些类弧段的楼房骨架就有了。</p>
 

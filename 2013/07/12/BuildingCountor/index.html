@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2013/07/12/BuildingCountor/">
   <title>
     
-      聚焦等值面的创建 - Visionary Whisperer
+      聚焦等值面的创建 - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -351,7 +349,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">798</span> In Total
+              Words <span class="post-count">819</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -413,32 +411,29 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p>    日常我们会碰到有很多根据已知采样点生成等值面、等值线的需求，。由散点采样值估算相应区域，我们一般会想到插值，这样就获得了这个区域的连续表面。</p>
-<p>    在ArcGIS中，插值的方法较多，主要有两个扩展模块的功能可以选用。一般情况下可以选择 Spatial Analyst 工具箱中，IDW，Kriging等方法进行插值。如果有更加复杂的参数设置和更加专业深入的插值分析，可以使用 Geostatistical Analyst，这里暂不赘述。</p>
-<p>    <img src="http://kikitamap.com/images/blogImg/BuildingCountor_Toolset.jpg" alt="">          <img src="http://kikitamap.com/images/blogImg/BuildingCountor_Toolset2.jpg" alt=""></p>
-<p>    这里以IDW插值为例，简述等值面、等值线的生成。</p>
-<br>
-<h1>一、采样点插值</h1>
-<p>例如获取了如下一组点的臭氧浓度的采样值：</p>
+        <p>&nbsp; &nbsp; 日常我们会碰到有很多根据已知采样点生成等值面、等值线的需求，。由散点采样值估算相应区域，我们一般会想到插值，这样就获得了这个区域的连续表面。</p>
+<p>&nbsp; &nbsp; 在ArcGIS中，插值的方法较多，主要有两个扩展模块的功能可以选用。一般情况下可以选择 Spatial Analyst 工具箱中，IDW，Kriging等方法进行插值。如果有更加复杂的参数设置和更加专业深入的插值分析，可以使用 Geostatistical Analyst，这里暂不赘述。</p>
+<p>&nbsp; &nbsp;&nbsp;<img src="http://kikitamap.com/images/blogImg/BuildingCountor_Toolset.jpg" alt="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="http://kikitamap.com/images/blogImg/BuildingCountor_Toolset2.jpg" alt=""></p>
+<p>&nbsp; &nbsp; 这里以IDW插值为例，简述等值面、等值线的生成。</p>
+<p><br></p>
+<h1 id="一、采样点插值"><a href="#一、采样点插值" class="headerlink" title="一、采样点插值"></a>一、采样点插值</h1><p>例如获取了如下一组点的臭氧浓度的采样值：</p>
 <p><img src="http://kikitamap.com/images/blogImg/BuildingCountor_Points.jpg" alt=""></p>
 <p>使用 IDW 工具，设置输入数据，插值使用的字段，搜索半径等参数，获得栅格表面。</p>
 <p><img src="http://kikitamap.com/images/blogImg/BuildingCountor_IDW.jpg" alt=""></p>
-<br>
-<h1>二、等值线的获取</h1>
-<p>Spatial Analyst 中提供了从栅格表面提取等值线的工具，Contour，设置等值线间隔，以及选择设置起算线。</p>
-<p>  <img src="http://kikitamap.com/images/blogImg/BuildingCountor_Contour.jpg" alt=""></p>
+<p><br></p>
+<h1 id="二、等值线的获取"><a href="#二、等值线的获取" class="headerlink" title="二、等值线的获取"></a>二、等值线的获取</h1><p>Spatial Analyst 中提供了从栅格表面提取等值线的工具，Contour，设置等值线间隔，以及选择设置起算线。</p>
+<p>&nbsp;&nbsp;<img src="http://kikitamap.com/images/blogImg/BuildingCountor_Contour.jpg" alt=""></p>
 <p>得到结果：</p>
-<p>      <img src="http://kikitamap.com/images/blogImg/BuildingCountor_result.jpg" alt=""></p>
-<br>
-<h1>三、等值面提取</h1>
-<p>在做等值面之前，我们需要思考下，等值面是指什么？等值面是否是两条等值线之间的闭合区域？等值面的划分依据是什么？</p>
+<p>&nbsp; &nbsp; &nbsp;&nbsp;<img src="http://kikitamap.com/images/blogImg/BuildingCountor_result.jpg" alt=""></p>
+<p><br></p>
+<h1 id="三、等值面提取"><a href="#三、等值面提取" class="headerlink" title="三、等值面提取"></a>三、等值面提取</h1><p>在做等值面之前，我们需要思考下，等值面是指什么？等值面是否是两条等值线之间的闭合区域？等值面的划分依据是什么？</p>
 <p>先说一种比较常用的场景，得到等值线后，为了美化制图，等值线之间的间隔也需要用渐变色予以填充，通常想到的方案是使用工具 Feature to Polygon。这样就得到了与等值线无缝贴合的等值面。如下图：</p>
 <p><img src="http://kikitamap.com/images/blogImg/BuildingCountor_polygon.png" alt=""></p>
 <p>从而获得等值面，这个类似于等间距分类或者等值面的方法。</p>
-<br>
-<br>
+<p><br></p>
+<p><br></p>
 <p><strong>如果抛开等值线而言，比较准确的获取等值面的方法是什么呢？</strong></p>
-<br>
+<p><br></p>
 <p>答案是对栅格表面进行重分类，用一定的数学算法将数据进行数值的重新划分与赋予。</p>
 <p>下面来总结一下方案：</p>
 <p><strong>（1）使用工具 Reclassify 进行栅格数据重分类：</strong></p>
@@ -457,7 +452,7 @@
 <p>这样就会得到相对漂亮平滑的等值线和等值面。</p>
 <p>细节对比图：</p>
 <p><img src="http://kikitamap.com/images/blogImg/BuildingCountor_smooth.png" alt=""></p>
-<br>
+<p><br></p>
 <p>以上就是制作等值面的方法。</p>
 
 

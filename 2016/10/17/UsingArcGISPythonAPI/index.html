@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2016/10/17/UsingArcGISPythonAPI/">
   <title>
     
-      部署 ArcGIS Python API - Visionary Whisperer
+      部署 ArcGIS Python API - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -355,7 +353,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">514</span> In Total
+              Words <span class="post-count">512</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -420,32 +418,28 @@
         <blockquote>
 <p>UPDATE 2017-1-3  ArcGIS Python API V1.0</p>
 </blockquote>
-<h1>准备环境</h1>
-<h2 id="1-获取并安装Conda">1 获取并安装Conda</h2>
-<p>下载安装 Anaconda for Python（python 3.5），<a target="_blank" rel="noopener" href="https://www.continuum.io/downloads">下载地址</a>。 如果机器上已经安装过ArcGIS Pro 1.3及以上版本，那么Conda已经被自动安装了，直接执行“Python Command Prompt”即可继续下一步。</p>
+<h1 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h1><h2 id="1-获取并安装Conda"><a href="#1-获取并安装Conda" class="headerlink" title="1 获取并安装Conda"></a>1 获取并安装Conda</h2><p>下载安装 Anaconda for Python（python 3.5），<a target="_blank" rel="noopener" href="https://www.continuum.io/downloads">下载地址</a>。 如果机器上已经安装过ArcGIS Pro 1.3及以上版本，那么Conda已经被自动安装了，直接执行“Python Command Prompt”即可继续下一步。</p>
 <p><em>就更新这天的测试结果看，ArcGIS Pro 1.4 Alpha4 版本自带的conda环境为：4.0.11， 手动可以下载到的最高版本为 4.2.0.</em></p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[arcgispro-py3] C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3&gt;conda info</span><br><span class="line">Current conda install:</span><br><span class="line"></span><br><span class="line">             platform : win-64</span><br><span class="line">        conda version : 4.0.11</span><br><span class="line">  conda-build version : not installed</span><br><span class="line">       python version : 3.5.2.final.0</span><br><span class="line">     requests version : 2.11.1</span><br><span class="line">     root environment : C:\Program Files\ArcGIS\Pro\bin\Python  (writable)</span><br><span class="line">  default environment : C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3</span><br><span class="line">     envs directories : C:\Program Files\ArcGIS\Pro\bin\Python\envs</span><br><span class="line">        package cache : C:\Program Files\ArcGIS\Pro\bin\Python\pkgs</span><br><span class="line">         channel URLs : https://conda.anaconda.org/esri/win-64/</span><br><span class="line">                        https://conda.anaconda.org/esri/noarch/</span><br><span class="line">                        https://repo.continuum.io/pkgs/free/win-64/</span><br><span class="line">                        https://repo.continuum.io/pkgs/free/noarch/</span><br><span class="line">                        https://repo.continuum.io/pkgs/pro/win-64/</span><br><span class="line">                        https://repo.continuum.io/pkgs/pro/noarch/</span><br><span class="line">          config file : C:\Program Files\ArcGIS\Pro\bin\Python\.condarc</span><br><span class="line">    is foreign system : False</span><br></pre></td></tr></table></figure>
-<br>
-<h2 id="2-安装arcgis包">2 安装arcgis包</h2>
-<p>在Python Command Prompt，执行如下命令下载安装 ArcGIS Python API 到Conda环境。</p>
+<p><br></p>
+<h2 id="2-安装arcgis包"><a href="#2-安装arcgis包" class="headerlink" title="2 安装arcgis包"></a>2 安装arcgis包</h2><p>在Python Command Prompt，执行如下命令下载安装 ArcGIS Python API 到Conda环境。</p>
 <p><code>conda install -c esri arcgis</code></p>
 <p>从旧的 arcgis 包升级</p>
 <p><code>conda upgrade -c esri arcgis</code></p>
-<p>*在安装过程中，会自动下载很多包到 <strong>C:\Program Files\ArcGIS\Pro\bin\Python\pkgs</strong> ，并自动安装，我们可以随时关注命令窗口中的消息了解。 最后，也会自动激活 jupyter notebook 的扩展 arcgis/mapview。  看到后面这个消息，这个过程就结束了： <strong>Enabling notebook extension arcgis/mapview…  - Validating: ok</strong> *</p>
+<p><em>在安装过程中，会自动下载很多包到 <strong>C:\Program Files\ArcGIS\Pro\bin\Python\pkgs</strong> ，并自动安装，我们可以随时关注命令窗口中的消息了解。 最后，也会自动激活 jupyter notebook 的扩展 arcgis/mapview。  看到后面这个消息，这个过程就结束了： <strong>Enabling notebook extension arcgis/mapview…  - Validating: ok</strong> </em></p>
 <p><em>这里相比 0.1，0.3 等beta版本的安装简便易懂了一些，忘记上次的命令吧（ conda install -c conda-forge ipywidgets； conda install -c esri arcgis=0.1； python -m arcgis.install）。</em></p>
-<br>
-<h2 id="3-启动-Jupiter-notebook">3 启动 Jupiter notebook</h2>
-<p><code>jupyter notebook [--port=&lt;int&gt;]</code></p>
+<p><br></p>
+<h2 id="3-启动-Jupiter-notebook"><a href="#3-启动-Jupiter-notebook" class="headerlink" title="3 启动 Jupiter notebook"></a>3 启动 Jupiter notebook</h2><p><code>jupyter notebook [--port=&lt;int&gt;]</code></p>
 <p>默认采用8888端口号，如有占用，注意切换。</p>
-<br>
-<h1>测试</h1>
-<p>新建一个 Python 3 的 notebook，然后输入如下几行：</p>
+<p><br></p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>新建一个 Python 3 的 notebook，然后输入如下几行：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> arcgis.gis <span class="keyword">import</span> *</span><br><span class="line">gis = GIS()</span><br><span class="line">gis.<span class="built_in">map</span>()</span><br></pre></td></tr></table></figure>
 <p>Bingo!</p>
 <p><img src="http://kikitamap.com/images/blogImg/UsingArcGISPythonAPI.png" alt=""></p>
-<br>
+<p><br></p>
 <p>ArcGIS Python API 的官方简短介绍视频 （<em>Youtube源，请翻墙，你懂的</em>）</p>
 <iframe width="960" height="540" src="http://www.esri.com//videos/iframe?videoid=SyFebn8ZgbU&channelid=UCgGDPs8cte-VLJbgpaK4GPw&title=arcgis-python-api-in-5-minutes&autoplay=false" frameborder="0" allowfullscreen></iframe>
+
 
 
         <hr>

@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2014/11/10/MDProperties2/">
   <title>
     
-      镶嵌数据集工具小结（五）镶嵌数据集的属性 Ⅱ - Visionary Whisperer
+      镶嵌数据集工具小结（五）镶嵌数据集的属性 Ⅱ - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -421,9 +419,8 @@
 <p><img src="http://kikitamap.com/images/blogImg/MDProperties2_MDProperties.png" alt=""></p>
 <p>如果我们的多幅影像的数据源之间没有重叠，那么拼接顺序就没有什么值得设置的。但是我们一般拿到的航片、卫片等都是有重叠的，不同的镶嵌规则会让数据在拼接出现差异，我们设置这一组参数来控制影像的拼接方式和顺序等。</p>
 <p><img src="http://kikitamap.com/images/blogImg/MDProperties2_Overlap.png" alt=""></p>
-<br>
-<h1><strong>Mosaic Methods（镶嵌方法）</strong></h1>
-<p><img src="http://kikitamap.com/images/blogImg/MDProperties2_Method.png" alt=""></p>
+<p><br></p>
+<h1 id="Mosaic-Methods（镶嵌方法）"><a href="#Mosaic-Methods（镶嵌方法）" class="headerlink" title="Mosaic Methods（镶嵌方法）"></a><strong>Mosaic Methods（镶嵌方法）</strong></h1><p><img src="http://kikitamap.com/images/blogImg/MDProperties2_Method.png" alt=""></p>
 <p>在“允许的镶嵌方法”中我们可以选择影像的镶嵌方法，从而控制用户访问镶嵌数据集时可以使用哪些方法。同时，可以设置一种方法作为默认方法。</p>
 <ul>
 <li>None 根据镶嵌数据集属性表中的顺序 (ObjectID) 对栅格进行排序。</li>
@@ -442,7 +439,7 @@
 <p><img src="http://kikitamap.com/images/blogImg/MDProperties2_Center.png" alt=""></p>
 <p>★ 选择 <strong>NorthWest</strong> 方法，我们看到位于西北角的 7 获得了最优先的镶嵌顺序，反之，东南角的9排在最后：</p>
 <p><img src="http://kikitamap.com/images/blogImg/MDProperties2_NorthWest.png" alt=""></p>
-<p>★ 选择 **Lock Raster **方法，允许客户端可以指定某些栅格数据，这样仅对被锁定的栅格进行显示：</p>
+<p>★ 选择 <strong>Lock Raster </strong>方法，允许客户端可以指定某些栅格数据，这样仅对被锁定的栅格进行显示：</p>
 <p><img src="http://kikitamap.com/images/blogImg/MDProperties2_LockRaster.png" alt=""></p>
 <p><img src="http://kikitamap.com/images/blogImg/MDProperties2_LockRaster2.png" alt=""></p>
 <p>★ 选择 <strong>ByAttribute</strong> 方法，需要指定 <strong><em>Order Field</em></strong> ，例如按照自定义字段 MyOrder 排序：</p>
@@ -456,7 +453,7 @@
 <p><img src="http://kikitamap.com/images/blogImg/MDProperties2_Nadir.pngr" alt=""></p>
 <p>此方法与“Center”方法类似，但使用的是栅格的像底点，像底点可以不是中心点，尤其是在倾斜的影像中。</p>
 <p><img src="http://kikitamap.com/images/blogImg/MDProperties2_Nidir2.png" alt=""></p>
-<p>★ 选择 **Viewport **方法，可以使用“ViewPoint”工具根据自定义的位置与栅格的像底点位置对栅格进行排序。</p>
+<p>★ 选择 <strong>Viewport </strong>方法，可以使用“ViewPoint”工具根据自定义的位置与栅格的像底点位置对栅格进行排序。</p>
 <p>ViewPoint 是个隐藏工具，我们可以在自定义菜单中找到并添加出来：</p>
 <p><img src="http://kikitamap.com/images/blogImg/MDProperties2_Viewport.png" alt=""></p>
 <p>打开 Viewpoint 窗口之后，我们就可以自定义视点，视点的位置将会影响栅格数据的镶嵌顺序，如下图。</p>
@@ -465,9 +462,8 @@
 <p><img src="http://kikitamap.com/images/blogImg/MDProperties2_Viewport3.png" alt=""></p>
 <p>★ 选择 <strong>Seamline</strong> 方法，使用预定义的接缝线形状分割栅格，并且可以选择是否沿接边使用羽化功能。在生成接缝线的过程中对排序进行预定义。使用此镶嵌方法时，镶嵌运算符 LAST 无效。</p>
 <p>镶嵌数据集的接缝线可以通过 <strong>Build Seamlines</strong> 工具来创建，这个工具后面会单独的总结一下。这里就不罗嗦了。</p>
-<br>
-<h1><strong>Mosaic Operator（镶嵌运算符）</strong></h1>
-<p>镶嵌运算符用于确定如何解析重叠像元。</p>
+<p><br></p>
+<h1 id="Mosaic-Operator（镶嵌运算符）"><a href="#Mosaic-Operator（镶嵌运算符）" class="headerlink" title="Mosaic Operator（镶嵌运算符）"></a><strong>Mosaic Operator（镶嵌运算符）</strong></h1><p>镶嵌运算符用于确定如何解析重叠像元。</p>
 <p><img src="http://kikitamap.com/images/blogImg/MDProperties2_Operator.jpg" alt=""></p>
 <ul>
 <li>First 重叠区域中所列出的第一个栅格数据集中的像元。</li>

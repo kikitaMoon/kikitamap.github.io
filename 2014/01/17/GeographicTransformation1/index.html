@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2014/01/17/GeographicTransformation1/">
   <title>
     
-      ArcGIS中的地理坐标系转换方法参数（一） - Visionary Whisperer
+      ArcGIS中的地理坐标系转换方法参数（一） - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -347,11 +345,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">2</span> Minutes
+              Estimated Reading Time <span class="post-count">3</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">834</span> In Total
+              Words <span class="post-count">838</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -419,23 +417,20 @@
 <p>如果我们需要进行地理坐标系转换，我们知道 ArcGIS Desktop 中提供了 Project 工具。</p>
 <p>此工具界面上有个至关重要的参数：<strong>Geographic Transformation</strong>。我们发现它的后面赫然写着。依照使用其他工具的经验，这种打了 Optional 标志的参数，不就是可填可不填的意思吗？</p>
 <p>但是，它真的让你随便的可填可不填吗？ Naive！ 图样图森破！ 这个参数的填写与否，完全是受前面两个参数决定的，主要三种情景吧。</p>
-<br>
-<h2 id="情景1：">情景1：</h2>
-<p>不涉及到地理坐标系变换的坐标变换，这个参数完全不需要，而不是 optional 哦。</p>
+<p><br></p>
+<h2 id="情景1："><a href="#情景1：" class="headerlink" title="情景1："></a>情景1：</h2><p>不涉及到地理坐标系变换的坐标变换，这个参数完全不需要，而不是 optional 哦。</p>
 <p>例如：从 GCS_Xian_1980 进行投影变换，转换为 Xian_1980_3_Degree_GK_CM_120E 投影坐标系。</p>
 <p>整过转换中，仅使用了高斯克吕格投影变换，没有涉及到地理坐标变换。</p>
 <p><img src="http://kikitamap.com/images/blogImg/GeographicTransformation1_Project.jpg" alt=""></p>
-<br />
-<h2 id="情景2：">情景2：</h2>
-<p>涉及到地理坐标系变换的坐标变换，并且ArcGIS 已知二者之间的变换方法，这个参数是必须的，在已知列表中做选择或者自定义。（自定义见：情景3）</p>
-<p>例如：从 GCS_Beijing_1954，转换为 GCS_WGS_1984坐标系。</p>
+<p><br /></p>
+<h2 id="情景2："><a href="#情景2：" class="headerlink" title="情景2："></a>情景2：</h2><p>涉及到地理坐标系变换的坐标变换，并且ArcGIS 已知二者之间的变换方法，这个参数是必须的，在已知列表中做选择或者自定义。（自定义见：情景3）</p>
+<p>例如：从&nbsp;GCS_Beijing_1954，转换为&nbsp;GCS_WGS_1984坐标系。</p>
 <p>转换过程中涉及到地理坐标系变换，也就是进行了椭球体变换。</p>
 <p>ArcGIS 中提供了6种已知转换方法，可以根据适用范围选择之。其中如何选择，此文不做介绍，请查看我的另一篇<a href="http://kikitamap.com/2013/10/21/Beijing1954ToWGS1984/">博客</a>：</p>
 <p><img src="http://kikitamap.com/images/blogImg/GeographicTransformation1_Project2.jpg" alt=""></p>
-<br />
-<h2 id="情景3：">情景3：</h2>
-<p>涉及到地理坐标系变换的坐标变换，并且ArcGIS 未知二者之间的变换方法，也就是ArcGIS没有提供转换方法，但是这个参数是必须的，需要自定义，这个参数前会亮绿灯，告诉用户，必须要填写。另外，上面情景2中，ArcGIS给出的方法，如果都不是自己需要的，也需要自定义。</p>
-<p>例如：从 GCS_Beijing_1954，转换为 GCS_Xian_1980坐标系。</p>
+<p><br /></p>
+<h2 id="情景3："><a href="#情景3：" class="headerlink" title="情景3："></a>情景3：</h2><p>涉及到地理坐标系变换的坐标变换，并且ArcGIS 未知二者之间的变换方法，也就是ArcGIS没有提供转换方法，但是这个参数是必须的，需要自定义，这个参数前会亮绿灯，告诉用户，必须要填写。另外，上面情景2中，ArcGIS给出的方法，如果都不是自己需要的，也需要自定义。</p>
+<p>例如：从&nbsp;GCS_Beijing_1954，转换为&nbsp;GCS_Xian_1980坐标系。</p>
 <p><img src="http://kikitamap.com/images/blogImg/GeographicTransformation1_Project3.jpg" alt=""></p>
 <p>需要使用工具 Create Custom Geographic transformation，创建一种转换方法，辅助 Project 工具。</p>
 <p>这个工具的帮助如下，就不赘述了。</p>

@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2016/01/17/ArcGISWeb3D/">
   <title>
     
-      实践 ArcGIS Web 3D - Visionary Whisperer
+      实践 ArcGIS Web 3D - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -420,9 +418,8 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p>ArcGIS 产品家族的 Web 3D 功能众多用户期待已久，从 ArcGIS 10.3.1 版本开始，Esri 放了个大招，千呼万唤始出来的 Web 3D 功能，终于不再犹抱琵琶半遮面了。 那到底如何将创建和发布3D场景呢？ 下面就把今天的测试过程记录下。</p>
-<br>
-<h2 id="测试环境">测试环境</h2>
-<p><strong>硬件</strong></p>
+<p><br></p>
+<h2 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h2><p><strong>硬件</strong></p>
 <ul>
 <li>处理器：Intel Core i7 4710MQ @ 2.50GHz</li>
 <li>内存：16G</li>
@@ -435,63 +432,57 @@
 <p><strong>软件</strong></p>
 <ul>
 <li>ArcGIS Pro 1.1.1    <strong>（必要）</strong></li>
-<li>ArcGIS for Server 10.3.1   <strong>（必要）</strong><br>
-包括：</li>
-<li>Portal for ArcGIS</li>
+<li>ArcGIS for Server 10.3.1   <strong>（必要）</strong><br>包括：<ul>
+<li>Portal for ArcGIS </li>
 <li>ArcGIS Web Adpter (IIS)</li>
 <li>ArcGIS Data Store</li>
+</ul>
+</li>
 <li>ArcGIS for Desktop 10.3.1</li>
 <li>CityEgnine 2015.2</li>
 </ul>
-<br>
-<br>
-<h2 id="不可不知的先决条件">不可不知的先决条件</h2>
-<p><strong>1</strong>.  首先确保自己的环境满足系统要求，这是非常重要的、不可忽略的条件之一，详情参考如下文档：</p>
-<p><strong>ArcGIS for Server 系统要求</strong><br>
-<a target="_blank" rel="noopener" href="http://server.arcgis.com/zh-cn/server/latest/install/windows/arcgis-for-server-system-requirements.htm">http://server.arcgis.com/zh-cn/server/latest/install/windows/arcgis-for-server-system-requirements.htm</a></p>
-<p><strong>ArcGIS Pro 系统要求</strong><br>
-<a target="_blank" rel="noopener" href="http://pro.arcgis.com/zh-cn/pro-app/get-started/arcgis-pro-system-requirements.htm">http://pro.arcgis.com/zh-cn/pro-app/get-started/arcgis-pro-system-requirements.htm</a></p>
-<br>
+<p><br></p>
+<p><br></p>
+<h2 id="不可不知的先决条件"><a href="#不可不知的先决条件" class="headerlink" title="不可不知的先决条件"></a>不可不知的先决条件</h2><p><strong>1</strong>.  首先确保自己的环境满足系统要求，这是非常重要的、不可忽略的条件之一，详情参考如下文档：</p>
+<p>  <strong>ArcGIS for Server 系统要求</strong><br>  <a target="_blank" rel="noopener" href="http://server.arcgis.com/zh-cn/server/latest/install/windows/arcgis-for-server-system-requirements.htm">http://server.arcgis.com/zh-cn/server/latest/install/windows/arcgis-for-server-system-requirements.htm</a></p>
+<p>   <strong>ArcGIS Pro 系统要求</strong><br>   <a target="_blank" rel="noopener" href="http://pro.arcgis.com/zh-cn/pro-app/get-started/arcgis-pro-system-requirements.htm">http://pro.arcgis.com/zh-cn/pro-app/get-started/arcgis-pro-system-requirements.htm</a></p>
+<p><br></p>
 <p><strong>2</strong>. ArcGIS 的 Scene Service 是一种新的 Web 服务类型，这种服务来自于 ArcGIS Pro，并且要求创建和发布 Scene Service 的<strong>ArcGIS Pro是1.1或将来的更高版本</strong>。  也就是说， 目前传统的ArcGIS for Desktop 是不能创建和发布Scene Service的。</p>
-<br>
+<p><br></p>
 <p><strong>3</strong>. 从 <strong>ArcGIS for Server 10.3.1</strong> 版本才开始了Scene Service 的支持。也就是，略早的 10.3 版本也是不可以的哦。为了发布3D数据（Multipatch）和2D数据作为门户中的托管场景图层，<strong>必要的安装组件有 Portal for ArcGIS，ArcGIS Data Store</strong> 。 其中，ArcGIS Data Store 用于存储 Scene Service 中所使用的场景图层切片缓存。</p>
-<br>
+<p><br></p>
 <p><strong>4</strong> 将 ArcGIS Server 与门户联合；并且将 ArcGIS Server 指定为门户的托管服务器。</p>
 <p><img src="http://kikitamap.com/images/blogImg/ArcGISWeb3D_Portal.png" alt=""></p>
 <p><strong>具体如何配置？</strong> 参考帮助文档，这里不赘述，虽然略有繁琐但有章可依：</p>
-<p><strong>联合 ArcGIS Server 站点与门户</strong><br>
-<a target="_blank" rel="noopener" href="http://server.arcgis.com/zh-cn/server/latest/administer/windows/federate-an-arcgis-server-site-with-your-portal.htm">http://server.arcgis.com/zh-cn/server/latest/administer/windows/federate-an-arcgis-server-site-with-your-portal.htm</a></p>
-<p><strong>配置托管服务器</strong><br>
-<a target="_blank" rel="noopener" href="http://server.arcgis.com/zh-cn/server/latest/administer/windows/configure-hosting-server-for-portal.htm">http://server.arcgis.com/zh-cn/server/latest/administer/windows/configure-hosting-server-for-portal.htm</a></p>
-<br>
-<br>
-<h2 id="创建和发布Scene-Service-的过程">创建和发布Scene Service 的过程</h2>
-<br>
+<p><strong>联合 ArcGIS Server 站点与门户</strong><br><a target="_blank" rel="noopener" href="http://server.arcgis.com/zh-cn/server/latest/administer/windows/federate-an-arcgis-server-site-with-your-portal.htm">http://server.arcgis.com/zh-cn/server/latest/administer/windows/federate-an-arcgis-server-site-with-your-portal.htm</a></p>
+<p><strong>配置托管服务器</strong><br><a target="_blank" rel="noopener" href="http://server.arcgis.com/zh-cn/server/latest/administer/windows/configure-hosting-server-for-portal.htm">http://server.arcgis.com/zh-cn/server/latest/administer/windows/configure-hosting-server-for-portal.htm</a></p>
+<p><br></p>
+<p><br></p>
+<h2 id="创建和发布Scene-Service-的过程"><a href="#创建和发布Scene-Service-的过程" class="headerlink" title="创建和发布Scene Service 的过程"></a>创建和发布Scene Service 的过程</h2><p><br></p>
 <p><strong>1. 打开 ArcGIS Pro ，创建场景，加入场景数据。其中建筑物模型为 File Geodatabase 中的 Multipatch Feature Class。</strong></p>
-<p><img src="http://kikitamap.com/images/blogImg/ArcGISWeb3D_Pro.png" alt=""></p>
-<br>
+<p>   <img src="http://kikitamap.com/images/blogImg/ArcGISWeb3D_Pro.png" alt=""></p>
+<p><br></p>
 <p><strong>2. 确保连接并激活 Portal，且自己的账户有创建内容、发布托管要素和发布托管场景的权限。</strong></p>
 <p>这里需要说明下，目前，只用 Portal for ArcGIS 才支持发布 Multipatch 数据源的 Scene Service。 ArcGIS Online 暂不支持。如果大家的 ArcGIS Pro 是60天试用版本的许可，默认激活的门户是ArcGIS Online，需要添加并切换到一个可用的Portal。</p>
-<p><img src="http://kikitamap.com/images/blogImg/ArcGISWeb3D_ActivePortal.png" alt=""></p>
-<br>
+<p>   <img src="http://kikitamap.com/images/blogImg/ArcGISWeb3D_ActivePortal.png" alt=""></p>
+<p><br></p>
 <p><strong>3. 确保ArcGIS Pro 中场景的打开方式是 Global View。如果是 Local View ，也可以切换。</strong></p>
-<p><img src="http://kikitamap.com/images/blogImg/ArcGISWeb3D_Global.png" alt=""></p>
-<br>
+<p>   <img src="http://kikitamap.com/images/blogImg/ArcGISWeb3D_Global.png" alt=""></p>
+<p><br></p>
 <p><strong>4. 分享场景，分析服务，确保没有 Error，如果有，需要事先修复。</strong></p>
-<p><img src="http://kikitamap.com/images/blogImg/ArcGISWeb3D_Analysis.png" alt=""></p>
-<br>
+<p>  <img src="http://kikitamap.com/images/blogImg/ArcGISWeb3D_Analysis.png" alt=""></p>
+<p><br></p>
 <p><strong>5. 等待完成，确保Job目录中所有任务全部成功完成。</strong></p>
-<p><img src="http://kikitamap.com/images/blogImg/ArcGISWeb3D_Job.png" alt=""></p>
-<p>根据数据量的不同，带宽的不同，硬件配置的不同，整个发布服务的过程时间长短不一。</p>
-<p>我的这个测试中共89个精细程度不一的建筑物模型，发布全过程大约耗时1分钟，供参考。</p>
-<p><img src="http://kikitamap.com/images/blogImg/ArcGISWeb3D_Finish.png" alt=""></p>
-<br>
-<br>
-<h2 id="Web-前端访问服务">Web 前端访问服务</h2>
-<p>ArcGIS Scene Viewer 需要支持 WebGL 的桌面 Web 浏览器，WebGL 是用于渲染 3D 图形的 web 技术标准。</p>
-<p>点 <strong><a href="get.webgl.org">这里</a></strong> 测试浏览器是否启用了 WebGL，请打开 <a target="_blank" rel="noopener" href="http://get.webgl.org">get.webgl.org</a>； 要解决与 WebGL 相关的问题，请访问 WebGL <a target="_blank" rel="noopener" href="http://get.webgl.org/troubleshooting/"><strong>疑难解答</strong></a>。</p>
+<p>  <img src="http://kikitamap.com/images/blogImg/ArcGISWeb3D_Job.png" alt=""></p>
+<p>  根据数据量的不同，带宽的不同，硬件配置的不同，整个发布服务的过程时间长短不一。</p>
+<p>  我的这个测试中共89个精细程度不一的建筑物模型，发布全过程大约耗时1分钟，供参考。</p>
+<p>  <img src="http://kikitamap.com/images/blogImg/ArcGISWeb3D_Finish.png" alt=""></p>
+<p><br></p>
+<p><br></p>
+<h2 id="Web-前端访问服务"><a href="#Web-前端访问服务" class="headerlink" title="Web 前端访问服务"></a>Web 前端访问服务</h2><p>ArcGIS Scene Viewer 需要支持 WebGL 的桌面 Web 浏览器，WebGL 是用于渲染 3D 图形的 web 技术标准。 </p>
+<p>点 <strong><a href="get.webgl.org">这里</a></strong> 测试浏览器是否启用了 WebGL，请打开 get.webgl.org； 要解决与 WebGL 相关的问题，请访问 WebGL <a target="_blank" rel="noopener" href="http://get.webgl.org/troubleshooting/"><strong>疑难解答</strong></a>。</p>
 <p>ArcGIS Scene Viewer 支持这些 web 浏览器：<strong>Chrome，Firefox，Internet Explorer 11，Safari</strong>。我这里使用的是 Chrome 是 Version 47.0.2526.111 m (64-bit)。</p>
-<br>
+<p><br></p>
 <p>好像还不错哦</p>
 <p><img src="http://kikitamap.com/images/blogImg/ArcGISWeb3D_web.png" alt=""></p>
 <p>表示树木的 Feature Layer 可以在 Web 端修改渲染</p>
@@ -500,8 +491,8 @@
 <p><img src="http://kikitamap.com/images/blogImg/ArcGISWeb3D_Detail.png" alt=""></p>
 <p>再换换底图，做几个Slide</p>
 <p><img src="http://kikitamap.com/images/blogImg/ArcGISWeb3D_Basemap.png" alt=""></p>
-<br>
-<br>
+<p><br></p>
+<p><br></p>
 <p>刚好这个周末比较清闲，可以用比较连续的时间做了测试，效果还算令人满意，后面我会再做些大数据量的测试，有空再更新。</p>
 
 

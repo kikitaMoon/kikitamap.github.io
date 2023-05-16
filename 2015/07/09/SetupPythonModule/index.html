@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2015/07/09/SetupPythonModule/">
   <title>
     
-      发布和安装python自定义模块 - Visionary Whisperer
+      发布和安装python自定义模块 - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -351,7 +349,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">459</span> In Total
+              Words <span class="post-count">458</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -414,43 +412,38 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p>这一篇说下如何发布和安装python自定义模块，版本：Python 2.7 。</p>
-<br>
-<h1><a target="_blank" rel="noopener" href="http://1.xn--setup-ll6hz28e.py">1.创建setup.py</a></h1>
-<p>现在如果已经写好一个python文件，为了尽量简明，创建一个新的文件夹，把自己py文件放进去。接着在这个文件夹中创建一个名为 <a target="_blank" rel="noopener" href="http://setup.py">setup.py</a> 的文件，用来表示模块的元数据，文件的内容类似下面这个样子。除了手工创建，有很多python编辑器也可以更简便的来创建这个文件，例如 pycharm。</p>
+<p><br></p>
+<h1 id="1-创建setup-py"><a href="#1-创建setup-py" class="headerlink" title="1.创建setup.py"></a>1.创建setup.py</h1><p>现在如果已经写好一个python文件，为了尽量简明，创建一个新的文件夹，把自己py文件放进去。接着在这个文件夹中创建一个名为 setup.py 的文件，用来表示模块的元数据，文件的内容类似下面这个样子。除了手工创建，有很多python编辑器也可以更简便的来创建这个文件，例如 pycharm。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name=<span class="string">&#x27;nesterprint&#x27;</span>,</span><br><span class="line">    version=<span class="string">&#x27;1.0.0&#x27;</span>,</span><br><span class="line">    packages=[<span class="string">&#x27;&#x27;</span>],</span><br><span class="line">    url=<span class="string">&#x27;http://blog.csdn.net/kikitaMoon&#x27;</span>,</span><br><span class="line">    license=<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    author=<span class="string">&#x27;kikita&#x27;</span>,</span><br><span class="line">    author_email=<span class="string">&#x27;kikitamoopn@gmail.com&#x27;</span>,</span><br><span class="line">    description=<span class="string">&#x27;My Test&#x27;</span></span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<br>
-<h1>2. 打包发布</h1>
-<p>使用Window自带的命令窗口，转到上一步创建的文件夹目录，输入命令，<strong>python <a target="_blank" rel="noopener" href="http://setup.py">setup.py</a> sdist</strong>：</p>
+<p><br></p>
+<h1 id="2-打包发布"><a href="#2-打包发布" class="headerlink" title="2. 打包发布"></a>2. 打包发布</h1><p>使用Window自带的命令窗口，转到上一步创建的文件夹目录，输入命令，<strong>python setup.py sdist</strong>：</p>
 <p><img src="http://kikitamap.com/images/blogImg/SetupPythonModule_setup.png" alt=""></p>
 <p>通过上面的状态信息知道，产生了下面的结果：</p>
 <p><img src="http://kikitamap.com/images/blogImg/SetupPythonModule_Folder.png" alt=""></p>
-<br>
-<h1>3. 安装</h1>
-<p>在命令窗口输入命令： <strong>python <a target="_blank" rel="noopener" href="http://setup.py">setup.py</a> install</strong></p>
+<p><br></p>
+<h1 id="3-安装"><a href="#3-安装" class="headerlink" title="3. 安装"></a>3. 安装</h1><p>在命令窗口输入命令： <strong>python setup.py install</strong></p>
 <p><img src="http://kikitamap.com/images/blogImg/SetupPythonModule_Install.png" alt=""></p>
 <p>安装命令也会产生额外的目录，build/lib 。</p>
 <p><img src="http://kikitamap.com/images/blogImg/SetupPythonModule_Folder2.png" alt=""></p>
-<br>
-<h1>4. 导入模块</h1>
-<p>import nesterprint ，导入这个自定模块，开始使用其中的myprint函数吧。</p>
+<p><br></p>
+<h1 id="4-导入模块"><a href="#4-导入模块" class="headerlink" title="4. 导入模块"></a>4. 导入模块</h1><p>import nesterprint ，导入这个自定模块，开始使用其中的myprint函数吧。</p>
 <p><img src="http://kikitamap.com/images/blogImg/SetupPythonModule_Import.png" alt=""></p>
 <blockquote>
 <p>PS:这一篇重在发布安装模块的流程，模块内部脚本没提及，在前一篇的最后Demo中有写，可以参考，但是这真的不是重点。</p>
 </blockquote>
-<br>
-<h1>5. 升级模块</h1>
-<p>如果我们想升级模块，可以不？ 可以！</p>
-<p><a target="_blank" rel="noopener" href="http://xn--nesterprint-ix9q722vuyd.py">更新了nesterprint.py</a> 中的一些代码，改进了功能后，来升级下模块。到 <a target="_blank" rel="noopener" href="http://setup.py">setup.py</a> 文件中修改下版本信息，我就叫他2.0.0 。</p>
+<p><br></p>
+<h1 id="5-升级模块"><a href="#5-升级模块" class="headerlink" title="5. 升级模块"></a>5. 升级模块</h1><p>如果我们想升级模块，可以不？ 可以！</p>
+<p>更新了nesterprint.py 中的一些代码，改进了功能后，来升级下模块。到 setup.py 文件中修改下版本信息，我就叫他2.0.0 。</p>
 <p><img src="http://kikitamap.com/images/blogImg/SetupPythonModule_Update.png" alt=""></p>
 <p>用 2， 3 两步一样的方法发布安装就好了。</p>
 <p><img src="http://kikitamap.com/images/blogImg/SetupPythonModule_Install2.png" alt=""></p>
-<br>
-<br>
+<p><br></p>
+<p><br></p>
 <p>试验一下：</p>
 <p>nesterprint 的功能已经升级到 2.0 版本了。</p>
 <p><img src="http://kikitamap.com/images/blogImg/SetupPythonModule_Update2.png" alt=""></p>
 <blockquote>
-<p>what’s new？ 增加了根据列表的深度自动缩进的功能。</p>
+<p>what’s new？ 增加了根据列表的深度自动缩进的功能。 </p>
 </blockquote>
 
 

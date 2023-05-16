@@ -23,13 +23,6 @@
   </url>
   
   <url>
-    <loc>https://kikitamap.com/404.html</loc>
-    
-    <lastmod>2023-05-16</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://kikitamap.com/tags/index.html</loc>
     
     <lastmod>2023-05-16</lastmod>
@@ -1248,14 +1241,14 @@
   </url>
   
   <url>
-    <loc>https://kikitamap.com/2012/08/27/SAInterpolation/</loc>
+    <loc>https://kikitamap.com/2012/08/27/SAMultiDimensions/</loc>
     
     <lastmod>2012-08-27</lastmod>
     
   </url>
   
   <url>
-    <loc>https://kikitamap.com/2012/08/27/SAMultiDimensions/</loc>
+    <loc>https://kikitamap.com/2012/08/27/SAInterpolation/</loc>
     
     <lastmod>2012-08-27</lastmod>
     
@@ -1439,7 +1432,28 @@
 
   
   <url>
+    <loc>https://kikitamap.com/tags/Geodata/</loc>
+    <lastmod>2023-05-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://kikitamap.com/tags/Mapping/</loc>
+    <lastmod>2023-05-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kikitamap.com/tags/ArcPad/</loc>
+    <lastmod>2023-05-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kikitamap.com/tags/Coordinate-System/</loc>
     <lastmod>2023-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1453,21 +1467,7 @@
   </url>
   
   <url>
-    <loc>https://kikitamap.com/tags/Geodata/</loc>
-    <lastmod>2023-05-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://kikitamap.com/tags/CAD/</loc>
-    <lastmod>2023-05-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kikitamap.com/tags/Deployment/</loc>
     <lastmod>2023-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1488,14 +1488,7 @@
   </url>
   
   <url>
-    <loc>https://kikitamap.com/tags/ArcPad/</loc>
-    <lastmod>2023-05-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kikitamap.com/tags/Coordinate-System/</loc>
+    <loc>https://kikitamap.com/tags/Deployment/</loc>
     <lastmod>2023-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1586,14 +1579,14 @@
   </url>
   
   <url>
-    <loc>https://kikitamap.com/tags/Certification/</loc>
+    <loc>https://kikitamap.com/tags/Visual-Studio/</loc>
     <lastmod>2023-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://kikitamap.com/tags/Visual-Studio/</loc>
+    <loc>https://kikitamap.com/tags/Certification/</loc>
     <lastmod>2023-05-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

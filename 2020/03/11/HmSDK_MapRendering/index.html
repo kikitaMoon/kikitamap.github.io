@@ -112,7 +112,7 @@
   <link rel="canonical" href="https://kikitamap.com/2020/03/11/HmSDK_MapRendering/">
   <title>
     
-      HERE mSDK - Map Rendering - Visionary Whisperer
+      HERE mSDK - Map Rendering - kikita&amp;Maps|kikitamap.com
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -205,9 +205,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -226,18 +226,16 @@
           
           
           
-          
-          
-          
-          
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
           </li>
+          
+          
           
           
 
@@ -419,26 +417,25 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p>通过上一个<a href="http://kikitamap.com/2020/03/09/HmSDK_QuickStart/">入门篇</a>，相信你已经对 HERE mSDK 有了一定的印象。<br>
-作为一个地图SDK，最基础最重要的功能首先是地图渲染， 那么今天我们仍然以 HERE mSDK （Premium Edition）为例一起了解下。在 HERE Location Services 中有一个 <a target="_blank" rel="noopener" href="https://developer.here.com/documentation#maps_section">Interactive Maps Service</a>，用于访问服务器端预渲染的瓦片服务/tile map， 这就是今天要用到的原料。</p>
-<p>Let’s get our hands dirty ！<br>
-今天这篇我们先从最基础的 Map Rendering 和 Map Schemes 开始。 <code>AndroidXMapFragment</code> 类提供了交互式地图体验支持， 例如缩放、平移等等。<code>AndroidXMapFragment</code>初始化之后，可以通过<code>Map map = mapFragment.getMap();</code> 获取 <code>Map</code> 。<br>
-<code>Map</code> 类中提供了很多 map attributes 帮助开发者确定地图的展示方式，例如：map center，zoom level,  tilt, orientation, map projection, map animation ……</p>
+        <p>通过上一个<a href="http://kikitamap.com/2020/03/09/HmSDK_QuickStart/">入门篇</a>，相信你已经对 HERE mSDK 有了一定的印象。<br>作为一个地图SDK，最基础最重要的功能首先是地图渲染， 那么今天我们仍然以 HERE mSDK （Premium Edition）为例一起了解下。在 HERE Location Services 中有一个 <a target="_blank" rel="noopener" href="https://developer.here.com/documentation#maps_section">Interactive Maps Service</a>，用于访问服务器端预渲染的瓦片服务/tile map， 这就是今天要用到的原料。</p>
+<p>Let’s get our hands dirty ！<br>今天这篇我们先从最基础的 Map Rendering 和 Map Schemes 开始。 <code>AndroidXMapFragment</code> 类提供了交互式地图体验支持， 例如缩放、平移等等。<code>AndroidXMapFragment</code>初始化之后，可以通过<code>Map map = mapFragment.getMap();</code> 获取 <code>Map</code> 。<br><code>Map</code> 类中提供了很多 map attributes 帮助开发者确定地图的展示方式，例如：map center，zoom level,  tilt, orientation, map projection, map animation …… </p>
 <blockquote>
 <p>详见开发文档：<a target="_blank" rel="noopener" href="https://developer.here.com/documentation/android-premium/dev_guide/topics/maps.html"><strong>Map</strong></a></p>
 </blockquote>
-<p>HERE Interactive Maps 提供了很多样式的地图外观（Map Scheme）可供选择，以满足不同审美和专题的需求。简而言之，地图数据是一套，皮肤可有很多种。</p>
+<p>HERE Interactive Maps 提供了很多样式的地图外观（Map Scheme）可供选择，以满足不同审美和专题的需求。简而言之，地图数据是一套，皮肤可有很多种。 </p>
 <blockquote>
 <p>在开发者文档中，有一页图文可供参考：<a target="_blank" rel="noopener" href="https://developer.here.com/documentation/android-premium/dev_guide/topics/map-schemes.html"><strong>Map Scheme</strong></a></p>
 </blockquote>
 <p>HERE 在 Github上有官方的示例代码库，这篇的相关示例可以在这个连接中找到：<a target="_blank" rel="noopener" href="https://github.com/heremaps/here-android-sdk-examples/tree/master/map-attribute"><strong>Map Attribute</strong></a></p>
-<p>我在这个工程中稍作修改，增加了 Satallite Mode 和 Night Mode，  因为后者是最近备受欢迎的一种渲染方式，这么好看的地图不做在样例里觉得有点可惜。 Night Mode 一方面可以作为夜晚时段的地图展示，另一方面可以作为设备暗色主题搭配的地图显示。<br>
-另外，这个示例工程中，还包含了公交/Transit 主题地图的展示（None/公交站/公交线路），以及路况/Realtime Traffic Service 的展示 （Traffic Flow / Incident）。</p>
+<p>我在这个工程中稍作修改，增加了 Satallite Mode 和 Night Mode，  因为后者是最近备受欢迎的一种渲染方式，这么好看的地图不做在样例里觉得有点可惜。 Night Mode 一方面可以作为夜晚时段的地图展示，另一方面可以作为设备暗色主题搭配的地图显示。<br>另外，这个示例工程中，还包含了公交/Transit 主题地图的展示（None/公交站/公交线路），以及路况/Realtime Traffic Service 的展示 （Traffic Flow / Incident）。</p>
 <p>Happy testing ^^</p>
 <p><img src="http://kikitamap.com/images/blogImg/HmSDK_MapRendering.jpg" alt=""></p>
 <p>如下是在 Nexus 10 模拟器中的录屏:</p>
-<div id="video"><video width="550" height="854" controls autoplay muted><source src="http://kikitamap.com/images/blogImg/HmSDK_MapRenderingDemo.mp4" type="video/mp4"></video></div>
+<p><div id="video"><video width="550" height="854" controls autoplay muted><source src="http://kikitamap.com/images/blogImg/HmSDK_MapRenderingDemo.mp4" type="video/mp4"></video></div></p>
 <style type="text/css">#video{width:550px; height:854px;background:#ffcccc;}</style>
+
+
+
 
 
         <hr>
