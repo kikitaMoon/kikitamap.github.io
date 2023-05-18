@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -413,13 +413,13 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p>在过去的版本，例如 9.31，10.0 我们在安装目录中可以找到存放系统 prj 的地址，例如 C:\Program Files (x86)\ArcGIS\Desktop10.0\Coordinate Systems\Projected Coordinate Systems。但是10.0之后，我们发现，这个文件夹消失了，那要得到其中的Prj文件怎么做呢？ </p>
+        <p>在过去的版本，例如 9.31，10.0 我们在安装目录中可以找到存放系统 prj 的地址，例如 C:\Program Files (x86)\ArcGIS\Desktop10.0\Coordinate Systems\Projected Coordinate Systems。但是10.0之后，我们发现，这个文件夹消失了，那要得到其中的Prj文件怎么做呢？</p>
 <p>现在的 Coordinate Systems 文件变成的虚拟的结构，prj 文件都存储在 projection engine library (pe.dll)。从安装包中去掉了4000+的 prj 文件，会提升安装的性能。</p>
 <p>如果是自定义的 prj 文件， 可以将文件复制到 ArcMap Favorites 文件夹。 如果需要得到 prj 文件，可以将其添加到收藏，或者另存为副本。</p>
 <p><strong>收藏夹的位置：</strong></p>
 <p><code>Win7 ：c:\Users\[login]\[Roaming | Local | etc]\AppData\ESRI\Desktop10.1\ArcMap\Coordinate Systems</code></p>
 <p><code>WinXP： C:\Documents and Settings\[login]\Application Data\ESRI\Desktop10.1\ArcMap\Coordinate Systems</code></p>
-<p>文件夹中支持子文件夹进行分类。 </p>
+<p>文件夹中支持子文件夹进行分类。</p>
 <p><img src="http://kikitamap.com/images/blogImg/WhereArethePRJs.jpg" alt=""></p>
 
 

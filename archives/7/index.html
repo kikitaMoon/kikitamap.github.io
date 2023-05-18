@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -412,7 +412,7 @@
 简而言之，具有相同值的像元就属于一个Zone。也就是，Zone由栅格中所有具有相同值的像元组成，分区可以由相邻像元和/或不相连像元组成。如下图一目了然：
 
 什么是Region？
-一个Zone内的每组相连像元都可视为一个Region&lt;/span&gt;。ArcGIS 中提供了......
+一个Zone内的每组相连像元都可视为一个Region。ArcGIS 中提供了从 Zone 获得 Reg......
     </div>
   </a>
   
@@ -447,11 +447,11 @@
     <div class="post-content-preview">
       ArcGlobe拥有缓存机制，因此可以应对大量3D数据的可视化，下面就总结下有关缓存的知识点。
 
-&lt;/span&gt;
+
 首先，需要了解，ArcGlobe具有两种缓存机制：内存缓存，硬盘缓存。
 
-&lt;/span&gt;
-**内存缓存&nbsp;**指的是分配可供 ArcGlobe 使用的物理内存 (RAM) 大小。要获得最佳性能，可设置对每个所使用的数据类型所分配的内存大小。ArcG......
+
+内存缓存 指的是分配可供 ArcGlobe 使用的物理内存 (RAM) 大小。要获得最佳性能，可设置对每个所使用的数据类型所分配的内存大小。ArcGlobe 通过设置内存缓存来改善 3D 视图的交互性能，可针对每个 A......
     </div>
   </a>
   
@@ -601,7 +601,8 @@ PythonWin 下载地址：http://sourceforge.net/projects/pywin32/files/pywin32/
       投影坐标系在二维平面中进行定义，投影坐标系是基于地理坐标系创建的，也就是在地理坐标系的基础上加上投影算法。
 坐标原点位于网格的中心，（x，y）=（0，0）
 
-Ⅰ 变形地球表面是一个曲面，从曲面至平面的数学换算即为地图投影的过程，不同投影会引起不同类型的变形，例如，导致数据的形状、面积、距离或方向发生变形。 
+Ⅰ 变形
+地球表面是一个曲面，从曲面至平面的数学换算即为地图投影的过程，不同投影会引起不同类型的变形，例如，导致数据的形状、面积、距离或方向发生变形。
 等角投影：
 等角投影保留局部形状。要保留描述空间关系的各个角，等角投影必须在地图上显......
     </div>
@@ -671,7 +672,8 @@ PythonWin 下载地址：http://sourceforge.net/projects/pywin32/files/pywin32/
     </h3>
     <div class="post-content-preview">
       Shapefile 是一种开放的非拓扑的简单几何数据类型，深受数据处理人员的喜爱。 Shapefile 利用 dBASE 文件格式（.dbf 文件）来存储属性，dBase这种上世纪80年代的数据格式，现在基本淡出舞台。 虽然Shapefile有万般好，但是，今天还是要来说说shapefile的局限性，也就是使用限制有什么，以便合理的选择使用Shapefile数据。
-1. 文件容量限制：Sha......
+1. 文件容量限制：
+Sh......
     </div>
   </a>
   
@@ -704,8 +706,8 @@ PythonWin 下载地址：http://sourceforge.net/projects/pywin32/files/pywin32/
       
     </h3>
     <div class="post-content-preview">
-      在 ArcGIS Desktop&nbsp;(ArcMap, ArcCatalog, and ArcToolbox)中，有编码页转换功能（CODE PAGE CONVERSION），可以读写多种字符编码的 shapefile 和 dBASE 表。 在系统注册表中，编码页转换功能（CODE PAGE CONVERSION）命名为 ‘dbfDefault’，可以修改这个值。 
-在&nbsp;Ar......
+      在 ArcGIS Desktop (ArcMap, ArcCatalog, and ArcToolbox)中，有编码页转换功能（CODE PAGE CONVERSION），可以读写多种字符编码的 shapefile 和 dBASE 表。 在系统注册表中，编码页转换功能（CODE PAGE CONVERSION）命名为 ‘dbfDefault’，可以修改这个值。
+在 ArcGIS 10.2.1......
     </div>
   </a>
   
@@ -742,12 +744,13 @@ PythonWin 下载地址：http://sourceforge.net/projects/pywin32/files/pywin32/
 ArcGIS 通过分析功能面的视域来确定不同区域中的可见性。
 视域的计算：如果仅有一个观测点，则为可从观测点看到的单元赋值 1，为无法从观测点看到的所有单元赋值 0。
 
-Construct Sight Lines（构造视线）创建表示视线（从一个或多个视点到目标要素类的要素）的线要素。
+Construct Sight Lines（构造视线）
+创建表示视线（从一个或多个视点到目标要素类的要素）的线要素。
 
 注意，关于高度字段的认定：
 观察点和目标要素的高度源默认为以下列表中遇到的第一个字段名称：
 
-Shape......
+Shap......
     </div>
   </a>
   
@@ -782,8 +785,10 @@ Shape......
       
     </h3>
     <div class="post-content-preview">
-      一、了解激光雷达Lidar(Light Detection And Ranging)：激光探测及测距，是一种光学遥感技术，使用激光对地球表面的密集采样，产生高精度X、Y、Z测量值。&lt;/span&gt;
-激光雷达系统的主要硬件组成部分包括一组车辆（飞机、直升机、车辆以及三脚架）、激光扫描系统、GPS（全球定位系统）和 INS（惯性导航系统）。INS 系统测量激光雷达系统的滚动角、俯仰角与......
+      一、了解激光雷达
+Lidar(Light Detection And Ranging)：激光探测及测距，是一种光学遥感技术，使用激光对地球表面的密集采样，产生高精度X、Y、Z测量值。
+激光雷达系统的主要硬件组成部分包括一组车辆（飞机、直升机、车辆以及三脚架）、激光扫描系统、GPS（全球定位系统）和 INS（惯性导航系统）。INS 系统测量激光雷达系统的滚动角、俯仰角与前进方向。
+激光雷达是一......
     </div>
   </a>
   
@@ -816,8 +821,9 @@ Shape......
       
     </h3>
     <div class="post-content-preview">
-      微软 OFFICE 产品中，Excel是很强大，并且平民化的表格制作工具。ArcGIS 用户会经常需要在两种软件中做交互，今天就来说一说&nbsp;ArcGIS Desktop 与 Excel。
-ArcGIS Desktop 中访问 Excel 数据Excel 表可直接在 ArcGIS 中打开，使用方法与其他表格数据源类似。例如，可以向 ArcMap 中添加这种表、在 ArcCatalog ......
+      微软 OFFICE 产品中，Excel是很强大，并且平民化的表格制作工具。ArcGIS 用户会经常需要在两种软件中做交互，今天就来说一说 ArcGIS Desktop 与 Excel。
+ArcGIS Desktop 中访问 Excel 数据
+Excel 表可直接在 ArcGIS 中打开，使用方法与其他表格数据源类似。例如，可以向 ArcMap 中添加这种表、在 ArcCatalog 中预览这......
     </div>
   </a>
   
@@ -897,10 +903,10 @@ ArcGIS Desktop 中访问 Excel 数据Excel 表可直接在 ArcGIS 中打开，�
       
     </h3>
     <div class="post-content-preview">
-       上篇博客说的是 Project 工具中 Geographic Transformation 参数什么情况下是必填的。
- 另外，Project 是矢量数据的坐标系变换工具，如果数据源是栅格数据，需要使用 Project Rater 工具。
-&nbsp;这篇博客主要写一下，有关自定义地理变换方法。
-ArcGIS 中提供地理变换方法主要有这几种：Geocentric_Translation、Mo......
+      上篇博客说的是 Project 工具中 Geographic Transformation 参数什么情况下是必填的。
+另外，Project 是矢量数据的坐标系变换工具，如果数据源是栅格数据，需要使用 Project Rater 工具。
+ 这篇博客主要写一下，有关自定义地理变换方法。
+ArcGIS 中提供地理变换方法主要有这几种：Geocentric_Translation、Molodensk......
     </div>
   </a>
   
@@ -969,9 +975,9 @@ ArcGIS 中提供地理变换方法主要有这几种：Geocentric_Translation、
       
     </h3>
     <div class="post-content-preview">
-      &nbsp; &nbsp; 许多用户会问 CityEinge 到底支持多少种栅格数据作为底图数据？
-&nbsp; &nbsp; CityEngine目前的帮助文档略显单薄，作为工具书查看是很好的，但是作为知识类资料就不如ArcGIS Desktop的帮助文档完整饱满。因此像“栅格数据支持列表”这种归纳性的文档当然现在还是没有……
-&nbsp; &nbsp; 只能从软件界面自身去寻找了，就把这......
+          许多用户会问 CityEinge 到底支持多少种栅格数据作为底图数据？
+    CityEngine目前的帮助文档略显单薄，作为工具书查看是很好的，但是作为知识类资料就不如ArcGIS Desktop的帮助文档完整饱满。因此像“栅格数据支持列表”这种归纳性的文档当然现在还是没有……
+    只能从软件界面自身去寻找了，就把这页贴出来，方便大家参考。从以下这个长长的下列表中可以了解Ci......
     </div>
   </a>
   
@@ -1078,6 +1084,7 @@ Serif的意思是，在字的笔画开始及結束的地方有额外的装饰，
     </h3>
     <div class="post-content-preview">
       Table 1: Geographic (datum) transformations: well-known IDs, accuracies and areas of use
+
 
 
 ...
@@ -1322,7 +1329,7 @@ http://www.arcgis.com/home/item.html?id=38fede3935a440e49cf316dcae6aae47
   <div class="tags">
     
     
-    <a href="/tags/#Geodata" title="Geodata" rel="32">Geodata</a>
+    <a href="/tags/#Coordinate System" title="Coordinate System" rel="11">Coordinate System</a>
     
     
     
@@ -1330,11 +1337,15 @@ http://www.arcgis.com/home/item.html?id=38fede3935a440e49cf316dcae6aae47
     
     
     
+    <a href="/tags/#Geodata" title="Geodata" rel="32">Geodata</a>
+    
+    
+    
+    <a href="/tags/#CAD" title="CAD" rel="1">CAD</a>
+    
+    
+    
     <a href="/tags/#ArcPad" title="ArcPad" rel="5">ArcPad</a>
-    
-    
-    
-    <a href="/tags/#Coordinate System" title="Coordinate System" rel="11">Coordinate System</a>
     
     
     
@@ -1342,7 +1353,7 @@ http://www.arcgis.com/home/item.html?id=38fede3935a440e49cf316dcae6aae47
     
     
     
-    <a href="/tags/#CAD" title="CAD" rel="1">CAD</a>
+    <a href="/tags/#Deployment" title="Deployment" rel="21">Deployment</a>
     
     
     
@@ -1351,10 +1362,6 @@ http://www.arcgis.com/home/item.html?id=38fede3935a440e49cf316dcae6aae47
     
     
     <a href="/tags/#Geoprocessing" title="Geoprocessing" rel="40">Geoprocessing</a>
-    
-    
-    
-    <a href="/tags/#Deployment" title="Deployment" rel="21">Deployment</a>
     
     
     
@@ -1466,15 +1473,15 @@ http://www.arcgis.com/home/item.html?id=38fede3935a440e49cf316dcae6aae47
     
     
     
-    <a href="/tags/#Visualization" title="Visualization" rel="1">Visualization</a>
-    
-    
-    
     <a href="/tags/#HERE Data Hub" title="HERE Data Hub" rel="1">HERE Data Hub</a>
     
     
     
     <a href="/tags/#Data Management" title="Data Management" rel="1">Data Management</a>
+    
+    
+    
+    <a href="/tags/#Visualization" title="Visualization" rel="1">Visualization</a>
     
     
   </div>

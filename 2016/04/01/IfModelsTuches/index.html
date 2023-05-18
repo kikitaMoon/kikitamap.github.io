@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -417,7 +417,8 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近遇到一个有趣的问题，<strong>如何在CityEgnine中判断有接触或相交关系的模型，从而自动进行建模？</strong></p>
+        <h1>背景</h1>
+<p>最近遇到一个有趣的问题，<strong>如何在CityEgnine中判断有接触或相交关系的模型，从而自动进行建模？</strong></p>
 <p>这个问题有点抽象，我们来看个实例，了解下问题的背景:</p>
 <p>以往绝大多数情况下，我们拿到的2D建筑物底面（FootPrint）都是一个建筑对应一个面，也就是这样的：</p>
 <p><img src="http://kikitamap.com/images/blogImg/IfModelsTuches_Simple.png" alt=""></p>
@@ -425,8 +426,9 @@
 <p><img src="http://kikitamap.com/images/blogImg/IfModelsTuches_Multi.png" alt=""></p>
 <p>使用多个底面表示一栋复杂建筑物的做法可以很大程度上简化建模的工作，因此无可厚非。 但是问题来了，因为是彼此独立的Footprint，建模时若不加判断，就会出现如下图所示的情况，好像“空中地下室”。这样的房子既不美观也不实际。</p>
 <p><img src="http://kikitamap.com/images/blogImg/IfModelsTuches_Overlap.png" alt=""></p>
-<p><br></p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>CityEngine的真正魅力在于“动态”建模，这是CE的创作者一直想要传播的理念。 CityEgnine提供很多内置函数解决这些问题，其中有一组为：<strong>Occlusion Functions</strong>，包含：<code>inside</code>，<code>overlaps</code>，<code>touches</code> 三个函数。 我们可以利用 <code>touches()</code> 来实现判断。</p>
+<br>
+<h1>解决方法</h1>
+<p>CityEngine的真正魅力在于“动态”建模，这是CE的创作者一直想要传播的理念。 CityEgnine提供很多内置函数解决这些问题，其中有一组为：<strong>Occlusion Functions</strong>，包含：<code>inside</code>，<code>overlaps</code>，<code>touches</code> 三个函数。 我们可以利用 <code>touches()</code> 来实现判断。</p>
 <p>先写段简单的来了解下函数用法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Init --&gt; </span><br><span class="line">     extrude(<span class="number">40</span>) Mass</span><br><span class="line">Mass --&gt;</span><br><span class="line">     comp(f)&#123;top:NIL| side:Side&#125; </span><br><span class="line">Side --&gt; </span><br><span class="line">     <span class="function"><span class="keyword">case</span> <span class="title">touches</span><span class="params">()</span>: <span class="title">color</span><span class="params">(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>)</span> ShareSide</span></span><br><span class="line"><span class="function">     <span class="keyword">else</span>: Walls</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://kikitamap.com/images/blogImg/IfModelsTuches_ShareSide.png" alt=""></p>

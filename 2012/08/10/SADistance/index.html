@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -425,10 +425,11 @@
 <li>4） 获取最短路径</li>
 </ul>
 <p>使用ArcGIS空间分析扩展实现距离分析，最主要的是欧氏距离分析和成本加权距离分析两类工具。</p>
-<h1 id="一、欧氏距离工具"><a href="#一、欧氏距离工具" class="headerlink" title="一、欧氏距离工具"></a><strong>一、欧氏距离工具</strong></h1><p>欧氏距离工具测量每个像元距离最近源的<strong>直线</strong>距离（像元中心至像元中心的距离）。</p>
-<p><strong>欧氏距离（Euclidean Diatance）</strong>——  求得每个像元至最近源的距离。</p>
-<p><strong>欧氏方向（Euclidean Direction）</strong>——  求得每个像元至最近源的方向。</p>
-<p><strong>欧氏分配（Euclidean Allocation）</strong>——  求得每个像元的最近的源。</p>
+<h1><strong>一、欧氏距离工具</strong></h1>
+<p>欧氏距离工具测量每个像元距离最近源的<strong>直线</strong>距离（像元中心至像元中心的距离）。</p>
+<p><strong>欧氏距离（Euclidean Diatance）</strong>——  求得每个像元至最近源的距离。</p>
+<p><strong>欧氏方向（Euclidean Direction）</strong>——  求得每个像元至最近源的方向。</p>
+<p><strong>欧氏分配（Euclidean Allocation）</strong>——  求得每个像元的最近的源。</p>
 <p><strong>TIPS：</strong></p>
 <p><strong>1.源（Source）</strong></p>
 <p>可以是感兴趣的地物的位置，数据方面，既可以是栅格数据，也可以是矢量数据。但注意：如果数据选用了栅格数据，数据中必须仅包含表示源的像元，其他像元需要是Nodata。如果选用矢量，在执行工具之时，内部会将其先转成栅格。</p>
@@ -449,21 +450,36 @@
 <p>5.欧氏分配输出栅格结果</p>
 <p>输出的每个像元都是距其最近源的值。如下图：</p>
 <p><img src="http://kikitamap.com/images/blogImg/SADistance_EucAllocation.png" alt=""></p>
-<h1 id="二、成本加权距离工具"><a href="#二、成本加权距离工具" class="headerlink" title="二、成本加权距离工具"></a><strong>二、成本加权距离工具</strong></h1><p>成本加权距离工具可以看成是对欧氏直线距离的进一步修改，将经过某个像元的距离赋以成本因素。举个简单的例子，翻过一座山到达目的地是最短的直线距离，绕行这座山距离较长，但是更节省时间和体力，那就后者的成本加权距离最短了。</p>
-<p>1）<strong>成本距离（Cost Distance）</strong>：求得每个像元至最近源的成本距离。<br>2）<strong>成本回溯链接（Cost back link）</strong>：求的一个方向栅格，可以从任意像元沿最小成本路径返回最近源。<br>3）<strong>成本分配（Cost Allocation）</strong>：求得每个像元的最近的源。<br>4）<strong>成本路径（Cost Patch）</strong>：求的任意像元到最近源的最小成本路径。</p>
+<h1><strong>二、成本加权距离工具</strong></h1>
+<p>成本加权距离工具可以看成是对欧氏直线距离的进一步修改，将经过某个像元的距离赋以成本因素。举个简单的例子，翻过一座山到达目的地是最短的直线距离，绕行这座山距离较长，但是更节省时间和体力，那就后者的成本加权距离最短了。</p>
+<p>1）<strong>成本距离（Cost Distance）</strong>：求得每个像元至最近源的成本距离。<br>
+2）<strong>成本回溯链接（Cost back link）</strong>：求的一个方向栅格，可以从任意像元沿最小成本路径返回最近源。<br>
+3）<strong>成本分配（Cost Allocation）</strong>：求得每个像元的最近的源。<br>
+4）<strong>成本路径（Cost Patch）</strong>：求的任意像元到最近源的最小成本路径。</p>
 <p><strong>TIPS：</strong></p>
 <ul>
 <li>成本栅格可以是整形或者浮点型，但是其值中不能含有负值或者0。成本栅格中的Nodata视为障碍。</li>
-<li>成本距离输出栅格数据<br>这里的简单示例中，下面一层黑白渲染的是成本栅格，颜色深的像元代表成本比较高，反之较低。结果如下：<br><img src="http://kikitamap.com/images/blogImg/SADistance_CostDistance.png" alt=""></li>
-<li>成本距离回溯链接<br>要注意的是，它并不会求的要返回哪一个源像元以及如何返回。而是记录从任意像元回溯到最近源的路径上，每个像元向下一个像元指向的方向，这个方向以0-8的代码形式记录。如下图：<br><img src="http://kikitamap.com/images/blogImg/SADistance_CostBacklink1.png" alt=""><br><img src="http://kikitamap.com/images/blogImg/SADistance_CostBacklink2.png" alt=""></li>
-<li>成本距离分配<br>这个类似于前面的欧氏距离分配，得到的是每个像元至最近源的成本距离。<br><img src="http://kikitamap.com/images/blogImg/SADistance_CostAllocation.png" alt=""></li>
+<li>成本距离输出栅格数据<br>
+这里的简单示例中，下面一层黑白渲染的是成本栅格，颜色深的像元代表成本比较高，反之较低。结果如下：<br>
+<img src="http://kikitamap.com/images/blogImg/SADistance_CostDistance.png" alt=""></li>
+<li>成本距离回溯链接<br>
+要注意的是，它并不会求的要返回哪一个源像元以及如何返回。而是记录从任意像元回溯到最近源的路径上，每个像元向下一个像元指向的方向，这个方向以0-8的代码形式记录。如下图：<br>
+<img src="http://kikitamap.com/images/blogImg/SADistance_CostBacklink1.png" alt=""><br>
+<img src="http://kikitamap.com/images/blogImg/SADistance_CostBacklink2.png" alt=""></li>
+<li>成本距离分配<br>
+这个类似于前面的欧氏距离分配，得到的是每个像元至最近源的成本距离。<br>
+<img src="http://kikitamap.com/images/blogImg/SADistance_CostAllocation.png" alt=""></li>
 </ul>
-<h1 id="三、路径距离工具"><a href="#三、路径距离工具" class="headerlink" title="三、路径距离工具"></a><strong>三、路径距离工具</strong></h1><p>路径距离工具与成本距离相似，也可以确定从某个源到栅格上各像元位置的最小累积行程成本。但是，路径距离不仅可计算成本表面的累积成本，而且会考虑到行驶的实际曲面距离，和影响到移动总成本的水平和垂直因子。主要包含这几个工具</p>
-<p>1）<strong>路径距离（Path Distance）</strong><br>2）<strong>路径回溯链接（Path back link）</strong><br>3）<strong>路径分配（Path Allocation）</strong></p>
+<h1><strong>三、路径距离工具</strong></h1>
+<p>路径距离工具与成本距离相似，也可以确定从某个源到栅格上各像元位置的最小累积行程成本。但是，路径距离不仅可计算成本表面的累积成本，而且会考虑到行驶的实际曲面距离，和影响到移动总成本的水平和垂直因子。主要包含这几个工具</p>
+<p>1）<strong>路径距离（Path Distance）</strong><br>
+2）<strong>路径回溯链接（Path back link）</strong><br>
+3）<strong>路径分配（Path Allocation）</strong></p>
 <p>这些工具生成的累积成本表面可用于扩散模型、流动和最低成本路径分析。</p>
 <p>有关水平方向以及竖直方向的因子是如何影响的，工作原理是什么，ArcGIS帮助中有详细的解释：</p>
 <p><a target="_blank" rel="noopener" href="http://resources.arcgis.com/en/help/main/10.1/#/How_the_horizontal_and_vertical_factors_affect_path_distance/009z000000z9000000/">http://resources.arcgis.com/en/help/main/10.1/#/How_the_horizontal_and_vertical_factors_affect_path_distance/009z000000z9000000/</a></p>
-<h1 id="四、-获得最短路径"><a href="#四、-获得最短路径" class="headerlink" title="四、 获得最短路径"></a><strong>四、 获得最短路径</strong></h1><p>1.成本距离路径</p>
+<h1><strong>四、 获得最短路径</strong></h1>
+<p>1.成本距离路径</p>
 <p>任意像元到最近源的最小成本路径，需要引用到上面工具中生成的成本距离和成本回溯链接栅格数据。如下图：</p>
 <p><img src="http://kikitamap.com/images/blogImg/SADistance_ShortestPath.png" alt=""></p>
 <p>2.廊道</p>

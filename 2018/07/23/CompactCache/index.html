@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -411,7 +411,8 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h2 id="Tiling-Scheme"><a href="#Tiling-Scheme" class="headerlink" title="Tiling Scheme"></a>Tiling Scheme</h2><p>每个缓存服务的切片目录中都会包含一个 <strong>Conf.xml</strong>，也是就是tile scheme 文件了。</p>
+        <h2 id="Tiling-Scheme">Tiling Scheme</h2>
+<p>每个缓存服务的切片目录中都会包含一个 <strong>Conf.xml</strong>，也是就是tile scheme 文件了。</p>
 <p>这个文件包含了很多有关切片设置的信息：</p>
 <ul>
 <li>Spatial reference information</li>
@@ -424,8 +425,9 @@
 <li>Antialiasing settings</li>
 <li>Storage method</li>
 </ul>
-<h2 id="Version-Issue"><a href="#Version-Issue" class="headerlink" title="Version Issue"></a>Version Issue</h2><p>紧凑型缓存的存储格式为<strong>.bundle</strong> 。但有时我们会看到缓存目录中包含<strong>.bundlx</strong> 这样的文件，这说明这些缓存是ArcGIS 10.2.2 或以下版本创建的。从 ArcGIS 10.3 开始，紧凑型缓存做了些改进， .bundlx（tile index information） 文件被包含到了 .bundle 文件中 ，从而进一步降低了文件的数量。</p>
-<p>你可以在缓存服务的tiling scheme “<strong>Conf.xml</strong>“ 中查看确认：</p>
+<h2 id="Version-Issue">Version Issue</h2>
+<p>紧凑型缓存的存储格式为**.bundle** 。但有时我们会看到缓存目录中包含**.bundlx** 这样的文件，这说明这些缓存是ArcGIS 10.2.2 或以下版本创建的。从 ArcGIS 10.3 开始，紧凑型缓存做了些改进， .bundlx（tile index information） 文件被包含到了 .bundle 文件中 ，从而进一步降低了文件的数量。</p>
+<p>你可以在缓存服务的tiling scheme “<strong>Conf.xml</strong>” 中查看确认：</p>
 <p><em>10.3 or later (Compact cache V1)</em></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">CacheStorageInfo</span> <span class="attr">xsi:type</span>=<span class="string">&#x27;typens:CacheStorageInfo&#x27;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">StorageFormat</span>&gt;</span>esriMapCacheStorageModeCompact<span class="tag">&lt;/<span class="name">StorageFormat</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">PacketSize</span>&gt;</span>128<span class="tag">&lt;/<span class="name">PacketSize</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">CacheStorageInfo</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><em>10.2.2 or former (Compact cache V2)</em></p>
@@ -435,34 +437,43 @@
 <li>ArcToolbox工具 <strong>Upgrade Map Server Cache Storage Format</strong>  来升级缓存。升级的过程中不会重新创建切片，而是重组原有的切片。这个工具在ArcGIS Pro 中没有提供。目前，我们还只能使用ArcMap或者使用ArcGIS Server 带有的arcpy包，通过Python来调用。</li>
 <li>不支持将高版本的切片供低版本软件使用。如果希望降级，可以使用 <strong>Export Map Server Cache</strong> 工具导出紧凑型切片。</li>
 </ul>
-<h2 id="Tile-Format"><a href="#Tile-Format" class="headerlink" title="Tile Format"></a>Tile Format</h2><p>Tile Format 是指存储切片使用了何种栅格格式，而不是切片文件的本身存储格式 / Storage Format ( Exploded / Compact )。</p>
+<h2 id="Tile-Format">Tile Format</h2>
+<p>Tile Format 是指存储切片使用了何种栅格格式，而不是切片文件的本身存储格式 / Storage Format ( Exploded / Compact )。</p>
 <ul>
-<li><p><strong>PNG</strong>   </p>
+<li>
+<p><strong>PNG</strong></p>
 <p>ArcGIS 10.1开始引入的类型。选择这种类型，Server会自行确认每张切片的PNG位深，从而达到缩减磁盘占用的目的。在我们不确定使用何种PNG格式时，保持这个默认设置就不错。</p>
 <p>如果磁盘空间不在考虑范围下，而希望优先考虑切片速度，那最好选择MIXED格式了。</p>
 </li>
-<li><p><strong>PNG8</strong></p>
+<li>
+<p><strong>PNG8</strong></p>
 <p>位深为8位的PNG图片格式；可以最多存储256色，支持布尔透明，磁盘空间占用小，并且无损。适合于颜色相对简单，并且需要透明背景的地图，例如公路数据切图。</p>
 </li>
-<li><p><strong>PNG24</strong></p>
+<li>
+<p><strong>PNG24</strong></p>
 <p>位深为24的PNG图片格式；可以最多支持约1600万色。当地图的色彩复杂程度超过256时，你就该考虑使用这个格式。但是，PNG24不支持透明，另外不建议在IE6及以前版本浏览器中使用。</p>
 </li>
-<li><p><strong>PNG32</strong></p>
+<li>
+<p><strong>PNG32</strong></p>
 <p>在PNG24的基础上增加了Alpha通道，因而增加了各种程度半透明的支持。当地图色彩复杂，并开启了抗锯齿功能，PNG32就是最佳选择了，并且PNG32在各个版本的浏览器中支持良好。</p>
 </li>
-<li><p><strong>JPEG</strong></p>
+<li>
+<p><strong>JPEG</strong></p>
 <p>当切片中不需要透明背景时，JPEG是最常用的切片格式，并且JPEG可以hold住大量的复杂色彩。例如，包含影像、符号化精细程度高的矢量地图都可以使用这个格式。</p>
 <p>JPEG是种有损压缩格式，可以在1%-100%间设置压缩比率，默认值75%一般是显示质量和磁盘空间的最佳平衡。如果觉得噪点过多质量不够，可以调高这个百分比，但你需要在响应性能和图片质量之间做好博弈。</p>
 </li>
-<li><p><strong>MIXED</strong></p>
+<li>
+<p><strong>MIXED</strong></p>
 <p>顾名思义，混合格式，在切片不透明区域使用JPEG，在透明区域使用PNG32。这是种非常智能的搭配方案，降低硬盘占用的同时，很好的解决了例如在切片边缘需要的透明需求。</p>
 </li>
-<li><p><strong>LERC</strong></p>
+<li>
+<p><strong>LERC</strong></p>
 <p>LERC是Esri自主研发的开源的有损压缩格式，点<a target="_blank" rel="noopener" href="http://esri.github.io/lerc/">这里</a>有更多信息。推荐用于位深较大的单波段影像或高程数据服务中，如浮点型，32-bit、16-bit、12-bit的数据。 官方声称，LERC压缩方法在压缩速度和压缩质量方面分别是LZ77的5-10倍。当LERC用于整型栅格数据时，损失率在0.99或更低，几乎可以视为无损压缩。</p>
 <p>LERC压缩方式目前只支持Image Service ，而不支持 Map Service。</p>
 </li>
 </ul>
-<h2 id="Performance-Suggestion"><a href="#Performance-Suggestion" class="headerlink" title="Performance Suggestion"></a>Performance Suggestion</h2><p>紧凑型切片比松散型切片有诸多有点，详见文末的官方文档。但不是说选了紧凑型切片性能就没有继续改善的余地了，下面的这些点也是提升切片性能的一些有效建议：</p>
+<h2 id="Performance-Suggestion">Performance Suggestion</h2>
+<p>紧凑型切片比松散型切片有诸多有点，详见文末的官方文档。但不是说选了紧凑型切片性能就没有继续改善的余地了，下面的这些点也是提升切片性能的一些有效建议：</p>
 <ul>
 <li>地图数据尽可能使用本地数据，共享目录的数据切片时间可能会更长些；</li>
 <li>尽可能的避免使用动态投影；</li>
@@ -474,7 +485,8 @@
 <li>CachingTools服务的最大实例数 = 核数 + 1，这是官方给出的最佳实践建议</li>
 <li>降低日志的级别，如果在大量切图任务中把Server日志开到Debug或Verbose级别，会产生极大的资源浪费。</li>
 </ul>
-<h2 id="Tile-SuperTile-Bundle"><a href="#Tile-SuperTile-Bundle" class="headerlink" title="Tile|SuperTile|Bundle"></a>Tile|SuperTile|Bundle</h2><p>这三者的关系早在多年前就有大牛们探索发现过，见本文末的相关文章，文中有逻辑缜密且经得起时间检验的详细演绎过程……</p>
+<h2 id="Tile-SuperTile-Bundle">Tile|SuperTile|Bundle</h2>
+<p>这三者的关系早在多年前就有大牛们探索发现过，见本文末的相关文章，文中有逻辑缜密且经得起时间检验的详细演绎过程……</p>
 <p>简言之，他们的关系是个简单的数学关系，如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">如果：</span><br><span class="line">    Tile = <span class="number">256</span> × <span class="number">256</span> pixel             <span class="comment"># 256×256 是ArcGIS Server默认的切片大小</span></span><br><span class="line">    Supertile = <span class="number">4096</span> × <span class="number">4096</span> pixel      <span class="comment"># 未开抗锯齿情况下是 4096×4096</span></span><br><span class="line">那么：</span><br><span class="line">	Supertile = <span class="number">16</span> × <span class="number">16</span> Tile           </span><br><span class="line">已知：</span><br><span class="line">	Bundle = <span class="number">128</span> × <span class="number">128</span> Tile            </span><br><span class="line">因此：</span><br><span class="line">	Bundle 范围是 N-<span class="number">3</span> 级的 Supertile 的范围</span><br></pre></td></tr></table></figure>
 <p>看图说话：</p>

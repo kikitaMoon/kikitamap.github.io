@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -407,11 +407,12 @@
       
     </h3>
     <div class="post-content-preview">
-      背景最近遇到一个有趣的问题，如何在CityEgnine中判断有接触或相交关系的模型，从而自动进行建模？
+      背景
+最近遇到一个有趣的问题，如何在CityEgnine中判断有接触或相交关系的模型，从而自动进行建模？
 这个问题有点抽象，我们来看个实例，了解下问题的背景:
 以往绝大多数情况下，我们拿到的2D建筑物底面（FootPrint）都是一个建筑对应一个面，也就是这样的：
 
-实际生活中的的建筑物可能是更复杂的，例如商场、大型会议中心、复杂居民楼等参差不齐的多栋联合建筑，我们可以采集多个底面来表示建筑物......
+实际生活中的的建筑物可能是更复杂的，例如商场、大型会议中心、复杂居民楼等参差不齐的多栋联合建筑，我们可以采集多个底面来表示建筑......
     </div>
   </a>
   
@@ -453,7 +454,8 @@
 
 
 这是一个很有意思的场景，在当时有段极平常的谈话
-M：马和草地上渐变色的圆圈真好看J：马被拴着，当然把草地吃了个圈
+M：马和草地上渐变色的圆圈真好看
+J：马被拴着，当然把草地吃了个圈
 人会不会也这样？ 埋头努力，无意识地啃了一个人人称赞的漂亮的圈，然而ta的愿望是想摆脱这个圈。
 ...
     </div>
@@ -497,8 +499,8 @@ M：马和草地上渐变色的圆圈真好看J：马被拴着，当然把草地
 - 多说评论，国内Share
 - 自定义网页字体
 - 图床外链
-- Goolge Analyst 
-5.在Mac上部署He......
+- Goolge Analyst
+5.在Mac上部署Hex......
     </div>
   </a>
   
@@ -611,7 +613,7 @@ To Be Continued ……
       我的个人博客 kikita &amp; Maps 上线了，记录点见闻感触，累积点技术知识，只为让自己的生活鲜活积极。
 
 今天中午换了个新主题 hueman，慢慢摸索学习 Hexo，还是很有趣的。
-还是那句话，I walk slowly, but I never walk backward. 
+还是那句话，I walk slowly, but I never walk backward.
 ...
     </div>
   </a>
@@ -654,9 +656,9 @@ ArcGIS中提供了众多的坐标系统定义信息，有些 投影坐标系一�
   </p>
   <div class="tags">
     
-    <a href="/tags/#Mapping" title="Mapping">Mapping</a>
-    
     <a href="/tags/#Coordinate System" title="Coordinate System">Coordinate System</a>
+    
+    <a href="/tags/#Mapping" title="Mapping">Mapping</a>
     
   </div>
   
@@ -684,10 +686,11 @@ ArcGIS中提供了众多的坐标系统定义信息，有些 投影坐标系一�
 那如何处理这些问题呢？方法不是唯一的，我把 ArcMap 中最常用的几种方式列举一下，帮你给数据“化妆”，或者更确切的说是“整容”：
 
 
-Option 1  栅格计算器在去黑边之前最先需要了解的是黑边的像元值是什么？ 可以使用 Identify 工具查查看。  例如这份数据是 0。
+Option 1  栅格计算器
+在去黑边之前最先需要了解的是黑边的像元值是什么？ 可以使用 Identify 工具查查看。  例如这份数据是 0。
 
 
-这时，你也许会想到设置......
+这时，你也许会想到设......
     </div>
   </a>
   
@@ -724,11 +727,12 @@ Option 1  栅格计算器在去黑边之前最先需要了解的是黑边的像�
     <div class="post-content-preview">
       ArcGIS 产品家族的 Web 3D 功能众多用户期待已久，从 ArcGIS 10.3.1 版本开始，Esri 放了个大招，千呼万唤始出来的 Web 3D 功能，终于不再犹抱琵琶半遮面了。 那到底如何将创建和发布3D场景呢？ 下面就把今天的测试过程记录下。
 
-测试环境硬件
+测试环境
+硬件
 
 处理器：Intel Core i7 4710MQ @ 2.50GHz
 内存：16G
-显卡：NVIDIA GeForc......
+显卡：NVIDIA GeFor......
     </div>
   </a>
   
@@ -770,8 +774,10 @@ Option 1  栅格计算器在去黑边之前最先需要了解的是黑边的像�
       Shapefile是上个世纪90年代的数据格式，但是由于它开放易用至今仍然倍受欢迎，最近与shapefile编码相关的问题此起彼伏连绵不绝，整理下几个高频问题共享之。
 
 为什么我的shapefile在ArcGIS 10.3中打开乱码？
-原因这个问题的根本原因就是读取文件使用的编码类型和文件实际存储的编码类型不一致。
-Shapefile文件的头文件（dBase Header）中，一般会包含sh......
+
+原因
+这个问题的根本原因就是读取文件使用的编码类型和文件实际存储的编码类型不一致。
+Shapefile文件的头文件（dBase Header）中，一般会包含......
     </div>
   </a>
   
@@ -878,12 +884,10 @@ Shapefile文件的头文件（dBase Header）中，一般会包含sh......
       Esri 的 地图故事 很有意思，用句官媒的广告 “每个人都有要讲述的故事，利用地图的强大功能来讲述您的故事” ……
 国庆假期将至，放点有趣的东西。如果喜欢分享，又想记录自己的过往，动手试试不错哦。
 
+![](http://kikitamap.com/images/blogImg/TriptoGreece_Overview.png)
 
 如何制作故事地图 ?    我把链接搬运过来，点吧
-地图故事中有好多应用程序模板可选，即使不懂技术也能hold住，只需要选个要讲的“故事类型”。
-
-
-比如选择 Story Map Tour，......
+地图......
     </div>
   </a>
   
@@ -922,11 +926,13 @@ Shapefile文件的头文件（dBase Header）中，一般会包含sh......
     <div class="post-content-preview">
       在执行地统计分析之前，浏览、熟悉、检查自己的数据是至关重要的。绘制和检查数据是地统计分析过程中的必要阶段，我们可以从这些工作中获得一些先验知识，指导后续的工作。
 
-Stage 1     绘制数据通过ArcMap的图层渲染方案绘制数据，我们可以获得对数据的第一印象。
+Stage 1     绘制数据
+通过ArcMap的图层渲染方案绘制数据，我们可以获得对数据的第一印象。
 例如，使用单一符号渲染了解采样点的疏密分布，通过分类渲染了解采样点高值低值的分布，等等。
 
 
-Stage 2  检查数据绘制数......
+Stage 2  检查数据
+绘......
     </div>
   </a>
   
@@ -963,7 +969,8 @@ Stage 2  检查数据绘制数......
     <div class="post-content-preview">
       从 ArcGIS 10.1 版本开始，我们可以创建 python工具箱 来自定义脚本工具，这种工具箱相比较上一篇提到的标准工具箱。有着独特的优势，具体二者的区别总结过，看这一篇。
 
-认识 Python工具箱Python 工具箱 (.pyt) 是一个简单的文本文件，可以在任何文本编辑器中或者任何 Python IDE 中创建、查看和编辑。要确保 ArcGIS 正确识别 Python 工具箱，工......
+认识 Python工具箱
+Python 工具箱 (.pyt) 是一个简单的文本文件，可以在任何文本编辑器中或者任何 Python IDE 中创建、查看和编辑。要确保 ArcGIS 正确识别 Python 工具箱，......
     </div>
   </a>
   
@@ -1084,13 +1091,15 @@ ArcGIS Help 中脚本工具的帮助过于枯燥，在这里，我以一个具�
 
 
 
-1.准备自己的兴趣区域和需要统计的要素。例如，下面的美国国境面（浅灰色），机场点数据。
+1.
+准备自己的兴趣区域和需要统计的要素。例如，下面的美国国境面（浅灰色），机场点数据。
 
 
 
-2.ArcGIS Online上有 GISers 分享的生产六边形格网的工具：
+2.
+ArcGIS Online上有 GISers 分享的生产六边形格网的工具：
 ModelBuilder版本的  Create Hexagon Tessellation
-Python版本的 Create He......
+Python版本的 Create ......
     </div>
   </a>
   
@@ -1129,18 +1138,22 @@ Python版本的 Create He......
 
 
 
-1.准备包含一个数值属性字段的面数据，比如包含人口信息的欧洲大陆数据，使用分级色带渲染。
+1.
+准备包含一个数值属性字段的面数据，比如包含人口信息的欧洲大陆数据，使用分级色带渲染。
 
 
 
-2.使用 Choropleth Hillshade 工具制造“浮雕”栅格。感谢作者jwasil的分享，这个工具可以在Github上自取：点这里。
+2.
+使用 Choropleth Hillshade 工具制造“浮雕”栅格。感谢作者jwasil的分享，这个工具可以在Github上自取：点这里。
 
 
 
-3.给矢量面图层设置30%的透明，完成。
+3.
+给矢量面图层设置30%的透明，完成。
 
 
-Maps we love 中也有一个web map，就是使用这......
+
+Maps we love 中也有一个web map，就......
     </div>
   </a>
   
@@ -1177,7 +1190,8 @@ Maps we love 中也有一个web map，就是使用这......
     <div class="post-content-preview">
       这一篇说下如何发布和安装python自定义模块，版本：Python 2.7 。
 
-1.创建setup.py现在如果已经写好一个python文件，为了尽量简明，创建一个新的文件夹，把自己py文件放进去。接着在这个文件夹中创建一个名为 setup.py 的文件，用来表示模块的元数据，文件的内容类似下面这个样子。除了手工创建，有很多python编辑器也可以更简便的来创建这个文件，例如 pychar......
+1.创建setup.py
+现在如果已经写好一个python文件，为了尽量简明，创建一个新的文件夹，把自己py文件放进去。接着在这个文件夹中创建一个名为 setup.py 的文件，用来表示模块的元数据，文件的内容类似下面这个样子。除了手工创建，有很多python编辑器也可以更简便的来创建这个文件，例如 pycha......
     </div>
   </a>
   
@@ -1378,7 +1392,7 @@ Maps we love 中也有一个web map，就是使用这......
   <div class="tags">
     
     
-    <a href="/tags/#Geodata" title="Geodata" rel="32">Geodata</a>
+    <a href="/tags/#Coordinate System" title="Coordinate System" rel="11">Coordinate System</a>
     
     
     
@@ -1386,11 +1400,15 @@ Maps we love 中也有一个web map，就是使用这......
     
     
     
+    <a href="/tags/#Geodata" title="Geodata" rel="32">Geodata</a>
+    
+    
+    
+    <a href="/tags/#CAD" title="CAD" rel="1">CAD</a>
+    
+    
+    
     <a href="/tags/#ArcPad" title="ArcPad" rel="5">ArcPad</a>
-    
-    
-    
-    <a href="/tags/#Coordinate System" title="Coordinate System" rel="11">Coordinate System</a>
     
     
     
@@ -1398,7 +1416,7 @@ Maps we love 中也有一个web map，就是使用这......
     
     
     
-    <a href="/tags/#CAD" title="CAD" rel="1">CAD</a>
+    <a href="/tags/#Deployment" title="Deployment" rel="21">Deployment</a>
     
     
     
@@ -1407,10 +1425,6 @@ Maps we love 中也有一个web map，就是使用这......
     
     
     <a href="/tags/#Geoprocessing" title="Geoprocessing" rel="40">Geoprocessing</a>
-    
-    
-    
-    <a href="/tags/#Deployment" title="Deployment" rel="21">Deployment</a>
     
     
     
@@ -1522,15 +1536,15 @@ Maps we love 中也有一个web map，就是使用这......
     
     
     
-    <a href="/tags/#Visualization" title="Visualization" rel="1">Visualization</a>
-    
-    
-    
     <a href="/tags/#HERE Data Hub" title="HERE Data Hub" rel="1">HERE Data Hub</a>
     
     
     
     <a href="/tags/#Data Management" title="Data Management" rel="1">Data Management</a>
+    
+    
+    
+    <a href="/tags/#Visualization" title="Visualization" rel="1">Visualization</a>
     
     
   </div>

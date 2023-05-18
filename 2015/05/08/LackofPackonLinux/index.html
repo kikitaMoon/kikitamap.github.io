@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -420,19 +420,25 @@
 <p><img src="http://kikitamap.com/images/blogImg/LackofPackonLinux_Xvfb.png" alt=""></p>
 <p>检测报告中提示了解决方法，参考技术文章 <a target="_blank" rel="noopener" href="http://support.esri.com/en/knowledgebase/techarticles/detail/40860">40860</a>：</p>
 <p>但是这篇文章只告诉我们缺包了，需要安装一个Xvfb包，没有说明包的获取与安装过程等，下面我就bala一下喽。</p>
-<p><br><br><br></p>
-<h1 id="1-下载Xvfb包到主机"><a href="#1-下载Xvfb包到主机" class="headerlink" title="1 . 下载Xvfb包到主机"></a>1 . 下载Xvfb包到主机</h1><p>用 <strong>wget</strong> 命令下载xorg-x11-server-Xvfb-1.10.4-6.el6.x86_64.rpm包到主机。</p>
+<br>
+<br>
+<h1>1 . 下载Xvfb包到主机</h1>
+<p>用 <strong>wget</strong> 命令下载xorg-x11-server-Xvfb-1.10.4-6.el6.x86_64.rpm包到主机。</p>
 <blockquote>
 <p><strong>wget <a target="_blank" rel="noopener" href="http://vault.centos.org/6.2/os/x86_64/Packages/xorg-x11-server-Xvfb-1.10.4-6.el6.x86_64.rpm">http://vault.centos.org/6.2/os/x86_64/Packages/xorg-x11-server-Xvfb-1.10.4-6.el6.x86_64.rpm</a></strong></p>
 </blockquote>
 <p><img src="http://kikitamap.com/images/blogImg/LackofPackonLinux_Download.png" alt=""></p>
-<p><br><br><br></p>
-<h1 id="2-运行安装Xvfb包"><a href="#2-运行安装Xvfb包" class="headerlink" title="2 .  运行安装Xvfb包"></a>2 .  运行安装Xvfb包</h1><blockquote>
+<br>
+<br>
+<h1>2 .  运行安装Xvfb包</h1>
+<blockquote>
 <p><strong>yum localinstall xorg-x11-server-Xvfb-1.10.4-6.el6.x86_64.rpm</strong></p>
 </blockquote>
 <p><img src="http://kikitamap.com/images/blogImg/LackofPackonLinux_Install.png" alt=""></p>
-<p><br><br><br></p>
-<h1 id="3-执行环境检测"><a href="#3-执行环境检测" class="headerlink" title="3 . 执行环境检测"></a>3 . 执行环境检测</h1><p>所有检测通过即可安装 ArcGIS Server 程序：</p>
+<br>
+<br>
+<h1>3 . 执行环境检测</h1>
+<p>所有检测通过即可安装 ArcGIS Server 程序：</p>
 <p><img src="http://kikitamap.com/images/blogImg/LackofPackonLinux_Done.png" alt=""></p>
 
 

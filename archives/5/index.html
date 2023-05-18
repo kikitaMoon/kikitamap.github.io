@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -409,8 +409,9 @@
     <div class="post-content-preview">
       我们可以把自己的代码，尤其是期待分享的得意代码，上传分享到第三方Python模块的“集中营” —— PyPI，如果没有账号，可以注册个先。
 
-1  准备发布像在本地发布安装一样，先新建一个文件夹，然后将自己的py文件放进去，然后再这个文件夹中创建一个  setup.py 的文件，内容如下面的样子：
-123456789101112from distutils.core import setup......
+1  准备发布
+像在本地发布安装一样，先新建一个文件夹，然后将自己的py文件放进去，然后再这个文件夹中创建一个  setup.py 的文件，内容如下面的样子：
+123456789101112from distutils.core import setu......
     </div>
   </a>
   
@@ -490,9 +491,11 @@ pop() 在列表末尾......
 
 
 1 内容组织：
-· 空间参考/Spatial Reference在ArcMap中配置地图文档，要尽可能将所有数据与数据框使用相同的空间参考，特别是编辑或创建要提供服务的数据的时候。虽然ArcMap可以进行动态投影，但是这样做可以避免动态投影计算所造成的性能损耗。
+
+· 空间参考/Spatial Reference
+在ArcMap中配置地图文档，要尽可能将所有数据与数据框使用相同的空间参考，特别是编辑或创建要提供服务的数据的时候。虽然ArcMap可以进行动态投影，但是这样做可以避免动态投影计算所造成的性能损耗。
 对于不同空间参考的数据，可以使用工具 Project 进行转换。
-· 连接......
+· ......
     </div>
   </a>
   
@@ -527,10 +530,15 @@ pop() 在列表末尾......
     <div class="post-content-preview">
       
 这篇文章中使用的环境信息：
-Red Hat Enterprise Linux Server release 6.4Red Hat Enterprise Linux Server release 5.8ArcGIS License Manager 10.2.2Xmanager 5
+Red Hat Enterprise Linux Server release 6.4
+Red Hat Enterprise Linux Server release 5.8
+ArcGIS License Manager 10.2.2
+Xmanager 5
 
 
-★ 安装之前一定要了解系统要求，这一步很重要，这里不啰嗦，详情点 [这里](http://resources......
+**★ 安装之前一定要了解系统要求，这一步很重要，这里不啰嗦，详情点 这里**。
+
+1. 准备安装文件......
     </div>
   </a>
   
@@ -570,7 +578,8 @@ Red Hat Enterprise Linux Server release 6.4Red Hat Enterprise Linux Server relea
       用采样点制作热力图是个非常常见的需求。热力图可以给地图的阅读者直观的信息，下面就看看如何在 ArcGIS Pro 中做一个漂亮的HeatMap。
 PS: 这是通过点密度插值生成的栅格的静态表达方式，区别于 ArcGIS Pro 自带的动态HeatMap的渲染器哦。
 
-1.准备好采样点数据，当然是量大更优。我这里用了全球地震点数据，大约有 21W+ 的数据量。像这一类的数据可以从一些提供公开数......
+1.
+准备好采样点数据，当然是量大更优。我这里用了全球地震点数据，大约有 21W+ 的数据量。像这一类的数据可以从一些提供公开......
     </div>
   </a>
   
@@ -645,7 +654,8 @@ PS: 这是通过点密度插值生成的栅格的静态表达方式，区别于 
       网上已经有好多作者都不吝笔墨，写了好多有关 Web Mercator这个坐标系的前世今生。多搜罗多摄入，我们会得到很多有用的信息。今天讨论到 3758，3857，102100，900913…… 这些ID又一石激起千层浪，看来整理总结下还是有点必要。
 
 Web Mercator 如何定义？
- 我们知道，地理数据的坐标系一般有两大类，一是地理坐标系(GCS)，是经纬度单位的椭球坐标系；二是投影坐......
+
+我们知道，地理数据的坐标系一般有两大类，一是地理坐标系(GCS)，是经纬度单位的椭球坐标系；二是投影坐......
     </div>
   </a>
   
@@ -679,10 +689,15 @@ Web Mercator 如何定义？
     </h3>
     <div class="post-content-preview">
       
-环境及版本信息：远程服务器- Redhat 6.4；Oracle 11g x64； ArcGIS Server 10.2；本地机器- Windows 8.1
+环境及版本信息：
+远程服务器- Redhat 6.4；Oracle 11g x64； ArcGIS Server 10.2；
+本地机器- Windows 8.1
+
 
 开始安装 12c 和 11g 的客户端，总是不满足系统需求，各种提示缺包，所以还是使用绿色版省心点。
-1将Oracle绿色版客户端安装文件上传到 Linux 服务器（oracle-instantclient11.2-basic-11......
+
+1
+将Oracle绿色版客户端安装文件上传到 Linux 服务器（oracle-instantclient11.2-bas......
     </div>
   </a>
   
@@ -848,8 +863,8 @@ x......
     </h3>
     <div class="post-content-preview">
       对于好多地图爱好者，由于保（众）密（所）严（周）格（知），获取高精度的数据不是个容易事，幸亏有了可爱的 OpenStreetMap 。
- ArcGIS Editor for OpenStreetMap 是一个免费开源的 ArcGIS Desktop 插件。上个月Esri官网提供可用于Desktop 10.3 的最新版本插件。
-下载页面：ArcGIS Editor for OSM, 10.3.......
+ArcGIS Editor for OpenStreetMap 是一个免费开源的 ArcGIS Desktop 插件。上个月Esri官网提供可用于Desktop 10.3 的最新版本插件。
+下载页面：ArcGIS Editor for OSM, 10.3.x......
     </div>
   </a>
   
@@ -920,7 +935,8 @@ x......
       在上一篇文章中，我提到的这些工具都是用于研究数据有什么样的空间模式，哪里聚类？哪里是热点？哪里有冷点？哪里有异常值？等等，总之研究的是“生米煮成熟饭”的结果状态。
 而“空间关系建模”工具箱中的工具，更倾向于研究 Why？ 例如，为什么会出现这种情况？ 或者说什么导致了这种情况。这时我们就可以使用工具进行回归分析，如：普通最小二成法（OLS） 和 地理加权回归（GWR）。
 
-你可能会问，为什么......
+
+你可能会问，**......
     </div>
   </a>
   
@@ -1033,12 +1049,13 @@ PS：如果你希望得到 ArcGIS Desktop的使用许可，这篇文章......
       
     </h3>
     <div class="post-content-preview">
-      Updated: 2017-10-11修改了文中表意含糊的语句，增加了更多解释性描述。
+      Updated: 2017-10-11
+修改了文中表意含糊的语句，增加了更多解释性描述。
 
 这一篇具体看分析模式工具集中的具体工具，整理这一篇的目的，不是要读者了解每个工具的背后使用了多么高级的算法，运用了多么庞大的公式，而是一起了解这些工具究竟可以为我们研究什么样的空间数据分布模式，当需要探索数据的空间性质时，知道应该如何去应用这些分析工具。
 
 
-Average Nearest Neighb......
+Average Nearest Neigh......
     </div>
   </a>
   
@@ -1077,7 +1094,8 @@ Average Nearest Neighb......
 
 在了解如上工具之前，有一些空间统计学的基本知识还是要先搞明白，磨刀不误砍柴工，那就开始吧。
 
-零假设、P值、Z得分、置信度分析模式工具集中的工具都采用“推论统计学”，先确定一个零假设，也就是假设要素或与要素相关的值都表现为空间随机模式—— Complet......
+零假设、P值、Z得分、置信度
+分析模式工具集中的工具都采用“推论统计学”，先确定一个零假设，也就是假设要素或与要素相关的值都表现为空间随机模式—— Comple......
     </div>
   </a>
   
@@ -1149,8 +1167,8 @@ ArcGIS Desktop 中有一个包含了一系列用于研究空间分布/spatial di
       
     </h3>
     <div class="post-content-preview">
-      开始下面正文之前，先说一个旧闻，ArcGIS Desktop 10.1 SP1 之后的版本中， 出现了一个不明觉厉的 新特性 —— 并行处理（Parallel Processing）。 
-现在机器硬件越来越优，多核CPU的机器比比皆是，ArcGIS Desktop 32位单进程的模式不能充分的利用这些硬件资源，不能满足大数据量的处理要求。因此，Esri 改进了 ArcToolbox 中的部分......
+      开始下面正文之前，先说一个旧闻，ArcGIS Desktop 10.1 SP1 之后的版本中， 出现了一个不明觉厉的 新特性 —— 并行处理（Parallel Processing）。
+现在机器硬件越来越优，多核CPU的机器比比皆是，ArcGIS Desktop 32位单进程的模式不能充分的利用这些硬件资源，不能满足大数据量的处理要求。因此，Esri 改进了 ArcToolbox 中的部分工......
     </div>
   </a>
   
@@ -1351,7 +1369,7 @@ ArcGIS Desktop 中有一个包含了一系列用于研究空间分布/spatial di
   <div class="tags">
     
     
-    <a href="/tags/#Geodata" title="Geodata" rel="32">Geodata</a>
+    <a href="/tags/#Coordinate System" title="Coordinate System" rel="11">Coordinate System</a>
     
     
     
@@ -1359,11 +1377,15 @@ ArcGIS Desktop 中有一个包含了一系列用于研究空间分布/spatial di
     
     
     
+    <a href="/tags/#Geodata" title="Geodata" rel="32">Geodata</a>
+    
+    
+    
+    <a href="/tags/#CAD" title="CAD" rel="1">CAD</a>
+    
+    
+    
     <a href="/tags/#ArcPad" title="ArcPad" rel="5">ArcPad</a>
-    
-    
-    
-    <a href="/tags/#Coordinate System" title="Coordinate System" rel="11">Coordinate System</a>
     
     
     
@@ -1371,7 +1393,7 @@ ArcGIS Desktop 中有一个包含了一系列用于研究空间分布/spatial di
     
     
     
-    <a href="/tags/#CAD" title="CAD" rel="1">CAD</a>
+    <a href="/tags/#Deployment" title="Deployment" rel="21">Deployment</a>
     
     
     
@@ -1380,10 +1402,6 @@ ArcGIS Desktop 中有一个包含了一系列用于研究空间分布/spatial di
     
     
     <a href="/tags/#Geoprocessing" title="Geoprocessing" rel="40">Geoprocessing</a>
-    
-    
-    
-    <a href="/tags/#Deployment" title="Deployment" rel="21">Deployment</a>
     
     
     
@@ -1495,15 +1513,15 @@ ArcGIS Desktop 中有一个包含了一系列用于研究空间分布/spatial di
     
     
     
-    <a href="/tags/#Visualization" title="Visualization" rel="1">Visualization</a>
-    
-    
-    
     <a href="/tags/#HERE Data Hub" title="HERE Data Hub" rel="1">HERE Data Hub</a>
     
     
     
     <a href="/tags/#Data Management" title="Data Management" rel="1">Data Management</a>
+    
+    
+    
+    <a href="/tags/#Visualization" title="Visualization" rel="1">Visualization</a>
     
     
   </div>

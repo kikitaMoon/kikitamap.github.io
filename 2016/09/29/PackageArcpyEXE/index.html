@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -417,35 +417,40 @@
 
         <p>我们可以在ArcGIS之外调用arcpy站点包运行python独立脚本，从而批量化任务提高工作效率。 如果可以把做好的脚本打包成exe是不是就更方便了呢？想想一键式处理也挺开心的。</p>
 <p>Python打包的问题最早是在 <a target="_blank" rel="noopener" href="http://zhihu.esrichina.com.cn/">ArcGIS知乎</a> 中看到的，有人提问为何打包失败，我还有幸被邀请回答，虽然在这一块我也是小白一枚。 后来，得空时也搜了下相关的资源，虽然大部分人持悲观态度说arcpy不支持打包，但刚好<a target="_blank" rel="noopener" href="https://geonet.esri.com/thread/164101">有个帖子</a>说可以实现，并且宣称 “It can be done easily!”，那我就动手试试吧。</p>
-<h1 id="Step1-下载安装Py2exe"><a href="#Step1-下载安装Py2exe" class="headerlink" title="Step1 下载安装Py2exe"></a>Step1 下载安装Py2exe</h1><p>Py2exe是一个Python工具发布扩展包，可以用来将Python脚本转化为Windows的可执行程序，详情看 <a target="_blank" rel="noopener" href="http://py2exe.org/">官网 py2exe.org</a> 。</p>
+<h1>Step1 下载安装Py2exe</h1>
+<p>Py2exe是一个Python工具发布扩展包，可以用来将Python脚本转化为Windows的可执行程序，详情看 <a target="_blank" rel="noopener" href="http://py2exe.org/">官网 py2exe.org</a> 。</p>
 <p>下载Py2exe安装程序，下载地址戳 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/py2exe/files/py2exe/0.6.9/">这里</a> 。</p>
 <p>ArcGIS Desktop使用的Python 2.7.x版本，可以对应下载安装 <strong><code>py2exe-0.6.9.win32-py2.7.exe</code></strong> 这个32位的版本；如果你的机器上安装 ArcGIS Desktop 64-bit Background Geoprocessing 补丁或者安装了 ArcGIS Server产品，也可以下载安装 <strong><code>py2exe-0.6.9.win64-py2.7.amd64.exe</code></strong>。 在这篇博客中，我就以 64位的包为例来说明打包的过程。</p>
-<p><br></p>
-<h1 id="Step2-编写脚本文件准备打包"><a href="#Step2-编写脚本文件准备打包" class="headerlink" title="Step2 编写脚本文件准备打包"></a>Step2 编写脚本文件准备打包</h1><p>打包时需要有至少两个脚本文件，一个是 <code>setup_py2exe.py</code>, 一个是执行实际任务的 <code>HelloPy2exe.py</code> 脚本文件。</p>
+<br>
+<h1>Step2 编写脚本文件准备打包</h1>
+<p>打包时需要有至少两个脚本文件，一个是 <code>setup_py2exe.py</code>, 一个是执行实际任务的 <code>HelloPy2exe.py</code> 脚本文件。</p>
 <p><strong>先</strong> 看第一个脚本 setup_py2exe.py，包含如下两行：</p>
 <p>为了打包时包含arcpy的资源，不要忘记如下options。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">options = &#123;<span class="string">&quot;py2exe&quot;</span>: &#123;<span class="string">&quot;excludes&quot;</span>: [<span class="string">&quot;arcpy&quot;</span>]&#125;&#125;  </span><br><span class="line">setup(console=[<span class="string">&#x27;HelloPy2exe.py&#x27;</span>], options=options) </span><br></pre></td></tr></table></figure>
-<p><strong>再</strong> 来看第二个脚本 HelloPy2exe.py：</p>
+<p><strong>再</strong> 来看第二个脚本 <a target="_blank" rel="noopener" href="http://HelloPy2exe.py">HelloPy2exe.py</a>：</p>
 <p><code>path.dirname(interpreter)</code> 可以得到Python解释器（python.exe）的路径，并向 sys.path 添加site-packages目录。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> site <span class="keyword">import</span> addsitedir  </span><br><span class="line"><span class="keyword">from</span> sys <span class="keyword">import</span> executable  </span><br><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> path  </span><br><span class="line">interpreter = executable  </span><br><span class="line">sitepkg = path.dirname(interpreter) + <span class="string">&quot;\\site-packages&quot;</span> </span><br><span class="line"><span class="built_in">print</span>(sitepkg) </span><br><span class="line">addsitedir(sitepkg)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="comment"># 这里编写实际需要执行的任务 </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">	<span class="built_in">print</span>(<span class="string">&#x27;Start Processing ...&#x27;</span>)</span><br><span class="line">    main()</span><br><span class="line">    raw_input(<span class="string">&quot;Enter enter key to exit...&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h1 id="Step3-执行打包"><a href="#Step3-执行打包" class="headerlink" title="Step3 执行打包"></a>Step3 执行打包</h1><p>为了简化打包过程，可以事先做个bat文件，放在与上述连个py文件相同的目录：</p>
+<br>
+<h1>Step3 执行打包</h1>
+<p>为了简化打包过程，可以事先做个bat文件，放在与上述连个py文件相同的目录：</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">python</span> setup_py2exe.<span class="keyword">py</span>.<span class="keyword">py</span> py2exe</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
 <p>如果提示python不是有效的应用程序，那么python可以使用python.exe的绝对路径（如：C:\Python27\ArcGISx6410.4\python.exe），或者在 windows的环境变量path中添加python.exe所在的路径。</p>
 <p>OK, 执行bat文件打包吧。</p>
 <p><img src="http://kikitamap.com/images/blogImg/PackageArcpyEXE_1.png" alt=""></p>
-<p><br></p>
-<h1 id="Step4-添加PTH文件"><a href="#Step4-添加PTH文件" class="headerlink" title="Step4 添加PTH文件"></a>Step4 添加PTH文件</h1><p>为了使得exe程序可以使用arcpy的资源，需要在发布后的dist目录中增加 site-packages 文件夹，并增加 *.pth 文件，<code>...\dist\site-packages\Desktop10.4_64bit.pth</code>。</p>
+<br>
+<h1>Step4 添加PTH文件</h1>
+<p>为了使得exe程序可以使用arcpy的资源，需要在发布后的dist目录中增加 site-packages 文件夹，并增加 *.pth 文件，<code>...\dist\site-packages\Desktop10.4_64bit.pth</code>。</p>
 <p>以64位为例，文件中需要包含如下路径（我的ArcGIS Desktop是默认路径安装的，你要看好自己路径哦）：</p>
 <figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:<span class="symbol">\P</span>rogram Files (x86)<span class="symbol">\A</span>rcGIS<span class="symbol">\D</span>esktop10.4<span class="symbol">\b</span>in64</span><br><span class="line">C:<span class="symbol">\P</span>rogram Files (x86)<span class="symbol">\A</span>rcGIS<span class="symbol">\D</span>esktop10.4<span class="symbol">\A</span>rcPy</span><br><span class="line">C:<span class="symbol">\P</span>rogram Files (x86)<span class="symbol">\A</span>rcGIS<span class="symbol">\D</span>esktop10.4<span class="symbol">\A</span>rcToolBox<span class="symbol">\S</span>cripts</span><br><span class="line">C:<span class="symbol">\P</span>ython27<span class="symbol">\A</span>rcGISx6410.4<span class="symbol">\L</span>ib</span><br><span class="line">C:<span class="symbol">\P</span>ython27<span class="symbol">\A</span>rcGISx6410.4<span class="symbol">\L</span>ib<span class="symbol">\s</span>ite-packages</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>PS： 开头提到的帖子中，没有提到要增加 C:\Python27\ArcGISx6410.4\Lib 和 C:\Python27\ArcGISx6410.4\Lib\site-packages 这两个路径，我在执行exe时屡屡失败，不得其解。 快要放弃的时候，经过和同事讨论和测试，发现加上这两个路径，找不到 Numpy、Numbers等等包的错误就解决了，开心！</p>
 </blockquote>
-<p><br></p>
+<br>
 <p>最后，执行exe即可，这个示例中仅对两个数据进行投影变换，后面可以做些更复杂的工作。</p>
 <p><img src="http://kikitamap.com/images/blogImg/PackageArcpyEXE_2.png" alt=""></p>
-<p><br></p>
-<h1 id="后续思考"><a href="#后续思考" class="headerlink" title="后续思考"></a>后续思考</h1><p>arcpy并不是一个免费的站点包，arcpy作为ArcGIS产品的一部分，完全脱离ArcGIS产品是不行的！ Import arcpy内部其实会默默地检测产品许可的。 如果你没有产品许可，可能会遇到 “RuntimeError：NotInitialized” 这样的初始化失败的错误。</p>
+<br>
+<h1>后续思考</h1>
+<p>arcpy并不是一个免费的站点包，arcpy作为ArcGIS产品的一部分，完全脱离ArcGIS产品是不行的！ Import arcpy内部其实会默默地检测产品许可的。 如果你没有产品许可，可能会遇到 “RuntimeError：NotInitialized” 这样的初始化失败的错误。</p>
 <p>就现在的测试结果而言，我打包好的exe，放到其他安装有ArcGIS Desktop（64位python需要安装ArcGIS Desktop 64-bit Background Geoprocessing 补丁），ArcGIS Server的机器上都是可以正常运行的。</p>
 <p>后面我会再做一些更复杂的测试，有时间的话再放上来。</p>
 

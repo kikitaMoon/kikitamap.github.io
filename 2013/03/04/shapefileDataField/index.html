@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -418,10 +418,9 @@
 <p>所以，强烈建议用户，如果需要使用日期时间型字段时，请选用GDB数据类型。如果出于特定原因一定需要使用shapefile的。可以考虑新加字段，单独来存储时间，两种常用的方案：</p>
 <ul>
 <li>（1）将时间换算成秒，由某个数值型字段来存储。</li>
-<li><p>（2）分别使用三个字段来存储，时分秒数值。</p>
-<p><br></p>
-</li>
+<li>（2）分别使用三个字段来存储，时分秒数值。</li>
 </ul>
+ <br>
 <p>顺便提一嘴。GDB存储时间日期的格式为：yyyy-mm-dd hh:mm:ss AM or PM。至于ArcMap中日期的显示的样式，是由windows系统来控制的。例如：M/d/yy, MM/dd/yy, yy/MM/dd等样式。</p>
 <p>关于shape文件的详细描述，请查看如下两个连接中的任何一个：</p>
 <p><a target="_blank" rel="noopener" href="http://www.digitalpreservation.gov/formats/fdd/fdd000280.shtml">http://www.digitalpreservation.gov/formats/fdd/fdd000280.shtml</a></p>

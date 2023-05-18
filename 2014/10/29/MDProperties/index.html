@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -419,16 +419,19 @@
 <p><img src="http://kikitamap.com/images/blogImg/MDProperties3_Toolset.png" alt=""></p>
 <p>我们可在镶嵌数据集属性窗口看到 General，Default，Key MetaData 三个选项卡。</p>
 <ul>
-<li><p>General 中包含了类似单个栅格数据集的属性信息，例如像元大小、像元类型、位深、范围等等信息，详情可以戳 <a target="_blank" rel="noopener" href="http://resources.arcgis.com/zh-cn/help/main/10.2/index.html#//009t00000018000000"><strong>这里</strong></a>，不再赘述；</p>
+<li>
+<p>General 中包含了类似单个栅格数据集的属性信息，例如像元大小、像元类型、位深、范围等等信息，详情可以戳 <a target="_blank" rel="noopener" href="http://resources.arcgis.com/zh-cn/help/main/10.2/index.html#//009t00000018000000"><strong>这里</strong></a>，不再赘述；</p>
 </li>
-<li><p>Default 选项卡中包含了一些镶嵌数据集所特有的属性，这些属性将会影响客户端查看镶嵌数据集的显示方式和交互方式；</p>
+<li>
+<p>Default 选项卡中包含了一些镶嵌数据集所特有的属性，这些属性将会影响客户端查看镶嵌数据集的显示方式和交互方式；</p>
 </li>
-<li><p>如果为镶嵌数据集定义了产品定义，则 Key Metadata 将来自产品定义，Key Metadata 包含了用于渲染和一些处理过程的波段和波长信息。</p>
+<li>
+<p>如果为镶嵌数据集定义了产品定义，则 Key Metadata 将来自产品定义，Key Metadata 包含了用于渲染和一些处理过程的波段和波长信息。</p>
 </li>
 </ul>
 <p><img src="http://kikitamap.com/images/blogImg/MDProperties_Defaults.png" alt=""></p>
 <p>★ 需要注意的是，如果我们在图层列表中去修改镶嵌数据集的默认属性，这种修改不会存储到镶嵌数据集内部，因此当移除图层，这些设置就失效了。图层上的修改，一般用于临时查看修改效果，或者多个用户访问镶嵌数据集，并且希望自己的修改不影响到其他人。</p>
-<p>而我们在Catalog中，镶嵌数据集的属性中设置的属性是存储在镶嵌数据集中。 需要了解Default 选显卡中各个属性项的作用和对镶嵌数据集的影响，非常详细的说明就戳<strong> <a target="_blank" rel="noopener" href="http://resources.arcgis.com/zh-cn/help/main/10.2/#/na/009t00000038000000/">这里</a></strong>，注意其中部分参数仅适用于镶嵌数据集作为 Image Service 发布和访问的情形。</p>
+<p>而我们在Catalog中，镶嵌数据集的属性中设置的属性是存储在镶嵌数据集中。 需要了解Default 选显卡中各个属性项的作用和对镶嵌数据集的影响，非常详细的说明就戳** <a target="_blank" rel="noopener" href="http://resources.arcgis.com/zh-cn/help/main/10.2/#/na/009t00000038000000/">这里</a>**，注意其中部分参数仅适用于镶嵌数据集作为 Image Service 发布和访问的情形。</p>
 <p>在工具箱中提供了一个可以设置这些属性的工具  Set Mosaic Dataset Properties 关于这个工具，我就结合镶嵌数据集属性来说明各个参数的作用和适用情况。由于这是一个很多很多参数的工具，这一篇先说说影像属性部分的参数吧。</p>
 <p><img src="http://kikitamap.com/images/blogImg/MDProperties_ImageProperties.png" alt=""></p>
 <p><strong>影像属性</strong></p>

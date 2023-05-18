@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -351,7 +351,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">473</span> In Total
+              Words <span class="post-count">484</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -421,26 +421,49 @@
 </blockquote>
 <p>简单罗列下ArcGIS中不能允许的几何错误类型：</p>
 <ul>
-<li><strong>短线段/Short segment</strong><br>Some segments are shorter than allowed by the system units of the spatial reference associated with the geometry.</li>
-<li><p><strong>空几何/Null geometry</strong><br>The feature has no geometry or nothing in the SHAPE field.</p>
+<li>
+<p><strong>短线段/Short segment</strong><br>
+Some segments are shorter than allowed by the system units of the spatial reference associated with the geometry.</p>
 </li>
-<li><p><strong>不正确的环顺序/Incorrect ring ordering</strong><br>The polygon is topologically simple, but its rings may not be oriented correctly (outer rings—clockwise, inner rings—counterclockwise).</p>
+<li>
+<p><strong>空几何/Null geometry</strong><br>
+The feature has no geometry or nothing in the SHAPE field.</p>
 </li>
-<li><p><strong>不正确的线段方向/Incorrect segment orientation</strong><br>Individual segments are not consistently oriented. The “to” point of seg i should be incident on the “from” point of seg i+1.</p>
+<li>
+<p><strong>不正确的环顺序/Incorrect ring ordering</strong><br>
+The polygon is topologically simple, but its rings may not be oriented correctly (outer rings—clockwise, inner rings—counterclockwise).</p>
 </li>
-<li><p><strong>自相交/Self intersections</strong><br>A polygon must not intersect itself.</p>
+<li>
+<p><strong>不正确的线段方向/Incorrect segment orientation</strong><br>
+Individual segments are not consistently oriented. The “to” point of seg i should be incident on the “from” point of seg i+1.</p>
 </li>
-<li><p><strong>非封闭环/Unclosed rings</strong><br>The last segment in a ring must have its “to” point incident on the “from” point of the first segment.</p>
+<li>
+<p><strong>自相交/Self intersections</strong><br>
+A polygon must not intersect itself.</p>
 </li>
-<li><p><strong>空部分/Empty parts</strong><br>The geometry has multiple parts and one of them is empty (has no geometry).</p>
+<li>
+<p><strong>非封闭环/Unclosed rings</strong><br>
+The last segment in a ring must have its “to” point incident on the “from” point of the first segment.</p>
 </li>
-<li><p><strong>重复折点/Duplicate vertex</strong><br>The geometry has two or more vertices with identical coordinates.</p>
+<li>
+<p><strong>空部分/Empty parts</strong><br>
+The geometry has multiple parts and one of them is empty (has no geometry).</p>
 </li>
-<li><p><strong>属性不匹配/Mismatched attributes</strong><br>The Z or M coordinate of a line segment’s endpoint does not match the Z or M coordinate of the coincident endpoint on the next segment.</p>
+<li>
+<p><strong>重复折点/Duplicate vertex</strong><br>
+The geometry has two or more vertices with identical coordinates.</p>
 </li>
-<li><p><strong>不连续部分/Discontinuous parts</strong><br>One of the geometry’s part is made up of disconnected or discontinuous parts.</p>
+<li>
+<p><strong>属性不匹配/Mismatched attributes</strong><br>
+The Z or M coordinate of a line segment’s endpoint does not match the Z or M coordinate of the coincident endpoint on the next segment.</p>
 </li>
-<li><p><strong>空Z值/Empty Z values</strong><br>The geometry has one or more vertex with empty Z value (NaN, for example).</p>
+<li>
+<p><strong>不连续部分/Discontinuous parts</strong><br>
+One of the geometry’s part is made up of disconnected or discontinuous parts.</p>
+</li>
+<li>
+<p><strong>空Z值/Empty Z values</strong><br>
+The geometry has one or more vertex with empty Z value (NaN, for example).</p>
 </li>
 </ul>
 <p>以上的错误，可以用使用工具 Check Geometry 进行检查，工具会生成有关几何错误的报表。使用 Repaired Geometry 工具进行修复。</p>

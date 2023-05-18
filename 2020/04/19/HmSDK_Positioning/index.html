@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -436,15 +436,17 @@
 <li><strong>室内定位 -支持于室内地图结合使用，支持楼层探测。 室内地图既可以是HERE已发布的公共资源，也可以是用户私属地图</strong></li>
 <li><strong>HERE定位能力无缝覆盖全球</strong></li>
 </ul>
-<p><br></p>
+<br>
 <p>以上功能列表解释几个点：</p>
-<p><strong>GNSS</strong>（Global Navigation Satellite System）包括除了我们熟知的 GPS，还包括 GLONASS,  Beidou, </p>
+<p><strong>GNSS</strong>（Global Navigation Satellite System）包括除了我们熟知的 GPS，还包括 GLONASS,  Beidou,</p>
 <p>QZSS,  Galileo 这些星座。 HERE Positioning 产品族系中，还有可支持到芯片级的 <a target="_blank" rel="noopener" href="https://www.here.com/products/tracking-positioning-solutions/hd-gnss">HD GNSS / A-GNSS 产品</a>，用于显著提高首次定位时间和GNSS离线辅助定位。这里不展开了，以后有空再约起。</p>
 <p><strong>WiFi离线定位</strong>，略复杂，是室内定位中成本较低的一种，不依赖于事先部署 Beacon。从使用者角度可以理解为两个使用场景：</p>
 <ul>
-<li><p>经常连接WiFi，有时断线使用，例如在办公室等熟悉场所。</p>
+<li>
+<p>经常连接WiFi，有时断线使用，例如在办公室等熟悉场所。</p>
 </li>
-<li><p>周围无熟悉WiFi，例如进入一个陌生的大型购物中心。</p>
+<li>
+<p>周围无熟悉WiFi，例如进入一个陌生的大型购物中心。</p>
 <p>前者可通过online WiFi定位的定位缓存数据解决离线问题；后者则需要大量的众包数据作为前提实现。</p>
 <p>后者是一种更黑科技的技术，但是从原理上也不是难于理解。 可以想象，大型购物中心通常布满 WiFi热点，移动设备即使无法连接这些热点，也可以探测到这些WiFi热点的信息。根据信号场强的算法黑科技，最终是从已知点位解算未知点位的数学问题。</p>
 <p>这里的问题是：已知点位怎么来？这正是源自众包、托关于定位服务器的 HERE Radio Map。采集和管理 Radio Map 实际官方也有给出工具<a target="_blank" rel="noopener" href="https://indoor.here.com/#/tools"> HERE Indoor Radio Mapper</a> 和 <a target="_blank" rel="noopener" href="https://indoor.here.com/#/tools/help-text-3#indoor-radio-map-admin-tool">HERE Radio Map Admin Tool</a> 。</p>
@@ -455,9 +457,11 @@
 <p><img src="http://kikitamap.com/images/blogImg/HmSDK_Positioning_indoor.jpg" alt=""></p>
 <p>定位部分的开发部署，强烈建议仔细阅读开发文档，有关设备访问权限的几点一定要确保配置正确。</p>
 <ul>
-<li><p>HERE Mobile SDK - <a target="_blank" rel="noopener" href="https://developer.here.com/documentation/android-premium/3.15/dev_guide/topics/advanced-positioning.html">Developer Doc</a></p>
+<li>
+<p>HERE Mobile SDK - <a target="_blank" rel="noopener" href="https://developer.here.com/documentation/android-premium/3.15/dev_guide/topics/advanced-positioning.html">Developer Doc</a></p>
 </li>
-<li><p>HERE Mobile SDK on Github - <a target="_blank" rel="noopener" href="https://github.com/heremaps/here-android-sdk-examples/tree/master/positioning">Sample Code</a></p>
+<li>
+<p>HERE Mobile SDK on Github - <a target="_blank" rel="noopener" href="https://github.com/heremaps/here-android-sdk-examples/tree/master/positioning">Sample Code</a></p>
 </li>
 </ul>
 <p>可以带手机到室外和室内试一下这个Demo，支持选择定位模式。</p>

@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -420,12 +420,15 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p>Part 1 中我们准备了底图，Part 2 中我们获取了位置，现在终于开张了，“您有新的  ‘ 饿了乎 ’  订单到了！”  我们给外卖小哥规划下路线吧！</p>
-<h3 id="1-Routing-Service"><a href="#1-Routing-Service" class="headerlink" title="1 Routing Service"></a>1 Routing Service</h3><p>首先，HERE Map API 中提供了一个叫做 Platform 的类，实例化Platform后，我就可以借以访问 HERE Routing Service。 有关 Routing API 的帮助文档，点<a target="_blank" rel="noopener" href="https://developer.here.com/documentation/routing/topics/what-is.html">这里</a>。</p>
+<h3 id="1-Routing-Service">1 Routing Service</h3>
+<p>首先，HERE Map API 中提供了一个叫做 Platform 的类，实例化Platform后，我就可以借以访问 HERE Routing Service。 有关 Routing API 的帮助文档，点<a target="_blank" rel="noopener" href="https://developer.here.com/documentation/routing/topics/what-is.html">这里</a>。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> platform = <span class="keyword">new</span> H.service.Platform(&#123;</span><br><span class="line">		app_id: <span class="string">&#x27;[YOUR APP ID HERE]&#x27;</span>,</span><br><span class="line">		app_code: <span class="string">&#x27;[YOUR APP CODE HERE]&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> router = platform.getRoutingService();</span><br></pre></td></tr></table></figure>
-<h3 id="2-Request-Route"><a href="#2-Request-Route" class="headerlink" title="2 Request Route"></a>2 Request Route</h3><p>在发请求之前，需要先至少定义起点和终点，或者必要的时候增加途经点，这些点是通过 <code>WayPointParameterType</code> 对象传递。</p>
+<h3 id="2-Request-Route">2 Request Route</h3>
+<p>在发请求之前，需要先至少定义起点和终点，或者必要的时候增加途经点，这些点是通过 <code>WayPointParameterType</code> 对象传递。</p>
 <p>为了让代码更简洁易维护，我们在 <code>scripts</code> 目录下创建一个 <code>route.js</code>文件，取代开始直接在 <code>app.js</code>中直接调用 Routing Service 的繁琐。如下，在 route.js 中增加一个用于封装 底图、platform对象、路径规划参数的 <code>HERERoute</code>函数，这个函数也会在浏览器控制台返回简单的错误日志。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// build a function to take the map and platform objects as parameters</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HERERoute</span> (<span class="params">map, platform, routeOptions</span>) </span>&#123;</span><br><span class="line"><span class="comment">// access the routing service by calling getRoutingService()</span></span><br><span class="line">    <span class="keyword">var</span> router = platform.getRoutingService();</span><br><span class="line"><span class="comment">// error handling    </span></span><br><span class="line">    <span class="keyword">var</span> onSuccess = <span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;Route found!&#x27;</span>, result);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> onError = <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.error(<span class="string">&#x27;Oh no! There was some communication error!&#x27;</span>, error);</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    router.calculateRoute(routeOptions, onSuccess, onError);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-Drawing-the-Route"><a href="#3-Drawing-the-Route" class="headerlink" title="3 Drawing the Route"></a>3 Drawing the Route</h3><p>现在我们可以在控制台看到 response，<strong>如何将 route 绘制到地图上呢</strong>？</p>
+<h3 id="3-Drawing-the-Route">3 Drawing the Route</h3>
+<p>现在我们可以在控制台看到 response，<strong>如何将 route 绘制到地图上呢</strong>？</p>
 <p>在成功返回结果的函数中增加如下代码，其中 Option_2 的部分用于实现向地图绘制路径：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> onSuccess = <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">        <span class="comment">// Option_1 Simply put the response to the console log</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;Route found!&#x27;</span>, result);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Option_2 Furtherly draw the response to the map</span></span><br><span class="line">        <span class="keyword">var</span> route,</span><br><span class="line">            routeShape,</span><br><span class="line">            startPoint,</span><br><span class="line">            endPoint,</span><br><span class="line">            lineString;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result.response.route) &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// Just take the first Route in the array</span></span><br><span class="line">            route = result.response.route[<span class="number">0</span>];</span><br><span class="line">            routeShape = route.shape;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// H.geo.LineString is recommended, instead of H.geo.Strip in the offical demo code</span></span><br><span class="line">            lineString = <span class="keyword">new</span> H.geo.LineString();</span><br><span class="line">            routeShape.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">point</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> parts = point.split(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">                lineString.pushLatLngAlt(parts[<span class="number">0</span>], parts[<span class="number">1</span>]);</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Utilize H.map.Polyline to draw a blue line</span></span><br><span class="line">            <span class="keyword">var</span> routeLine = <span class="keyword">new</span> H.map.Polyline(lineString, &#123;</span><br><span class="line">                style: &#123;</span><br><span class="line">                    strokeColor: <span class="string">&#x27;blue&#x27;</span>,</span><br><span class="line">                    lineWidth: <span class="number">10</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            map.addObject(routeLine);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// update the map bounds to that of our route</span></span><br><span class="line">            map.setViewBounds(routeLine.getBounds());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -436,14 +439,15 @@
 </ul>
 </blockquote>
 <p><img src="http://kikitamap.com/images/blogImg/Icecream_Part3_Basic_Routing.png" alt=""></p>
-<h3 id="4-More"><a href="#4-More" class="headerlink" title="4 More"></a>4 More</h3><p>到 Steps 3 路径规划的功能基本实现了，Step 4 再增加一个获取当前位置作为起点，并将指定位置作为终点的功能吧。</p>
+<h3 id="4-More">4 More</h3>
+<p>到 Steps 3 路径规划的功能基本实现了，Step 4 再增加一个获取当前位置作为起点，并将指定位置作为终点的功能吧。</p>
 <p>例如，外卖小哥要给颐和园逛公园的小朋友送去冰凉可口的冰激凌……</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a small helper which converts a location into a waypoint</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">locationToWaypointString</span>(<span class="params">coordinates</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;geo!&#x27;</span> + coordinates.lat + <span class="string">&#x27;,&#x27;</span> + coordinates.lng;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// set a flag called RouteRendered</span></span><br><span class="line"><span class="comment">// to ensure that the route is only rendered the first time</span></span><br><span class="line"><span class="keyword">var</span> routeRendered = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updatePosition</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> coordinates = &#123;</span><br><span class="line">    lat: event.coords.latitude,</span><br><span class="line">    lng: event.coords.longitude</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> marker = <span class="keyword">new</span> H.map.Marker(coordinates);</span><br><span class="line">  map.addObject(marker);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// If the route has not been rendered yet, </span></span><br><span class="line">  <span class="comment">// calculate and render it</span></span><br><span class="line">  <span class="keyword">if</span> (!routeRendered) &#123;</span><br><span class="line">    <span class="keyword">var</span> route = <span class="keyword">new</span> HERERoute(map, platform, &#123;</span><br><span class="line">      mode: <span class="string">&#x27;fastest;car&#x27;</span>,</span><br><span class="line">      representation: <span class="string">&#x27;display&#x27;</span>,</span><br><span class="line">      waypoint0: locationToWaypointString(coordinates),</span><br><span class="line">      waypoint1: locationToWaypointString(EndCoordinates)</span><br><span class="line">    &#125;);</span><br><span class="line">    routeRendered = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// request the user&#x27;s current location</span></span><br><span class="line">navigator.geolocation.watchPosition(updatePosition);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>结果大概是这样：</p>
 <p><img src="http://kikitamap.com/images/blogImg/Icecream_Part3_Basic_Routing_current.png" alt=""></p>
 <blockquote>
 <p>由于相关法律的限制，HERE Developer 网站中提供免费试用的中国境内的 HERE 在线地图是非常粗略的等级（Entry Level），如下代码仅为了展示功能，并不为了较真位置的精确程度。</p>
-<p> 当然，精密级别的 China HERE Map 也已经上线了 ，并且有 <a target="_blank" rel="noopener" href="https://developer.here.com/documentation?variant=cn">China Spec HLS API</a> 可供使用，只是没有默认包含在<a target="_blank" rel="noopener" href="https://developer.here.com/documentation?create=Freemium-Basic&amp;keepState=true&amp;step=terms">Global Freemium licenses</a> 之中。如果需要试用评估或购买，需要通过 <a target="_blank" rel="noopener" href="https://developer.here.com/contact-us#contact-sales">商务途径</a>；也可以留言我，我也愿意帮助联系。</p>
+<p>当然，精密级别的 China HERE Map 也已经上线了 ，并且有 <a target="_blank" rel="noopener" href="https://developer.here.com/documentation?variant=cn">China Spec HLS API</a> 可供使用，只是没有默认包含在<a target="_blank" rel="noopener" href="https://developer.here.com/documentation?create=Freemium-Basic&amp;keepState=true&amp;step=terms">Global Freemium licenses</a> 之中。如果需要试用评估或购买，需要通过 <a target="_blank" rel="noopener" href="https://developer.here.com/contact-us#contact-sales">商务途径</a>；也可以留言我，我也愿意帮助联系。</p>
 </blockquote>
 <p><em>original resource</em>  <a target="_blank" rel="noopener" href="https://developer.here.com/blog/who-wants-ice-cream-a-here-maps-api-for-javascript-tutorial-part-3-basic-routing">Part3: Basic Routing</a></p>
 <p><em>complete code</em>  <a target="_blank" rel="noopener" href="https://github.com/kikitaMoon/HERE_JS_Who_Wants_Icecream/tree/master/Part3_Basic_Routing">Github - kikitaMoon/HERE_JS_Who_Wants_Icecream</a></p>

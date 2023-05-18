@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -416,26 +416,28 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p>今天刚好有人问到一个有关 ASCII 栅格数据的问题，这里梳理下，用最简单的方式极速理解。</p>
-<p><br></p>
+<br>
 <blockquote>
 <p><strong>什么是ASCII栅格？</strong>      就是用ASCII文本记录的栅格数据……</p>
 <p><strong>怎么得到ASCII栅格？</strong>   比如使用工具 Raster to ASCII……</p>
 </blockquote>
-<p><br></p>
-<p><br></p>
+<br>
+<br>
 <p>一般在 ASCII 栅格的文件头中我们会看到这几行：</p>
 <p><img src="http://kikitamap.com/images/blogImg/MappingASCIIRaster_TXT.png" alt=""></p>
 <p><strong>ncols</strong>  和 <strong>nrows</strong>   表示这份数据的行列数，这份数据是10×10。</p>
 <p><strong>xllcorner</strong> 和 <strong>yllcorner</strong> 表示的就是栅格的左下角（low left）角点的坐标。</p>
 <p><strong>cellsize</strong> 也就是像元大小，表示每个正方形单元的尺寸。</p>
 <p>通过这几个值不就确定了栅格数据的范围了吗？嗯，确定了。</p>
-<p><br></p>
+<br>
 <p>看图说话：</p>
 <p><img src="http://kikitamap.com/images/blogImg/MappingASCIIRaster_Demo.png" alt=""></p>
-<p><br></p>
+<br>
 <p>文本文件下面的值就对应到每个格子里的像元值：</p>
 <p><img src="http://kikitamap.com/images/blogImg/MappingASCIIRaster_Value.png" alt=""></p>
-<p><br><br><br><br>我想你不会再有any疑问了……</p>
+<br>
+<br>
+我想你不会再有any疑问了……
 
 
         <hr>

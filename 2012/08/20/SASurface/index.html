@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -417,18 +417,19 @@
 
         <p>我们可以利用“表面分析（Surface）”工具量化及可视化地形地貌。</p>
 <p><img src="http://kikitamap.com/images/blogImg/SASurface_Toolset.png" alt=""></p>
-<p><strong>坡向（Aspect）：</strong>获得栅格表面的坡向。求得每个像元到其相邻像元方向像元值的变化率最大的下坡方向。</p>
-<p><strong>等值线（Contour）：</strong>根据栅格表面创建等值线（等值线图）的线要素类。</p>
-<p><strong>等值线序列（Contour List）：</strong>根据栅格表面创建所选等值线值的要素类。</p>
-<p><strong>含障碍的等值线（Contour with Barriers）：</strong>根据栅格表面创建等值线。如果包含障碍要素，则允许在障碍两侧独立生成等值线。</p>
-<p><strong>曲率（Curvature）：</strong>计算栅格表面的曲率，包括剖面曲率和平面曲率。</p>
-<p><strong>填挖方（Cut Fill）：</strong>计算两表面间体积的变化。通常用于执行填挖操作。</p>
-<p><strong>山体阴影（HillShade）：</strong>通过考虑照明源的角度和阴影，根据表面栅格创建地貌晕渲。</p>
-<p><strong>视点分析（Observer Point）：</strong>识别从各栅格表面位置进行观察时可见的观察点。</p>
-<p><strong>坡度（Slope）：</strong>判断栅格表面的各像元中的坡度（梯度或 z 值的最大变化率）。</p>
-<p><strong>视域（Viewshed）：</strong>确定对一组观察点要素可见的栅格表面位置。</p>
+<p>**坡向（Aspect）：**获得栅格表面的坡向。求得每个像元到其相邻像元方向像元值的变化率最大的下坡方向。</p>
+<p>**等值线（Contour）：**根据栅格表面创建等值线（等值线图）的线要素类。</p>
+<p>**等值线序列（Contour List）：**根据栅格表面创建所选等值线值的要素类。</p>
+<p>**含障碍的等值线（Contour with Barriers）：**根据栅格表面创建等值线。如果包含障碍要素，则允许在障碍两侧独立生成等值线。</p>
+<p>**曲率（Curvature）：**计算栅格表面的曲率，包括剖面曲率和平面曲率。</p>
+<p>**填挖方（Cut Fill）：**计算两表面间体积的变化。通常用于执行填挖操作。</p>
+<p>**山体阴影（HillShade）：**通过考虑照明源的角度和阴影，根据表面栅格创建地貌晕渲。</p>
+<p>**视点分析（Observer Point）：**识别从各栅格表面位置进行观察时可见的观察点。</p>
+<p>**坡度（Slope）：**判断栅格表面的各像元中的坡度（梯度或 z 值的最大变化率）。</p>
+<p>**视域（Viewshed）：**确定对一组观察点要素可见的栅格表面位置。</p>
 <p>下面分类来看一下这些工具：</p>
-<h1 id="一、-各种等值线工具"><a href="#一、-各种等值线工具" class="headerlink" title="一、 各种等值线工具"></a><strong>一、 各种等值线工具</strong></h1><p><strong>1） 等值线（Contour）</strong></p>
+<h1><strong>一、 各种等值线工具</strong></h1>
+<p><strong>1） 等值线（Contour）</strong></p>
 <p>根据栅格表面数据创建等值线线要素类。可以指定起算线和间隔。</p>
 <p><img src="http://kikitamap.com/images/blogImg/SASurface_Contour.png" alt=""></p>
 <p><strong>2） 等值线列表（Contour list）</strong></p>
@@ -438,9 +439,10 @@
 <p><strong>TIPS： 关于等值线的质量问题</strong></p>
 <p>少数情况下，所创建等值线的轮廓可能会呈方形或不均匀，看起来犹如沿着栅格像元的边界。出现这种情况可能是因为各栅格的值为整数且恰好落在等值线上。这并不是个问题，该等值线不过是原样呈现数据而已。</p>
 <p>如果希望等值线更平滑，可行的方法包括对源数据进行平滑处理或调整起始等值线。</p>
-<h1 id="二、表面特征相关工具"><a href="#二、表面特征相关工具" class="headerlink" title="二、表面特征相关工具"></a><strong>二、表面特征相关工具</strong></h1><p><strong>1） 坡向（Aspect）</strong></p>
+<h1><strong>二、表面特征相关工具</strong></h1>
+<p><strong>1） 坡向（Aspect）</strong></p>
 <p><img src="http://kikitamap.com/images/blogImg/SASurface_Aspect.png" alt=""></p>
-<p>此工具求得每个像元到其相邻的各个像元方向的 z 值上变化率最大的下坡方向。</p>
+<p>此工具求得每个像元到其相邻的各个像元方向的 z 值上变化率最大的下坡方向。</p>
 <p>从概念上讲，坡向工具将根据要处理的像元或中心像元周围一个 3 x 3 的像元邻域的 z 值拟合出一个平面。该平面的朝向就是待处理像元的坡向。</p>
 <p>输出栅格的值将是坡向的罗盘方向。坡向由 0 到 359.9 度之间的正度数表示，以北为基准方向按顺时针进行测量。会为输入栅格中的平坦（具有零坡度）像元分配 -1 坡向。</p>
 <p><img src="http://kikitamap.com/images/blogImg/SASurface_Aspect2.png" alt=""></p>
@@ -452,7 +454,7 @@
 <p>确定输出坡度数据的测量单位（度或百分比）。</p>
 <ul>
 <li>DEGREE — 坡度倾角，单位：度，范围：0 ~ 90。</li>
-<li>PERCENT_RISE — 高程增量百分比，也称为百分比坡度，范围：0 ~ ∞。</li>
+<li>PERCENT_RISE — 高程增量百分比，也称为百分比坡度，范围：0 ~ ∞。</li>
 </ul>
 <p>该工具可与其他类型的连续数据（如人口）配合使用，用来识别值的急剧变化。</p>
 <p>关于工具的详细算法：<a target="_blank" rel="noopener" href="http://help.arcgis.com/zh-cn/arcgisdesktop/10.0/help/index.html#/na/009z000000vz000000/">http://help.arcgis.com/zh-cn/arcgisdesktop/10.0/help/index.html#/na/009z000000vz000000/</a></p>
@@ -461,15 +463,17 @@
 <p>可供选择的输出曲率类型为：剖面曲率（沿最大斜率的坡度）和平面曲率（垂直于最大坡度的方向）。</p>
 <p>从应用的角度看，该工具的输出可用于描述流域盆地的物理特征，从而便于理解侵蚀过程和径流形成过程。坡度会影响下坡时的总体移动速率。坡向将决定流向。剖面曲率将影响流动的加速和减速，进而将影响到侵蚀和沉积。平面曲率会影响流动的汇聚和分散。</p>
 <p><img src="http://kikitamap.com/images/blogImg/SASurface_Curvature.gif" alt=""></p>
-<h1 id="三、-填挖方（Cut-Fill）"><a href="#三、-填挖方（Cut-Fill）" class="headerlink" title="三、 填挖方（Cut Fill）"></a><strong>三、 填挖方（Cut Fill）</strong></h1><p>计算两表面间体积的变化。通常用于执行填挖操作。</p>
+<h1><strong>三、 填挖方（Cut Fill）</strong></h1>
+<p>计算两表面间体积的变化。通常用于执行填挖操作。</p>
 <p>默认情况下，将使用专用渲染器来高亮显示执行填挖操作的位置。该渲染器将被挖的区域绘制成蓝色，将被填的区域绘制成红色。没有变化的区域将显示为灰色。</p>
-<p><img src="http://kikitamap.com/images/blogImg/SASurface_CutFill.png" alt="">  </p>
-<h1 id="四、山影（Hillshade）"><a href="#四、山影（Hillshade）" class="headerlink" title="四、山影（Hillshade）"></a><strong>四、山影（Hillshade）</strong></h1><p><img src="http://kikitamap.com/images/blogImg/SASurface_Hillshade.gif" alt=""></p>
+<p><img src="http://kikitamap.com/images/blogImg/SASurface_CutFill.png" alt=""></p>
+<h1><strong>四、山影（Hillshade）</strong></h1>
+<p><img src="http://kikitamap.com/images/blogImg/SASurface_Hillshade.gif" alt=""></p>
 <p>此工具考虑的主要因素是太阳（照明源）在天空中的位置。看下此工具的参数设置：</p>
 <p><img src="http://kikitamap.com/images/blogImg/SASurface_HillshadeTool.png" alt=""></p>
-<p><strong>方位角（Azimuth）</strong>指的是太阳的角度方向，是以北为基准方向在 0 到 360 度范围内按顺时针进行测量的。90º 的方位角为东。此工具默认方向角为 315º (NW)。</p>
+<p>**方位角（Azimuth）**指的是太阳的角度方向，是以北为基准方向在 0 到 360 度范围内按顺时针进行测量的。90º 的方位角为东。此工具默认方向角为 315º (NW)。</p>
 <p><img src="http://kikitamap.com/images/blogImg/SASurface_Azimuth.gif" alt=""></p>
-<p><strong>高度（Altitude）</strong>指的是太阳高出地平线的角度或坡度。高度的单位为度，范围为 0（位于地平线上）到 90（位于头上）之间。此工具默认值为 45 度。</p>
+<p>**高度（Altitude）**指的是太阳高出地平线的角度或坡度。高度的单位为度，范围为 0（位于地平线上）到 90（位于头上）之间。此工具默认值为 45 度。</p>
 <p><img src="http://kikitamap.com/images/blogImg/SASurface_Altitude.gif" alt=""></p>
 <p><strong>Model shadows</strong></p>
 <p>通过对选择 Model shadows，可计算局部照明度以及像元是否落入阴影内。阴影值为0，所有其他像元的编码为介于 1 和 255 之间的整数。</p>
@@ -478,7 +482,8 @@
 <p>如果 x,y 单位和 z 单位采用相同的测量单位；则 z 因子为 1。这是默认值。此外，z 因子还可用于地形夸大。</p>
 <p>例如，如果 z 单位是英尺而 x,y 单位是米，则应使用 z 因子 0.3048 将 z 单位从英尺转换为米（1 英尺 = 0.3048 米）</p>
 <p>关于工具的详细算法：<a target="_blank" rel="noopener" href="http://help.arcgis.com/zh-cn/arcgisdesktop/10.0/help/index.html#/na/009z000000z2000000/">http://help.arcgis.com/zh-cn/arcgisdesktop/10.0/help/index.html#/na/009z000000z2000000/</a></p>
-<h1 id="五、可见性分析"><a href="#五、可见性分析" class="headerlink" title="五、可见性分析"></a><strong>五、可见性分析</strong></h1><p><strong>1） 视点分析</strong></p>
+<h1><strong>五、可见性分析</strong></h1>
+<p><strong>1） 视点分析</strong></p>
 <p><img src="http://kikitamap.com/images/blogImg/SASurface_ViewPoint.png" alt=""></p>
 <p>视点工具生成的是在观测点处能够看到哪些位置的像元的二进制编码信息。观察点被限制为最多16 个。此工具仅支持点要素输入。</p>
 <p>可见性信息存储在 VALUE 项中。如果要显示通过视点 3 能看到的所有栅格区域，就打开输出栅格属性表，然后选择视点 3 (OBS3) 等于 1 而其他所有视点等于 0 的记录。</p>
@@ -486,14 +491,13 @@
 <p><img src="http://kikitamap.com/images/blogImg/SASurface_MultiViewPoints.png" alt=""></p>
 <p><strong>2） 视域</strong></p>
 <p><img src="http://kikitamap.com/images/blogImg/SASurface_Viewshed.png" alt=""></p>
-<p>视域工具会创建一个栅格数据，以记录可从输入<strong>视点</strong>或 <strong>视点折线要素</strong>位置看到每个区域的次数。该值记录在输出栅格表的 VALUE 项中。</p>
+<p>视域工具会创建一个栅格数据，以记录可从输入<strong>视点</strong>或 <strong>视点折线要素</strong>位置看到每个区域的次数。该值记录在输出栅格表的 VALUE 项中。</p>
 <p><img src="http://kikitamap.com/images/blogImg/SASurface_ViewshedTable.png" alt=""></p>
 <p><strong>TIPS：控制可见性分析</strong></p>
 <p>通过在要素属性数据集中指定不同的项，可限制所检查的栅格区域。共有九项：SPOT、OFFSETA、OFFSETB、AZIMUTH1、AZIMUTH2、VERT1、VERT2、RADIUS1 和 RADIUS2。</p>
 <p>附图帮助理解：</p>
 <p><img src="http://kikitamap.com/images/blogImg/SASurface_Paras.png" alt=""></p>
 <p>这些值的默认值：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -550,7 +554,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>如果视点要素数据集是点要素类，则每个观测点都可具有属性表中的唯一一组观测约束。如果视点要素数据集是折线要素类，则沿输入折线的每个折点都会使用属性表的折线记录中包含的相同观测约束。如果某项不存在，将使用默认值。</p>
 <p><img src="http://kikitamap.com/images/blogImg/SASurface_ParaGraph.gif" alt=""></p>
 <p>O了，关于表面分析的工具，总结到此结束。</p>

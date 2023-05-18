@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -438,36 +438,50 @@
 <li>Pay per additional Data transfer or Database storage</li>
 </ul>
 </blockquote>
-<h1 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h1><h2 id="获取Credentials及SDK安装包"><a href="#获取Credentials及SDK安装包" class="headerlink" title="获取Credentials及SDK安装包"></a>获取Credentials及SDK安装包</h2><p>登录 HERE Developer 账户之后，即可在自己创建的Project中生成每个产品对应的密钥/credentials。</p>
+<h1>Steps</h1>
+<h2 id="获取Credentials及SDK安装包">获取Credentials及SDK安装包</h2>
+<p>登录 HERE Developer 账户之后，即可在自己创建的Project中生成每个产品对应的密钥/credentials。</p>
 <p>在 SDK 密钥下方就有 SDK安装包可供下载。如下图即为 HERE mSDK （premium edition） 的示例：</p>
 <p><img src="http://kikitamap.com/images/blogImg/HmSDK_QuickStart_keys.jpg" alt=""></p>
-<h2 id="检查-System-Requirments"><a href="#检查-System-Requirments" class="headerlink" title="检查 System Requirments"></a>检查 System Requirments</h2><p>这是安装一切软件产品之前，仔细阅读<a target="_blank" rel="noopener" href="https://developer.here.com/documentation/android-premium/dev_guide/topics/system-requirements.html">官方系统要求</a>，永远是不错的选择。</p>
-<h2 id="快速运行-Tutorial-Example"><a href="#快速运行-Tutorial-Example" class="headerlink" title="快速运行 Tutorial Example"></a>快速运行 Tutorial Example</h2><p>下载后的SDK 安装包中包含了 user guild，release notes，SDK libraries， tutorial example 这几大件。 如果要快速入门，tutorial example 运行起来是必须的啦。</p>
+<h2 id="检查-System-Requirments">检查 System Requirments</h2>
+<p>这是安装一切软件产品之前，仔细阅读<a target="_blank" rel="noopener" href="https://developer.here.com/documentation/android-premium/dev_guide/topics/system-requirements.html">官方系统要求</a>，永远是不错的选择。</p>
+<h2 id="快速运行-Tutorial-Example">快速运行 Tutorial Example</h2>
+<p>下载后的SDK 安装包中包含了 user guild，release notes，SDK libraries， tutorial example 这几大件。 如果要快速入门，tutorial example 运行起来是必须的啦。</p>
 <p>这里假设大家使用的开发环境都是 <a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio">Android Studio</a>， 解压缩 SDK 安装包后，开始吧！</p>
 <ol>
-<li><p>启动 Android Studio，选择 open an existing Android Studio project， 浏览至 tutorial example 所在目录， <code>.../HERE-sdk/tutorial/BasicMapSolution</code> 。 </p>
+<li>
+<p>启动 Android Studio，选择 open an existing Android Studio project， 浏览至 tutorial example 所在目录， <code>.../HERE-sdk/tutorial/BasicMapSolution</code> 。</p>
 </li>
-<li><p>接着会发现一条报错 <code>Error: Failed to resolve: :HERE-sdk:</code>， 这个不用担心，是因为 HERE SDK 的 libraries 默认没有包含在这个工程中。</p>
+<li>
+<p>接着会发现一条报错 <code>Error: Failed to resolve: :HERE-sdk:</code>， 这个不用担心，是因为 HERE SDK 的 libraries 默认没有包含在这个工程中。</p>
 </li>
-<li><p>在 <code>BasicMapSolution</code> 中的 <code>app</code> 文件夹下创建一个名为 <code>libs</code> 的文件夹，并将安装包中的 <code>HERE-sdk/libs</code> 下的 <code>HERE-sdk.aar</code> 复制到这里。上步遇到的问题就解决料。</p>
+<li>
+<p>在 <code>BasicMapSolution</code> 中的 <code>app</code> 文件夹下创建一个名为 <code>libs</code> 的文件夹，并将安装包中的 <code>HERE-sdk/libs</code> 下的 <code>HERE-sdk.aar</code> 复制到这里。上步遇到的问题就解决料。</p>
 </li>
-<li><p>检查 <code>app/build.gradle</code> 文件，确保如下内容已经包含：</p>
+<li>
+<p>检查 <code>app/build.gradle </code> 文件，确保如下内容已经包含：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">  flatDir &#123;</span><br><span class="line">    dirs <span class="string">&#x27;libs&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">dependencies &#123;</span><br><span class="line">  implementation(name:<span class="string">&#x27;HERE-sdk&#x27;</span>, ext:<span class="string">&#x27;aar&#x27;</span>)</span><br><span class="line">  <span class="comment">// Depending on your specific project configuration you may have other entries here.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>准备许可。每个 application 都需要一套单独的credentials。需要注意：为app申请credentials时，填写的 package name 需要和注册的bundle identifier 完全一致。就这个 sample来说， 应该使用 package name：<code>com.here.android.tutorial</code> 。如果在文章的开始，你已经注册了credential，那也没有关系，在 developer 网站的 project 页面中，你还可以修改哦，同时密钥会重新刷一遍，请使用最新的。<br><img src="http://kikitamap.com/images/blogImg/HmSDK_QuickStart_PackageName.jpg" alt=""> </p>
+<li>
+<p>准备许可。每个 application 都需要一套单独的credentials。需要注意：为app申请credentials时，填写的 package name 需要和注册的bundle identifier 完全一致。就这个 sample来说， 应该使用 package name：<code> com.here.android.tutorial</code> 。如果在文章的开始，你已经注册了credential，那也没有关系，在 developer 网站的 project 页面中，你还可以修改哦，同时密钥会重新刷一遍，请使用最新的。<br>
+<img src="http://kikitamap.com/images/blogImg/HmSDK_QuickStart_PackageName.jpg" alt=""></p>
 </li>
-<li><p>写入许可。 打开目录 <code>BasicMapSolution/app/src/main/</code> 下的<code>AndroidManifest.xml</code>文件。找到三行 <code>&lt;meta-data&gt;</code>开头的语句，填写 credentials 即可。</p>
+<li>
+<p>写入许可。 打开目录 <code>BasicMapSolution/app/src/main/</code> 下的<code>AndroidManifest.xml</code>文件。找到三行 <code>&lt;meta-data&gt;</code>开头的语句，填写 credentials 即可。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta-data</span> <span class="attr">android:name</span>=<span class="string">&quot;com.here.android.maps.appid&quot;</span> <span class="attr">android:value</span>=<span class="string">&quot;&#123;YOUR_APP_ID&#125;&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta-data</span> <span class="attr">android:name</span>=<span class="string">&quot;com.here.android.maps.apptoken&quot;</span> <span class="attr">android:value</span>=<span class="string">&quot;&#123;YOUR_APP_CODE&#125;&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta-data</span> <span class="attr">android:name</span>=<span class="string">&quot;com.here.android.maps.license.key&quot;</span> <span class="attr">android:value</span>=<span class="string">&quot;&#123;YOUR_LICENSE_KEY&#125;&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>连接设备，运行程序，Bingo ！</p>
+<li>
+<p>连接设备，运行程序，Bingo ！</p>
 </li>
 </ol>
-<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><p>测试过程中，不确定大家有没有遇到我曾遇到的问题？</p>
-<p><code>This project uses AndroidX dependencies, but the &#39;android.useAndroidX&#39; property is not enabled. Set this property to true in the gradle.properties file and retry.</code></p>
+<h2 id="Troubleshooting">Troubleshooting</h2>
+<p>测试过程中，不确定大家有没有遇到我曾遇到的问题？</p>
+<p><code>This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled. Set this property to true in the gradle.properties file and retry.</code></p>
 <p>解决方法：</p>
 <p>在sample project 中的 <code>gradle.properties</code>文件中，增加一句：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.useAndroidX=<span class="keyword">true</span></span><br></pre></td></tr></table></figure>
-<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p>最后上图，我手头没有 Android 设备，用了 Nexus 10 模拟器：</p>
+<h2 id="效果图">效果图</h2>
+<p>最后上图，我手头没有 Android 设备，用了 Nexus 10 模拟器：</p>
 <p><img src="http://kikitamap.com/images/blogImg/HmSDK_QuickStart_Run.jpg" alt=""></p>
 
 

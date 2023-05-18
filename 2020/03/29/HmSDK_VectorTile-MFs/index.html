@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -423,23 +423,27 @@
 
         <p><a href="http://kikitamap.com/2020/03/11/HmSDK_MapRendering/"><strong>上一篇</strong></a>，我们一起结合  Interactive Maps 了解了HERE Map Service 的地图渲染样式， 在此之外，HERE Mobile SDK 向开发者提供的在线地图产品中，还有 Vector Tile 和 Map Feedback service 值得拥有。</p>
 <p><em>PS：除了SDK产品之外，<a target="_blank" rel="noopener" href="https://developer.here.com/documentation#maps_section"><strong>HERE 在线地图产品</strong></a>中的 RESTful API 产品包括：Vector Tile，Image Map，Map Tile，Weather，Map Feeddback。</em></p>
-<h2 id="Vector-Tile"><a href="#Vector-Tile" class="headerlink" title="Vector Tile"></a>Vector Tile</h2><p>Vector Tile 在 HERE 产品家族中是新进一员，截至此文章的发布日期，仅在 <a target="_blank" rel="noopener" href="https://developer.here.com/documentation/android-sdk/dev_guide/topics/custom-map-styles-lite.html"><strong>mSDK Lite 版本</strong></a> 中有支持，目前为 Lite Edition 4.2  。我们静待 mSDK Premium Edition 的 4.x 版本吧，快了。</p>
+<h2 id="Vector-Tile">Vector Tile</h2>
+<p>Vector Tile 在 HERE 产品家族中是新进一员，截至此文章的发布日期，仅在 <a target="_blank" rel="noopener" href="https://developer.here.com/documentation/android-sdk/dev_guide/topics/custom-map-styles-lite.html"><strong>mSDK Lite 版本</strong></a> 中有支持，目前为 Lite Edition 4.2  。我们静待 mSDK Premium Edition 的 4.x 版本吧，快了。</p>
 <p>这使用这个服务之前，可能我首先需要回答大家的十万个为什么。</p>
 <p>例如，什么是Vector Tile？为什么使用 Vector Tile ？</p>
 <p>Vector Tile 是相较于传统的 raster tile 而言的，可能很多读者会问，地图数据本身不就是vector data 吗？为什么早期的地图服务反而会是 raster tile ？哪种好？ 我该用什么？</p>
-<p>在传统的地图服务生产过程中，后台地图数据是专业复杂的数据格式（如 Oracle Spatial，shapefile，FileGDB，等一切地理数据格式），需要专业的重地图数据编辑器才能读写（如商用专业的ArcGIS Desktop/Pro，免费的QGIS等）。当我们希望通过B/S服务的形式提供在线地图时，对浏览器要求不高、支持友好的png，jpg，tiff等图片就成了解决方案。 将地图在服务器端按预定义的切片结构/caching scheme 进行预渲染，然后，进行大量切片缓存工作。 在浏览器请求地图服务时，推送不同层级的图片（Raster Tile）就成了传统地图服务器的日常，其性能的保障都是依赖分布式高可用的服务器配置。例如，HERE 提供覆盖全球的地图服务（在Developer Portal可以查看具体的 <a target="_blank" rel="noopener" href="https://developer.here.com/documentation/map-tile/dev_guide/topics/coverage-map.html"><strong>map coverage level</strong></a>，就是由部署在AWS全球6个数据中心上支持的。 </p>
+<p>在传统的地图服务生产过程中，后台地图数据是专业复杂的数据格式（如 Oracle Spatial，shapefile，FileGDB，等一切地理数据格式），需要专业的重地图数据编辑器才能读写（如商用专业的ArcGIS Desktop/Pro，免费的QGIS等）。当我们希望通过B/S服务的形式提供在线地图时，对浏览器要求不高、支持友好的png，jpg，tiff等图片就成了解决方案。 将地图在服务器端按预定义的切片结构/caching scheme 进行预渲染，然后，进行大量切片缓存工作。 在浏览器请求地图服务时，推送不同层级的图片（Raster Tile）就成了传统地图服务器的日常，其性能的保障都是依赖分布式高可用的服务器配置。例如，HERE 提供覆盖全球的地图服务（在Developer Portal可以查看具体的 <a target="_blank" rel="noopener" href="https://developer.here.com/documentation/map-tile/dev_guide/topics/coverage-map.html"><strong>map coverage level</strong></a>，就是由部署在AWS全球6个数据中心上支持的。</p>
 <p>自 <a target="_blank" rel="noopener" href="https://github.com/mapbox/vector-tile-spec/"><strong>Mapbox</strong></a> 提出更智慧的 vector tile ，这种切片格式早已备受各大GIS、LBS厂商的青睐。vector tile 采用了与 raster tile 类似的 caching scheme，只是每片tile的内容从raster 变成了vector。 我们想象一下，如果表示几条路的一片512px×512px 的tile，用raster格式，那就需要几个512×512 的矩阵表示，而用vector格式，只需要包含数对坐标和位移的串表示。 因此，vector tile 在尺寸上有明显优势，从而传输性能就高了。这是因为这个特性，vector tile 允许用户在客户端自定义 vector style ，例如路或点状地物的颜色和符号， 不像 raster tile 是预渲染的镜像，已经是静态结果，渲染样式不能被客户端修改。</p>
 <p>如果提到vector 和 raster 哪个好？ 我想答案可能不是绝对唯一的。如果从传输性能和客户端简单符号的自定义的角度，一定是vector tile更优； 但如果从地图渲染丰富度、复杂度的支持角度，raster tile 还是占有一席之地。</p>
 <p>现在回到 HERE Vector Tile Service ，为了方便客户快速生成 vector style configuration file ，HERE 提供了在线工具 <a target="_blank" rel="noopener" href="https://enterprise.here.com/map-style-editor/"><strong>Map Style Editor</strong></a>。可以在登录 Developer Portal之后，点击前面的连接进入即可，如下图：</p>
 <p><img src="http://kikitamap.com/images/blogImg/HmSDK_VectorTile-MFs_map_editor.jpg" alt=""></p>
 <ul>
-<li><p>Github 获取到 mSDK Android Lite Edition 在线地图的官方 <a target="_blank" rel="noopener" href="https://github.com/heremaps/here-sdk-examples/tree/master/examples/4.2.0.0/lite/android"><strong>代码样例</strong></a>。</p>
+<li>
+<p>Github 获取到 mSDK Android Lite Edition 在线地图的官方 <a target="_blank" rel="noopener" href="https://github.com/heremaps/here-sdk-examples/tree/master/examples/4.2.0.0/lite/android"><strong>代码样例</strong></a>。</p>
 </li>
-<li><p>Developer Portal 定制地图渲染样式的 <a target="_blank" rel="noopener" href="https://developer.here.com/documentation/android-sdk/dev_guide/topics/custom-map-styles-lite.html"><strong>说明</strong></a>。</p>
+<li>
+<p>Developer Portal 定制地图渲染样式的 <a target="_blank" rel="noopener" href="https://developer.here.com/documentation/android-sdk/dev_guide/topics/custom-map-styles-lite.html"><strong>说明</strong></a>。</p>
 </li>
 </ul>
 <p><img src="http://kikitamap.com/images/blogImg/HmSDK_VectorTile-MFs_Lite_Demo.jpg" alt=""></p>
-<h2 id="Map-Feedback"><a href="#Map-Feedback" class="headerlink" title="Map Feedback"></a>Map Feedback</h2><p>创建地图应用时，最常见问题之一就是“巧妇难为无米之炊” ，地图数据是“米”，之上的各种在线地图及位置能力的实现是“炊”。HERE 攒了30多年的数据采集经验，米仓充盈。在丰富的数据采集手段中，其中最平易近人的一支就是来自用户的数据问题回报。</p>
+<h2 id="Map-Feedback">Map Feedback</h2>
+<p>创建地图应用时，最常见问题之一就是“巧妇难为无米之炊” ，地图数据是“米”，之上的各种在线地图及位置能力的实现是“炊”。HERE 攒了30多年的数据采集经验，米仓充盈。在丰富的数据采集手段中，其中最平易近人的一支就是来自用户的数据问题回报。</p>
 <p>无论是商业客户，还是免费社区，全球用户都可以使用 Map Feedback API 提出数据缺漏或错误。当然可想而知，整个群体数量非常庞大，数据生产单元会根据一系列的规则评定用户的信用优先级，来管理这些回报过来的数据问题的处理策略。</p>
 <p>在 <a target="_blank" rel="noopener" href="https://developer.here.com/documentation/map-feedback/dev_guide/topics/quick-start-submit-feedback.html"><strong>Rest API</strong></a> ， <a target="_blank" rel="noopener" href="https://developer.here.com/documentation/embedded-editor/dev_guide/topics/add-as-app-component.html"><strong>mobile SDK</strong></a> ， <a target="_blank" rel="noopener" href="https://developer.here.com/documentation/embedded-editor/dev_guide/topics/add-to-website.html"><strong>Web SDK</strong></a> 各版本都有对数据回报的支持，其中最完整的开发文档，还是建议看 Rest API 的部分，它包含了全部可枚举的错误类型和信息上报的说明。用户也可以追踪数据问题的处理结果，例如，被采纳或拒绝，以及采纳后预计更新时间。</p>
 <ul>

@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -418,15 +418,17 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p>继上一篇<a href="http://kikitamap.com/2016/10/17/UsingArcGISPythonAPI/">部署 ArcGIS Python API</a> 之后，再来试试 Python API 的渲染和分析的功能。 通过这两个功能来摸索下 ArcGIS Python API 的使用方法。</p>
-<h1 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h1><p><strong>1  导入gis模块，创建GIS对象</strong></p>
+<h1>渲染</h1>
+<p><strong>1  导入gis模块，创建GIS对象</strong></p>
 <p>在 ArcGIS Python API 中 gis 是个核心模块，提供了对组织内成员、群组、内容的创建、读取、更新和删除等功能，你的组织既可以是托管在ArcGIS Online中，也可以是自己部署的门户（Portal for ArcGIS），或者更准确的说，在10.5版本应该称为 ArcGIS Enterprise.</p>
-<p>GIS对象是gis模块最重要的对象，我们可以理解为，GIS对象是通过ArcGIS Python API编写脚本的入口。 </p>
+<p>GIS对象是gis模块最重要的对象，我们可以理解为，GIS对象是通过ArcGIS Python API编写脚本的入口。</p>
 <p>下面以我的 ArcGIS Enterprise 测试环境为例：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> arcgis.gis <span class="keyword">import</span> GIS</span><br><span class="line"></span><br><span class="line"><span class="comment"># Demo</span></span><br><span class="line"><span class="comment"># class arcgis.gis.GIS(url=None, username=None, password=None,  key_file=None, cert_file=None, verify_cert=True, set_active=True)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#          #Portal URL                         #UserName     #Passward</span></span><br><span class="line">gis = GIS(<span class="string">&quot;https://kikita.mycloud.com/arcgis&quot;</span>,<span class="string">&quot;portaladmin&quot;</span>,<span class="string">&quot;mypasswd&quot;</span>, verify_cert=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
 <p><strong>2  获取感兴趣的内容</strong></p>
 <p>通过 gis.content.search() 方法可以在组织中查找所需内容。例如我查找命名包含 “China_Railways” 的要素服务。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Search My Portal</span></span><br><span class="line">search_result = gis.content.search(<span class="string">&#x27;title: China_Railways&#x27;</span>, item_type=<span class="string">&#x27;Feature Layer&#x27;</span>)</span><br><span class="line">search_result</span><br></pre></td></tr></table></figure>
-<p>结果：<br><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[&lt;Item title:&quot;China_Railways&quot; type:Feature Service owner:portaladmin&gt;,</span><br><span class="line"> &lt;Item title:&quot;China_Railways___county_pt_Density&quot; type:Feature Service owner:portaladmin&gt;]</span><br></pre></td></tr></table></figure></p>
+<p>结果：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[&lt;Item title:&quot;China_Railways&quot; type:Feature Service owner:portaladmin&gt;,</span><br><span class="line"> &lt;Item title:&quot;China_Railways___county_pt_Density&quot; type:Feature Service owner:portaladmin&gt;]</span><br></pre></td></tr></table></figure>
 <p><strong>3  使用地图微件</strong></p>
 <p>GIS对象中包含一个地图微件，可以用来渲染（可视化）组织中的内容，比如要素服务。我们还可以通过关键字来确定地图的显示位置，和指定地图的幅面尺寸等。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Create a map widget</span></span><br><span class="line">mymap = gis.<span class="built_in">map</span>(<span class="string">&#x27;China&#x27;</span>)</span><br><span class="line">mymap.height = <span class="string">&#x27;500px&#x27;</span></span><br><span class="line">mymap</span><br></pre></td></tr></table></figure>
@@ -434,7 +436,8 @@
 <p>例如使用热度图/Heatmap 渲染器</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Add layer using heatmap renderer</span></span><br><span class="line">featureitem = search_result[<span class="number">0</span>]</span><br><span class="line">mymap.add_layer(featureitem.layers[<span class="number">0</span>], &#123;<span class="string">&quot;renderer&quot;</span>:<span class="string">&quot;HeatmapRenderer&quot;</span>, <span class="string">&quot;opacity&quot;</span>:<span class="number">0.7</span>&#125;)</span><br></pre></td></tr></table></figure>
 <p><img src="http://kikitamap.com/images/blogImg/PythonAPIFunction1_MapWidget.gif" alt=""></p>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>假设需求是实现采样点插值，数据来源是桌面产品自带的ArcGIS Tutorial中的数据（Geostatistical Analyst\ca_ozone.gdb\O3_Sep06_3pm）。</p>
+<h1>分析</h1>
+<p>假设需求是实现采样点插值，数据来源是桌面产品自带的ArcGIS Tutorial中的数据（Geostatistical Analyst\ca_ozone.gdb\O3_Sep06_3pm）。</p>
 <p>除了通过搜索的方法，如果知道 itemid ，也能直接获得到内容，可以使用方法 gis.content.get()</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> arcgis <span class="keyword">import</span> gis</span><br><span class="line">gis = gis.GIS(<span class="string">&quot;https://kikita.mycloud.com/arcgis&quot;</span>,<span class="string">&quot;portaladmin&quot;</span>,<span class="string">&quot;Super123&quot;</span>, verify_cert=<span class="literal">False</span>)</span><br><span class="line">search_result = gis.content.get(<span class="string">&#x27;15b012af7f15484293517c844d2d65ab&#x27;</span>)</span><br><span class="line">search_result</span><br></pre></td></tr></table></figure>
 <p><img src="http://kikitamap.com/images/blogImg/PythonAPIFunction1_GetItem.png" alt=""></p>

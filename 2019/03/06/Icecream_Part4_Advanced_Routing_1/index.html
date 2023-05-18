@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -421,7 +421,8 @@
 
         <p>在 Part 3 中我们了解到如何调用 HERE Routing API 实现两点间路径规划，以及如何从当前位置出发规划路径。</p>
 <p>这个部分继续来看看，如何展示多条路线及其信息，并允许用户交互选择。</p>
-<h3 id="Pre-session-重构代码"><a href="#Pre-session-重构代码" class="headerlink" title="Pre-session: 重构代码"></a>Pre-session: 重构代码</h3><p>这一部分不是改进功能，而是整理思绪。磨刀不误砍柴工，放之四海而皆准。</p>
+<h3 id="Pre-session-重构代码">Pre-session: 重构代码</h3>
+<p>这一部分不是改进功能，而是整理思绪。磨刀不误砍柴工，放之四海而皆准。</p>
 <p>冰淇凌小网页的功能不断增多，代码也随之膨胀，我们要时不时地整理收纳一下，避免自己在找乐子的路上备受打击。</p>
 <p>在 Scripts 文件夹中，新建：</p>
 <ul>
@@ -430,7 +431,8 @@
 </ul>
 <p>代码与Part 3 类似，但是因为做了重构，需要注意其中的调用关系及 html页面中的加载顺序。</p>
 <p><em>complete code</em>  <a target="_blank" rel="noopener" href="https://github.com/kikitaMoon/HERE_JS_Who_Wants_Icecream/tree/master/Part4_Advanced_Routing_SS1_refactor">Github - kikitaMoon/HERE_JS_Who_Wants_Icecream</a></p>
-<h3 id="Multiple-Routes"><a href="#Multiple-Routes" class="headerlink" title="Multiple Routes"></a>Multiple Routes</h3><p>在日常导航出行时，多给出几条路线供用户选择，也是一个极常见的需求。</p>
+<h3 id="Multiple-Routes">Multiple Routes</h3>
+<p>在日常导航出行时，多给出几条路线供用户选择，也是一个极常见的需求。</p>
 <p>使用 HERE Routing API 计算路线时，可在请求中加入参数 <code>alternatives</code> 来获得多个推荐路线。</p>
 <p>alternatives: 2； 即，1 (primary) + 2 (alternatives) = 3  条路线。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">HEREMap.prototype.drawRoute = <span class="function"><span class="keyword">function</span> (<span class="params">fromCoordinates, toCoordinates</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> routeOptions = &#123;</span><br><span class="line">        mode: <span class="string">&#x27;fastest;car&#x27;</span>,</span><br><span class="line">        representation: <span class="string">&#x27;display&#x27;</span>,</span><br><span class="line">        # add parameter</span><br><span class="line">        alternatives: <span class="number">2</span>,</span><br><span class="line">        waypoint0: Utils.locationToWaypointString(fromCoordinates),</span><br><span class="line">        waypoint1: Utils.locationToWaypointString(toCoordinates)</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">this</span>.routes = <span class="keyword">new</span> HERERoute(<span class="built_in">this</span>.map, <span class="built_in">this</span>.platform, routeOptions);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -440,13 +442,14 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> onSuccess = <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</span><br><span class="line">       <span class="comment">// Simplify on success function</span></span><br><span class="line">       <span class="keyword">if</span> (result.response.route) &#123;</span><br><span class="line">           <span class="keyword">var</span> routes = result.response.route;</span><br><span class="line">           Setting view bounds</span><br><span class="line">           routes.forEach(drawRoute);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure>
 <p>Bingo！</p>
 <p><img src="http://kikitamap.com/images/blogImg/Icecream_Part4_Advanced_Routing.png" alt=""></p>
-<h3 id="View-Bounds"><a href="#View-Bounds" class="headerlink" title="View Bounds"></a>View Bounds</h3><p>基本功能已实现，为了更好的体验，我们继续加工加工。</p>
+<h3 id="View-Bounds">View Bounds</h3>
+<p>基本功能已实现，为了更好的体验，我们继续加工加工。</p>
 <p>在 Part 3 中的我们通过 <code>setViewBounds</code>  将地图显示为路线的范围，在Part 4 中显然就不适用了，因为这样只会返回跳转到最后一条路线的范围。将所有的路线加入到一个组中，然后跳转组的范围，来解决这个问题。</p>
 <p>对 <code>onSuccess</code> 进行修改：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> onSuccess = <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (result.response.route) &#123;</span><br><span class="line">        <span class="keyword">var</span> routes = result.response.route;</span><br><span class="line">        <span class="comment">// Setting view bounds</span></span><br><span class="line">        <span class="comment">// routes.forEach(drawRoute);</span></span><br><span class="line">        <span class="comment">// add all routes to a group</span></span><br><span class="line">        <span class="keyword">var</span> routeLines = routes.map(drawRoute);</span><br><span class="line">        <span class="keyword">var</span> routeLineGroup = <span class="keyword">new</span> H.map.Group(&#123;</span><br><span class="line">            objects: routeLines</span><br><span class="line">        &#125;);</span><br><span class="line">        map.addObject(routeLineGroup);</span><br><span class="line">        map.setViewBounds(routeLineGroup.getBounds());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>同时移除 <code>drawRoute</code> 中原先的 <code>setViewBounds</code>语句，并向 <a target="_blank" rel="noopener" href="https://developer.here.com/documentation/maps/topics_api/h-map-group.html">H.map.Group</a> 容器中增加返回的route。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Setting view bounds using Group bounds not the last route</span></span><br><span class="line"><span class="comment">// map.addObject(routeLine);</span></span><br><span class="line"><span class="comment">// map.setViewBounds(routeLine.getBounds());</span></span><br><span class="line"><span class="keyword">return</span> routeLine;</span><br></pre></td></tr></table></figure>
-<p><br></p>
+<br>
 <p><em>original resource</em>  <a target="_blank" rel="noopener" href="https://developer.here.com/blog/who-wants-ice-cream-a-here-maps-api-for-javascript-tutorial-part-4-advanced-routing">Part4: Advanced Routing</a></p>
 <p><em>complete code</em>   <a target="_blank" rel="noopener" href="https://github.com/kikitaMoon/HERE_JS_Who_Wants_Icecream/tree/master/Part4_Advanced_Routing_SS2_multiRoutes">Github - kikitaMoon/HERE_JS_Who_Wants_Icecream</a></p>
 

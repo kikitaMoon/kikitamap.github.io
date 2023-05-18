@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -416,18 +416,18 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p>ArcGIS Desktop 自带有大量的工具，可以执行各种各样的地理处理任务。通过 python 我们可以灵活地调用这些工具，把工具组织成自己的工作流，甚至创建一些新的工具。今天就说说在 ArcGIS 中创建 Python工具这个话题。</p>
-<p><br></p>
+<br>
 <p>在 ArcGIS 中我们可以通过两种方式来创建python工具：</p>
 <p>一种是在标准工具箱下创建 <strong>脚本工具</strong>:</p>
 <p><img src="http://kikitamap.com/images/blogImg/CreatePythonTool1_ScriptTool.png" alt=""></p>
 <p>一种是创建 <strong>脚本工具箱</strong>：</p>
 <p><img src="http://kikitamap.com/images/blogImg/CreatePythonTool1_PythonToolbox.png" alt=""></p>
-<p><br></p>
+<br>
 <p>到这里，可能你会有和我一样的疑问，二者有什么<strong>区别</strong>？</p>
 <p>第一种 <strong>脚本工具</strong> 需要我们首先在 ArcGIS 环境中创建一个工具箱，然后添加 Python脚本文件（*.py），并通过向导来精确配置参数。这种工具很适合脚本工具的初学者，通过前面说的三步就可以搭建出一个自定义工具。但是这种模式也有一些缺点，工具箱和源脚本是分离的，我们很难集中的去管理和维护它们。</p>
 <p>相比于前者的难以集中管理的缺点，第二种的 <strong>Python工具箱</strong> 就体现出了它的优势。在 Python 工具箱中，参数定义、代码验证和源代码都在同一位置进行处理，因此Python 工具的创建和维护更加容易。此外，Python 工具箱支持脚本工具不支持的功能，例如值表、复合数据类型和自定义许可检查。</p>
 <p>Python 工具箱是在 ArcGIS 10.1 之后的版本出现的。如果你熟悉 Python，就可以充分利用所掌握的 Python 技能来创建 Python 工具箱。</p>
-<p><br></p>
+<br>
 <p>下面是一些更加具体的对比列表：</p>
 <p><img src="http://kikitamap.com/images/blogImg/CreatePythonTool1_Compare.png" alt=""></p>
 

@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -355,7 +355,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">833</span> In Total
+              Words <span class="post-count">824</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -419,27 +419,35 @@
 
         <blockquote>
 <p>这篇文章中使用的环境信息：</p>
-<p>Red Hat Enterprise Linux Server release 6.4<br>Red Hat Enterprise Linux Server release 5.8<br>ArcGIS License Manager 10.2.2<br>Xmanager 5</p>
+<p>Red Hat Enterprise Linux Server release 6.4<br>
+Red Hat Enterprise Linux Server release 5.8<br>
+ArcGIS License Manager 10.2.2<br>
+Xmanager 5</p>
 </blockquote>
-<p><br></p>
-<h4 id="★-安装之前一定要了解系统要求，这一步很重要，这里不啰嗦，详情点-这里-http-resources-arcgis-com-en-help-system-requirements-10-2-ArcGIS-10-2-for-Desktop-015100000002000000-。"><a href="#★-安装之前一定要了解系统要求，这一步很重要，这里不啰嗦，详情点-这里-http-resources-arcgis-com-en-help-system-requirements-10-2-ArcGIS-10-2-for-Desktop-015100000002000000-。" class="headerlink" title="★ 安装之前一定要了解系统要求，这一步很重要，这里不啰嗦，详情点 [这里](http://resources.arcgis.com/en/help/system-requirements/10.2/#/ArcGIS_10_2_for_Desktop/015100000002000000/)。"></a><strong>★ 安装之前一定要了解系统要求，这一步很重要，这里不啰嗦，详情点 [这里</strong>](<a target="_blank" rel="noopener" href="http://resources.arcgis.com/en/help/system-requirements/10.2/#/ArcGIS_10_2_for_Desktop/015100000002000000/)。">http://resources.arcgis.com/en/help/system-requirements/10.2/#/ArcGIS_10_2_for_Desktop/015100000002000000/)。</a></h4><p><br></p>
-<h1 id="1-准备安装文件"><a href="#1-准备安装文件" class="headerlink" title="1. 准备安装文件"></a>1. 准备安装文件</h1><p>我的Linux服务器是虚拟机，没有光驱，选择ftp上传安装文件。一般在各种linux的发行版中，默认带有的ftp软件是vsftp。</p>
-<p>检查vsftpd软件是否安装， <strong># rpm -qa|grep vsftp</strong><br>启动 vsftp 服务，<strong># service vsftpd start</strong></p>
+<br>
+<h4 id="★-安装之前一定要了解系统要求，这一步很重要，这里不啰嗦，详情点-这里-。">**★ 安装之前一定要了解系统要求，这一步很重要，这里不啰嗦，详情点 <a target="_blank" rel="noopener" href="http://resources.arcgis.com/en/help/system-requirements/10.2/#/ArcGIS_10_2_for_Desktop/015100000002000000/">这里**</a>。</h4>
+<br>
+<h1>1. 准备安装文件</h1>
+<p>我的Linux服务器是虚拟机，没有光驱，选择ftp上传安装文件。一般在各种linux的发行版中，默认带有的ftp软件是vsftp。</p>
+<p>检查vsftpd软件是否安装， <strong># rpm -qa|grep vsftp</strong><br>
+启动 vsftp 服务，<strong># service vsftpd start</strong></p>
 <p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_vsftp.png" alt=""></p>
 <p>使用ftp客户端上传 ArcGIS License Manager （LM）安装包。如果上传的 iso 镜像文件之后使用 mount 命令挂载，其实也可以仅将光盘中 LicenseManager 目录下的 linux 文件夹上传，此文件夹为 LM 的Linux安装包。</p>
 <p>包含如下几个文件（夹）：</p>
 <p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_Setup.png" alt=""></p>
-<p><br></p>
-<p><br></p>
-<h1 id="2-创建账户"><a href="#2-创建账户" class="headerlink" title="2. 创建账户"></a>2. 创建账户</h1><p>ArcGIS License Manager 不允许 root 账户安装，因此要创建一个其它账户，例如：arcgis</p>
+<br>
+<br>
+<h1>2. 创建账户</h1>
+<p>ArcGIS License Manager 不允许 root 账户安装，因此要创建一个其它账户，例如：arcgis</p>
 <p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_CreateArcGIS.png" alt=""></p>
 <blockquote>
 <p>PS : 如果使用 root 账户直接安装，则会遇到错误提示：</p>
 <p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_RootError.png" alt=""></p>
 </blockquote>
-<p><br></p>
-<p><br></p>
-<h1 id="3-创建-Trusted-Storage目录并赋权"><a href="#3-创建-Trusted-Storage目录并赋权" class="headerlink" title="3. 创建 Trusted Storage目录并赋权"></a>3. 创建 Trusted Storage目录并赋权</h1><p>在安装 ArcGIS License Manager 之前，需要手动创建用于存储许可 Trusted Storage File (TSF) 的目录，具体目录为：“/usr/local/share/macrovision/storage” </p>
+<br>
+<br>
+<h1>3. 创建 Trusted Storage目录并赋权</h1>
+<p>在安装 ArcGIS License Manager 之前，需要手动创建用于存储许可 Trusted Storage File (TSF) 的目录，具体目录为：“/usr/local/share/macrovision/storage”</p>
 <p>创建目录：</p>
 <p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_mkdir.png" alt=""></p>
 <p>为目录赋权：</p>
@@ -448,41 +456,55 @@
 <p>如果不创建这个目录而直接安装 LM 程序，就会遇到 Fatal Error 提示：</p>
 <p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_GrantError.png" alt=""></p>
 </blockquote>
-<p><br></p>
-<p><br></p>
-<h1 id="4-安装-ArcGIS-License-Manager"><a href="#4-安装-ArcGIS-License-Manager" class="headerlink" title="4. 安装 ArcGIS License Manager"></a>4. 安装 ArcGIS License Manager</h1><p><br></p>
+<br>
+<br>
+<h1>4. 安装 ArcGIS License Manager</h1>
+<br>
 <p>有图形界面模式和静默模式两种安装模式，建议选择前者：</p>
-<h2 id="Option-1-图形界面安装"><a href="#Option-1-图形界面安装" class="headerlink" title="Option 1 图形界面安装"></a><strong>Option 1 图形界面安装</strong></h2><p>安装 ArcGIS License Manager 需要 X Windows Display的支持来进行图形界面的交互。尽管我们可以选择使用静默安装和静默授权，但是在许可管理过程中，还是会用到图形界面。强烈建议安装个 Xmanager，来连接Linux主机。</p>
-<p>设置DISPLAY环境变量 :<br>例如： <strong>$ export DISPLAY=<em>192.168.100.115</em>:0.0</strong></p>
+<h2 id="Option-1-图形界面安装"><strong>Option 1 图形界面安装</strong></h2>
+<p>安装 ArcGIS License Manager 需要 X Windows Display的支持来进行图形界面的交互。尽管我们可以选择使用静默安装和静默授权，但是在许可管理过程中，还是会用到图形界面。强烈建议安装个 Xmanager，来连接Linux主机。</p>
+<p>设置DISPLAY环境变量 :<br>
+例如： <strong>$ export DISPLAY=<em>192.168.100.115</em>:0.0</strong></p>
 <p>运行 Setup 文件开始安装，建议使用精细模式（Verbose Mode），这样如果安装失败，我们可以通过运行过程中的消息判断问题的所在。例如，没有创建必要的目录，没有安装必要地包，没有足够的权限，等等问题。</p>
 <p><strong>$ ./Setup -v</strong></p>
 <p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_Setup.png" alt=""></p>
 <p>稍等片刻，即弹出界面：</p>
 <p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_GraphicWindows.png" alt=""></p>
 <p>后面按照向导，下一步即可，此处省略100字……</p>
-<p><br></p>
-<h2 id="Option-2-静默安装"><a href="#Option-2-静默安装" class="headerlink" title="Option 2 静默安装"></a><strong>Option 2 静默安装</strong></h2><p>如果选择静默安装也可以，例如：</p>
+<br>
+<h2 id="Option-2-静默安装"><strong>Option 2 静默安装</strong></h2>
+<p>如果选择静默安装也可以，例如：</p>
 <p><strong>$ ./Setup -m silent -v -l Yes</strong></p>
 <p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_Silence.png" alt=""></p>
 <blockquote>
 <p><strong>如果需要了解安装ArcGIS 许可管理器的选项：</strong></p>
-<p>-m  silent/gui  静默安装/图形界面<br>-v   精细模式<br>-h   帮助<br>-e   示例<br>静默安装专用选项：<br>-l    Yes/No 是否同意许可条款<br>-d   安装目录</p>
 </blockquote>
-<p><br></p>
-<p><br></p>
-<h1 id="5-授权许可"><a href="#5-授权许可" class="headerlink" title="5. 授权许可"></a>5. 授权许可</h1><p>LM安装完成之后，需要进行许可的授权，事先将自己的许可文件 *.prvs 上传到Linux主机中。</p>
-<p><br></p>
+<blockquote>
+<p>-m  silent/gui  静默安装/图形界面<br>
+-v   精细模式<br>
+-h   帮助<br>
+-e   示例<br>
+静默安装专用选项：<br>
+-l    Yes/No 是否同意许可条款<br>
+-d   安装目录</p>
+</blockquote>
+<br>
+<br>
+<h1>5. 授权许可</h1>
+<p>LM安装完成之后，需要进行许可的授权，事先将自己的许可文件 *.prvs 上传到Linux主机中。</p>
+<br>
 <p>仍然建议GUI mode 授权，运行LM安装目录中的 SoftwareAuthorizationLS 程序：</p>
 <p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_Authorization.png" alt=""></p>
 <p>稍后弹出界面：</p>
 <p><img src="http://kikitamap.com/images/blogImg/DeployAGSLMonLinux_Authorization2.png" alt=""></p>
 <p>后面按照向导，下一步即可，可以参考windows的授权手册，此处省略100字……</p>
-<p><br></p>
+<br>
 <p>运行 LSAdmin 程序可以打开 License Manger ，查看和管理许可。</p>
-<p><br></p>
-<p><br></p>
-<p><br></p>
-<h1 id="相关资源整理"><a href="#相关资源整理" class="headerlink" title="相关资源整理"></a>相关资源整理</h1><p>FAQ:  What are the best practices when installing and troubleshooting Esri software on Linux?</p>
+<br>
+<br>
+<br>
+<h1>相关资源整理</h1>
+<p>FAQ:  What are the best practices when installing and troubleshooting Esri software on Linux?</p>
 <p><a target="_blank" rel="noopener" href="http://support.esri.com/em/knowledgebase/techarticles/detail/42921">http://support.esri.com/em/knowledgebase/techarticles/detail/42921</a></p>
 <p>HowTo:  Silently authorize ArcGIS License Manager 10.x on Linux</p>
 <p><a target="_blank" rel="noopener" href="http://support.esri.com/es/knowledgebase/techarticles/detail/38412">http://support.esri.com/es/knowledgebase/techarticles/detail/38412</a></p>

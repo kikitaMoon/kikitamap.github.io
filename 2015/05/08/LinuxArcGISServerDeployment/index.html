@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -355,7 +355,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">499</span> In Total
+              Words <span class="post-count">500</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -434,7 +434,12 @@
 <p><strong>6） 创建 ArcGIS Server 账户：</strong></p>
 <p><img src="http://kikitamap.com/images/blogImg/LinuxArcGISServerDeployment_CreatAcount.png" alt=""></p>
 <blockquote>
-<p>备注：<br>/etc/group 中存储了用户组信息，格式如下：<br>用户组名:组密码:GID:组内帐号（多个帐号用逗号分隔）<br>/etc/passwd 中存储了用户账户信息，格式如下：<br>用户名:密码:UID:GID:用户信息:HOME目录路径:用户shell<br>其中UID为0则是用户root，1～499为系统用户，500以上为普通用户</p>
+<p>备注：<br>
+/etc/group 中存储了用户组信息，格式如下：<br>
+用户组名:组密码:GID:组内帐号（多个帐号用逗号分隔）<br>
+/etc/passwd 中存储了用户账户信息，格式如下：<br>
+用户名:密码:UID:GID:用户信息:HOME目录路径:用户shell<br>
+其中UID为0则是用户root，1～499为系统用户，500以上为普通用户</p>
 </blockquote>
 <p><strong>7） 为ArcGIS Server 账户设置密码：</strong></p>
 <p><img src="http://kikitamap.com/images/blogImg/LinuxArcGISServerDeployment_Password.png" alt=""></p>
@@ -449,11 +454,14 @@
 <p><img src="http://kikitamap.com/images/blogImg/LinuxArcGISServerDeployment_vsftp.png" alt=""></p>
 <p>启动 vsftp 服务，# <strong>service vsftpd start</strong></p>
 <p><img src="http://kikitamap.com/images/blogImg/LinuxArcGISServerDeployment_ServiceStart.png" alt=""></p>
-<p>其它命令：<br>      停止ftp：service vsftpd stop<br>      重启ftp：service vsftpd restart</p>
+<p>其它命令：<br>
+停止ftp：service vsftpd stop<br>
+重启ftp：service vsftpd restart</p>
 <p>软后用ftp客户端连接服务器即可，这里我用了以前一直用的 FileZilla.</p>
 <p><img src="http://kikitamap.com/images/blogImg/LinuxArcGISServerDeployment_FileZilla.png" alt=""></p>
 <p><strong>11） 挂载 ISO映像</strong></p>
-<p><img src="http://kikitamap.com/images/blogImg/LinuxArcGISServerDeployment_mount.png" alt=""><br>PS：第一次mount没写完整的路径信息，文件没找到，请忽略，看最后一行。</p>
+<p><img src="http://kikitamap.com/images/blogImg/LinuxArcGISServerDeployment_mount.png" alt=""><br>
+PS：第一次mount没写完整的路径信息，文件没找到，请忽略，看最后一行。</p>
 <p><strong>12）执行安装前的环境检测</strong></p>
 <p><img src="http://kikitamap.com/images/blogImg/LinuxArcGISServerDeployment_check.png" alt=""></p>
 <p>各项检测通过，可以安装 ArcGIS Server 了。</p>

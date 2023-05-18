@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -353,7 +353,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">282</span> In Total
+              Words <span class="post-count">284</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -416,26 +416,35 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <blockquote>
-<p>环境及版本信息：<br>远程服务器- Redhat 6.4；Oracle 11g x64； ArcGIS Server 10.2；<br>本地机器- Windows 8.1</p>
+<p>环境及版本信息：<br>
+远程服务器- Redhat 6.4；Oracle 11g x64； ArcGIS Server 10.2；<br>
+本地机器- Windows 8.1</p>
 </blockquote>
-<p><br><br>开始安装 12c 和 11g 的客户端，总是不满足系统需求，各种提示缺包，所以还是使用绿色版省心点。<br><br></p>
-<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>将Oracle绿色版客户端安装文件上传到 Linux 服务器（oracle-instantclient11.2-basic-11.2.0.1.0-1.x86_64.zip） ，并解压到自己指定的目录，如 Client。</p>
+<br>
+开始安装 12c 和 11g 的客户端，总是不满足系统需求，各种提示缺包，所以还是使用绿色版省心点。
+<br>
+<h1>1</h1>
+<p>将Oracle绿色版客户端安装文件上传到 Linux 服务器（oracle-instantclient11.2-basic-11.2.0.1.0-1.x86_64.zip） ，并解压到自己指定的目录，如 Client。</p>
 <p><img src="http://kikitamap.com/images/blogImg/LinuxOracleClient_unzip.png" alt=""></p>
-<p><br></p>
-<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><p>由于安装Oracle客户端的目的是为了 ArcGIS Server 能够访问数据库服务器，所以对Client目录赋予 ArcGIS Server 账户（<strong>arcgis</strong>）的755权限。</p>
+<br>
+<h1>2</h1>
+<p>由于安装Oracle客户端的目的是为了 ArcGIS Server 能够访问数据库服务器，所以对Client目录赋予 ArcGIS Server 账户（<strong>arcgis</strong>）的755权限。</p>
 <p><img src="http://kikitamap.com/images/blogImg/LinuxOracleClient_Grant.png" alt=""></p>
-<p><br></p>
-<h1 id="3"><a href="#3" class="headerlink" title="3"></a>3</h1><p>修改环境变量，使得ArcGIS Server 能够使用这个客户端。</p>
+<br>
+<h1>3</h1>
+<p>修改环境变量，使得ArcGIS Server 能够使用这个客户端。</p>
 <p>环境变量文件位于ArcGIS Server 安装目录中 usr文件夹下的 init_user_param.sh 。</p>
 <p><img src="http://kikitamap.com/images/blogImg/LinuxOracleClient_Env.png" alt=""></p>
-<p><br></p>
-<p>编辑init_user_param.sh，将Oracle客户端所在的目录配置到对应的环境变量中，保存退出。PS，不要忘记删除前面的<strong>＃</strong>……　默认所有的变量信息是被注释掉的。</p>
+<br>
+<p>编辑init_user_param.sh，将Oracle客户端所在的目录配置到对应的环境变量中，保存退出。PS，不要忘记删除前面的**＃**……　默认所有的变量信息是被注释掉的。</p>
 <p><img src="http://kikitamap.com/images/blogImg/LinuxOracleClient_Edit.png" alt=""></p>
-<p><br></p>
-<h1 id="4"><a href="#4" class="headerlink" title="4"></a>4</h1><p>重启 ArcGIS Server 服务。</p>
+<br>
+<h1>4</h1>
+<p>重启 ArcGIS Server 服务。</p>
 <p><img src="http://kikitamap.com/images/blogImg/LinuxOracleClient_Restart.png" alt=""></p>
-<p><br></p>
-<h1 id="5"><a href="#5" class="headerlink" title="5"></a>5</h1><p>然后到 ArcGIS Server Manger中或者 ArcGIS Desktop 的 Server Connection中去注册数据库试试。</p>
+<br>
+<h1>5</h1>
+<p>然后到 ArcGIS Server Manger中或者 ArcGIS Desktop 的 Server Connection中去注册数据库试试。</p>
 <p><img src="http://kikitamap.com/images/blogImg/LinuxOracleClient_Datastore.png" alt=""></p>
 
 

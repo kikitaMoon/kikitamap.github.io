@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -418,8 +418,9 @@
         <p><img src="http://kikitamap.com/images/blogImg/3DVisibility_Toolset.png" alt=""></p>
 <p>ArcGIS 通过分析功能面的视域来确定不同区域中的可见性。</p>
 <p>视域的计算：如果仅有一个观测点，则为可从观测点看到的单元赋值 1，为无法从观测点看到的所有单元赋值 0。</p>
-<p><br></p>
-<h2 id="Construct-Sight-Lines（构造视线）"><a href="#Construct-Sight-Lines（构造视线）" class="headerlink" title="Construct Sight Lines（构造视线）"></a><strong>Construct Sight Lines（构造视线）</strong></h2><p>创建表示视线（从一个或多个视点到目标要素类的要素）的线要素。</p>
+<br>
+<h2 id="Construct-Sight-Lines（构造视线）"><strong>Construct Sight Lines（构造视线）</strong></h2>
+<p>创建表示视线（从一个或多个视点到目标要素类的要素）的线要素。</p>
 <p><img src="http://kikitamap.com/images/blogImg/3DVisibility_SightLine.png" alt=""></p>
 <p>注意，关于高度字段的认定：</p>
 <p>观察点和目标要素的高度源默认为以下列表中遇到的第一个字段名称：</p>
@@ -434,8 +435,9 @@
 <li>Contour</li>
 </ul>
 <p>使用连接字段为给定观察点指定一个或多个目标。如果未使用连接字段，则将所有点连接到所有目标。</p>
-<p><br></p>
-<h2 id="Line-of-Sight（通视分析）"><a href="#Line-of-Sight（通视分析）" class="headerlink" title="Line of Sight（通视分析）"></a><strong>Line of Sight（通视分析）</strong></h2><p>确定由多面体、栅格、TIN、terrain 或 LAS 数据集定义的表面上视线的可见性。</p>
+<br>
+<h2 id="Line-of-Sight（通视分析）"><strong>Line of Sight（通视分析）</strong></h2>
+<p>确定由多面体、栅格、TIN、terrain 或 LAS 数据集定义的表面上视线的可见性。</p>
 <p>理想的视线应是简单的直线，包括两个折点，分别代表用于确定可见性的观测点和目标位置。</p>
 <p>视线可以用前面的构造视线工具生成。</p>
 <p><img src="http://kikitamap.com/images/blogImg/3DVisibility_LineofSight.png" alt=""></p>
@@ -447,12 +449,14 @@
 <li>TarIsVis - 沿线的目标可见性。值为 1 表示可见，值为 0 表示不可见。该字段仅在输出几何是线的情况下存在。</li>
 <li>OBSTR_MPID - 阻碍通视线的多面体的唯一 OID。如果不存在阻碍通视线的多面体，则该字段含有一个为 -1 或 -9999 的值。如果目标被表面所阻碍，则该值为 -1。如果目标可见，则值为 -9999。</li>
 </ul>
-<p><br></p>
-<h2 id="Observer-Points（视点分析）"><a href="#Observer-Points（视点分析）" class="headerlink" title="Observer Points（视点分析）"></a><strong>Observer Points（视点分析）</strong></h2><p>识别从各栅格表面位置进行观察时可见的观察点。</p>
+<br>
+<h2 id="Observer-Points（视点分析）"><strong>Observer Points（视点分析）</strong></h2>
+<p>识别从各栅格表面位置进行观察时可见的观察点。</p>
 <p>确定观察点是信息密集型处理。处理时间取决于分辨率。</p>
 <p><img src="http://kikitamap.com/images/blogImg/3DVisibility_ObserverPoint.png" alt=""></p>
-<p><br></p>
-<h2 id="Skyline（天际线）"><a href="#Skyline（天际线）" class="headerlink" title="Skyline（天际线）"></a><strong>Skyline（天际线）</strong></h2><p>生成一个包含天际线轮廓分析结果的线要素类或多面体要素类。</p>
+<br>
+<h2 id="Skyline（天际线）"><strong>Skyline（天际线）</strong></h2>
+<p>生成一个包含天际线轮廓分析结果的线要素类或多面体要素类。</p>
 <p><img src="http://kikitamap.com/images/blogImg/3DVisibility_Skyline.png" alt=""></p>
 
 

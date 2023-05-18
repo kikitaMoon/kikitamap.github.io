@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -417,7 +417,7 @@
 
         <p>使用CGA代码将对象（路灯、树木等）放置到路边。这里用到的主要方法就是Split 函数去做分割。</p>
 <p>思路是，现将shape按照较短的轴向进行最初的分割剥离，得到路的两边sidewalk，然后将这些分割出来的形状进行再次分割，也就是沿着长的轴的方向分割成多个重复的小的形状，最后，用实际的模型（如路灯或树等）替换这些小块。</p>
-<p><br></p>
+<br>
 <p>下面是示例代码，参考下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Sidewalk --&gt;  </span><br><span class="line">    SidewalkGeometry.  </span><br><span class="line">    SidewalkObjects     # 复制shape!  </span><br><span class="line">  </span><br><span class="line"># 思路：沿着道路的方向纵向切割道路，得到两边的人行道。  </span><br><span class="line"># 在剩下的shape“dot”中，插入树木、路灯等静态模型对象。  </span><br><span class="line">      </span><br><span class="line">attr placementWidth = <span class="number">0.05</span>  </span><br><span class="line">  </span><br><span class="line">attr streetDist = <span class="number">0.2</span>  </span><br><span class="line">attr objectDist = <span class="number">5</span>  </span><br><span class="line">  </span><br><span class="line">attr objectSize = <span class="number">0.1</span>  </span><br><span class="line">attr objectHeigt = <span class="number">2</span>  </span><br><span class="line">  </span><br><span class="line">SidewalkObjects --&gt;  </span><br><span class="line">    # 沿道路纵向分割两边的人行道。  </span><br><span class="line">    split(v,unitSpace,<span class="number">0</span>) &#123; streetDist : NIL | placementWidth : PlacementStrip | ~<span class="number">1</span> : NIL  &#125;  </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">PlacementStrip --&gt;  </span><br><span class="line">    # 沿着人行道分割横向切割，切成小段。  </span><br><span class="line">    split(u,unitSpace,<span class="number">0</span>) &#123;objectDist: NIL | placementWidth : PlacementPoint &#125;*  </span><br><span class="line">  </span><br><span class="line">PlacementPoint --&gt;  </span><br><span class="line">    alignScopeToGeometry(yUp, 0) # align the shape to the current point shape, thus the street direction!  </span><br><span class="line">    # r(0,90,0) # 旋转90度，视情况使用，例如路灯模型。  </span><br><span class="line">    s(objectSize*<span class="number">2</span>, objectHeigt, objectSize)  </span><br><span class="line">    i(<span class="string">&quot;builtin:cube&quot;</span>)  </span><br><span class="line">    center(xz)  </span><br></pre></td></tr></table></figure>
 <p>效果示例：</p>

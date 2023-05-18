@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -413,16 +413,26 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p>ArcGIS 中，ArcScene 与 ArcGLobe 是两种3D数据可视化以及分析的组件或者说环境，它们二者有什么样的区别，如何根据自己的应用去选择呢？<br>以下是对这二者的对比信息总结：</p>
-<h1 id="1-许可"><a href="#1-许可" class="headerlink" title="1. 许可"></a>1. 许可</h1><p>都需要 3D Analyst License 才能启动。</p>
-<h1 id="2-坐标系统"><a href="#2-坐标系统" class="headerlink" title="2. 坐标系统"></a>2. 坐标系统</h1><p>ArcScene - 使用第一个加入ArcScene的数据的坐标系统，当不同坐标系的数据加入时，进行动态投影，这点同ArcMap。通常使用平面坐标系（投影坐标系）。<br>ArcGlobe - WGS 1984 Cube Projection *，当不同坐标系的数据加入时，进行动态投影。</p>
+        <p>ArcGIS 中，ArcScene 与 ArcGLobe 是两种3D数据可视化以及分析的组件或者说环境，它们二者有什么样的区别，如何根据自己的应用去选择呢？<br>
+以下是对这二者的对比信息总结：</p>
+<h1>1. 许可</h1>
+<p>都需要 3D Analyst License 才能启动。</p>
+<h1>2. 坐标系统</h1>
+<p>ArcScene - 使用第一个加入ArcScene的数据的坐标系统，当不同坐标系的数据加入时，进行动态投影，这点同ArcMap。通常使用平面坐标系（投影坐标系）。<br>
+ArcGlobe - WGS 1984 Cube Projection *，当不同坐标系的数据加入时，进行动态投影。</p>
 <ul>
-<li>那神马是立方体投影（cube projection）？<br>也就是将地球投影到各面都是正方形的六面体上。如下图：</li>
+<li>那神马是立方体投影（cube projection）？<br>
+也就是将地球投影到各面都是正方形的六面体上。如下图：</li>
 </ul>
 <p><img src="http://kikitamap.com/images/blogImg/ArcSceneArcGlobe.gif" alt=""></p>
-<p>需要说明，这种投影，经线和纬线都是直线；在纬度 +45° 和 -45° 之间，东南西北方向是准确的，比例尺是正确的；在极面上，由中心确定的方向是真实的。<br>但是这种投影不适合制图，仅适用于ArcGlobe。</p>
-<h1 id="3-内存管理与缓存机制"><a href="#3-内存管理与缓存机制" class="headerlink" title="3. 内存管理与缓存机制"></a>3. 内存管理与缓存机制</h1><p>ArcScene - 将所有数据加载到内存中，必要的时候使用虚拟内存。也因此，ArcScene通常用来展示小场景、小数据量。<br>ArcGlobe - 通常专用于超大型数据集，缓存过程中会建立索引并将所有数据组织为各个切片和细节层次。</p>
-<h1 id="4-数据类型的支持"><a href="#4-数据类型的支持" class="headerlink" title="4. 数据类型的支持"></a>4. 数据类型的支持</h1><p>ArcGlobe支持terrain数据，但是ArcScene不支持。<br>ArcScene中不支持Annotation。</p>
+<p>需要说明，这种投影，经线和纬线都是直线；在纬度 +45° 和 -45° 之间，东南西北方向是准确的，比例尺是正确的；在极面上，由中心确定的方向是真实的。<br>
+但是这种投影不适合制图，仅适用于ArcGlobe。</p>
+<h1>3. 内存管理与缓存机制</h1>
+<p>ArcScene - 将所有数据加载到内存中，必要的时候使用虚拟内存。也因此，ArcScene通常用来展示小场景、小数据量。<br>
+ArcGlobe - 通常专用于超大型数据集，缓存过程中会建立索引并将所有数据组织为各个切片和细节层次。</p>
+<h1>4. 数据类型的支持</h1>
+<p>ArcGlobe支持terrain数据，但是ArcScene不支持。<br>
+ArcScene中不支持Annotation。</p>
 
 
         <hr>

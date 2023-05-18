@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -416,31 +416,39 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p>通过多元统计分析可以探查许多不同类型的属性之间的关系。</p>
-<p>有两种可用的多元分析：分类（监督分类与非监督分类/Supervised&amp;Unsupervised)）和主成分分析/Principal Component Analysis  (PCA)。</p>
+<p>有两种可用的多元分析：分类（监督分类与非监督分类/Supervised&amp;Unsupervised)）和主成分分析/Principal Component Analysis  (PCA)。</p>
 <p>ArcGIS 提供了如下工具：</p>
 <p><img src="http://kikitamap.com/images/blogImg/SAMultiDimensions_Toolset.png" alt=""></p>
-<p><br></p>
-<h1 id="一、波段集统计工具（Band-Collection-Statistics）"><a href="#一、波段集统计工具（Band-Collection-Statistics）" class="headerlink" title="一、波段集统计工具（Band Collection Statistics）"></a><strong>一、波段集统计工具（Band Collection Statistics）</strong></h1><p>栅格波段必须具有一个公共交集。如果不存在公共交集，则会出现错误，且不会创建任何输出。</p>
+<br>
+<h1><strong>一、波段集统计工具（Band Collection Statistics）</strong></h1>
+<p>栅格波段必须具有一个公共交集。如果不存在公共交集，则会出现错误，且不会创建任何输出。</p>
 <p>如果栅格波段的范围不同，统计数据将以所有输入栅格波段的共同的空间范围来计算。默认情况下，像元大小为输入栅格的最大像元的大小；否则，将取决于栅格分析环境设置。</p>
 <p>此工具计算每个图层的基本统计测量值（最小值、最大值、平均值和标准差），如果勾选协方差和相关矩阵，还可以得到这两个值。</p>
 <p><img src="http://kikitamap.com/images/blogImg/SAMultiDimensions_BandColSts.png" alt=""></p>
-<h1 id="二、创建特征（Create-Signature）"><a href="#二、创建特征（Create-Signature）" class="headerlink" title="二、创建特征（Create Signature）"></a><strong>二、创建特征（Create Signature）</strong></h1><p>创建由输入样本数据和一组栅格波段定义的类的 ASCII 特征文件。该工具可创建将用作其他多元分析工具的输入参数的文件。</p>
+<h1><strong>二、创建特征（Create Signature）</strong></h1>
+<p>创建由输入样本数据和一组栅格波段定义的类的 ASCII 特征文件。该工具可创建将用作其他多元分析工具的输入参数的文件。</p>
 <p>该文件由两部分组成：</p>
-<p>1） 所有类的常规信息，例如图层数、输入栅格名称和类别数。<br>2） 每个类别的特征文件，由样本数、平均值和协方差矩阵组成。</p>
-<h1 id="三、编辑特征（Edit-Signature）"><a href="#三、编辑特征（Edit-Signature）" class="headerlink" title="三、编辑特征（Edit Signature）"></a><strong>三、编辑特征（Edit Signature）</strong></h1><p>通过合并、重新编号和删除类特征来编辑和更新特征文件。</p>
+<p>1） 所有类的常规信息，例如图层数、输入栅格名称和类别数。<br>
+2） 每个类别的特征文件，由样本数、平均值和协方差矩阵组成。</p>
+<h1><strong>三、编辑特征（Edit Signature）</strong></h1>
+<p>通过合并、重新编号和删除类特征来编辑和更新特征文件。</p>
 <p>输入特征重映射文件是 ASCII 文件，其每一行有两列值与之对应，以冒号分隔。第一列是原始类 ID 值。第二列包含用于在特征文件中更新的新类 ID。文件中的所有条目必须基于第一列以升序进行排序。</p>
 <p>编辑特征文件的写法是固定的，如下：</p>
 <p>只有需要编辑的类才必须被放入特征重映射文件；任何在重映射文件中不存在的类将保持不变。</p>
 <p>要合并一组类，原类 ID：新类 ID。</p>
 <p>要删除类特征，使用 -9999 作为该类第二列的值。</p>
 <p>要重新编号，将类 ID 重新编号为某个不存在于输入特征文件中的值。</p>
-<p>示例：<br><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">2 </span>: <span class="number">3</span></span><br><span class="line"><span class="symbol">4 </span>: <span class="number">11</span></span><br><span class="line"><span class="symbol">5 </span>: -<span class="number">9999</span></span><br><span class="line"><span class="symbol">9 </span>: <span class="number">3</span></span><br></pre></td></tr></table></figure></p>
+<p>示例：</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">2 </span>: <span class="number">3</span></span><br><span class="line"><span class="symbol">4 </span>: <span class="number">11</span></span><br><span class="line"><span class="symbol">5 </span>: -<span class="number">9999</span></span><br><span class="line"><span class="symbol">9 </span>: <span class="number">3</span></span><br></pre></td></tr></table></figure>
 <p>上例将使用 3 合并类 2 和 类 9，使用 11 合并类 4，并将删除类 5。</p>
-<h1 id="四、树状图（Dendrogram）"><a href="#四、树状图（Dendrogram）" class="headerlink" title="四、树状图（Dendrogram）"></a><strong>四、树状图（Dendrogram）</strong></h1><p>构造可显示特征文件中连续合并类之间的属性距离的树状图。</p>
+<h1><strong>四、树状图（Dendrogram）</strong></h1>
+<p>构造可显示特征文件中连续合并类之间的属性距离的树状图。</p>
 <p>有关其工作原理，详见：<a target="_blank" rel="noopener" href="http://help.arcgis.com/zh-cn/arcgisdesktop/10.0/help/index.html#/na/009z000000q6000000/">http://help.arcgis.com/zh-cn/arcgisdesktop/10.0/help/index.html#/na/009z000000q6000000/</a></p>
-<h1 id="五、最大似然法分类（Maximum-Likelihood-Classification）"><a href="#五、最大似然法分类（Maximum-Likelihood-Classification）" class="headerlink" title="五、最大似然法分类（Maximum Likelihood Classification）"></a><strong>五、最大似然法分类（Maximum Likelihood Classification）</strong></h1><p>最大似然法分类工具所用的算法基于两条原则：</p>
-<p>1） 每个类样本中的像元在多维空间中呈正态分布<br>2） 贝叶斯决策理论</p>
-<p><strong>TIPS：</strong>工具中有几个参数需要注意：</p>
+<h1><strong>五、最大似然法分类（Maximum Likelihood Classification）</strong></h1>
+<p>最大似然法分类工具所用的算法基于两条原则：</p>
+<p>1） 每个类样本中的像元在多维空间中呈正态分布<br>
+2） 贝叶斯决策理论</p>
+<p>**TIPS：**工具中有几个参数需要注意：</p>
 <p>reject_fraction：将因最低正确分配概率而得不到分类的像元部分。</p>
 <p>默认值为 0.0；将对每个像元进行分类。共有 14 个有效输入：0.0、0.005、0.01、0.025、0.05、0.1、0.25、0.5、0.75、0.9、0.95、0.975、0.99 和 0.995。</p>
 <p>a_priori_probabilities：指定将如何确定先验概率。</p>
@@ -451,20 +459,24 @@
 </ul>
 <p>以下是通过三类样本的特征文件，分类的栅格数据的示例：</p>
 <p><img src="http://kikitamap.com/images/blogImg/SAMultiDimensions_Classification.png" alt=""></p>
-<h1 id="六、Iso-聚类（Iso-Cluster）"><a href="#六、Iso-聚类（Iso-Cluster）" class="headerlink" title="六、Iso 聚类（Iso Cluster）"></a><strong>六、Iso 聚类（Iso Cluster）</strong></h1><blockquote>
-<p>Iso表示：iterative self-organizing —迭代自组织方法。</p>
+<h1><strong>六、Iso 聚类（Iso Cluster）</strong></h1>
+<blockquote>
+<p>Iso表示：iterative self-organizing --迭代自组织方法。</p>
 </blockquote>
 <p>Iso聚类工具对输入波段列表中组合的多元数据执行聚类。所生成的特征文件（*.gsg）可用作生成非监督分类栅格的分类工具（例如最大似然法分类）的输入。</p>
 <p>类数的最小有效值为二。不存在最大聚类数。通常情况下，聚类越多，所需的迭代就越多。</p>
-<h1 id="七、Iso-聚类非监督分类（Iso-Cluster-Unsupervised-Classification）"><a href="#七、Iso-聚类非监督分类（Iso-Cluster-Unsupervised-Classification）" class="headerlink" title="七、Iso 聚类非监督分类（Iso Cluster Unsupervised Classification）"></a><strong>七、Iso 聚类非监督分类（Iso Cluster Unsupervised Classification）</strong></h1><p>此工具为脚本工具，此工具结合了 Iso 聚类工具与最大似然法分类工具的功能。输出经过分类的栅格。</p>
-<h1 id="八、类别概率（Class-Probability）"><a href="#八、类别概率（Class-Probability）" class="headerlink" title="八、类别概率（Class Probability）"></a><strong>八、类别概率（Class Probability）</strong></h1><p>如果发现分类中的某些区域被分配给某一类的概率不是很高，则说明可能存在混合类。</p>
+<h1><strong>七、Iso 聚类非监督分类（Iso Cluster Unsupervised Classification）</strong></h1>
+<p>此工具为脚本工具，此工具结合了 Iso 聚类工具与最大似然法分类工具的功能。输出经过分类的栅格。</p>
+<h1><strong>八、类别概率（Class Probability）</strong></h1>
+<p>如果发现分类中的某些区域被分配给某一类的概率不是很高，则说明可能存在混合类。</p>
 <p>例如，根据分类概率波段，一个已被分类为森林的区域属于森林类的概率只有 55%。您又发现同一区域属于草地类的概率却有 40%。显然，该区域既不属于森林类也不属于草地类。它更可能是一个森林草地混合类。对于使用分类概率工具生成的分类概率，最好检查分类结果。</p>
 <p>生成的多波段栅格数据的波段数等于类别数，每个波段表示某种分类的可能概率，像元值从0至100。</p>
-<h1 id="九、主成分分析（Principal-Components）"><a href="#九、主成分分析（Principal-Components）" class="headerlink" title="九、主成分分析（Principal Components）"></a><strong>九、主成分分析（Principal Components）</strong></h1><p>对一组栅格波段执行主成分分析 (PCA) 并生成单波段栅格作为输出。此工具生成的是波段数与指定的成分数相同的多波段栅格。</p>
+<h1><strong>九、主成分分析（Principal Components）</strong></h1>
+<p>对一组栅格波段执行主成分分析 (PCA) 并生成单波段栅格作为输出。此工具生成的是波段数与指定的成分数相同的多波段栅格。</p>
 <p>主成分分析工具用于将输入多元属性空间中的输入波段内的数据变换到相对于原始空间对轴进行旋转的新的多元属性空间。新空间中的轴（属性）互不相关。之所以在主成分分析中对数据进行变换，主要是希望通过消除冗余的方式来压缩数据。</p>
 <p>以上提到的几个工具，在ArcGIS 10.x版本中，除了在ArcToolbox中可以找到，在 Image Classification 工具条中也可以找到对应的功能，如下图：</p>
 <p><img src="http://kikitamap.com/images/blogImg/SAMultiDimensions_Toolbar.png" alt=""></p>
-<p>这个工具集涉及很多遥感的理论知识，仅仅使用工具是不够的，后面需要多多学习…… </p>
+<p>这个工具集涉及很多遥感的理论知识，仅仅使用工具是不够的，后面需要多多学习……</p>
 
 
         <hr>
@@ -472,12 +484,12 @@
         <ul class="pager">
           
           <li class="previous">
-            <a href="/2012/08/27/SAHydrology/" data-toggle="tooltip" data-placement="top" title="空间分析之水文分析">&larr; Previous Post</a>
+            <a href="/2012/08/27/SAInterpolation/" data-toggle="tooltip" data-placement="top" title="空间分析之插值分析">&larr; Previous Post</a>
           </li>
           
           
           <li class="next">
-            <a href="/2012/08/27/SAInterpolation/" data-toggle="tooltip" data-placement="top" title="空间分析之插值分析">Next Post &rarr;</a>
+            <a href="/2012/08/24/SAZonal/" data-toggle="tooltip" data-placement="top" title="空间分析之区域分析">Next Post &rarr;</a>
           </li>
           
         </ul>

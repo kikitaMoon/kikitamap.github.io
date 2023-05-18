@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -415,33 +415,40 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p>在看空间统计相关的文档资料的时候，看到了几个有关距离丈量方法的术语词汇，诸如：欧式距离、曼哈顿距离、切比雪夫距离…… 老外习惯于使用名字来命名算法，可是对于门外汉们，是一种困惑，今天就整理下，一起温故知新。 </p>
-<p><br></p>
-<h2 id="1-欧式距离（Euclidean-Distance）"><a href="#1-欧式距离（Euclidean-Distance）" class="headerlink" title="1. 欧式距离（Euclidean Distance）"></a><strong>1. 欧式距离（Euclidean Distance）</strong></h2><p>欧式距离是我们在直角坐标系中最常用的距离量算方法，例如小时候学的“两点之间的最短距离是连接两点的直线距离。”这就是典型的欧式距离量算方法。 </p>
-<p>通常这这个距离的获取是基于我们熟悉的“勾股定理”，解算三角形斜边得到的。 </p>
-<p><img src="http://kikitamap.com/images/blogImg/MeasureDistances_EucDis.png" alt=""> </p>
+        <p>在看空间统计相关的文档资料的时候，看到了几个有关距离丈量方法的术语词汇，诸如：欧式距离、曼哈顿距离、切比雪夫距离…… 老外习惯于使用名字来命名算法，可是对于门外汉们，是一种困惑，今天就整理下，一起温故知新。</p>
+<br>
+<h2 id="1-欧式距离（Euclidean-Distance）"><strong>1. 欧式距离（Euclidean Distance）</strong></h2>
+<p>欧式距离是我们在直角坐标系中最常用的距离量算方法，例如小时候学的“两点之间的最短距离是连接两点的直线距离。”这就是典型的欧式距离量算方法。</p>
+<p>通常这这个距离的获取是基于我们熟悉的“勾股定理”，解算三角形斜边得到的。</p>
+<p><img src="http://kikitamap.com/images/blogImg/MeasureDistances_EucDis.png" alt=""></p>
 <p><img src="http://kikitamap.com/images/blogImg/MeasureDistances_EucDis2.png" alt=""></p>
-<p><img src="http://kikitamap.com/images/blogImg/MeasureDistances_Formula.png" alt=""> </p>
+<p><img src="http://kikitamap.com/images/blogImg/MeasureDistances_Formula.png" alt=""></p>
 <p>看看维基百科：<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Euclidean_distance">http://en.wikipedia.org/wiki/Euclidean_distance</a></p>
-<p><br></p>
-<h2 id="2-曼哈顿距离（Manhattan-Distance）"><a href="#2-曼哈顿距离（Manhattan-Distance）" class="headerlink" title="2. 曼哈顿距离（Manhattan Distance）"></a><strong>2. 曼哈顿距离（Manhattan Distance）</strong></h2><p>曼哈顿距离是与欧式距离不同的一种丈量方法，两点之间的距离不再是直线距离，而是投影到坐标轴的长度之和。 </p>
+<br>
+<h2 id="2-曼哈顿距离（Manhattan-Distance）"><strong>2. 曼哈顿距离（Manhattan Distance）</strong></h2>
+<p>曼哈顿距离是与欧式距离不同的一种丈量方法，两点之间的距离不再是直线距离，而是投影到坐标轴的长度之和。</p>
 <pre><code>    ![](http://kikitamap.com/images/blogImg/MeasureDistances_Manhattan.png) 
-</code></pre><p>还是看图吧，图比文字更显见。 </p>
+</code></pre>
+<p>还是看图吧，图比文字更显见。</p>
 <pre><code>    ![](http://kikitamap.com/images/blogImg/MeasureDistances_Manhattan2.png) 
-</code></pre><p>图中绿色的线为欧式距离的丈量长度，红色的线即为曼哈顿距离长度，蓝色和黄色的线是这两点间曼哈顿距离的等价长度。 </p>
-<p>想想我们下象棋的时候，车炮兵之类的，是不是要走曼哈顿距离？ </p>
-<p>如果不会下象棋，没关系，看下面的例子： </p>
+</code></pre>
+<p>图中绿色的线为欧式距离的丈量长度，红色的线即为曼哈顿距离长度，蓝色和黄色的线是这两点间曼哈顿距离的等价长度。</p>
+<p>想想我们下象棋的时候，车炮兵之类的，是不是要走曼哈顿距离？</p>
+<p>如果不会下象棋，没关系，看下面的例子：</p>
 <p><img src="http://kikitamap.com/images/blogImg/MeasureDistances_ManhattanMap.png" alt=""></p>
-<p>   在美国道路会像这样是很多的规则的网格状，从A到B通常无法去沿直线行走，而是会避开建筑物，走几个街区到达。    </p>
-<p>图中蓝色的线即为曼哈顿距离的典型应用场景。 </p>
-<p><em>看看维基百科：<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Taxicab_geometry">http://en.wikipedia.org/wiki/Taxicab_geometry</a></em> </p>
-<p><br></p>
-<h2 id="3-切比雪夫距离（Chebyshev-distance）"><a href="#3-切比雪夫距离（Chebyshev-distance）" class="headerlink" title="3. 切比雪夫距离（Chebyshev distance）"></a><strong>3. 切比雪夫距离（Chebyshev distance）</strong></h2><p>数学上，切比雪夫距离是将2个点之间的距离定义为其各坐标数值差的最大值。 </p>
+<p>在美国道路会像这样是很多的规则的网格状，从A到B通常无法去沿直线行走，而是会避开建筑物，走几个街区到达。</p>
+<p>图中蓝色的线即为曼哈顿距离的典型应用场景。</p>
+<p><em>看看维基百科：<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Taxicab_geometry">http://en.wikipedia.org/wiki/Taxicab_geometry</a></em></p>
+<br>
+<h2 id="3-切比雪夫距离（Chebyshev-distance）"><strong>3. 切比雪夫距离（Chebyshev distance）</strong></h2>
+<p>数学上，切比雪夫距离是将2个点之间的距离定义为其各坐标数值差的最大值。</p>
 <pre><code>   ![](http://kikitamap.com/images/blogImg/MeasureDistances_Chebyshev.png) 
-</code></pre><p>网上搜索，好多有关这个距离的解释，大多都是采用国际象棋中的王的走步来作为例子，王可以前后左右走，还可以斜前斜后走，一共8个方向可以认为距离均等。 </p>
-<p>也就是在下面3&amp;times;3邻域内，中心网格的中心点到8个邻域网格中心点的距离相等。 </p>
+</code></pre>
+<p>网上搜索，好多有关这个距离的解释，大多都是采用国际象棋中的王的走步来作为例子，王可以前后左右走，还可以斜前斜后走，一共8个方向可以认为距离均等。</p>
+<p>也就是在下面3&amp;times;3邻域内，中心网格的中心点到8个邻域网格中心点的距离相等。</p>
 <pre><code>  ![](http://kikitamap.com/images/blogImg/MeasureDistances_Chebyshev2.png) 
-</code></pre><p><em>看看维基百科：<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Chebyshev_distance">http://en.wikipedia.org/wiki/Chebyshev_distance</a></em>    </p>
+</code></pre>
+<p><em>看看维基百科：<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Chebyshev_distance">http://en.wikipedia.org/wiki/Chebyshev_distance</a></em></p>
 
 
         <hr>

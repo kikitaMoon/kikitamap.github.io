@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -414,26 +414,30 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p>我们可以把自己的代码，尤其是期待分享的得意代码，上传分享到第三方Python模块的“集中营” —— <strong><a target="_blank" rel="noopener" href="https://pypi.python.org">PyPI</a></strong>，如果没有账号，可以注册个先。</p>
-<p><br></p>
-<h2 id="1-准备发布"><a href="#1-准备发布" class="headerlink" title="1  准备发布"></a>1  准备发布</h2><p>像在本地发布安装一样，先新建一个文件夹，然后将自己的py文件放进去，然后再这个文件夹中创建一个  <code>setup.py</code> 的文件，内容如下面的样子：</p>
+<br>
+<h2 id="1-准备发布">1  准备发布</h2>
+<p>像在本地发布安装一样，先新建一个文件夹，然后将自己的py文件放进去，然后再这个文件夹中创建一个  <code>setup.py</code> 的文件，内容如下面的样子：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name=<span class="string">&#x27;nesterprint&#x27;</span>,</span><br><span class="line">    version=<span class="string">&#x27;1.0.0&#x27;</span>,</span><br><span class="line">    packages=[<span class="string">&#x27;&#x27;</span>],</span><br><span class="line">    url=<span class="string">&#x27;http://blog.csdn.net/kikitaMoon&#x27;</span>,</span><br><span class="line">    license=<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    author=<span class="string">&#x27;kikita&#x27;</span>,</span><br><span class="line">    author_email=<span class="string">&#x27;kikitamoopn@gmail.com&#x27;</span>,</span><br><span class="line">    description=<span class="string">&#x27;My Test&#x27;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="2-注册登录"><a href="#2-注册登录" class="headerlink" title="2 注册登录"></a>2 注册登录</h2><p>使用命令行窗口，跳转到要发布的py所在的文件夹目录，首先进行注册登录，让命令行上传工具知道我的PyPI账户和密码。输入命令：<strong><code>python setup.py register</code></strong>，选择 1，输入账户和密码，并且保存登录信息，下次上传可以跳过这个步骤。</p>
+<br>
+<h2 id="2-注册登录">2 注册登录</h2>
+<p>使用命令行窗口，跳转到要发布的py所在的文件夹目录，首先进行注册登录，让命令行上传工具知道我的PyPI账户和密码。输入命令：<strong><code>python setup.py register</code></strong>，选择 1，输入账户和密码，并且保存登录信息，下次上传可以跳过这个步骤。</p>
 <p><img src="http://kikitamap.com/images/blogImg/UploadCodetoPyPI_Login.png" alt=""></p>
-<p><br></p>
-<h2 id="3-上传发布"><a href="#3-上传发布" class="headerlink" title="3 上传发布"></a>3 上传发布</h2><p>接着在命令行窗口中，输入命令： <strong><code>python setup.py sdist upload</code></strong>：</p>
+<br>
+<h2 id="3-上传发布">3 上传发布</h2>
+<p>接着在命令行窗口中，输入命令： <strong><code>python setup.py sdist upload</code></strong>：</p>
 <p><img src="http://kikitamap.com/images/blogImg/UploadCodetoPyPI_upload.png" alt=""></p>
 <p>看到 OK 即上传成功。到 PyPI 自己的账户下看看吧。</p>
 <p><img src="http://kikitamap.com/images/blogImg/UploadCodetoPyPI_MyProfile.png" alt=""></p>
 <p>Bingo ~</p>
-<p><br></p>
-<h2 id="4-更新模块"><a href="#4-更新模块" class="headerlink" title="4 更新模块"></a>4 更新模块</h2><p>当我们修改了模块中的代码，并想更新 PyPI 上的模块，那就在上传之前更改下 setup.py 的 version 参数，告诉 PyPI 这是个新的版本。</p>
+<br>
+<h2 id="4-更新模块">4 更新模块</h2>
+<p>当我们修改了模块中的代码，并想更新 PyPI 上的模块，那就在上传之前更改下 <a target="_blank" rel="noopener" href="http://setup.py">setup.py</a> 的 version 参数，告诉 PyPI 这是个新的版本。</p>
 <p><img src="http://kikitamap.com/images/blogImg/UploadCodetoPyPI_Update.png" alt=""></p>
 <p>并使用相同的命令来上传新的发布版本。</p>
 <p><img src="http://kikitamap.com/images/blogImg/UploadCodetoPyPI_UploadUpdate.png" alt=""></p>
 <p>好了，看看 PyPI，两个版本的模块都在，其中旧的版本默认被隐藏。</p>
 <p><img src="http://kikitamap.com/images/blogImg/UploadCodetoPyPI_Verisons.png" alt=""></p>
-<p><br></p>
+<br>
 <p>我们可以下载最新版本直接解压安装使用。</p>
 <p><img src="http://kikitamap.com/images/blogImg/UploadCodetoPyPI_Download.png" alt=""></p>
 

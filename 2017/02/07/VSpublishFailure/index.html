@@ -204,10 +204,25 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -223,21 +238,6 @@
               
             </a>
           </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
           
           
 
@@ -419,11 +419,12 @@
 <p>先确认下自己的机器是否安装了 signtool.exe, 如果安装了则位于：</p>
 <pre><code>`%programfiles(x86)%\Microsoft SDKs\Windows\v7.0A\Bin   for x64 system`
 `%programfiles%\Microsoft SDKs\Windows\v7.0A\Bin        for x86 system`
-</code></pre><p>signtool.exe 是 Windows平台SDK的一部分，如果在上面的路径中没有发现这个文件，那就需要安装下。 <a target="_blank" rel="noopener" href="https://msdn.microsoft.com/en-us/library/8s9b9yaz.aspx">signtool.exe 是什么？</a></p>
+</code></pre>
+<p>signtool.exe 是 Windows平台SDK的一部分，如果在上面的路径中没有发现这个文件，那就需要安装下。 <a target="_blank" rel="noopener" href="https://msdn.microsoft.com/en-us/library/8s9b9yaz.aspx">signtool.exe 是什么？</a></p>
 <p>方法很简单，重新执行VS的安装程序，选择Custom模式，补充安装 <code>ClickOnce Publishing Tools</code> 。</p>
 <p><img src="http://kikitamap.com/images/blogImg/VSpublishFailure_Setup.png" alt=""></p>
 <p>安装完成后，问题解决。</p>
-<p><br></p>
+<br>
 <p>技术文档详情，点<a target="_blank" rel="noopener" href="https://blogs.msdn.microsoft.com/vsnetsetup/2013/11/18/an-error-occurred-while-signing-signtool-exe-not-found/">这里</a>。</p>
 
 
