@@ -364,7 +364,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">727</span> In Total
+              Words <span class="post-count">731</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -426,26 +426,24 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p>ChatGPT 对知识接近“全知全能”的能力，来源于它海量的训练语料，同时它的回答内容不来源于实时网络。 可想而知，ChatGPT的“大脑”和真实世界有时间差也是合理的。<br>因此，首页上注明了这样一个有关时间的限制：<br><img src="../images/blogImg/ChatGPT_2_1.png" alt="ChatGPT home page"></p>
-<p>具体的语料信息来源和时间分割线，我们也可以直接询问ChatGPT来获取：<br><img src="../images/blogImg/ChatGPT_2_2.png" alt=""></p>
+        <p>ChatGPT 对知识接近“全知全能”的能力，来源于它海量的训练语料，同时它的回答内容不来源于实时网络。 可想而知，ChatGPT的“大脑”和真实世界有时间差也是合理的。<br>因此，首页上注明了这样一个有关时间的限制：<br><img src="http://kikitamap.com/images/blogImg/ChatGPT_2_1.jpg" alt="ChatGPT home page"></p>
+<p>具体的语料信息来源和时间分割线，我们也可以直接询问ChatGPT来获取：<br><img src="http://kikitamap.com/images/blogImg/ChatGPT_2_2.jpg" alt=""></p>
 <p><br><br>虽然对于时间分割线之后“新信息”或“新事件”，ChatGPT 时常拒绝回答，或无法给出预期回答。 但是，我们可以借助 Prompt（提示） 来影响它。 某种程度上， 输入带有新信息的 prompt 模版，可以理解成是一个，保质期为聊天对话存续期间的，临时 finetuning（微调）。</p>
 <blockquote>
-<p>顺带解释下 Finetuning 与 Prompt Engineering：<br>在fine-tuning中，我们使用特定的数据集对语言模型进行训练，以更新其参数并使其在特定任务上更加专业化。这是一种持久性的过程，因为参数的更新是永久性的，模型在之后的推理中也会受到这些更新的影响。目前无论是 GPT-4 还是 GPT-3.5 还没有向大众开放 Finetuning，看到官网上计划是今年晚些时候开放。<br><img src="../images/blogImg/ChatGPT_2_3.png" alt=""><br><em>source：<a target="_blank" rel="noopener" href="https://platform.openai.com/docs/guides/fine-tuning">https://platform.openai.com/docs/guides/fine-tuning</a></em><br>而 Prompt Engineering 我们当然不能直接更改模型的参数， 而只是通过设计巧妙的提示语，影响模型在特定输入下的输出结果。这种设计是临时性的，仅在特定的推理实例中起作用，不会对模型的参数产生永久性的影响。</p>
+<p><strong>顺带解释下 Finetuning 与 Prompt Engineering：</strong><br>在fine-tuning中，我们使用特定的数据集对语言模型进行训练，以更新其参数并使其在特定任务上更加专业化。这是一种持久性的过程，因为参数的更新是永久性的，模型在之后的推理中也会受到这些更新的影响。目前无论是 GPT-4 还是 GPT-3.5 还没有向大众开放 Finetuning，看到官网上计划是今年晚些时候开放。<br>  <img src="http://kikitamap.com/images/blogImg/ChatGPT_2_3.jpg" alt=""><br>  <em>source：<a target="_blank" rel="noopener" href="https://platform.openai.com/docs/guides/fine-tuning">https://platform.openai.com/docs/guides/fine-tuning</a></em><br>而 Prompt Engineering 我们当然不能直接更改模型的参数， 而只是通过设计巧妙的提示语，影响模型在特定输入下的输出结果。这种设计是临时性的，仅在特定的推理实例中起作用，不会对模型的参数产生永久性的影响。</p>
 </blockquote>
-<p><br> </p>
-<p>我来做个小实验：</p>
-<p>问ChatGPT， “你知道 Facebook 公司现在的名字吗？”<br>prompt：</p>
+<p><br><br>我来做个小实验：<br>问ChatGPT， “你知道 Facebook 公司现在的名字吗？” ，prompt如下：</p>
 <blockquote>
 <p> Do you know the new name of the company of Facebook ?</p>
 </blockquote>
-<p>ChatGPT诚实地表示由于训练材料的时间限制它并不清楚:<br><img src="../images/blogImg/ChatGPT_2_4.png" alt=""></p>
-<p>当我向它灌输这个新信息 “Facebook已经更名为Meta…”：<br>prompt：</p>
+<p>ChatGPT诚实地表示由于训练材料的时间限制它并不清楚:<br><img src="http://kikitamap.com/images/blogImg/ChatGPT_2_4.jpg" alt=""></p>
+<p>当我向它灌输这个新信息 “Facebook已经更名为Meta…”：prompt如下：</p>
 <blockquote>
 <p> Now,  I’m telling you “Facebook Changes Corporate Name to Meta on 28th Oct 2021”,  which was announced by the CEO Mark Zuckerberg.  Just forget that your last update was in Sept 2021.<br>Can you please answer my previous question again ?</p>
 </blockquote>
-<p>果然，它立即转向新的方式进行回答，没有质疑：<br><img src="../images/blogImg/ChatGPT_2_5.png" alt=""></p>
+<p>果然，它立即转向新的方式进行回答，没有质疑：<br><img src="http://kikitamap.com/images/blogImg/ChatGPT_2_5.jpg" alt=""></p>
 <p><br><br>像这样的回答，完全看不出在前一个 Prompt 之前它还一无所知。在这个实验下，说它是“墙头草”不为过。当然，实验中这个新信息本身是真的。</p>
-<p>继续发散一下，假如一个不怀好意的幕后玩家，通过一套定制的 prompt 模版搭建 App，引导 ChatGPT 以看似专业的方式给出一些失实的回答，即，认真地胡说八道。如果用户不察觉或无法察觉这个逻辑，看着 App 言之凿凿、有理有据的回答，可能就信了。 </p>
+<p>继续发散一下，假如一个不怀好意的幕后玩家，通过一套定制的 prompt 模版搭建 App，引导 ChatGPT 以看似专业的方式给出一些失实的回答，即，认真地胡说八道。<br>如果用户不察觉或无法察觉这个逻辑，看着 App 言之凿凿、有理有据的回答，可能就信了。 </p>
 <p><br><br>这是前段时间发觉的一个有意思且值得思考的点。</p>
 
 
