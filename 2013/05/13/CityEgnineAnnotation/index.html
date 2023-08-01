@@ -204,10 +204,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              标签
+              关于
               
               
             </a>
@@ -226,8 +228,6 @@
           
           
           
-          
-          
           <li>
             <a href="/categories/">
               
@@ -240,9 +240,9 @@
           
           
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              关于
+              标签
               
               
             </a>
@@ -428,7 +428,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@StartRule</span></span><br><span class="line"><span class="keyword">Start</span><span class="comment">--&gt;NIL</span></span><br></pre></td></tr></table></figure>
 <p><strong>@Hidden:</strong></p>
 <p>标记一个属性或者规则隐藏，在 Inspector 中或者起始规则选择器中不显示。</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Hidden</span></span><br><span class="line">attr hide_me = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Hidden</span><br><span class="line">attr hide_me = <span class="number">0</span></span><br></pre></td></tr></table></figure>
 <p><strong>@Group(“level_1-group”, …, “level_n-group”):</strong></p>
 <p>设置属性的在 Inspector 中的分组显示。</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Group(<span class="meta-string">&quot;First&quot;</span>, <span class="meta-string">&quot;Second&quot;</span>)</span></span><br><span class="line">attr grouped = <span class="number">0</span></span><br></pre></td></tr></table></figure>
@@ -440,19 +440,19 @@
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Range(<span class="attribute">Low</span>=0, <span class="attribute">Mid</span>=1, <span class="attribute">High</span>=2)</span><br><span class="line">attr lod = 0</span><br><span class="line">@Range(<span class="attribute">Red</span>=<span class="string">&quot;#ff0000&quot;</span>, <span class="attribute">Green</span>=<span class="string">&quot;#00ff00&quot;</span>, <span class="attribute">Blue</span>=<span class="string">&quot;#0000ff&quot;</span>)</span><br><span class="line">attr color = <span class="string">&quot;#000000&quot;</span></span><br></pre></td></tr></table></figure>
 <p><strong>@Color:</strong></p>
 <p>在 Inspector 中显示某个色彩属性使用色彩选择器。</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Color</span></span><br><span class="line">attr userColor = <span class="string">&quot;#000000&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Color</span></span><br><span class="line">attr userColor = <span class="string">&quot;#000000&quot;</span></span><br></pre></td></tr></table></figure>
 <p><strong>@File:</strong></p>
 <p>将某个属性标记为一个文件名，在 Inspector 中以文件选择器显示。</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">File</span></span><br><span class="line">attr asset = <span class="string">&quot;myfile.obj&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@File</span></span><br><span class="line">attr asset = <span class="string">&quot;myfile.obj&quot;</span></span><br></pre></td></tr></table></figure>
 <p><strong>@File(“ext_1”, … , “ext_n”):</strong></p>
 <p>将某个属性标记为一个文件名，在 Inspector 中以文件选择器显示，规定指定的扩展名(“ext_1”, … , “ext_n”)。</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@File(<span class="meta-string">&quot;tif&quot;</span>, <span class="meta-string">&quot;tiff&quot;</span>)</span></span><br><span class="line">attr texture = <span class="string">&quot;tex0.tiff&quot;</span></span><br></pre></td></tr></table></figure>
 <p><strong>@Directory:</strong></p>
 <p>将一个属性标记为路径名，在 inspector 中，会显示路径选择器。</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Directory</span></span><br><span class="line">attr assets = <span class="string">&quot;/assets/lod&quot;</span> + lod</span><br></pre></td></tr></table></figure>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Directory</span><br><span class="line">attr assets = <span class="string">&quot;/assets/lod&quot;</span> + lod</span><br></pre></td></tr></table></figure>
 <p><strong>@Location(x, y):</strong></p>
 <p>为可视化 CGA 编辑器设置某个属性或者规则 2D 位置。</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Location</span>(0, 0)</span><br><span class="line">Init--&gt;NIL</span><br></pre></td></tr></table></figure>
+<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Location(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">I<span class="function"><span class="title">nit</span>--&gt;</span>NIL</span><br></pre></td></tr></table></figure>
 <p><strong>@Order(order):</strong></p>
 <p>设置在 Inspector 中属性的显示顺序。</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Order</span>(<span class="number">1</span>)</span><br><span class="line">attr i_m_1st = <span class="number">0</span></span><br><span class="line"><span class="variable">@Order</span>(<span class="number">2</span>)</span><br><span class="line">attr i_m_2nd = <span class="number">0</span></span><br><span class="line"><span class="variable">@Order</span>(<span class="number">3</span>)</span><br><span class="line">attr i_m_3rd = <span class="number">0</span></span><br></pre></td></tr></table></figure>

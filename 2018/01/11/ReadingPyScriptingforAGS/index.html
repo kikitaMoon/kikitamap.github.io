@@ -204,10 +204,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              标签
+              关于
               
               
             </a>
@@ -226,8 +228,6 @@
           
           
           
-          
-          
           <li>
             <a href="/categories/">
               
@@ -240,9 +240,9 @@
           
           
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              关于
+              标签
               
               
             </a>
@@ -460,7 +460,7 @@
 <p>​        使用系统参数 sys.agv 。系统参数sys.argv[0]存储的是脚本自身的地址，因此额外的系统参数是从1开始。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This is content of testInputPara.py.</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">x = <span class="built_in">int</span>(sys.argv[<span class="number">1</span>])</span><br><span class="line">y = <span class="built_in">int</span>(sys.argv[<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(x*y)</span><br></pre></td></tr></table></figure>
 <p>​        在命令行中执行：</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">D</span>:\ForTempTest&gt;python testInputPara.py <span class="number">2</span> <span class="number">8</span></span><br><span class="line"><span class="attribute">16</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\ForTempTest&gt;<span class="keyword">python</span> testInputPara.<span class="keyword">py</span> <span class="number">2</span> <span class="number">8</span></span><br><span class="line"><span class="number">16</span></span><br></pre></td></tr></table></figure>
 <p>​        在交互式python编译器中使用 input()，可以接收用户输入。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = <span class="built_in">input</span>(<span class="string">&quot;&quot;</span>)</span><br><span class="line">bingo</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(x)</span><br><span class="line">bingo</span><br></pre></td></tr></table></figure>
 <p>​        ArcGIS 中通过创建脚本工具，与GP框架结合的调用方法，是更适合ArcGIS用户的方法。以前写过 《在ArcGIS中创建Python工具<a href="http://kikitamap.com/2015/08/31/CreatePythonTool1/"><strong>（一）</strong></a>、<a href="http://kikitamap.com/2015/09/02/CreatePythonTool2/"><strong>（二）</strong></a>、<a href="http://kikitamap.com/2015/09/10/CreatePythonTool3/"><strong>（三）</strong></a>》几篇，点击链接可以近一步了解脚本工具。</p>

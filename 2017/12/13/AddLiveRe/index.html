@@ -204,10 +204,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              标签
+              关于
               
               
             </a>
@@ -226,8 +228,6 @@
           
           
           
-          
-          
           <li>
             <a href="/categories/">
               
@@ -240,9 +240,9 @@
           
           
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              关于
+              标签
               
               
             </a>
@@ -430,7 +430,7 @@
 </ol>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">comment:</span></span><br><span class="line"><span class="symbol">    livere:</span> your data id</span><br></pre></td></tr></table></figure>
 <p>2.在<code>...\themes\hueman\layout\comment</code>增加<code>livere.ejs</code>评论模块代码</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- LiveRe City install code --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;lv-container&quot;</span> <span class="attr">data-id</span>=<span class="string">&quot;city&quot;</span> <span class="attr">data-uid</span>=<span class="string">&quot;********&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">   (<span class="function"><span class="keyword">function</span>(<span class="params">d, s</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">       <span class="keyword">var</span> j, e = d.getElementsByTagName(s)[<span class="number">0</span>];</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">       <span class="keyword">if</span> (<span class="keyword">typeof</span> LivereTower === <span class="string">&#x27;function&#x27;</span>) &#123; <span class="keyword">return</span>; &#125;</span></span><br><span class="line"></span><br><span class="line">       j = d.createElement(s);</span><br><span class="line"><span class="javascript">       j.src = <span class="string">&#x27;https://cdn-city.livere.com/js/embed.dist.js&#x27;</span>;</span></span><br><span class="line"><span class="javascript">       j.async = <span class="literal">true</span>;</span></span><br><span class="line"></span><br><span class="line">       e.parentNode.insertBefore(j, e);</span><br><span class="line"><span class="javascript">   &#125;)(<span class="built_in">document</span>, <span class="string">&#x27;script&#x27;</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">noscript</span>&gt;</span>Please activate JavaScript for write a comment in LiveRe<span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- completed City install code --&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight mojolicious"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- LiveRe City install code --&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;lv-container&quot;</span> <span class="attr">data-id</span>=<span class="string">&quot;city&quot;</span> <span class="attr">data-uid</span>=<span class="string">&quot;********&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">   (function(d, s) &#123;</span></span><br><span class="line"><span class="xml">       var j, e = d.getElementsByTagName(s)[0];</span></span><br><span class="line"></span><br><span class="line"><span class="xml">       if (typeof LivereTower === &#x27;function&#x27;) &#123; return; &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="xml">       j = d.createElement(s);</span></span><br><span class="line"><span class="xml">       j.src = &#x27;https://cdn-city.livere.com/js/embed.dist.js&#x27;;</span></span><br><span class="line"><span class="xml">       j.async = true;</span></span><br><span class="line"></span><br><span class="line"><span class="xml">       e.parentNode.insertBefore(j, e);</span></span><br><span class="line"><span class="xml">   &#125;)(document, &#x27;script&#x27;);</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">noscript</span>&gt;</span>Please activate JavaScript for write a comment in LiveRe<span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- completed City install code --&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p>3.相关文件增加判断</p>
 <p><code>...\themes\hueman\layout\comment\index.ejs</code></p>
 <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="meta">%</span> &#125; else <span class="keyword">if</span> <span class="comment">(theme.comment.livere)</span> &#123; <span class="meta">%</span>&gt;</span><br><span class="line">       &lt;<span class="meta">%</span>- partial<span class="comment">(&#x27;comment/livere&#x27;)</span> <span class="meta">%</span>&gt;</span><br></pre></td></tr></table></figure>

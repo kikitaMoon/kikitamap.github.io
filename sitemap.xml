@@ -16,6 +16,41 @@
   </url>
   
   <url>
+    <loc>https://kikitamap.com/tags/index.html</loc>
+    
+    <lastmod>2023-07-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://kikitamap.com/categories/index.html</loc>
+    
+    <lastmod>2023-07-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://kikitamap.com/archive/index.html</loc>
+    
+    <lastmod>2023-07-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://kikitamap.com/about/index.html</loc>
+    
+    <lastmod>2023-07-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://kikitamap.com/404.html</loc>
+    
+    <lastmod>2023-07-22</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://kikitamap.com/2023/07/21/ChatGPT_2/</loc>
     
     <lastmod>2023-07-21</lastmod>
@@ -33,41 +68,6 @@
     <loc>https://kikitamap.com/2023/05/25/ThemeChanged/</loc>
     
     <lastmod>2023-05-25</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kikitamap.com/about/index.html</loc>
-    
-    <lastmod>2023-05-25</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kikitamap.com/404.html</loc>
-    
-    <lastmod>2023-05-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kikitamap.com/archive/index.html</loc>
-    
-    <lastmod>2023-05-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kikitamap.com/categories/index.html</loc>
-    
-    <lastmod>2023-05-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kikitamap.com/tags/index.html</loc>
-    
-    <lastmod>2023-05-16</lastmod>
     
   </url>
   
@@ -1283,14 +1283,14 @@
   </url>
   
   <url>
-    <loc>https://kikitamap.com/2012/08/27/SAMultiDimensions/</loc>
+    <loc>https://kikitamap.com/2012/08/27/SAInterpolation/</loc>
     
     <lastmod>2012-08-27</lastmod>
     
   </url>
   
   <url>
-    <loc>https://kikitamap.com/2012/08/27/SAInterpolation/</loc>
+    <loc>https://kikitamap.com/2012/08/27/SAMultiDimensions/</loc>
     
     <lastmod>2012-08-27</lastmod>
     
@@ -1474,6 +1474,13 @@
 
   
   <url>
+    <loc>https://kikitamap.com/tags/Geodata/</loc>
+    <lastmod>2023-08-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://kikitamap.com/tags/Mapping/</loc>
     <lastmod>2023-08-01</lastmod>
     <changefreq>daily</changefreq>
@@ -1488,7 +1495,7 @@
   </url>
   
   <url>
-    <loc>https://kikitamap.com/tags/Geodata/</loc>
+    <loc>https://kikitamap.com/tags/Coordinate-System/</loc>
     <lastmod>2023-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1496,13 +1503,6 @@
   
   <url>
     <loc>https://kikitamap.com/tags/Performance/</loc>
-    <lastmod>2023-08-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kikitamap.com/tags/Coordinate-System/</loc>
     <lastmod>2023-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1726,6 +1726,13 @@
   </url>
   
   <url>
+    <loc>https://kikitamap.com/tags/Visualization/</loc>
+    <lastmod>2023-08-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://kikitamap.com/tags/HERE-Data-Hub/</loc>
     <lastmod>2023-08-01</lastmod>
     <changefreq>daily</changefreq>
@@ -1734,13 +1741,6 @@
   
   <url>
     <loc>https://kikitamap.com/tags/Data-Management/</loc>
-    <lastmod>2023-08-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kikitamap.com/tags/Visualization/</loc>
     <lastmod>2023-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

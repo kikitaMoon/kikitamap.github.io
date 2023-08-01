@@ -204,10 +204,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              标签
+              关于
               
               
             </a>
@@ -226,8 +228,6 @@
           
           
           
-          
-          
           <li>
             <a href="/categories/">
               
@@ -240,9 +240,9 @@
           
           
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              关于
+              标签
               
               
             </a>
@@ -443,7 +443,7 @@
 <p>用迭代显示列表中的数据项，以下的代码段中 <strong>for</strong> 和 <strong>while</strong> 完成的工作是一样的：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> item <span class="keyword">in</span> Fruit:</span><br><span class="line">	<span class="built_in">print</span>(item)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">while</span> count &lt; <span class="built_in">len</span>(Fruit):</span><br><span class="line">	  <span class="built_in">print</span>(Fruit[count]) </span><br><span class="line">	  count = count + <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line">Apple</span><br><span class="line"><span class="number">1</span></span><br><span class="line">Pear</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="keyword">Bananer</span></span><br><span class="line"><span class="keyword">3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 输出结果</span></span><br><span class="line">Apple</span><br><span class="line"><span class="number">1</span></span><br><span class="line">Pear</span><br><span class="line"><span class="number">2</span></span><br><span class="line">Bananer</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
 <br>
 <p>如果字符串中需要包含双引号，不要忘记转义 ，<strong>&quot;</strong>。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>Fruit.append(<span class="string">&quot;\&quot;Tomato\&quot;&quot;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(Fruit)</span><br><span class="line">[<span class="string">&#x27;Apple&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;Pear&#x27;</span>, <span class="number">2</span>, <span class="string">&#x27;Bananer&#x27;</span>, <span class="number">3</span>, <span class="string">&#x27;&quot;Tomato&quot;&#x27;</span>]</span><br></pre></td></tr></table></figure>

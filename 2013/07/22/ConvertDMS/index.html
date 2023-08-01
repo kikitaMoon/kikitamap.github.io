@@ -204,10 +204,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              标签
+              关于
               
               
             </a>
@@ -226,8 +228,6 @@
           
           
           
-          
-          
           <li>
             <a href="/categories/">
               
@@ -240,9 +240,9 @@
           
           
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              关于
+              标签
               
               
             </a>
@@ -424,7 +424,7 @@
 
         <p>在ArcMap中，在表中新建一个字段，用于存储新的十进制度值，使用字段计算器和 VB 脚本实现。</p>
 <p>如下示例，其中，假设 Latitude 是表中存储 DMS 纬度值字段的名称，经纬度数据中的度分秒三个数据是以空格分隔。</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Dim Degrees</span><br><span class="line">Dim Minutes</span><br><span class="line">Dim Seconds</span><br><span class="line">Dim DMS</span><br><span class="line">Dim DD</span><br><span class="line"></span><br><span class="line">DMS = Split([Latitude])</span><br><span class="line">Degrees = CDbl(<span class="name">DMS</span>(<span class="number">0</span>))</span><br><span class="line">Minutes = CDbl(<span class="name">DMS</span>(<span class="number">1</span>))</span><br><span class="line">Seconds = CDbl(<span class="name">DMS</span>(<span class="number">2</span>))</span><br><span class="line">If Degrees &lt; <span class="number">0</span> Then</span><br><span class="line">   DD = -(<span class="name">Seconds/3600</span>) - (<span class="name">Minutes/60</span>) + Degrees</span><br><span class="line">Else</span><br><span class="line">   DD = (<span class="name">Seconds/3600</span>) + (<span class="name">Minutes/60</span>) + Degrees</span><br><span class="line">End If</span><br></pre></td></tr></table></figure>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Dim</span> Degrees</span><br><span class="line"><span class="keyword">Dim</span> Minutes</span><br><span class="line"><span class="keyword">Dim</span> Seconds</span><br><span class="line"><span class="keyword">Dim</span> DMS</span><br><span class="line"><span class="keyword">Dim</span> DD</span><br><span class="line"></span><br><span class="line">DMS = <span class="built_in">Split</span>([Latitude])</span><br><span class="line">Degrees = <span class="built_in">CDbl</span>(DMS(<span class="number">0</span>))</span><br><span class="line">Minutes = <span class="built_in">CDbl</span>(DMS(<span class="number">1</span>))</span><br><span class="line">Seconds = <span class="built_in">CDbl</span>(DMS(<span class="number">2</span>))</span><br><span class="line"><span class="keyword">If</span> Degrees &lt; <span class="number">0</span> <span class="keyword">Then</span></span><br><span class="line">   DD = -(Seconds/<span class="number">3600</span>) - (Minutes/<span class="number">60</span>) + Degrees</span><br><span class="line"><span class="keyword">Else</span></span><br><span class="line">   DD = (Seconds/<span class="number">3600</span>) + (Minutes/<span class="number">60</span>) + Degrees</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">If</span></span><br></pre></td></tr></table></figure>
 <p>PS：使用到的VBScript 函数：</p>
 <p>（1）<strong>Split</strong>：</p>
 <pre><code>Split(expression[,delimiter[,count[,compare]]])
